@@ -1,0 +1,49 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FreemarketSample51a
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.8.2/css/all.css", :integrity => "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", :rel => "stylesheet"}/
+
+  %body
+.header
+  .header-upper.clearfix
+    .logo
+      = image_tag "logo.svg", :width => "134", :height => "36"  
+
+
+    =form_tag(root_path, method: :post,class: "form") do
+      =text_field_tag :name,"", class: 'textbox',placeholder: '何かお探しですか？'
+      .form__icon-search
+        = button_tag type:  "submit", class: "btn"  do
+          %i.fa.fa-search
+
+  .header-lower.clearfix
+    .header-lower-left
+      %ul.lists
+        %li.list.category-list
+          
+          カテゴリーから探す
+        %li.list.brand-list
+          ブランドから探す
+    .header-lower-right
+      %ul.lists
+        %li.list.nortification-list
+          %i.far.fa-bell
+          お知らせ
+        %li.list.brand-list.todo-list
+          やること
+        %li.list.user-list
+          マイページ
+      
+      
+      .user-list
+  .grobal--footer
+  .footer--sell--button
+  = yield 
+
+
