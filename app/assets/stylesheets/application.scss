@@ -1,5 +1,10 @@
-@import "config/colors";
 @import "config/font";
 @import "font-awesome";
-@import "config/reset";
 @import "modules/items";
+@import "partials/*";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

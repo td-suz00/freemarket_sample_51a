@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
  get   'items/new'  =>  'items#new'
-#  resources :items, only: [:new]
+
+  root 'items#index'
+
+  resources :users, only: [:show]
+
 end
