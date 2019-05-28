@@ -1,9 +1,9 @@
 .all_wrapper {
   background-color: $background_gray;
-  width: 100%;
-  padding-bottom: 30px;
-  font-family: $mercari_font;
   color: $black;
+  font-family: $mercari_font;
+  padding-bottom: 30px;
+  width: 100%;
 
   header {
     height: 100px;
@@ -11,8 +11,10 @@
 
     .header__logo-img {
       display: block;
-      margin: 0 auto;
-      margin-bottom: 30px;
+
+      margin: 0 auto {
+        bottom: 30px;
+      }
     }
   }
 
@@ -35,37 +37,48 @@
     }
 
     h3 {
-      font-weight: 600;
-      font-size: 15px;
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+
       float: left;
     }
 
     h3.light_color {
       color: #888888;
       float: left;
+      font-size: 14px;
     }
 
     ul {
       position: relative;
 
-
       li {
         float: left;
-        margin-bottom: 10px;
-        margin-top: 5px;
+
+        margin: {
+          bottom: 10px;
+          top: 5px;
+        }
       }
 
       .required__icon {
         display: inline;
       }
 
+      .form {
+        border:1px solid $border_gray {
+          radius: 0.3rem;
+        }
+      }
+
       .text_field {
-        border: 1px solid $border_gray;
+        @extend .form;
         width: 597px;
         height: 50px;
         font-size: 16px;
         margin-bottom: 20px;
-        border-radius: 0.3rem;
         color: $form_gray;
         padding-left: 10px;
       }
@@ -77,10 +90,14 @@
       }
     }
 
-    &__img {
+    .box {
+      box-sizing: border-box;
       border-bottom: 0.09px solid $border_gray;
       padding: 40px;
-      box-sizing: border-box;
+    }
+
+    &__img {
+      @extend .box;
 
       p {
         font-size: 0.8rem;
@@ -91,16 +108,19 @@
         margin: 1em 0;
         background-color: #f5f5f5;
         border: dashed 0.2px rgb(207, 206, 206);
-        padding: 70px 160px;
+        padding: 70px 155px;
 
         &__discription {
           text-align: center;
 
           a {
-            font-weight: 600;
             text-align: center;
-            font-size: 0.8rem;
-            font-family: sans-serif;
+
+            font: {
+              weight: 600;
+              size: 0.8rem;
+              family: sans-serif;
+            }
 
             .top {
               padding-left: 30px;
@@ -111,15 +131,11 @@
     }
 
     &__info {
-      box-sizing: border-box;
-      border-bottom: 0.09px solid $border_gray;
-      padding: 40px;
+      @extend .box;
     }
 
     &__detail {
-      box-sizing: border-box;
-      border-bottom: 0.09px solid $border_gray;
-      padding: 40px;
+      @extend .box;
 
       &__form_box {
         margin-left: 250px;
@@ -127,24 +143,22 @@
     }
 
     .select_tag {
-      border: 1px solid $border_gray;
+      @extend .form;
       width: 370px;
       height: 50px;
       font-size: 16px;
-      margin-bottom: 20px;
-      border-radius: 0.3rem;
       color: $form_gray;
+      margin-bottom: 20px;
       padding-left: 15px;
     }
 
     .select_tag_2 {
-      border: 1px solid $border_gray;
+      @extend .form;
       width: 354px;
       height: 50px;
       font-size: 16px;
-      margin-bottom: 20px;
-      border-radius: 0.3rem;
       color: $form_gray;
+      margin-bottom: 20px;
       padding-left: 15px;
     }
 
@@ -153,7 +167,6 @@
       position: absolute;
       top: 53px;
       left: 340px;
-
     }
 
     #id_prefecture_id {
@@ -161,11 +174,8 @@
       color: $form_gray;
     }
 
-
     .delivery-fee {
-      box-sizing: border-box;
-      border-bottom: 0.09px solid $border_gray;
-      padding: 40px;
+      @extend .box;
 
       &__form_box {
         margin-left: 250px;
@@ -176,34 +186,45 @@
       background-color: $light_blue;
       border-radius: 10px;
       padding: 1px 4px;
-      font-size: 0.1rem;
       color: $white;
-      font-weight: bold;
-      margin-left: 5px;
+      margin-left: 4px;
+
+      font: {
+        size: 0.1rem;
+        weight: bold;
+      }
     }
 
     .sell-price {
-      box-sizing: border-box;
-      border-bottom: 0.09px solid $border_gray;
-      padding: 40px;
+      @extend .box;
 
       &__form_box {
-        margin-left: 260px;
-        margin-bottom: 50px;
+        margin: {
+          left: 260px;
+          bottom: 50px;
+        }
       }
 
       li.yen {
         display: inline;
-        padding-left: 120px;
-        padding-top: 20px;
         font-size: 0.8rem;
+
+        padding: {
+          left: 110px;
+          top: 15px;
+        }
       }
 
       .line {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        border-top: 1px solid $border_gray;
-        border-bottom: 1px solid $border_gray;
+        padding: {
+          top: 20px;
+          bottom: 20px;
+        }
+
+        border: {
+          top: 1px solid $border_gray;
+          bottom: 1px solid $border_gray;
+        }
       }
 
       p.fee {
@@ -216,15 +237,13 @@
       }
 
       &__text_area_2 {
-        border: 1px solid $border_gray;
-        border-radius: 0.3rem;
+        @extend .form;
         color: $form_gray;
         width: 110px;
         height: 40px;
         font-size: 16px;
         margin-left: 30px;
         padding-left: 10px;
-
       }
 
       &__text_area_3 {
@@ -267,12 +286,15 @@
 
       &__return {
         background-color: $btn_gray;
-        margin-top: 30px;
         padding: 15px;
         width: 250px;
         display: inline-block;
         text-align: center;
-        margin-left: 170px;
+
+        margin: {
+          left: 170px;
+          top: 30px;
+        }
 
         p {
           color: $white;
@@ -292,10 +314,18 @@
 
       li {
         float: left;
-        margin-left: 20px;
         font-size: 0.7rem;
-        margin-top: 35px;
-        margin-bottom: 20px;
+
+        margin: {
+          top: 35px;
+          left: 20px;
+          bottom: 20px;
+        }
+
+        a {
+          text-decoration: none;
+          color: $black;
+        }
       }
     }
 
@@ -305,10 +335,10 @@
     }
 
     small {
-      font-size: 12px;
-      color: $black;
-      font-weight: none;
-      margin-top: 10px;
+      font: {
+        size: 12px;
+        weight: none;
+      }
     }
   }
 }
