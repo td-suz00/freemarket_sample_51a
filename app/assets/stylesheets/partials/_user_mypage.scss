@@ -1,0 +1,10 @@
+.user_mypage{
+  background-color: #F2F2F2;
+
+  &__container{
+    margin: 0 auto;
+    width: 1020px;
+    height: 100%;
+    overflow: hidden;
+  }
+}

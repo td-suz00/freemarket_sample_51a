@@ -1,0 +1,99 @@
+.user_mypage
+  .user_mypage__container
+    .user_mypage__container__main
+      -# ユーザー情報
+      .user_mypage__container__main__user_info
+        = link_to "#", class: 'user_mypage__container__main__user_info__link' do
+          %figure
+            = image_tag "ねこ２.jpeg", width: "60", height: "60" 
+          %h2.user_mypage__container__main__user_info__link__user_name daisuke
+          .user_mypage__container__main__user_info__link__count
+            .user_mypage__container__main__user_info__link__count__rating
+              評価
+              %span 6
+            .user_mypage__container__main__user_info__link__count__listing
+              出品数
+              %span 13
+
+      -# お知らせとやることリスト
+      .user_mypage__container__main__notification_todo
+
+        -# タブ(css)
+        .user_mypage__container__main__notification_todo__tabs
+          %input#information_tab{checked: "checked", name: "tab_item", type: "radio"}/
+          %label.tab_item{for: "information_tab"} お知らせ
+
+          %input#todo_tab{name: "tab_item", type: "radio"}/
+          %label.tab_item{for: "todo_tab"} やることリスト
+
+          #information_content.user_mypage__container__main__notification_todo__tabs__content
+            %ul.user_mypage__container__main__notification_todo__tabs__content__list
+              %li.user_mypage__container__main__notification_todo__tabs__content__list__item
+                = link_to "#", class: 'user_mypage__container__main__notification_todo__tabs__content__list__item__link' do
+                  %figure
+                    =image_tag "mercari_icon.png", class: "user_mypage__container__main__notification_todo__tabs__content__list__item__link__icon"
+                  .user_mypage__container__main__notification_todo__tabs__content__list__item__link__body
+                    .user_mypage__container__main__notification_todo__tabs__content__list__item__link__body__text テキスト
+                    %time
+                      %i.far.fa-clock
+                      %span ２０時間前
+                  %i.fas.fa-chevron-right
+
+              %li.user_mypage__container__main__notification_todo__tabs__content__list__item
+                = link_to "#", class: 'user_mypage__container__main__notification_todo__tabs__content__list__item__link' do
+                  %figure
+                    =image_tag "mercari_icon.png", class: "user_mypage__container__main__notification_todo__tabs__content__list__item__link__icon"
+                  .user_mypage__container__main__notification_todo__tabs__content__list__item__link__body
+                    .user_mypage__container__main__notification_todo__tabs__content__list__item__link__body__text テキスト
+                    %time
+                      %i.far.fa-clock
+                      %span ２０時間前
+                  %i.fas.fa-chevron-right
+
+              %li.user_mypage__container__main__notification_todo__tabs__content__list__go-list
+                = link_to "#", class: 'user_mypage__container__main__notification_todo__tabs__content__list__go-list__link' do
+                  一覧を見る
+
+          #todo_content.user_mypage__container__main__notification_todo__tabs__content
+            .user_mypage__container__main__notification_todo__tabs__content__todo_list
+              %p 現在やることはありません
+
+      -# 購入した商品
+      .user_mypage__container__main__buyed_items
+        %h2.user_mypage__container__main__buyed_items__title
+          購入した商品
+        
+        -# タブ(js)
+        .user_mypage__container__main__buyed_items__tabs
+          %a.user_mypage__container__main__buyed_items__tabs__btn
+            取引中
+          %a.user_mypage__container__main__buyed_items__tabs__btn
+            過去の取引
+
+          .user_mypage__container__main__buyed_items__tabs__content
+            取引中の商品がありません
+          .user_mypage__container__main__buyed_items__tabs__content
+            過去に取引した商品がありません
+
+          -# タブ部分のjs
+          %script{crossorigin: "anonymous", integrity: "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", src: "https://code.jquery.com/jquery-3.3.1.js"}
+          :javascript
+            $(function () {
+              /*初期表示*/
+              $('.user_mypage__container__main__buyed_items__tabs__content').hide();
+              $('.user_mypage__container__main__buyed_items__tabs__content').eq(0).show();
+              $('.user_mypage__container__main__buyed_items__tabs__btn').eq(0).addClass('is-active');
+              /*クリックイベント*/
+              $('.user_mypage__container__main__buyed_items__tabs__btn').each(function () {
+                $(this).on('click', function () {
+                  var index = $('.user_mypage__container__main__buyed_items__tabs__btn').index(this);
+                  $('.user_mypage__container__main__buyed_items__tabs__btn').removeClass('is-active');
+                  $(this).addClass('is-active');
+                  $('.user_mypage__container__main__buyed_items__tabs__content').hide();
+                  $('.user_mypage__container__main__buyed_items__tabs__content').eq(index).show();
+                });
+              });
+            });
+    
+    -# サイドメニュー部分テンプレート
+    =render partial: "users/user_side_menu"
