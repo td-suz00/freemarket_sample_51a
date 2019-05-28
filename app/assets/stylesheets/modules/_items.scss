@@ -1,0 +1,322 @@
+.all_wrapper {
+  background-color: $background_gray;
+  width: 100%;
+  padding-bottom: 30px;
+  font-family: $mercari_font;
+  color: $black;
+
+  header {
+    height: 100px;
+    padding-top: 40px;
+
+    .header__logo-img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+  }
+
+  .item {
+    width: 700px;
+    padding-bottom: 150px;
+    margin: 0 auto;
+    background-color: $white;
+
+    &__title {
+      height: 110px;
+      border-bottom: 0.09px solid $border_gray;
+      font-size: 26px;
+
+      h2 {
+        padding: 32px 16px;
+        text-align: center;
+        font-weight: 600;
+      }
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 15px;
+      float: left;
+    }
+
+    h3.light_color {
+      color: #888888;
+      float: left;
+    }
+
+    ul {
+      position: relative;
+
+
+      li {
+        float: left;
+        margin-bottom: 10px;
+        margin-top: 5px;
+      }
+
+      .required__icon {
+        display: inline;
+        background-color: $red;
+        padding: 4px 5px;
+        color: $white;
+        border-radius: 0.2rem;
+        font-size: 0.7rem;
+        font-weight: 570;
+        margin-left: 10px;
+      }
+
+      .text_field {
+        border: 1px solid $border_gray;
+        width: 597px;
+        height: 50px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-radius: 0.3rem;
+        color: $form_gray;
+        padding-left: 10px;
+      }
+
+      .text_area {
+        color: $form_gray;
+        padding: 12px;
+        border: 1px solid $border_gray;
+      }
+    }
+
+
+    &__img {
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+      box-sizing: border-box;
+
+      p {
+        font-size: 0.8rem;
+      }
+
+      .drop-box {
+        height: 70px;
+        margin: 1em 0;
+        background-color: #f5f5f5;
+        border: dashed 0.2px rgb(207, 206, 206);
+        padding: 70px 160px;
+
+        &__discription {
+          text-align: center;
+
+          a {
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.8rem;
+            font-family: sans-serif;
+
+            a.top {
+              padding-left: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    &__info {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+    }
+
+    &__detail {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+
+      &__form_box {
+        margin-left: 250px;
+      }
+    }
+
+    .select_tag {
+      border: 1px solid $border_gray;
+      width: 370px;
+      height: 50px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 0.3rem;
+      color: $form_gray;
+      padding-left: 15px;
+    }
+
+    .select_tag_2 {
+      border: 1px solid $border_gray;
+      width: 354px;
+      height: 50px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 0.3rem;
+      color: $form_gray;
+      padding-left: 15px;
+    }
+
+    i.fa_icon {
+      color: $fa_icon_gray;
+      position: absolute;
+      top: 53px;
+      left: 340px;
+
+    }
+
+    #id_prefecture_id {
+      padding-top: 16px;
+      color: $form_gray;
+    }
+
+
+    .delivery-fee {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+
+      &__form_box {
+        margin-left: 250px;
+      }
+    }
+
+    span.icon_question {
+      background-color: $light_blue;
+      border-radius: 10px;
+      padding: 1px 4px;
+      font-size: 0.1rem;
+      color: $white;
+      font-weight: bold;
+      margin-left: 5px;
+    }
+
+    .sell-price {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+
+      &__form_box {
+        margin-left: 260px;
+        margin-bottom: 50px;
+      }
+
+      li.yen {
+        display: inline;
+        padding-left: 120px;
+        padding-top: 20px;
+        font-size: 0.8rem;
+      }
+
+      .line {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-top: 1px solid $border_gray;
+        border-bottom: 1px solid $border_gray;
+      }
+
+      p.fee {
+        font-size: 13px;
+      }
+
+      h3.profit {
+        padding-top: 10px;
+        font-size: 16px;
+      }
+
+      &__text_area_2 {
+        border: 1px solid $border_gray;
+        border-radius: 0.3rem;
+        color: $form_gray;
+        width: 110px;
+        height: 40px;
+        font-size: 16px;
+        margin-left: 30px;
+        padding-left: 10px;
+
+      }
+
+      &__text_area_3 {
+        width: 350px;
+        height: 40px;
+        font-size: 16px;
+        margin-left: 5px;
+        padding-left: 10px;
+      }
+    }
+
+    .sell-btn {
+      box-sizing: border-box;
+      height: 200px;
+      padding: 40px;
+
+      .dscription p {
+        color: $black;
+        display: inline-block;
+        font-size: 12.8px;
+      }
+
+      span {
+        color: $light_blue;
+        font-size: 12.8px;
+      }
+
+      &__registered {
+        background-color: $red;
+        margin-top: 40px;
+        padding: 15px;
+        text-align: center;
+
+        p {
+          color: $white;
+          font-size: 0.9rem;
+          display: inline;
+        }
+      }
+
+      &__return {
+        background-color: $btn_gray;
+        margin-top: 30px;
+        padding: 15px;
+        width: 250px;
+        display: inline-block;
+        text-align: center;
+        margin-left: 170px;
+
+        p {
+          color: $white;
+          font-size: 0.9rem;
+          display: inline;
+        }
+      }
+    }
+  }
+
+  footer {
+    text-align: center;
+
+    nav {
+      display: inline-block;
+      text-align: center;
+
+      li {
+        float: left;
+        margin-left: 20px;
+        font-size: 0.7rem;
+        margin-top: 35px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer__logo-img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    small {
+      font-size: 12px;
+      color: $black;
+      font-weight: none;
+      margin-top: 10px;
+    }
+  }
+}
