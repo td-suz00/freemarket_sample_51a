@@ -1,0 +1,62 @@
+.user_mypage__container__side{
+  width: calc(30% - 40px);
+  float: left;
+  margin: 30px 40px 30px 0;
+
+  &__menu{
+
+    &__list{
+      list-style: none;
+
+      &__item{
+        border-top: 1px solid #eee;
+        background-color: #fff;
+
+        &__text-active{
+          background: #eee;
+          font-weight: 600;
+          position: relative;
+          display: block;
+          padding: 16px;
+          font-size: 14px;
+          color: #333;
+          text-decoration: none;
+          touch-action: manipulation;
+
+          .fas.fa-chevron-right{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: #333;
+            transform: translate(0, -50%);
+            transition: all ease-out .2s;
+          }
+        }
+
+        &__text{
+          position: relative;
+          display: block;
+          padding: 16px;
+          font-size: 14px;
+          color: #333;
+          text-decoration: none;
+          touch-action: manipulation;
+
+          .fas.fa-chevron-right{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: #ccc;
+            transform: translate(0, -50%);
+            transition: all ease-out .2s;
+          }
+        }
+      }
+    }
+    
+    &__title{
+      margin: 40px 0 0;
+      font-size: 16px;
+    }
+  }
+}
