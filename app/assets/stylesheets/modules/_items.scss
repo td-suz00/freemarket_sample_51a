@@ -84,7 +84,6 @@
       }
     }
 
-
     &__img {
       border-bottom: 0.09px solid $border_gray;
       padding: 40px;
@@ -110,7 +109,7 @@
             font-size: 0.8rem;
             font-family: sans-serif;
 
-            a.top {
+            .top {
               padding-left: 30px;
             }
           }
@@ -321,23 +320,3 @@
   }
 }
 
-// フォームのリセットCSS
-input,
-button,
-select {
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}

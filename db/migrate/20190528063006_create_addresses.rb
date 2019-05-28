@@ -3,7 +3,6 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
     create_table :addresses do |t|
       t.integer :prefecture_id
       t.string :city
-
       t.timestamps
     end
   end
