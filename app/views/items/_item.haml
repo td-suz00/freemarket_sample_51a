@@ -1,0 +1,134 @@
+.item
+  .item__title
+    %h2 商品の情報を入力
+  .item__img
+    %ul
+      %li
+        %h3 出品画像
+      %li
+        .required__icon 必須
+    .clearfix
+    %p 最大10枚までアップロードできます
+    .drop-box
+      .drop-box__discription
+        %a.top ドラッグアンドドロップ
+        %br
+        %a またはクリックしてファイルをアップロード
+  .item__info
+    .item__info_name
+    %ul
+      %li
+        %h3 商品名
+      %li
+        .required__icon 必須
+      .clearfix
+      = text_field_tag :content, '商品名（必須 40文字まで）',class: 'text_field'
+    .item__info_text
+    %ul
+      %li
+        %h3 商品の説明
+      %li
+        .required__icon 必須
+      .clearfix
+      = text_area_tag :text, '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', size:"71x6",class: 'text_area'
+  .item__detail
+    %h3.light_color 商品詳細
+    .clearfix
+    .item__detail__form_box
+      .item__detail_category
+        %ul
+          %li
+            %h3 カテゴリー
+          %li
+            .required__icon 必須
+          .clearfix
+          = select_tag 'category', options_for_select({'---':'---','レディース':'レディース','メンズ':'メンズ','メンズ':'メンズ','ベビー・キッズ':'ベビー・キッズ','インテリア・住まい・小物':'インテリア・住まい・小物','本・音楽・ゲーム':'本・音楽・ゲーム','おもちゃ・ホビー・グッズ':'おもちゃ・ホビー・グッズ','コスメ・香水・美容':'コスメ・香水・美容','スポーツ・レジャー':'スポーツ・レジャー','ハンドメイド':'ハンドメイド','チケット':'チケット','自転車・オートバイ':'自転車・オートバイ','その他':'その他'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon'
+        %ul
+          %li
+            %h3 商品の状態
+          %li
+            .required__icon 必須
+          .clearfix
+          = select_tag 'category', options_for_select({'---':'---','新品、未使用':'新品、未使用','未使用に近い':'未使用に近い','目立った傷や汚れなし':'目立った傷や汚れなし','やや傷や汚れあり':'やや傷や汚れあり','傷や汚れあり':'傷や汚れあり','全体的に状態が悪い':'全体的に状態が悪い'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class: "fa_icon"
+  .delivery-fee
+    %h3.light_color 配送について
+    %span.icon_question ?
+    .clearfix
+    .delivery-fee__form_box
+      .delivery-fee__type
+        %ul
+          %li
+            %h3 配送料の負担
+          %li
+            .required__icon 必須
+          .clearfix
+          = select_tag 'category', options_for_select({'---':'---','送料込み（出品者負担）':'送料込み（出品者負担）','着払い（購入者負担）':'着払い（購入者負担）'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon'
+      .delivery-area
+        %ul
+          %li
+            %h3 発送元の地域
+          %li
+            .required__icon 必須
+          .clearfix
+          = form_tag items_new_path, method: :get, class: 'select_tag_2' do
+            .input-append
+              = collection_select :id, :prefecture_id, Prefecture.all, :id, :name
+          = fa_icon 'chevron-down', class:'fa_icon'
+      .delivery-days
+        %ul
+          %li
+            %h3 発送までの日数
+          %li
+            .required__icon 必須
+          .clearfix
+          = select_tag 'category', options_for_select({'---':'---','1~2日で発送':'1~2日で発送','2~3日で発送':'2~3日で発送','4~7日で発送':'4~7日で発送'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon'
+  .sell-price
+    %h3.light_color 販売価格(3300〜9,999,999)
+    %span.icon_question ?
+    .clearfix
+    .sell-price__form_box
+      .sell__fee
+        %ul
+          %li
+            %h3 価格
+          %li
+            .required__icon 必須
+          %li.yen ¥
+          %li.price_tag
+            = text_field_tag  :content, '          例) 300',class: 'sell-price__text_area_2'
+            .clearfix
+          %br
+          %br
+          %br
+      .line
+        %p.fee
+          販売手数料 (10%)
+          = text_field_tag :content, '                                                                         -',class: 'sell-price__text_area_3'
+      .sell-price__profit
+        %h3.profit
+          販売利益
+          = text_field_tag :content, '                                                                         -',class: 'sell-price__text_area_3'
+  .sell-btn
+    .dscription
+      %span 禁止されている出品
+      %p、
+      %span 行為
+      %p を必ずご確認ください。
+      %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+      %br
+      %span 偽ブランドの販売
+      %p は犯罪であり処罰される可能性があります。
+      %br
+      %p また、出品をもちまして
+      %span 加盟店規約
+      %p に同意したことになります。
+    .sell-btn__registered
+      %p 出品する
+    .clearfix
+    .sell-btn__return
+      %p もどる
+= render 'item_footer'
