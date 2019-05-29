@@ -1,0 +1,196 @@
+$height_pixel: 44px;
+.header {
+  font-family: “Source Sans Pro”, Helvetica, Arial, 游ゴシック体, YuGothic,
+    メイリオ, Meiryo, sans-serif;
+  li.menu__category-menu {
+    a.menu__category-menu__button {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+    }
+    i.fa-list-ul {
+      color: #d84638;
+    }
+    ul.menu__second-level {
+      a.second-level {
+        line-height: 44px;
+      }
+      li {
+        a.child-categories {
+          height: 30px;
+          line-height: 44px;
+          font-size: 14px;
+        }
+        background: white;
+      }
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      height: 616px;
+      border-right: 1px solid #eeeeee;
+      border-left: 1px solid #eeeeee;
+      box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
+      width: 224px;
+      position: absolute;
+      top: 40px;
+      width: 224px;
+      background: white;
+      a {
+        padding-left: 16px;
+        text-decoration: none;
+      }
+      li:hover {
+        background: #ea352d;
+        color: white;
+        a.second-level {
+          color: white;
+        }
+      }
+      li {
+        background: white;
+        ul.menu__third-level {
+          visibility: hidden;
+          opacity: 0;
+          list-style: none;
+          position: absolute;
+          top: 0px;
+          left: 100%;
+          width: 100%;
+          height: 616px;
+          box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
+          background: white;
+          border-right: 1px solid #eeeeee;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          ul.menu__fourth-level {
+            visibility: hidden;
+            opacity: 0;
+            list-style: none;
+            position: absolute;
+            top: 0px;
+            left: 100%;
+            height: 616px;
+            box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
+            width: 224px;
+            background: white;
+          }
+        }
+      }
+    }
+  }
+  li.menu__category-menu:hover ul.menu__second-level {
+    list-style: none;
+    top: $height_pixel;
+    visibility: visible;
+    opacity: 1;
+  }
+  li.menu__category-menu ul.menu__second-level li:hover ul.menu__third-level {
+    visibility: visible;
+    opacity: 1;
+  }
+  li.menu__category-menu
+    ul.menu__second-level
+    li
+    ul.menu__third-level
+    li:hover {
+    background: #eee;
+  }
+  li.menu__category-menu
+    ul.menu__second-level
+    li
+    ul.menu__third-level
+    li:hover
+    ul.menu__fourth-level {
+    list-style: none;
+    visibility: visible;
+    opacity: 1;
+  }
+  .menu__second-level li a:hover {
+    background: #ea352d;
+    color: white;
+  }
+  .menu__third-level li a:hover {
+    background: #eee;
+    color: black;
+  }
+  .menu__fourth-level li a:hover {
+    background: #eee;
+  }
+  /* floatクリア */
+  .menu:before,
+  .menu:after {
+    content: " ";
+    display: table;
+  }
+  .menu > li.menu__category-menu {
+    position: relative;
+  }
+  .menu > li {
+    a.last {
+      pointer-events: none;
+      color: #fffffe;
+    }
+    // child_categoryの数をクラスから取得することで透明なaタグの大きさを合わせます
+    a.last.item1 {
+      height: 586px;
+    }
+    a.last.item2 {
+      height: 556px;
+    }
+    a.last.item3 {
+      height: 526px;
+    }
+    a.last.item4 {
+      height: 496px;
+    }
+    a.last.item5 {
+      height: 466px;
+    }
+    a.last.item6 {
+      height: 436px;
+    }
+    a.last.item7 {
+      height: 406px;
+    }
+    a.last.item8 {
+      height: 376px;
+    }
+    a.last.item9 {
+      height: 346px;
+    }
+    a.last.item10 {
+      height: 316px;
+    }
+    a.last.item11 {
+      height: 286px;
+    }
+    a.last.item12 {
+      height: 256px;
+    }
+    a.last.item13 {
+      height: 226px;
+    }
+    a.last.item14 {
+      height: 196px;
+    }
+    a.last.item15 {
+      height: 166px;
+    }
+    float: left;
+    width: 147.844px;
+    height: $height_pixel;
+    line-height: 35px;
+    background: white;
+    a {
+      display: block;
+      color: black;
+      font-size: 14px;
+      a.menu__category-menu__button:hover {
+        color: #3e99e2;
+      }
+    }
+  }
+}

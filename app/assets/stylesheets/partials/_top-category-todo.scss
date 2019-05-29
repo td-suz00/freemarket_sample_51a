@@ -1,0 +1,112 @@
+$height_pixel: 44px;
+.header {
+  .header-lower-right {
+    li.menu__todo-menu {
+      width: 82.39px;
+      padding: 0 14px;
+      a.menu__todo-menu__button {
+        text-decoration: none;
+      }
+      a:hover {
+        color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+      }
+      i.fa-list-ul {
+        color: #d84638;
+      }
+      ul.menu__second-level.todo {
+        right: -80px;
+        .todo-box {
+          padding: 16px;
+          min-height: 80px;
+          img {
+            float: left;
+          }
+          .fa-chevron-right {
+            text-align: center;
+            position: absolute;
+            right: -20px;
+            top: 50%;
+          }
+          .text-box {
+            font-size: 16px;
+            color: #cccccc;
+            font-weight: bold;
+            margin: 150px 0px 0 0px;
+            position: absolute;
+            line-height: 20px;
+          }
+        }
+        width: 320px;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1;
+        height: 240px;
+        border-right: 1px solid #eeeeee;
+        border-left: 1px solid #eeeeee;
+        box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
+        position: absolute;
+        top: 40px;
+
+        background: white;
+        a {
+          padding: 0 16px;
+          text-decoration: none;
+        }
+        li:hover {
+          background: white;
+          color: white;
+          a.second-level {
+            color: black;
+          }
+        }
+      }
+    }
+    li.menu__todo-menu:hover ul.menu__second-level {
+      list-style: none;
+      top: $height_pixel;
+      visibility: visible;
+      opacity: 1;
+    }
+    /* floatクリア */
+    .menu:before,
+    .menu:after {
+      content: " ";
+      display: table;
+    }
+    .menu > li.menu__todo-menu {
+      position: relative;
+    }
+    .menu__second-level li a:hover {
+      background: white;
+      color: white;
+    }
+    .header-lower-left ul.menu li.menu__todo-menu {
+      width: 135.797px;
+      padding-left: 11px;
+    }
+    .menu > li {
+      float: left;
+      height: $height_pixel;
+      line-height: 30px;
+      background: white;
+      a.last {
+        pointer-events: none;
+        color: #fffffe;
+      }
+      a {
+        display: block;
+        color: black;
+        font-size: 14px;
+        a.menu__todo-menu__button:hover {
+          color: #3e99e2;
+        }
+        i.fa-tag {
+          color: #d84638;
+        }
+        .todo-img {
+          margin: 46px 0 0 90px;
+        }
+      }
+    }
+  }
+}
