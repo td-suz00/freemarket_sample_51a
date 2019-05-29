@@ -157,30 +157,93 @@
 
           %li.menu__todo-menu.todo-list
             %a.menu__todo-menu__button{:href => "#"} 
-              %i.far.fa-bell
-              やること
+              %i.fas.fa-check
+              やることリスト
             %ul.menu__second-level.todo
               / 第一階層
               %li
                 %a.second-level.noticepack{:href => "#"} 
                   .todo-box
-                    = image_tag "mercari_profile.png", width: "48", height: "48"  ,class:"notice-img"
+                    = image_tag "gray-mercari-icon.png", width: "75", height: "75"  ,class:"todo-img"
                     .text-box
-                      《今なら20％還元》メルペイのお支払いで最大P2,000もらえるキャンペーン開催中！
-                      %br/ 
-                      %i.far.fa-clock
-                      20日前
-                      %i.fas.fa-chevron-right
+                      現在、やる事リストはありません
+
 
             
 
+          %li.menu__user-menu.user-list
+            %a.menu__user-menu__button{:href => "#"} 
+              = image_tag "user-profile.png", width: "30", height: "30"  ,class:"nav-user-profile-img"
+              .title-mypage マイページ
+            %ul.menu__second-level.user
+              / 第一階層
+              %li              
+                .user-box
+                  = image_tag "user_top_background_image.jpg", width: "320", height: "80"  ,class:"user-img"
+                  = image_tag "user-profile.png", width: "60", height: "60"  ,class:"user-profile-img"
 
+                %a.second-level{:href => "#"} 
+                  -# .user-box
+                  -#   = image_tag "user_top_background_image.jpg", width: "320", height: "80"  ,class:"user-img"
+                  .text-box
+                    .user-name ユーザー名
+                    %br/ 
+                    評価: 8 出品数: 0
 
-          %li.list.user-list
-            マイページ
+              .sale-point
+                .sale-point__textbox.clearfix
+                  .sale-point__textbox__title
+                    売上金
+                  .sale-point__textbox__arrow 
+                    %i.fas.fa-chevron-right         
+                  .sale-point__textbox__value
+                    %n
+                    ¥0
+                .sale-point__textbox.clearfix
+                  .sale-point__textbox__title
+                    ポイント
+                  .sale-point__textbox__arrow 
+                    %i.fas.fa-chevron-right         
+                  .sale-point__textbox__value
+                    %n
+                    P0           
+              .user-nav-items
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to 'いいね!一覧',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right     
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to '出品した商品 - 出品中',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right     
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to '出品した商品 - 取引中',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right    
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to '出品した商品 - 売却済み',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right    
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to '購入した商品 - 取引中',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right    
+                .user-nav-items__item
+                  .user-nav-items__item__text
+                    = link_to '購入した商品 - 過去の取引',"#"
+                  .user-nav-items__item__arrow
+                    %i.fas.fa-chevron-right    
+
+          -# %li.list.user-list
+          -#   マイページ
         
         
-        .user-list
+        -# .user-list
     .grobal--footer
     .footer--sell--button
     = yield 
