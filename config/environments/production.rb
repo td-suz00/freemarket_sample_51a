@@ -89,6 +89,11 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # before_exec do |server|
+  #   ENV["BUNDLE_GEMFILE"] = "#{app_path}/current/Gemfile"
+  #   File.join(File.expand_path("../../../../", __FILE__), "current", "Gemfile")
+  # end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
