@@ -1,12 +1,12 @@
-.user_mypage__container__main__user_info{
+.user_mypage__container__main__user_info {
   height: 130px;
   position: relative;
   padding: 20px;
-  background: image-url("../user_mypage_background_image.jpg");
+  background: image-url("user_mypage_background_image.jpg");
   background-size: cover;
   text-align: center;
 
-  &__link{
+  &__link {
     display: block;
     position: absolute;
     top: 50%;
@@ -17,7 +17,7 @@
     text-decoration: none;
     touch-action: manipulation;
 
-    figure{
+    figure {
       overflow: hidden;
       width: 60px;
       height: 60px;
@@ -25,33 +25,33 @@
       border-radius: 50%;
     }
 
-    &__user_name{
+    &__user_name {
       margin: 8px 0 0;
       font-size: 14px;
       font-weight: 600;
       line-height: 1.4;
     }
 
-    &__count{
+    &__count {
       margin: 8px 0 0;
 
-      &__rating{
+      &__rating {
         display: inline-block;
         font-size: 14px;
 
-        span{
+        span {
           margin-left: 8px;
           font-size: 16px;
           font-weight: 600;
         }
       }
 
-      &__listing{
+      &__listing {
         display: inline-block;
         font-size: 14px;
         margin-left: 16px;
 
-        span{
+        span {
           margin-left: 8px;
           font-size: 16px;
           font-weight: 600;

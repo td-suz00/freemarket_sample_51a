@@ -1,0 +1,266 @@
+// 背景+サイドバー
+.user_mypage {
+  background-color: $background_gray;
+  font-family: $mercari_font;
+
+  &__container {
+    width: 1020px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    overflow: hidden;
+  }
+}
+
+.user_mypage__container__side {
+  width: calc(30% - 40px);
+  margin: 30px 40px 30px 0;
+  float: left;
+
+  &__menu {
+
+    &__title {
+      padding-bottom: 5px;
+
+      font: {
+        weight: 600;
+        size: 16px;
+      }
+    }
+
+    &__list {
+      list-style: none;
+
+      &__item {
+        border-top: 1px solid #eee;
+        background-color: $white;
+
+        &__grayback {
+          background: #eee;
+          color: #333;
+          font-weight: 600;
+        }
+
+        .fas.fa-chevron-right {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          color: $black;
+          transform: translate(0, -50%);
+          transition: all ease-out .2s;
+        }
+      }
+
+      .fas.fa-chevron-right.black {
+        color: $black;
+      }
+
+      &__text {
+        position: relative;
+        display: block;
+        padding: 16px;
+        font-size: 14px;
+        color: $black;
+        text-decoration: none;
+        touch-action: manipulation;
+
+        .fas.fa-chevron-right {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          color: #ccc;
+          transform: translate(0, -50%);
+          transition: all ease-out .2s;
+        }
+      }
+    }
+  }
+
+  &__title {
+    margin: 40px 0 0;
+    font-size: 16px;
+  }
+}
+
+// index
+.credit {
+  background-color: $white;
+  width: 700px;
+  height: 360px;
+  float: left;
+  margin-top: 31px;
+
+  &__title {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 0.09px solid $border_gray;
+    font-size: 24px;
+
+    h2 {
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  &__box_list {
+    padding: {
+      top: 64px;
+      right: 100px;
+      left: 200px;
+
+    }
+
+    p {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+    }
+  }
+
+  &__btn_add {
+    background-color: $red;
+    width: 300px;
+    margin-top: 19px;
+    padding: 13px;
+    text-align: center;
+
+
+    a {
+      color: $white;
+      font-size: 0.9rem;
+      display: inline;
+      text-decoration: none;
+    }
+
+    .credit_card {
+      color: $white;
+      margin-right: 5px;
+      margin-top: 3px;
+    }
+  }
+
+  .credit__btn_add:hover {
+    opacity: 0.8;
+  }
+
+  .box__bottom_line {
+    margin: 0 auto;
+    width: 600px;
+    height: 35px;
+    border-bottom: 0.09px solid $border_gray;
+  }
+
+  .credit__box_link {
+    margin: {
+      top: 40px;
+      left: 500px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    p {
+      color: $light_blue;
+      font-size: 14px;
+      float: left;
+    }
+
+    .arrow_blue {
+      color: $light_blue;
+      font-size: 15px;
+      padding-left: 3px;
+      margin-top: 2px;
+    }
+  }
+}
+
+// new
+.credit_2 {
+  background-color: $white;
+  width: 700px;
+  height: 700px;
+  float: left;
+  margin-top: 31px;
+
+  .credit__box_list {
+    span {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+    }
+
+    .required__icon {
+      display: inline;
+    }
+
+    .form {
+      border:1px solid $border_gray {
+        radius: 0.3rem;
+      }
+    }
+
+    .text_field {
+      @extend .form;
+      width: 310px;
+      height: 50px;
+      font-size: 16px;
+      color: $form_gray;
+      padding-left: 10px;
+
+      margin: {
+        bottom: 5px;
+        top: 6px;
+      }
+    }
+  }
+
+  .select_tag {
+    @extend .form;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 15px;
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
+    }
+  }
+
+  i.fa_icon {
+    color: $fa_icon_gray;
+  }
+
+  .credit__box_question {
+    margin-left: 150px;
+
+    span.icon_question {
+      background-color: $light_blue;
+      border-radius: 10px;
+      padding: 1px 4px;
+      color: $white;
+      margin-right: 4px;
+      margin-top: 3px;
+      float: left;
+
+      font: {
+        size: 0.1rem;
+        weight: bold;
+      }
+    }
+
+    p {
+      color: $light_blue;
+      display: inline-block;
+
+      font: {
+        size: 14px;
+        weight: 100;
+      }
+    }
+  }
+}
