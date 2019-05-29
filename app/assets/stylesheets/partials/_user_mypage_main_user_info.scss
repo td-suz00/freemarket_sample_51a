@@ -2,7 +2,8 @@
   height: 130px;
   position: relative;
   padding: 20px;
-  background: url("../user_mypage_background_image.jpg");
+  background: image-url("user_mypage_background_image.jpg");
+  background-size: cover;
   text-align: center;
 
   &__link{
