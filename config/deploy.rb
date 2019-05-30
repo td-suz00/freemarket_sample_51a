@@ -1,6 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
+set :linked_files, %w{ config/master.key }
+
 set :application, 'freemarket_sample_51a'
 set :repo_url,  'git@github.com:td-suz00/freemarket_sample_51a.git'
 
@@ -28,6 +30,15 @@ set :repo_url,  'git@github.com:td-suz00/freemarket_sample_51a.git'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+#   # AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+#   # AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
+#   basic_auth_user: ENV["BASIC_AUTH_USER"],
+#   basic_auth_password: ENV["BASIC_AUTH_PASSWORD"]
+# }
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
@@ -57,4 +68,16 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
