@@ -5,16 +5,21 @@
   background: $white;
 
   &__title {
-    font-size: 24px;
-    padding: 8px 24px;
-    border-bottom: 1px solid $border_gray;
-    text-align: center;
-    line-height: 1.4;
+    h2 {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid $border_gray;
+      text-align: center;
+      line-height: 1.4;  
+      font-weight: 600;
+    }
   }
 
   &__form {
     padding: 64px;
     border-top: 1px solid $border_gray;
+    font-size: 14px;
+
 
     &__description {
       p {
@@ -67,7 +72,7 @@
       &__selectwrap {
         margin: 8px 0 0;
         position: relative;
-        background: #fff;
+        background: $white;
 
         .select-tag {
           width: 100%;
@@ -76,8 +81,7 @@
           height: 48px;
           padding: 0 16px;
           border-radius: 4px;
-          border: 1px solid #ccc;
-          background: 0;
+          border: 1px solid $fa_icon_gray;
           font-size: 16px;
           line-height: 1.5;
           cursor: pointer;
@@ -88,8 +92,8 @@
           right: 16px;
           top: 50%;
           z-index: 2;
-          color: #888;
-          font-size: 8px;
+          color: $fa_icon_gray;
+          font-size: 16px;
           transform: translate(0, -50%);
         }
       }
