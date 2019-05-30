@@ -1,8 +1,10 @@
 @import "config/colors";
 @import "config/font";
 @import "config/reset";
+@import "config/general";
 @import "mixin/icon";
 @import "font-awesome";
+@import "modules/cards";
 @import "modules/items";
 @import "partials/*";
 @import "top";
@@ -10,4 +12,9 @@ html,
 body {
   margin: 0;
   padding: 0;
+
+  .mercari-wrapper {
+    background-color: $background_gray;
+    font-family: $mercari_font;
+  }
 }

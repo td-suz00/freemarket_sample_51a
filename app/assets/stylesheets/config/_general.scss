@@ -1,0 +1,14 @@
+.redbtn{
+    margin: 0;
+    background: $red;
+    border: 1px solid $red;
+    color: $white;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
