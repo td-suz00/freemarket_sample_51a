@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  get  'items/new'  =>  'items#new'
 
-  resources :users, only: [:show]
-  resources :logouts, only: [:new]
+  resources :items, only: [:new]
+  resources :users, only: [:show] do
+    resources :logouts, only: [:new]
+  end
 
 end
