@@ -1,0 +1,14 @@
+.credit
+  .credit__title
+    %h2 支払い方法
+  .credit__box_list
+    %p クレジットカード一覧
+    .credit__btn_add
+      = fa_icon 'credit-card', class:'credit-card'
+      = link_to "クレジットカードを追加する","/users/1/cards/new", class:'credit_card'
+  .box__bottom_line
+  .credit__box_link
+    %li
+      %p 支払い方法について
+    %li
+      = fa_icon 'chevron-right', class:'arrow_blue'

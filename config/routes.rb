@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'   
-  } 
+    sessions: 'users/sessions'
+  }
 
   devise_scope :user do
     get "sign_in", to: "users/sessions#new"
@@ -11,10 +10,13 @@ Rails.application.routes.draw do
   end
 
   root 'user_confirmations#edit'  
-  get   'items/new'  =>  'items#new'
 
+  resources :items, only: :new
   resources :users, only: :show do
+    resources :cards, only: [:index, :new]
+    resources :user_profiles, only: [:new, :create, :edit, :update]
     resources :user_confirmations, only: [:create, :edit, :update]
+    resources :logouts, only: :new
   end
 
 end
