@@ -311,12 +311,12 @@ $height_pixel: 44px;
   position: fixed;
   z-index: 1000;
   border-radius: 50%;
-  background: #ea352d;
+  background: $red;
   color: #fff;
   text-align: center;
   text-decoration: none;
   h2 {
-    margin-top: 34px;
+    margin-top: 29px;
   }
   .fa-camera {
     font-size: 60px;

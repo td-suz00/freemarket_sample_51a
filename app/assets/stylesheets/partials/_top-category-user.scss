@@ -11,10 +11,10 @@ $height_pixel: 44px;
         text-decoration: none;
       }
       a:hover {
-        color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+        color: $light_blue; /*リンクにマウスが乗ったら背景色を変更する*/
       }
       i.fa-list-ul {
-        color: #d84638;
+        color: $red;
       }
       ul.menu__second-level.user {
         right: 30px;
@@ -46,7 +46,7 @@ $height_pixel: 44px;
           }
           .text-box {
             font-size: 16px;
-            color: #cccccc;
+            color: $fa_icon_gray;
             font-weight: bold;
             margin: 150px 0px 0 0px;
             position: absolute;
@@ -59,8 +59,8 @@ $height_pixel: 44px;
           &__textbox {
             margin: 0 16px;
             height: 40px;
-            background: #fafafa;
-            border: 1px solid #eee;
+            background: $background_gray;
+            border: 1px solid $border_gray;
             &__title {
               position: absolute;
               left: 20px;
@@ -74,7 +74,7 @@ $height_pixel: 44px;
             }
             &__arrow {
               font-size: 8px;
-              color: #ccc;
+              color: $fa_icon_gray;
               position: absolute;
               right: 30px;
             }
@@ -83,8 +83,8 @@ $height_pixel: 44px;
         .user-nav-items {
           &__item {
             width: 100%;
-            border-top: 1px solid #eee;
-            background: #ffffff;
+            border-top: 1px solid $border_gray;
+            background: $background_gray;
             height: 50px;
             &__text {
             }
@@ -102,19 +102,19 @@ $height_pixel: 44px;
         opacity: 0;
         z-index: 1;
         height: 551px;
-        border-right: 1px solid #eeeeee;
-        border-left: 1px solid #eeeeee;
+        border-right: 1px solid $border_gray;
+        border-left: 1px solid $border_gray
         box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
         position: absolute;
         top: 40px;
-        background: white;
+        background: $white;
         a {
           padding: 0 16px;
           text-decoration: none;
         }
         li:hover {
-          background: white;
-          color: white;
+          background: $white;
+          color: $white;
           a.second-level {
             color: black;
           }
@@ -152,21 +152,21 @@ $height_pixel: 44px;
     .menu > li {
       a.last {
         pointer-events: none;
-        color: #fffffe;
+        color: $almost-white;
       }
       float: left;
       height: $height_pixel;
       line-height: 35x;
-      background: white;
+      background: $white;
       a {
         display: block;
         color: black;
         font-size: 14px;
         a.menu__user-menu__button:hover {
-          color: #3e99e2;
+          color: $light_blue;
         }
         i.fa-tag {
-          color: #d84638;
+          color: $red;
         }
       }
     }

@@ -1,22 +1,22 @@
-.user_mypage__container__main__buyed_items{
+.user_mypage__container__main__buyed_items {
   margin: 40px 0 0;
   background: #fff;
 
-  &__title{
+  &__title {
     padding: 0 16px;
     background: #fafafa;
     font-size: 16px;
     line-height: 72px;
   }
 
-  &__tabs{
+  &__tabs {
     padding-bottom: 40px;
     background: #fff;
 
-    &__btn{
+    &__btn {
       width: 50%;
       height: 74px;
-      background-color: #EAEAEA;
+      background-color: #eaeaea;
       line-height: 74px;
       font-size: 16px;
       text-align: center;
@@ -26,7 +26,7 @@
       font-weight: bold;
     }
 
-    &__content{
+    &__content {
       display: none;
       padding: 160px 0 60px;
       clear: both;
@@ -37,7 +37,7 @@
       font-weight: 600;
     }
 
-    .is-active{
+    .is-active {
       background-color: #fff;
       border-top: solid 2px red;
     }

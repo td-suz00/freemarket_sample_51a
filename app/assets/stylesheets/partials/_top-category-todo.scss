@@ -29,7 +29,7 @@ $height_pixel: 44px;
           }
           .text-box {
             font-size: 16px;
-            color: #cccccc;
+            color: $form_gray;
             font-weight: bold;
             margin: 150px 0px 0 0px;
             position: absolute;
@@ -41,20 +41,20 @@ $height_pixel: 44px;
         opacity: 0;
         z-index: 1;
         height: 240px;
-        border-right: 1px solid #eeeeee;
-        border-left: 1px solid #eeeeee;
+        border-right: 1px solid $border_gray;
+        border-left: 1px solid $border_gray;
         box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
         position: absolute;
         top: 40px;
 
-        background: white;
+        background: $white;
         a {
           padding: 0 16px;
           text-decoration: none;
         }
         li:hover {
-          background: white;
-          color: white;
+          background: $white;
+          color: $white;
           a.second-level {
             color: black;
           }
@@ -77,8 +77,8 @@ $height_pixel: 44px;
       position: relative;
     }
     .menu__second-level li a:hover {
-      background: white;
-      color: white;
+      background: $white;
+      color: $white;
     }
     .header-lower-left ul.menu li.menu__todo-menu {
       width: 135.797px;
@@ -88,20 +88,20 @@ $height_pixel: 44px;
       float: left;
       height: $height_pixel;
       line-height: 30px;
-      background: white;
+      background: $white;
       a.last {
         pointer-events: none;
-        color: #fffffe;
+        color: $almost_white;
       }
       a {
         display: block;
         color: black;
         font-size: 14px;
         a.menu__todo-menu__button:hover {
-          color: #3e99e2;
+          color: $light_blue;
         }
         i.fa-tag {
-          color: #d84638;
+          color: $red;
         }
         .todo-img {
           margin: 46px 0 0 90px;

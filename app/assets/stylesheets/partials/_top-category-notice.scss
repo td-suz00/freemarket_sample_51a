@@ -7,15 +7,15 @@ $height_pixel: 44px;
       a.menu__notice-menu__button {
         .fa-bell {
           font-size: 20px;
-          color: #cccccc;
+          color: $fa_icon_gray;
         }
         text-decoration: none;
       }
       a:hover {
-        color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+        color: $light_blue; /*リンクにマウスが乗ったら背景色を変更する*/
       }
       i.fa-list-ul {
-        color: #d84638;
+        color: $red;
       }
       ul.menu__second-level {
         .notice-box {
@@ -42,19 +42,19 @@ $height_pixel: 44px;
         opacity: 0;
         z-index: 1;
         height: 240px;
-        border-right: 1px solid #eeeeee;
-        border-left: 1px solid #eeeeee;
+        border-right: 1px solid $border_gray;
+        border-left: 1px solid $border_gray;
         box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
         position: absolute;
         top: 40px;
-        background: white;
+        background: $white;
         a {
           padding: 0 16px;
           text-decoration: none;
         }
         li:hover {
-          background: white;
-          color: white;
+          background: $white;
+          color: $white;
           a.second-level {
             color: black;
           }
@@ -77,8 +77,8 @@ $height_pixel: 44px;
       position: relative;
     }
     .menu__second-level li a:hover {
-      background: white;
-      color: white;
+      background: $white;
+      color: $white;
     }
     .header-lower-left ul.menu li.menu__notice-menu {
       width: 135.797px;
@@ -87,20 +87,20 @@ $height_pixel: 44px;
     .menu > li {
       a.last {
         pointer-events: none;
-        color: #fffffe;
+        color: $almost-white;
       }
       float: left;
       height: $height_pixel;
-      background: white;
+      background: $white;
       a {
         display: block;
         color: black;
         font-size: 14px;
         a.menu__notice-menu__button:hover {
-          color: #3e99e2;
+          color: $light_blue;
         }
         i.fa-tag {
-          color: #d84638;
+          color: $red;
         }
         .notice {
         }

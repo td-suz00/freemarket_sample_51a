@@ -8,10 +8,10 @@ $height_pixel: 44px;
       text-decoration: none;
     }
     a:hover {
-      color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+      color: $light_blue; /*リンクにマウスが乗ったら背景色を変更する*/
     }
     i.fa-list-ul {
-      color: #d84638;
+      color: $red;
     }
     ul.menu__second-level {
       a.second-level {
@@ -29,8 +29,8 @@ $height_pixel: 44px;
       opacity: 0;
       z-index: 1;
       height: 616px;
-      border-right: 1px solid #eeeeee;
-      border-left: 1px solid #eeeeee;
+      border-right: 1px solid $border_gray;
+      border-left: 1px solid $border_gray;
       box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
       width: 224px;
       position: absolute;
@@ -42,10 +42,10 @@ $height_pixel: 44px;
         text-decoration: none;
       }
       li:hover {
-        background: #ea352d;
-        color: white;
+        background: $red;
+        color: $white;
         a.second-level {
-          color: white;
+          color: $white;
         }
       }
       li {
@@ -61,7 +61,7 @@ $height_pixel: 44px;
           height: 616px;
           box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
           background: white;
-          border-right: 1px solid #eeeeee;
+          border-right: 1px solid $border_gray;
           display: flex;
           flex-direction: column;
           flex-wrap: wrap;
@@ -96,7 +96,7 @@ $height_pixel: 44px;
     li
     ul.menu__third-level
     li:hover {
-    background: #eee;
+    background: $background_gray;
   }
   li.menu__category-menu
     ul.menu__second-level
@@ -109,15 +109,15 @@ $height_pixel: 44px;
     opacity: 1;
   }
   .menu__second-level li a:hover {
-    background: #ea352d;
-    color: white;
+    background: $red;
+    color: $white;
   }
   .menu__third-level li a:hover {
-    background: #eee;
+    background: $background_gray;
     color: black;
   }
   .menu__fourth-level li a:hover {
-    background: #eee;
+    background: $background_gray;
   }
   /* floatクリア */
   .menu:before,
@@ -131,7 +131,7 @@ $height_pixel: 44px;
   .menu > li {
     a.last {
       pointer-events: none;
-      color: #fffffe;
+      color: $almost_white;
     }
     // child_categoryの数をクラスから取得することで透明なaタグの大きさを合わせます
     a.last.item1 {
@@ -183,13 +183,13 @@ $height_pixel: 44px;
     width: 147.844px;
     height: $height_pixel;
     line-height: 35px;
-    background: white;
+    background: $white;
     a {
       display: block;
       color: black;
       font-size: 14px;
       a.menu__category-menu__button:hover {
-        color: #3e99e2;
+        color: $light_blue;
       }
     }
   }
