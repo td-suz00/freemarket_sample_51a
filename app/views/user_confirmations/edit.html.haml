@@ -46,7 +46,14 @@
           %label 建物名
           %span 任意
           %input{type: "text", placeholder: "例） 柳ビル103"}
+
         %button{type: "submit", class: "user_mypage__container__edit__form__button redbtn"} 登録する
+
+        .user_mypage__container__edit__form__about-registration
+          %p
+            =link_to "#", class: "user_mypage__container__edit__form__about-registration__link" do
+              本人情報の登録について
+              %i.fas.fa-chevron-right
 
     -# サイドメニュー部分テンプレート
     =render partial: "users/user_side_menu"

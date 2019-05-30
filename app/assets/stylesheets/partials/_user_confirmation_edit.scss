@@ -20,7 +20,6 @@
     border-top: 1px solid $border_gray;
     font-size: 14px;
 
-
     &__description {
       p {
         margin: 8px 0 0;
@@ -97,8 +96,24 @@
           transform: translate(0, -50%);
         }
       }
-      button{
-        
+    }
+    &__button {
+      margin: 40px 0 0 0;
+    }
+    
+    &__about-registration {
+      margin: 40px 0 0;
+      
+      p{
+        text-align: right;
+
+        .user_mypage__container__edit__form__about-registration__link {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: $light_blue;
+          text-decoration: none;
+          touch-action: manipulation;
+        }
       }
     }
   }
