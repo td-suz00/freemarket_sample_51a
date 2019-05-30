@@ -59,6 +59,7 @@ $height_pixel: 44px;
     padding-left: 11px;
   }
   .menu > li {
+    z-index: 10;
     a.last {
       pointer-events: none;
       color: #fffffe;
