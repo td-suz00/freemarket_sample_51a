@@ -12,4 +12,9 @@ html,
 body {
   margin: 0;
   padding: 0;
+
+  .mercari-wrapper{
+    background-color: $background_gray;
+    font-family: $mercari_font;
+  }
 }
