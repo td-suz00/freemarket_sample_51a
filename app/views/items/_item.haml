@@ -73,7 +73,7 @@
           %li
             .required__icon 必須
           .clearfix
-          = form_tag items_new_path, method: :get, class: 'select_tag_2' do
+          = form_tag new_item_path, method: :get, class: 'select_tag_2' do
             .input-append
               = collection_select :id, :prefecture_id, Prefecture.all, :id, :name
           = fa_icon 'chevron-down', class:'fa_icon'

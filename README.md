@@ -7,11 +7,11 @@
 
 ### Association
 - has_many :comments
-- has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
-- has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
-- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
-- has_many :post_reviews, foreign_key: "reviewer_id", class_name: "Review"
-- has_many :receive_reviews, foreign_key: "reviewed_id", class_name: "Review"
+- has_many :buyed_items, foreign_key: :buyer_id, class_name: :Item
+- has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: :seller_id, class_name: :Item
+- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: :seller_id, class_name: :Item
+- has_many :post_reviews, foreign_key: :reviewer_id, class_name: :Review
+- has_many :receive_reviews, foreign_key: :reviewed_id, class_name: :Review
 - has_one :profile
 
 ---
@@ -46,8 +46,8 @@
 |reviewer_id|REFERENCES|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :reviewer, class_name: "User"
-- belongs_to :reviewed, class_name: "User"
+- belongs_to :reviewer, class_name: :User
+- belongs_to :reviewed, class_name: :User
 
 ---
 # Items
@@ -64,12 +64,12 @@
 |delivery_days|STRING|null: false|
 |category_id|REFERENCES|null: false, foreign_key: true|
 |seller_id|REFERENCES|null: false, foreign_key: true|
-|buyer_id|REFERENCES|foreign_key: true|
-|brand_id|REFERENCES|foreign_key: true|
+|buyer_id|REFERENCES|optional: true, foreign_key: true|
+|brand_id|REFERENCES|optional: true, foreign_key: true|
 
 ### Association
-- belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: :User
+- belongs_to :buyer, class_name: :User
 - has_many :comments
 - has_many :item_images
 - belongs_to :size
@@ -125,7 +125,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|STRING|null: false, unique: true|
-|parent_id|REFERENCES|foreign_key, true|
+|parent_id|REFERENCES|optional: true, foreign_key, true|
 
 ### Association
 - has_many :items
