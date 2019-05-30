@@ -1,0 +1,214 @@
+.header
+  .header-upper.clearfix
+    .logo
+      = image_tag "logo.svg", :width => "134", :height => "36"  
+    =form_tag(root_path, method: :post,class: "form") do
+      =text_field_tag :name,"", class: 'textbox',placeholder: '何かお探しですか？'
+      .form__icon-search
+        = button_tag type:  "submit", class: "btn"  do
+          %i.fa.fa-search
+  .header-lower.clearfix
+    .header-lower-left
+      %ul.menu
+        %li.menu__category-menu
+          %a.menu__category-menu__button{:href => "#"} 
+            %i.fas.fa-list-ul
+            カテゴリーから探す
+          %ul.menu__second-level
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} メンズ
+              %ul.menu__third-level
+                / 第二階層
+                %li
+                  %a.child-categories{:href => "#"} トップス
+                  %ul.menu__fourth-level
+                    / 第三階層
+                    %li
+                      %a.child-categories{:href => "#"} タンクトップ
+                    %li
+                      %a.child-categories{:href => "#"} ノースリーブ
+                    %li
+                      %a.child-categories{:href => "#"} チューブトップ
+                %li
+                  %a.child-categories{:href => "#"} ジャケット/アウタ
+                  %ul.menu__fourth-level
+                    / 第三階層
+                    %li
+                      %a.child-categories{:href => "#"} MA-1
+                    %li
+                      %a.child-categories{:href => "#"} Flightjacket
+                    %li
+                      %a.child-categories{:href => "#"} 法被        
+                -# クリックを無効にした透明なAタグを使い、child_categoryの名前がないところにマウスホバーしても収納されないようになっています。
+                -# child_category_cntに代入すると透明なAタグの大きさがurに合うように変わります。
+                %li{:style => "\n    background: white;\n"}
+                  -child_category_cnt="2"
+                  - class_name="init-right last item#{child_category_cnt}"
+                  = link_to '透明Aタグ',"#", class: class_name
+                  %ul.menu__fourth-level
+                    / 第三階層
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} レディース
+              %ul.menu__third-level
+                / 第二階層
+                %li
+                  %a.child-categories{:href => "#"} トップス
+                  %ul.menu__fourth-level
+                    / 第三階層
+                    %li
+                      %a.child-categories{:href => "#"} タンクトップ
+                    %li
+                      %a.child-categories{:href => "#"} ノースリーブ
+                    %li
+                      %a.child-categories{:href => "#"} チューブトップ
+                %li
+                  %a.child-categories{:href => "#"} ジャケット/アウタ
+                  %ul.menu__fourth-level
+                    / 第三階層
+                    %li
+                      %a.child-categories{:href => "#"} MA-1
+                    %li
+                      %a.child-categories{:href => "#"} Flightjacket
+                    %li
+                      %a.child-categories{:href => "#"} 法被        
+                %li
+                  %a.child-categories.init-right{:href => "#"} パンツ
+                  %ul.menu__fourth-level
+                    / 第三階層
+                    %li
+                      %a.child-categories{:href => "#"} MA-1
+                    %li
+                      %a.child-categories{:href => "#"} Flightjacket
+                    %li
+                      %a.child-categories{:href => "#"} 法被                      
+                %li{:style => "\n    background: white;\n"}
+                  -items="3"
+                  - class_name="init-right last item#{items}"
+                  = link_to '透明Aタグ',"#", class: class_name
+                  %ul.menu__fourth-level
+                    / 第三階層
+        %li.menu__brand-menu
+          %a.menu__brand-menu__button{:href => "#"} 
+            %i.fas.fa-tag
+            ブランドから探す
+          %ul.menu__second-level.brand-height
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} supreme
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} panasonic
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} genius
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} techinics
+            / 第一階層
+            %li
+              %a.second-level{:href => "#"} india
+    .header-lower-right
+      %ul.menu
+        %li.menu__notice-menu
+          %a.menu__notice-menu__button{:href => "#"} 
+            %i.far.fa-bell
+            お知らせ
+          %ul.menu__second-level.notice
+            / 第一階層
+            %li
+              %a.second-level.noticepack{:href => "#"} 
+                .notice-box
+                  = image_tag "mercari_profile.png", width: "48", height: "48"  ,class:"notice-img"
+                  .text-box
+                    《今なら20％還元》メルペイのお支払いで最大P2,000もらえるキャンペーン開催中！
+                    %br/ 
+                    %i.far.fa-clock
+                    20日前
+                    %i.fas.fa-chevron-right
+            %li
+              %a.second-level.noticepack{:href => "#"} 
+                .notice-box
+                  = image_tag "mercari_profile.png", width: "48", height: "48"  ,class:"notice-img"
+                  .text-box
+                    《今なら20％還元》メルペイのお支払いで最大P2,000もらえるキャンペーン開催中！
+                    %br/ 
+                    %i.far.fa-clock
+                    20日前
+                    %i.fas.fa-chevron-right.two
+        %li.menu__todo-menu.todo-list
+          %a.menu__todo-menu__button{:href => "#"} 
+            %i.fas.fa-check
+            やることリスト
+          %ul.menu__second-level.todo
+            / 第一階層
+            %li
+              %a.second-level.noticepack{:href => "#"} 
+                .todo-box
+                  = image_tag "gray-mercari-icon.png", width: "75", height: "75"  ,class:"todo-img"
+                  .text-box
+                    現在、やる事リストはありません
+        %li.menu__user-menu.user-list
+          = link_to user_path(10000) ,class: "menu__user-menu__button"do
+            = image_tag "user-profile.png", width: "30", height: "30"  ,class:"nav-user-profile-img"
+            .title-mypage マイページ
+          %ul.menu__second-level.user
+            / 第一階層
+            %li              
+              .user-box
+                = image_tag "user_top_background_image.jpg", width: "320", height: "80"  ,class:"user-img"
+                = image_tag "user-profile.png", width: "60", height: "60"  ,class:"user-profile-img"
+              %a.second-level{:href => "#"} 
+                .text-box
+                  .user-name ユーザー名
+                  %br/ 
+                  評価: 8 出品数: 0
+            .sale-point
+              .sale-point__textbox.clearfix
+                .sale-point__textbox__title
+                  売上金
+                .sale-point__textbox__arrow 
+                  %i.fas.fa-chevron-right         
+                .sale-point__textbox__value
+                  %n
+                  ¥0
+              .sale-point__textbox.clearfix
+                .sale-point__textbox__title
+                  ポイント
+                .sale-point__textbox__arrow 
+                  %i.fas.fa-chevron-right         
+                .sale-point__textbox__value
+                  %n
+                  P0           
+            .user-nav-items
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to 'いいね!一覧',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right     
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to '出品した商品 - 出品中',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right     
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to '出品した商品 - 取引中',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right    
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to '出品した商品 - 売却済み',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right    
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to '購入した商品 - 取引中',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right    
+              .user-nav-items__item
+                .user-nav-items__item__text
+                  = link_to '購入した商品 - 過去の取引',"#"
+                .user-nav-items__item__arrow
+                  %i.fas.fa-chevron-right    
