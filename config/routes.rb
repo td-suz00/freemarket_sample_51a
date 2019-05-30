@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :items, only: [:new]
-  resources :users, only: [:show] do
-    resources :logouts, only: [:new]
+  resources :items, only: :new
+  resources :users, only: :show do
+    resources :logouts, only: :new
   end
 
 end
