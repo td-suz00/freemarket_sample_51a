@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get "sign_out", to: "users/sessions#destroy" 
   end
 
-  root 'users#show'  
+  root 'users#show'
   get  'items/new'  =>  'items#new'
 
   resources :users, only: [:show] do
