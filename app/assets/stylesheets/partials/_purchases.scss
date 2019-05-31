@@ -1,0 +1,96 @@
+.item {
+  &__title {
+    line-height: 110px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__info {
+
+    &__inner-content {
+      @extend .inner-content;
+      text-align: center;
+
+      &__name {
+        font-weight: bold;
+      }
+
+      &__subtotal {
+        height: 42px;
+        margin-top: 8px;
+
+        &__price {
+          margin-right: 10px;
+          font-size: 24px;
+          display: inline-block;
+        }
+        &__delivery-fee {
+          display: inline-block;
+          font-size: 14px;
+        }
+      }
+      &__point {
+        @extend .graybtn;
+        margin-top: 15px;
+      }
+      &__account {
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        font-size: 28px;
+
+        &__text {
+          display: inline-block;
+          font-weight: bold;
+        }
+        &__price {
+          display: inline-block;
+        }
+      }
+      &__purchase-btn {
+        @extend .redbtn;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__address {
+    @extend .box;
+    font-size: 14px;
+
+    &__inner-content {
+      @extend .inner-content;
+
+      &__heading {
+        font-weight: bold;
+      }
+      &__info {
+
+        &__fix {
+          color: $light_blue;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__payment {
+    @extend .box;
+    font-size: 14px;
+
+    &__inner-content {
+      @extend .inner-content;
+
+      &__heading {
+        font-weight: bold;
+      }
+      &__info {
+
+        &__fix {
+          color: $light_blue;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

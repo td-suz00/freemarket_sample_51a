@@ -12,3 +12,45 @@
     text-align: center;
     text-decoration: none;
 }
+
+.graybtn{
+  margin: 0;
+  background: $btn_gray;
+  border: 1px solid $btn_gray;
+  color: $black;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.required__icon {
+    background-color: $red;
+    padding: 3px 5px;
+    color: $white;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+    font-weight: 570;
+    margin-left: 10px;
+  }
+
+.box {
+    box-sizing: border-box;
+    border-bottom: 0.09px solid $border_gray;
+    padding: 40px;
+  }
+
+.form {
+  border:1px solid $border_gray {
+    radius: 0.3rem;
+  }
+}
+
+.inner-content {
+  max-width: 320px;
+  margin: 0 auto;
+}

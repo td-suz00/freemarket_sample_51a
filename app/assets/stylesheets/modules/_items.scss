@@ -20,7 +20,6 @@
 
   .item {
     width: 700px;
-    padding-bottom: 150px;
     margin: 0 auto;
     background-color: $white;
 
@@ -67,12 +66,6 @@
         display: inline;
       }
 
-      .form {
-        border:1px solid $border_gray {
-          radius: 0.3rem;
-        }
-      }
-
       .text_field {
         @extend .form;
         width: 597px;
@@ -88,12 +81,6 @@
         padding: 12px;
         border: 1px solid $border_gray;
       }
-    }
-
-    .box {
-      box-sizing: border-box;
-      border-bottom: 0.09px solid $border_gray;
-      padding: 40px;
     }
 
     &__img {
@@ -257,7 +244,7 @@
 
     .sell-btn {
       box-sizing: border-box;
-      height: 200px;
+      height: 400px;
       padding: 40px;
 
       .dscription p {
