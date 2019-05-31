@@ -1,3 +1,15 @@
+.app-banner
+  .app-banner__box
+    .app-banner__box__left
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      .app-banner__box__left__icons
+        = image_tag "app-banner-mercari-logo.png", width: "68", height: "68"  ,class:"mercari"
+        = image_tag "banner-mercari-info-apple.svg", width: "128", height: "39"  ,class:"apple"
+        = image_tag "banner-mercari-info-google-play.svg", width: "128", height: "39"  ,class:"google"
+    .app-banner__box__right
+      .app-banner__right__image
+        = image_tag "app-banner-right.png", width: "300", height: "260"  ,class:"banner-mercari-info-hand-phone"
 .global-footer
   .global-footer__upper
     .global-footer__upper__cell.about-mercari
@@ -49,3 +61,6 @@
     = image_tag "footer-white-logo.svg", width: "124", height: "33"  ,class:"google"
     .footer-copylight
       %small © 2019 Mercari
+= link_to(new_item_path,class:'footer-sell-button') do
+  %h2 出品
+  %i.fas.fa-camera

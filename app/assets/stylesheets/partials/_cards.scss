@@ -19,7 +19,6 @@
   }
 
   &__box_list {
-
     padding: {
       top: 64px;
       right: 100px;
@@ -113,7 +112,7 @@
     }
 
     .form {
-      border:1px solid $border_gray {
+      border: 1px solid $border_gray {
         radius: 0.3rem;
       }
     }
@@ -152,7 +151,6 @@
     position: absolute;
     top: 295px;
     left: 280px;
-    ;
   }
 
   i.fa_icon_2 {
@@ -160,7 +158,6 @@
     position: absolute;
     top: 370px;
     left: 280px;
-    ;
   }
 
   .credit__box_question {
@@ -193,6 +190,5 @@
         weight: 100;
       }
     }
-
   }
 }

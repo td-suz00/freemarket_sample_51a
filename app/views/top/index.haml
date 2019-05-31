@@ -1,4 +1,3 @@
-= render 'global-header'
 .top
   / Slider main container
   .swiper-container
@@ -90,19 +89,6 @@
             .item__lower__price ¥800
             .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
-  .app-banner
-    .app-banner__box
-      .app-banner__box__left
-        %h2 スマホでかんたんフリマアプリ
-        %p 今すぐ無料ダウンロード！
-        .app-banner__box__left__icons
-          = image_tag "app-banner-mercari-logo.png", width: "68", height: "68"  ,class:"mercari"
-          = image_tag "banner-mercari-info-apple.svg", width: "128", height: "39"  ,class:"apple"
-          = image_tag "banner-mercari-info-google-play.svg", width: "128", height: "39"  ,class:"google"
-      .app-banner__box__right
-        .app-banner__right__image
-          = image_tag "app-banner-right.png", width: "300", height: "260"  ,class:"banner-mercari-info-hand-phone"
-= render 'global-footer'
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
 :javascript
   var mySwiper = new Swiper ('.swiper-container', {
