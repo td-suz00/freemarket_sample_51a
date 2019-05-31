@@ -5,11 +5,11 @@ $height_pixel: 44px;
   display: block;
   clear: both;
 }
-.grobal-header {
-  background-color: white;
-  width: 100vw;
+.global-header {
+  background-color: $white;
   .header {
     z-index: 3;
+    background-color: $white;
     padding-top: 8px;
     margin: auto;
     height: 92px;
@@ -27,10 +27,11 @@ $height_pixel: 44px;
       float: right;
       height: 40px;
       width: 841px;
-      background-color: white;
+      background-color: $white;
       margin-left: 45px;
       .textbox {
-        border: 1px solid #ccc;
+        background: $background_gray;
+        border: 1px solid $border_gray;
         padding: 0px;
         height: 38px;
         padding: 0 42px 0 10px;
@@ -48,15 +49,15 @@ $height_pixel: 44px;
         justify-content: center;
       }
       .btn {
-        color: white;
+        color: $white;
         top: 0;
         right: 0;
-        background-color: #656565;
+        background-color: $dark_gray;
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
         height: 40px;
         width: 40px;
-        border-color: #656565;
+        border-color: $background_gray;
       }
       .fa-search {
         height: 14px;
@@ -112,7 +113,7 @@ $height_pixel: 44px;
       float: right;
       .nortification-list {
         width: 82.39px;
-        background-color: maroon;
+        background-color: $header-btn-red;
       }
       .todo-list {
         padding: 0 14px;
@@ -150,14 +151,14 @@ $height_pixel: 44px;
       position: relative;
       &__title {
         margin-left: 350px;
-        color: #0099e8;
+        color: $light_blue;
         text-decoration: none;
         font-size: 22px;
         font-weight: bold;
       }
       &__show-all {
         text-decoration: none;
-        color: #0099e8;
+        color: $light_blue;
         position: absolute;
         right: 0;
       }
@@ -170,7 +171,7 @@ $height_pixel: 44px;
     margin: 0 0 0 20px;
     float: left;
     width: 213px;
-    background: white;
+    background: $white;
     &__lower {
       padding: 16px;
       &__name {
@@ -190,7 +191,7 @@ $height_pixel: 44px;
       }
       &__like {
         .fa-heart {
-          color: #cccccc;
+          color: $fa_icon_gray;
         }
         margin: 8px 0 0 150px;
         position: absolute;
@@ -212,7 +213,7 @@ $height_pixel: 44px;
       padding-top: 30px;
       width: 460px;
       height: 166px;
-      color: white;
+      color: $white;
       text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
       h2 {
         font-weight: bold;
@@ -238,10 +239,10 @@ $height_pixel: 44px;
     }
   }
 }
-.grobal-footer {
+.global-footer {
   height: 381px;
   padding: 0 20px 10px 20px;
-  background: #212121;
+  background: $footer-gray;
   &__upper {
     .about-mercari {
       width: 20%;
@@ -264,7 +265,7 @@ $height_pixel: 44px;
       float: left;
       h2 {
         line-height: 1.4;
-        color: white;
+        color: $white;
       }
       li {
         margin: 10px 0 0;
@@ -272,13 +273,13 @@ $height_pixel: 44px;
       a {
         line-height: 1.5em;
         text-decoration: none;
-        color: #b9b9b9;
+        color: $fa_icon_gray;
         font-size: 12px;
         vertical-align: top;
       }
       &__social-link {
         margin: 20px 0 0 0;
-        color: white;
+        color: $white;
         font-size: 30px;
       }
     }
@@ -298,7 +299,7 @@ $height_pixel: 44px;
       position: absolute;
       small {
         font-size: 11px;
-        color: white;
+        color: $white;
       }
     }
   }
@@ -313,7 +314,7 @@ $height_pixel: 44px;
   z-index: 1000;
   border-radius: 50%;
   background: $red;
-  color: #fff;
+  color: $white;
   text-align: center;
   text-decoration: none;
   h2 {
