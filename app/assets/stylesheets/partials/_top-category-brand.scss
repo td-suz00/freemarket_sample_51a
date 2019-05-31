@@ -12,10 +12,10 @@ $height_pixel: 44px;
       text-decoration: none;
     }
     a:hover {
-      color: #3e99e2; /*リンクにマウスが乗ったら背景色を変更する*/
+      color: $light_blue; /*リンクにマウスが乗ったら背景色を変更する*/
     }
     i.fa-list-ul {
-      color: #d84638;
+      color: $red;
     }
     ul.brand-height {
       height: 264px;

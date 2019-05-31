@@ -5,13 +5,17 @@ $height_pixel: 44px;
   display: block;
   clear: both;
 }
-.header {
-  z-index: 3;
-  padding-top: 8px;
-  margin: auto;
-  height: 92px;
-  width: 1020px;
+.grobal-header {
   background-color: white;
+  width: 100vw;
+  .header {
+    z-index: 3;
+    padding-top: 8px;
+    margin: auto;
+    height: 92px;
+    width: 1020px;
+  }
+
   .header-upper {
     .logo {
       float: left;
@@ -129,11 +133,8 @@ $height_pixel: 44px;
     clear: both;
   }
 }
-.top {
-  font-family: “Source Sans Pro”, Helvetica, Arial, 游ゴシック体, YuGothic,
-    メイリオ, Meiryo, sans-serif;
-  background-color: #f5f5f5;
 
+.top {
   .pickup-categories {
     &__title {
       font-size: 28px;

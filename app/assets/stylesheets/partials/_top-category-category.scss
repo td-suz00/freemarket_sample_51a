@@ -91,16 +91,11 @@ $height_pixel: 44px;
     visibility: visible;
     opacity: 1;
   }
-  li.menu__category-menu
-    ul.menu__second-level
-    li
-    ul.menu__third-level
-    li:hover {
+  li.menu__category-menu ul.menu__second-level ul.menu__third-level li:hover {
     background: $background_gray;
   }
   li.menu__category-menu
     ul.menu__second-level
-    li
     ul.menu__third-level
     li:hover
     ul.menu__fourth-level {
