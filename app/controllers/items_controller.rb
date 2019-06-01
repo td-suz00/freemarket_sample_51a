@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
   def new
-    render layout: 'application-off-header-footer.haml'
     @item = Item.new
+    render layout: 'application-off-header-footer.haml'
   end
 
   def create
