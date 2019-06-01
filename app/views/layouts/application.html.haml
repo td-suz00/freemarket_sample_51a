@@ -7,7 +7,6 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{crossorigin: => "anonymous", href: "https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity: "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", rel: "stylesheet"}/
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css", rel: "stylesheet"}/
     -# %link{:href => "swiper.min.css", :rel => "stylesheet"}/
   %body
@@ -15,7 +14,7 @@
     .footer--sell--button
   .mercari-wrapper
     = render 'shared/global-header'
-    = yield 
+    = yield
     = render 'shared/global-footer'
     -# fontawesome
     %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity: "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", rel: "stylesheet"}/
