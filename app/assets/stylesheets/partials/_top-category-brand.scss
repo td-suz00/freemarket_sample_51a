@@ -1,0 +1,82 @@
+$height_pixel: 44px;
+.header {
+  li.menu__brand-menu:hover ul.menu__second-level {
+    list-style: none;
+    top: $height_pixel;
+    visibility: visible;
+    opacity: 1;
+  }
+  li.menu__brand-menu {
+    a.menu__brand-menu__button {
+      font-weight: bold;
+      text-decoration: none;
+    }
+    a:hover {
+      color: $light_blue; /*リンクにマウスが乗ったら背景色を変更する*/
+    }
+    i.fa-list-ul {
+      color: $red;
+    }
+    ul.brand-height {
+      height: 264px;
+    }
+    ul.menu__second-level {
+      visibility: hidden;
+      opacity: 0;
+      z-index: 1;
+      border-right: 1px solid $border_gray;
+      border-left: 1px solid $border_gray;
+      box-shadow: 0px 1px 2px -1.5px rgba(0, 0, 0, 0.6);
+      width: 224px;
+      position: absolute;
+      top: 40px;
+      width: 224px;
+      background: $white;
+      a {
+        padding-left: 16px;
+        text-decoration: none;
+      }
+      li:hover {
+        background: $red;
+        color: $white;
+        a.second-level {
+          color: $white;
+        }
+      }
+    }
+  }
+  /* floatクリア */
+  .menu:before,
+  .menu:after {
+    content: " ";
+    display: table;
+  }
+  .menu > li.menu__brand-menu {
+    position: relative;
+  }
+  .header-lower-left ul.menu li.menu__brand-menu {
+    width: 135.797px;
+    padding-left: 11px;
+  }
+  .menu > li {
+    z-index: 10;
+    a.last {
+      pointer-events: none;
+      color: $almost_white;
+    }
+    float: left;
+    height: $height_pixel;
+    background: $white;
+    a {
+      display: block;
+      color: black;
+      font-size: 14px;
+      a.menu__brand-menu__button:hover {
+        color: $light_blue;
+      }
+      i.fa-tag {
+        color: $red;
+      }
+    }
+  }
+}
