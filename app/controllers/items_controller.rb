@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    render :layout => 'application-off-header-footer.haml'
   end
 
   def update
