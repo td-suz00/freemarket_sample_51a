@@ -12,7 +12,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string     :delibery_from_area, null: false
       t.string     :delivery_days,      null: false
       t.integer    :price,              null: false
-      
       t.timestamps
     end
   end
