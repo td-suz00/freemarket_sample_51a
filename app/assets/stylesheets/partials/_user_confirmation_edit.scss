@@ -1,0 +1,118 @@
+.user_mypage__container__edit {
+  width: 69%;
+  float: right;
+  margin: 30px 0;
+  background: $white;
+
+  &__title {
+    h2 {
+      font-size: 24px;
+      padding: 8px 24px;
+      border-bottom: 1px solid $border_gray;
+      text-align: center;
+      line-height: 1.4;  
+      font-weight: 600;
+    }
+  }
+
+  &__form {
+    padding: 64px;
+    border-top: 1px solid $border_gray;
+    font-size: 14px;
+
+    &__description {
+      p {
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+      &__text-right {
+        text-align: right;
+
+        &__link {
+          color: $light_blue;
+          text-decoration: none;
+          touch-action: manipulation;
+        }
+      }
+    }
+
+    &__list {
+      margin: 40px 0 0;
+      
+      label {
+        font-weight: 600;
+      }
+      p {
+        margin: 8px 0 0;
+        line-height: 1.5;
+      }
+
+      span {
+        background: $fa_icon_gray;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: $white;
+      }
+
+      input {
+        width: 94%;
+        margin: 8px 0 0;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid $fa_icon_gray;
+        background: $white;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+
+      &__selectwrap {
+        margin: 8px 0 0;
+        position: relative;
+        background: $white;
+
+        .select-tag {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid $fa_icon_gray;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+        }
+
+        .fa-icon {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          z-index: 2;
+          color: $fa_icon_gray;
+          font-size: 16px;
+          transform: translate(0, -50%);
+        }
+      }
+    }
+    &__button {
+      margin: 40px 0 0 0;
+    }
+    
+    &__about-registration {
+      margin: 40px 0 0;
+      
+      p{
+        text-align: right;
+
+        .user_mypage__container__edit__form__about-registration__link {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          color: $light_blue;
+          text-decoration: none;
+          touch-action: manipulation;
+        }
+      }
+    }
+  }
+}
