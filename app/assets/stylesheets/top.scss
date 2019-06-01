@@ -12,7 +12,7 @@ $height_pixel: 44px;
     background-color: $white;
     padding-top: 8px;
     margin: auto;
-    height: 92px;
+    height: 94px;
     width: 1022px;
   }
 
@@ -201,7 +201,8 @@ $height_pixel: 44px;
 }
 .app-banner {
   position: relative;
-  background-image: url("app-banner-background.jpg");
+  background-image: image-url("app-banner-background.jpg");
+  background-size: cover;
   height: 260px;
   background-position: center center;
   &__box {
