@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :cards, only: [:index, :new]
     resources :user_profiles, only: [:new, :create, :edit, :update]
+    resources :user_confirmations, only: [:create, :edit, :update]
     resources :logouts, only: :new
   end
 
