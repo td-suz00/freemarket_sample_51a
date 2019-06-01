@@ -1,0 +1,55 @@
+.item_wrapper
+  %header
+    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+  .item
+    .item__title
+      購入内容の確認
+    .item__info
+      .item__info__inner-content
+        .item__info__inner-content__image
+          = image_tag 'ねこ２.jpg', height: '148', width: '148'
+        .item__info__inner-content__name
+          ねこ
+        .item__info__inner-content__subtotal
+          .item__info__inner-content__subtotal__price
+            ¥1,980
+          .item__info__inner-content__subtotal__delivery-fee
+            %p 送料込み
+        .item__info__inner-content__point
+          ポイントはありません
+        .item__info__inner-content__account
+          .item__info__inner-content__account__text
+            支払い金額
+          .item__info__inner-content__account__price
+            %p ¥ 1,980
+        .item__info__inner-content__purchase-btn
+          購入する
+    .item__address
+      .item__address__inner-content
+        .item__address__inner-content__heading
+          配送先
+        .item__address__inner-content__info
+          .item__address__inner-content__info__text
+            〒123-456
+            %br
+            東京都 渋谷区神南 1-2-3
+            %br
+            目瑠可里 太郎
+          .item__address__inner-content__info__fix
+            変更する
+            %i >
+    .item__payment
+      .item__payment__inner-content
+        .item__payment__inner-content__heading
+          支払い方法
+        .item__payment__inner-content__info
+          .item__payment__inner-content__info__text
+            ************1234
+            %br
+            01 / 20
+          .item__payment__inner-content__info__figure
+            = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
+          .item__payment__inner-content__info__fix
+            変更する
+            %i >
+  = render 'items/item_footer'

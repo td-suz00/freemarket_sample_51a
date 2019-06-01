@@ -1,0 +1,66 @@
+.app-banner
+  .app-banner__box
+    .app-banner__box__left
+      %h2 スマホでかんたんフリマアプリ
+      %p 今すぐ無料ダウンロード！
+      .app-banner__box__left__icons
+        = image_tag "app-banner-mercari-logo.png", width: "68", height: "68"  ,class:"mercari"
+        = image_tag "banner-mercari-info-apple.svg", width: "128", height: "39"  ,class:"apple"
+        = image_tag "banner-mercari-info-google-play.svg", width: "128", height: "39"  ,class:"google"
+    .app-banner__box__right
+      .app-banner__right__image
+        = image_tag "app-banner-right.png", width: "300", height: "260"  ,class:"banner-mercari-info-hand-phone"
+.global-footer
+  .global-footer__upper
+    .global-footer__upper__cell.about-mercari
+      %h2 メルカリについて
+      %ul
+        %li= link_to '会社概要(運営会社)',"#"
+        %li= link_to '採用情報',"#"
+        %li= link_to 'プレスリリース',"#"
+        %li= link_to '公式ブログ',"#"
+        %li= link_to 'メルカリロゴ利用ガイドライン',"#"
+      .global-footer__upper__cell__social-link
+        %i.fab.fa-twitter
+        &nbsp;  
+        %i.fab.fa-facebook-square
+    .global-footer__upper__cell.help-guide
+      %h2 ヘルプ＆ガイド
+      %ul
+        %li= link_to 'メルカリガイド',"#"
+        %li= link_to 'らくらくメルカリ便',"#"
+        %li= link_to 'ゆうゆうメルカリ便',"#"
+        %li= link_to '大型メルカリ便',"#"
+        %li= link_to '車体取引ガイド',"#"
+        %li= link_to 'メルカリあんしん・あんぜん宣言！',"#"
+        %li= link_to '偽ブランド品撲滅への取り組み',"#"
+        %li= link_to 'メルカリボックス',"#"
+    .global-footer__upper__cell.privacy    
+      .global-footer__upper__cell
+        %h2 プライバシーと利用規約
+        %ul
+          %li= link_to 'プライバシーポリシー',"#"
+          %li= link_to 'メルカリ利用規約',"#"
+          %li= link_to 'あんしんスマホサポート制度に関する利用特約',"#"
+          %li= link_to 'コンプライアンスポリシー',"#"
+      .global-footer__upper__cell
+        %h2  
+          %br/
+        %ul
+          %li= link_to '個人データの安全管理に係る基本方針',"#"
+          %li= link_to '特定商取引に関する表記',"#"
+          %li= link_to '資金決済法に基づく表示',"#"
+          %li= link_to '法令遵守と犯罪抑止のために',"#"
+          %li= link_to '返品・返金ポリシー',"#"
+    .global-footer__upper__cell.country
+      %h2 国
+      %ul
+        %li= link_to '日本',"#"
+        %li= link_to 'United States',"#"
+  .global-footer__lower
+    = image_tag "footer-white-logo.svg", width: "124", height: "33"  ,class:"google"
+    .footer-copylight
+      %small © 2019 Mercari
+= link_to(new_item_path,class:'footer-sell-button') do
+  %h2 出品
+  %i.fas.fa-camera
