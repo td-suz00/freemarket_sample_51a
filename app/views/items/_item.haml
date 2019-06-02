@@ -31,6 +31,17 @@
       });
     });
 
+    
+      = f.label :item_images, class: "img-field" do
+        .drop-box
+          .drop-box__discription
+            %a.top ドラッグアンドドロップ
+            %br
+            %a またはクリックしてファイルをアップロード
+
+            = f.fields_for :item_images, @item.item_images do |image|
+              = image.file_field :image_url, class: "drop-box__discription__file-field"
+
   = form_for @item do |f|
     .item__info
       .item__info_name
@@ -64,17 +75,17 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = select_tag "category", options_for_select({'---':'---','レディース':'レディース','メンズ':'メンズ','ベビー・キッズ':'ベビー・キッズ','インテリア・住まい・小物':'インテリア・住まい・小物','本・音楽・ゲーム':'本・音楽・ゲーム','おもちゃ・ホビー・グッズ':'おもちゃ・ホビー・グッズ','コスメ・香水・美容':'コスメ・香水・美容','スポーツ・レジャー':'スポーツ・レジャー','ハンドメイド':'ハンドメイド','チケット':'チケット','自転車・オートバイ':'自転車・オートバイ','その他':'その他'}), class: "select_tag", id: "item_category_id"
+            = select_tag "category", options_for_select({'---':'---','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','スポーツ・レジャー':'8','ハンドメイド':'9','チケット':'10','自転車・オートバイ':'11','その他':'12'}), class: "select_tag", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
           
           .select-wrap
-            = select_tag "category" , options_for_select({'---':'---','トップス':'トップス','ジャケット/アウター':'ジャケット/アウター','パンツ':'パンツ'}), class: "select_tag", id: "item_category_id"
+            = select_tag "category" , options_for_select({'---':'---','トップス':'13','ジャケット/アウター':'14','パンツ':'15'}), class: "select_tag", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
           
           .select-wrap
-            = f.select :category_id, options_for_select({'---':'---','Tシャツ':'Tシャツ','シャツ':'シャツ','ポロシャツ':'ポロシャツ'}), class: "select_tag", id: "item_category_id"
+            = f.select :category_id, options_for_select({'---':'---','Tシャツ':'16','シャツ':'17','ポロシャツ':'18'}), class: "select_tag", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
@@ -86,7 +97,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :size_id, options_for_select({'---':'---','XXS以下':'XXS以下','XS(SS)':'XS(SS)','S':'S','M':'M','L':'L','XL(LL)':'XL(LL)','2XL(3L)':'2XL(3L)','3XL(4L)':'3XL(4L)','4XL(5L)以上':'4XL(5L)以上','FREE SIZE':'FREE SIZE'}), class: "select_tag", id: "item_size_id"
+            = f.select :size_id, options_for_select({'---':'---','XXS以下':'1','XS(SS)':'2','S':'3','M':'4','L':'5','XL(LL)':'6','2XL(3L)':'7','3XL(4L)':'8','4XL(5L)以上':'9','FREE SIZE':'10'}), class: "select_tag", id: "item_size_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
         
