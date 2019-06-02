@@ -20,6 +20,7 @@
 
   .item {
     width: 700px;
+    padding-bottom: 150px;
     margin: 0 auto;
     background-color: $white;
 
@@ -66,6 +67,12 @@
         display: inline;
       }
 
+      .form {
+        border:1px solid $border_gray {
+          radius: 0.3rem;
+        }
+      }
+
       .text_field {
         @extend .form;
         width: 597px;
@@ -83,6 +90,12 @@
       }
     }
 
+    .box {
+      box-sizing: border-box;
+      border-bottom: 0.09px solid $border_gray;
+      padding: 40px;
+    }
+
     &__img {
       @extend .box;
 
@@ -96,16 +109,9 @@
         background-color: #f5f5f5;
         border: dashed 0.2px rgb(207, 206, 206);
         padding: 70px 155px;
-        position: relative;
-        cursor: pointer;
 
         &__discription {
           text-align: center;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -webkit-transform : translate(-50%,-50%);
-          transform : translate(-50%,-50%);
 
           a {
             text-align: center;
@@ -120,9 +126,6 @@
               padding-left: 30px;
             }
           }
-
-          &__file-field {
-          }
         }
       }
     }
@@ -136,68 +139,34 @@
 
       &__form_box {
         margin-left: 250px;
-
-        &__category {
-          margin: 0;
-        }
-
-        &__size, &__brand, &__condition {
-          margin-top: 40px;
-
-          .optional__icon  {
-            background: $fa_icon_gray;
-            margin: 0 0 0 8px;
-            padding: 2px 4px;
-            border-radius: 2px;
-            color: $white;
-            font-size: 12px;
-          }
-        }
-
-        .select-wrap {
-          width: 100%;
-          position: relative;
-          z-index: 2;
-          height: 48px;
-          margin: 8px 0 0;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: 0;
-          font-size: 16px;
-          line-height: 1.5;
-          cursor: pointer;
-
-          .text_field {
-            @extend .form;
-            width: 100%;
-            padding: 0 16px;
-
-            font-size: 16px;
-            color: $form_gray;
-            line-height: 48px;
-          }
-
-          #item_category_id, #item_size_id, #item_condition {
-            @extend .form;
-            width: 100%;
-            height: 100%;
-            padding: 0 16px;
-
-            font-size: 16px;
-            color: $form_gray;
-            line-height: 1.5;
-            cursor: pointer;
-          }
-
-          .fa_icon {
-            color: $fa_icon_gray;
-            position: absolute;
-            top: 50%;
-            right: 16px;
-            transform: translate(0, -50%);
-          }
-        }
       }
+    }
+
+    .select_tag {
+      @extend .form;
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      color: $form_gray;
+      margin-bottom: 20px;
+      padding-left: 15px;
+    }
+
+    .select_tag_2 {
+      @extend .form;
+      width: 354px;
+      height: 50px;
+      font-size: 16px;
+      color: $form_gray;
+      margin-bottom: 20px;
+      padding-left: 15px;
+    }
+
+    i.fa_icon {
+      color: $fa_icon_gray;
+      position: absolute;
+      top: 53px;
+      left: 340px;
     }
 
     #id_prefecture_id {
@@ -210,53 +179,6 @@
 
       &__form_box {
         margin-left: 250px;
-
-        .delivery-type, .delivery-from-area, .delivery-days {
-          margin-top: 40px;
-        }
-
-        .select-wrap {
-          width: 100%;
-          position: relative;
-          z-index: 2;
-          height: 48px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: 0;
-          font-size: 16px;
-          line-height: 1.5;
-          cursor: pointer;
-
-          #item_delivery_fee_payer,#item_delivery_type,#item_delivery_days,#item_delibery_from_area {
-            @extend .form;
-            width: 100%;
-            height: 100%;
-            padding: 0 16px;
-
-            font-size: 16px;
-            color: $form_gray;
-            line-height: 1.5;
-            cursor: pointer;
-          }
-
-          .select_tag_2 {
-            @extend .form;
-            width: 354px;
-            height: 50px;
-            font-size: 16px;
-            color: $form_gray;
-            margin-bottom: 20px;
-            padding-left: 15px;
-          }
-
-          .fa_icon {
-            color: $fa_icon_gray;
-            position: absolute;
-            top: 50%;
-            right: 16px;
-            transform: translate(0, -50%);
-          }
-        }
       }
     }
 
@@ -318,11 +240,10 @@
         @extend .form;
         color: $form_gray;
         width: 110px;
-        height: 20px;
+        height: 40px;
         font-size: 16px;
-        margin-left: 10px;
-        padding: 10px 16px;
-        text-align: right;
+        margin-left: 30px;
+        padding-left: 10px;
       }
 
       &__text_area_3 {
@@ -336,12 +257,8 @@
 
     .sell-btn {
       box-sizing: border-box;
-      height: 400px;
+      height: 200px;
       padding: 40px;
-
-      .dscription {
-        margin-bottom: 40px;
-      }
 
       .dscription p {
         color: $black;
