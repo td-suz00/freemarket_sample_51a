@@ -82,7 +82,7 @@
           %p.blue 利用規約
           %p に同意したものとみなします。
         .next-btn
-          = link_to "次へ進む", class:'next_btn'
+          = link_to "次へ進む","/users/1/signups/new", class:'next_btn'
         .link-box
           %li
             %p 本人情報の登録について
@@ -91,33 +91,3 @@
         .clearfix
 
 = render partial:'items/item_footer'
-
-
-
-
-
-
-
-
-
--# %h2 Sign up
--# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
--#   = render "devise/shared/error_messages", resource: resource
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .field
--#     = f.label :password
--#     - if @minimum_password_length
--#       %em
--#         (#{@minimum_password_length} characters minimum)
--#     %br/
--#     = f.password_field :password, autocomplete: "new-password"
--#   .field
--#     = f.label :password_confirmation
--#     %br/
--#     = f.password_field :password_confirmation, autocomplete: "new-password"
--#   .actions
--#     = f.submit "Sign up"
--# = render "users/shared/links"

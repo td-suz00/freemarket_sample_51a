@@ -6,6 +6,9 @@
 @import "font-awesome";
 @import "modules/cards";
 @import "modules/items";
+@import "modules/signups";
+@import "modules/users";
+@import "modules/user_profiles";
 @import "partials/*";
 
 html,
@@ -13,8 +16,9 @@ body {
   margin: 0;
   padding: 0;
 
-  .mercari-wrapper{
+  .mercari-wrapper {
     background-color: $background_gray;
     font-family: $mercari_font;
   }
+
 }

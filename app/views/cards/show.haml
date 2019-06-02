@@ -1,0 +1,16 @@
+%header
+  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
+.sigup-complete
+  .sigup__title
+    %h2 会員登録完了
+    .sigup__info-container
+      .description
+        %span.thanks ありがとうございます。
+        %br
+        %span.complete 会員登録が完了しました。
+      .clearfix
+    .start-btn
+      = link_to "メルカリをはじめる","/users/1", class:'sms-btn'
+    .clearfix
+    = image_tag 'register_complete_img.png',size: "800x300", class: "register_complete_img"
+= render partial:'items/item_footer'

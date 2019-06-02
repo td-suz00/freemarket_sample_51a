@@ -6,16 +6,16 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get "sign_in", to: "users/sessions#new"
-    get "sign_out", to: "users/sessions#destroy" 
+    get "sign_out", to: "users/sessions#destroy"
   end
 
   root 'items#index'
 
   resources :items, only: :new
-  resources :users, only: :show do
-    resources :cards, only: [:index, :new]
-    resources :user_profiles, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :show] do
+    resources :cards, only: [:index, :new, :edit, :show]
+    resources :user_profiles, only: [:new, :edit]
     resources :logouts, only: :new
+    resources :signups, only: [:index, :new, :show]
   end
-
 end

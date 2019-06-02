@@ -1,10 +1,9 @@
-%header
-  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
 .user_mypage
   .user_mypage__container
-    .credit_3
+    = render partial:'users/user_side_menu'
+    .credit_2
       .credit__title
-        %h2 支払い方法
+        %h2 クレジットカード情報入力
       .credit__box_list
         %span カード番号
         .required__icon 必須
@@ -36,6 +35,4 @@
           %span.icon_question ?
           %p カード裏面の番号とは？
         .credit__btn_add
-          = link_to "次へ進む", " /users/1/cards/1", class:'credit_card'
-= render partial:'items/item_footer'
-
+          = link_to "追加する", class:'credit_card'

@@ -90,7 +90,7 @@
   }
 }
 
-// new
+// edit
 .credit_2 {
   background-color: $white;
   width: 700px;
@@ -150,16 +150,16 @@
   i.fa_icon_1 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 295px;
-    left: 280px;
+    top: 278px;
+    left: 275px;
     ;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 370px;
-    left: 280px;
+    top: 354px;
+    left: 275px;
     ;
   }
 
@@ -195,4 +195,177 @@
     }
 
   }
+}
+
+// new
+header {
+  height: 100px;
+  padding-top: 40px;
+
+  .header__logo-img {
+    display: block;
+
+    margin: 0 auto {
+      bottom: 30px;
+    }
+  }
+}
+
+.credit_3 {
+  background-color: $white;
+  width: 700px;
+  height: 730px;
+  margin-top: 31px;
+  margin: 0 auto;
+
+  .credit__box_list {
+    position: relative;
+
+    span {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+    }
+
+    .required__icon {
+      display: inline;
+    }
+
+    .form {
+      border:1px solid $border_gray {
+        radius: 0.3rem;
+      }
+    }
+
+    .text_field {
+      @extend .form;
+      width: 310px;
+      height: 50px;
+      font-size: 16px;
+      color: $form_gray;
+      padding-left: 10px;
+
+      margin: {
+        bottom: 5px;
+        top: 6px;
+      }
+    }
+  }
+
+  .select_tag {
+    @extend .form;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 15px;
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
+    }
+  }
+
+  i.fa_icon_1 {
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 278px;
+    left: 275px;
+    ;
+  }
+
+  i.fa_icon_2 {
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 354px;
+    left: 275px;
+    ;
+  }
+
+  .credit__box_question {
+    margin-left: 150px;
+
+    span.icon_question {
+      background-color: $light_blue;
+      border-radius: 10px;
+      padding: 1px 4px;
+      color: $white;
+      float: left;
+
+      margin: {
+        right: 4px;
+        top: 3px;
+      }
+
+      font: {
+        size: 0.1rem;
+        weight: bold;
+      }
+    }
+
+    p {
+      color: $light_blue;
+      display: inline-block;
+
+      font: {
+        size: 14px;
+        weight: 100;
+      }
+    }
+
+  }
+}
+
+// show
+.sigup-complete {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 500px;
+}
+
+.description {
+  margin-top: 10px;
+
+  .thanks {
+    font-size: 15px;
+    margin-left: 114px;
+  }
+
+  .complete {
+    font-size: 15px;
+    margin-left: 108px;
+  }
+}
+
+.start-btn {
+  background-color: $red;
+  width: 250px;
+  padding: 13px;
+  text-align: center;
+
+  padding: {
+    left: 30px;
+    right: 30px;
+  }
+
+  margin: {
+    top: 30px;
+    left: 250px;
+  }
+
+  a {
+    color: $white;
+    font-size: 0.9rem;
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+  }
+
+}
+
+.register_complete_img {
+  margin-top: 40px;
 }
