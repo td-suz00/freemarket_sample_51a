@@ -2,7 +2,7 @@
   .item__title
     %h2 商品の情報を入力
   
-  = form_for @item do |f|
+  = form_for @item, html:{ class: "dropzone", id: "item-dropzone" } do |f|
     .item__img
       %ul
         %li
@@ -12,14 +12,26 @@
       .clearfix
       %p 最大10枚までアップロードできます
 
-      = f.label :image_url, class: "img-field" do
-        .drop-box
-          .drop-box__discription
-            %a.top ドラッグアンドドロップ
-            %br
-            %a またはクリックしてファイルをアップロード
-            = f.file_field :image_url,  class: "drop-box__discription__file-field"
+      .dropzone-area
+        .dropzone-area__fallback
+          = f.file_field :image_url, multiple: true
 
+          %a.top ドラッグアンドドロップ
+          %br
+          %a またはクリックしてファイルをアップロード
+  
+  %script
+  :javascript
+    $(function() {
+      Dropzone.autoDiscover = false;
+
+      $(".dropzone").dropzone({
+        maxFilesize: 1,
+        addRemoveLinks: true
+      });
+    });
+
+  = form_for @item do |f|
     .item__info
       .item__info_name
       %ul

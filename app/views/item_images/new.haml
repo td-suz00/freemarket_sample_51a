@@ -1,0 +1,20 @@
+= form_for @item_image, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+  %h2.sell-form__header
+    商品情報を入力
+  .sell-form-container
+    %label.sell-form-container__label
+      出品画像
+    %span.sell-form-container__require
+      必須
+    = f.fields_for :product_images do |image|
+      .dropzone-container.clearfix
+        #preview
+        .dropzone-area
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            .input_area
+              = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+            %p ここをクリックしてください
+        #preview2
+        .dropzone-area2
+          = image.label :image, class: "dropzone-box", for: "upload-image" do
+            %p ここをクリックしてください

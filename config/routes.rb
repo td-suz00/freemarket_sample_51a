@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "sign_out", to: "users/sessions#destroy"
   end
 
-  root 'top#index'
+  root 'items#new'
 
   resources :purchases, only: :new
   resources :items, only: [:new, :create, :edit, :update]
@@ -19,5 +19,8 @@ Rails.application.routes.draw do
     resources :user_confirmations, only: [:create, :edit, :update]
     resources :logouts, only: :new
   end
+
+  resources :item_images, only: [:new, :create]
+
 
 end
