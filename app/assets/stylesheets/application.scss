@@ -5,6 +5,7 @@
 @import "font-awesome";
 @import "partials/*";
 @import "top";
+
 html,
 body {
   margin: 0;
@@ -14,5 +15,4 @@ body {
     background-color: $background_gray;
     font-family: $mercari_font;
   }
-
 }

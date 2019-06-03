@@ -7,6 +7,7 @@
       %h2 支払い方法
     = render partial:'cards/cards_detail'
     .credit__btn_add
-      = link_to "次へ進む", "#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:idに修正", class:'credit_card'
+      = link_to "次へ進む", "/users/1/cards/1", class:'credit_card'
+      -#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:idに修正
 = render partial:'items/item_footer'
 

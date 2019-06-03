@@ -23,29 +23,10 @@
   = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img_2"
 
   .login-btn
-    = link_to "ログイン","#### 仮置き。サーバサイド実装後、/users/:idに修正", class:'login_btn'
+    = link_to "ログイン","/users/1", class:'login_btn'
+    -#### 仮置き。サーバサイド実装後、/users/:idに修正
   %br
   %br
   %p.blue パスワードをお忘れの方
 
 = render partial:'items/item_footer'
-
-
-
--# %h2 Log in
--# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
--#   .field
--#     = f.label :email
--#     %br/
--#     = f.email_field :email, autofocus: true, autocomplete: "email"
--#   .field
--#     = f.label :password
--#     %br/
--#     = f.password_field :password, autocomplete: "current-password"
--#   - if devise_mapping.rememberable?
--#     .field
--#       = f.check_box :remember_me
--#       = f.label :remember_me
--#   .actions
--#     = f.submit "Log in"
--# = render "users/shared/links"
