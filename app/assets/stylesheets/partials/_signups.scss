@@ -20,7 +20,6 @@
     background-color: $white;
     height: 1515px;
 
-
     &__title {
       height: 110px;
       border-bottom: 0.09px solid $border_gray;
@@ -34,7 +33,6 @@
     }
 
     &__info-container {
-
       padding: {
         top: 35px;
         left: 210px;
@@ -85,7 +83,6 @@
           color: $form_gray;
           padding-left: 10px;
         }
-
       }
 
       .next-btn {
@@ -96,7 +93,6 @@
 
         margin: {
           top: 19px;
-          ;
         }
 
         a {
@@ -105,9 +101,7 @@
           display: inline;
           text-decoration: none;
         }
-
       }
-
     }
 
     .select_tag {
@@ -195,7 +189,6 @@
   }
 
   // new
-
   .sigup_sms {
     width: 800px;
     padding-bottom: 150px;
@@ -230,7 +223,6 @@
         }
       }
     }
-
   }
 
   .sms-btn {
@@ -255,7 +247,6 @@
       text-decoration: none;
       text-align: center;
     }
-
   }
 
   // show
@@ -281,7 +272,6 @@
 
 
       h3 {
-
         font: {
           weight: 600;
           size: 15px;
@@ -293,7 +283,6 @@
       border: {
         bottom: 1px solid $border_gray;
       }
-
     }
 
     .sms-btn_2 {
@@ -343,7 +332,6 @@
         right: 150px;
       }
 
-
       h3 {
         font: {
           weight: 600;
@@ -365,7 +353,6 @@
 
         span.blue {
           color: $light_blue;
-
         }
       }
     }
