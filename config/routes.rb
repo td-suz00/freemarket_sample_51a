@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-
+  get 'items/search_category' , to: 'items#search_category'
   devise_scope :user do
     get "sign_in", to: "users/sessions#new"
     get "sign_out", to: "users/sessions#destroy"
