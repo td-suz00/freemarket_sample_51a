@@ -70,14 +70,16 @@ $(function() {
         $(".grandchild_id")
           .parent()
           .css("display", "");
-        if (child_ids !== 1) {
-          child_ids.forEach(function(child) {
-            var html = foamHtml(child);
-            $(".grandchild_id").append(html);
-          });
-        } else {
-          appendErrMsgToHTML("一致する映画はありません");
+        if (child_ids.length == 1) {
+          $(".grandchild").empty();
+          $(".child_id")
+            .parent()
+            .css("display", "");
         }
+        child_ids.forEach(function(child) {
+          var html = foamHtml(child);
+          $(".grandchild_id").append(html);
+        });
       });
     }
   });
@@ -99,14 +101,15 @@ $(function() {
         $(".size_id").empty();
         $(".size_id").append(firstSelecthtml);
         $(".item__detail__form_box__size").css("display", "");
-        if (size_ids !== 1) {
-          size_ids.forEach(function(size) {
-            var html = foamHtml(size);
-            $(".size_id").append(html);
-          });
-        } else {
-          appendErrMsgToHTML("一致する映画はありません");
+        // size_idsが１の時はサイズがない時なので場合分け
+        if (size_ids.length == 1) {
+          $(".size_id").empty();
+          $(".item__detail__form_box__size").css("display", "none");
         }
+        size_ids.forEach(function(size) {
+          var html = foamHtml(size);
+          $(".size_id").append(html);
+        });
       });
     }
   });
