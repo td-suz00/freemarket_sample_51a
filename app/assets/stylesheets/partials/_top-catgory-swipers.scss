@@ -1,0 +1,58 @@
+.swiper-container {
+  height: 390px;
+  width: 100%;
+}
+.swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23fcfcfc'%2F%3E%3C%2Fsvg%3E") !important;
+  right: 60px !important;
+}
+.swiper-button-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23fcfcfc'%2F%3E%3C%2Fsvg%3E") !important;
+  left: 60px !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: black !important ;
+}
+.camp-slide {
+  background-image: image-url("banner-camp.jpg");
+  height: 390px;
+  background-position: center center;
+}
+.natsukashi-slide {
+  background-image: image-url("banner-natsukashi.jpg");
+  height: 390px;
+  background-position: center center;
+}
+.mercari-info-slide {
+  background-image: image-url("banner-mercari-info-background.jpg");
+  height: 390px;
+  background-position: center center;
+  &__content {
+    margin: auto;
+    padding-top: 30px;
+    height: 100%;
+    width: 860px;
+    position: relative;
+    .hand-phone {
+      right: 60px;
+      top: 0px;
+      float: right;
+      position: absolute;
+    }
+    &__left {
+      height: 230px;
+      width: 336px;
+      &__title {
+        font-weight: bold;
+        font-size: 60px;
+        width: 600px;
+      }
+      &__content {
+        line-height: 34px;
+        padding-top: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}

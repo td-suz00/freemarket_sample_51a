@@ -1,0 +1,104 @@
+.top
+  / Slider main container
+  .swiper-container
+    / Additional required wrapper
+    .swiper-wrapper
+      / Slides
+      .swiper-slide.camp-slide 
+      .swiper-slide.natsukashi-slide 
+      .swiper-slide.mercari-info-slide 
+        .mercari-info-slide__content
+          = image_tag "banner-mercari-info-hand-phone.png", width: "390", height: "390"  ,class:"hand-phone"
+          .mercari-info-slide__content__left
+            .mercari-info-slide__content__left__title
+              スマホでかんたん
+              %br/
+              フリマアプリ  
+            .mercari-info-slide__content__left__content 
+              メルカリはスマホカメラからすぐに出品できる
+              %br/
+              購入時も安心な独自システムのアプリです
+              %br/
+              %br/
+        = image_tag "banner-mercari-info-apple.svg", width: "128", height: "39"  ,class:"banner-mercari-info-hand-phone"
+        = image_tag "banner-mercari-info-google-play.svg", width: "128", height: "39"  ,class:"banner-mercari-info-hand-phone"
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+  .pickup-categories
+    .pickup-categories__title ピックアップカテゴリー
+    .pickup-category
+      = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-category__title'
+      .item-box.clearfix
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__like
+              %i.far.fa-heart
+              2
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+    .pickup-category
+      = link_to 'メンズ 新着アイテム(signup)',new_user_registration_path,class:'pickup-category__title'
+      .item-box.clearfix
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+        .item
+          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          .item__lower
+            .item__lower__name LV トートバッグ
+            .item__lower__like
+              %i.far.fa-heart
+              2
+            .item__lower__price ¥800
+            .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
+:javascript
+  var mySwiper = new Swiper ('.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    autoplay:true,
+    loop: true
+  })
