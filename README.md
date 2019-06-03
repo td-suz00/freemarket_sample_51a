@@ -7,12 +7,16 @@
 
 ### Association
 - has_many :comments
-- has_many :buyed_items, foreign_key: :buyer_id, class_name: :Item
-- has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: :seller_id, class_name: :Item
-- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: :seller_id, class_name: :Item
 - has_many :post_reviews, foreign_key: :reviewer_id, class_name: :Review
 - has_many :receive_reviews, foreign_key: :reviewed_id, class_name: :Review
 - has_one :profile
+- has_one :card
+- has_many :buyed_deals, foreign_key: :buyer_id, class_name: :Deal
+- has_many :selling_deals, -> { where("buyer_id is NULL") }, foreign_key: :seller_id, class_name: :Deal
+- has_many :sold_deals, -> { where("buyer_id is not NULL") }, foreign_key: :seller_id, class_name: :Deal
+- has_many :buyed_items, through: :buyed_deals, source: :item
+- has_many :selling_items, through: :selling_deals, source: :item
+- has_many :sold_items, through: :sold_deals, source: :item
 
 ---
 # Profiles
@@ -31,6 +35,17 @@
 |address_building_name|STRING||
 |birth_ymd|DATE|null: false|
 |phone_number|STRING|unique: true|
+|user_id|REFERENCES|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+---
+# Cards
+|Column|Type|Options|
+|------|----|-------|
+|customer_id|STRING|null: false, unique: true|
+|card_id|STRING|null: false, unique: true|
 |user_id|REFERENCES|null: false, foreign_key: true|
 
 ### Association
@@ -63,18 +78,42 @@
 |delibery_from_area|STRING|null: false|
 |delivery_days|STRING|null: false|
 |category_id|REFERENCES|null: false, foreign_key: true|
-|seller_id|REFERENCES|null: false, foreign_key: true|
-|buyer_id|REFERENCES|optional: true, foreign_key: true|
 |brand_id|REFERENCES|optional: true, foreign_key: true|
 
 ### Association
-- belongs_to :seller, class_name: :User
-- belongs_to :buyer, class_name: :User
 - has_many :comments
 - has_many :item_images
+- accepts_nested_attributes_for :item_images
+- has_one :deal
 - belongs_to :size
 - belongs_to :category
 - belongs_to :brand
+
+---
+# Deals
+|Column|Type|Options|
+|------|----|-------|
+|charge_id|STRING|unique: true|
+|deal_at|DATETIME||
+|buyer_id|REFERENCES|optional: true, foreign_key: true|
+|seller_id|REFERENCES|null: false, foreign_key: true|
+|status_id|REFERENCES|null: false, foreign_key: true, default: 1|
+|item_id|REFERENCES|null: false, foreign_key: true|
+
+### Association
+- belongs_to :buyer, foreign_key: :buyer_id, class_name: :User, optional: true
+- belongs_to :seller, foreign_key: :seller_id, class_name: :User
+- belongs_to :status
+- belongs_to :item
+
+---
+# Statuses
+|Column|Type|Options|
+|------|----|-------|
+|name|STRING|null: false, unique: true|
+
+### Association
+- has_many: deals
 
 ---
 # sizes
