@@ -118,11 +118,11 @@
       }
     }
 
-    i.fa_icon_1 {
+    .fa_icon_1 {
       font-size: 0.9rem;
       color: $fa_icon_gray;
       position: absolute;
-      top: 1090px;
+      top: 1083px;
       left: 70px;
     }
 
@@ -355,5 +355,61 @@
           color: $light_blue;
         }
       }
+    }
+  }
+
+
+  #page_updated_at_1i {
+    @extend .form;
+    width: 90px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 20px;
+    float: left;
+
+    margin: {
+      bottom: 5px;
+      top: 6px;
+    }
+  }
+
+  #page_updated_at_2i {
+    @extend .form;
+    width: 90px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 20px;
+    float: left;
+
+    margin: {
+      bottom: 5px;
+      top: 6px;
+    }
+  }
+
+  sub.left {
+    float: left;
+
+    margin: {
+      top: 24px;
+      left: 5px;
+      ;
+    }
+  }
+
+  .select_tag_left {
+    @extend .form;
+    width: 90px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 15px;
+    float: left;
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
     }
   }

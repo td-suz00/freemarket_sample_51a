@@ -252,7 +252,7 @@ header {
 
   .select_tag {
     @extend .form;
-    width: 100px;
+    width: 90px;
     height: 50px;
     font-size: 16px;
     color: $form_gray;
@@ -268,14 +268,14 @@ header {
     color: $fa_icon_gray;
     position: absolute;
     top: 278px;
-    left: 275px;
+    left: 265px;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 354px;
-    left: 275px;
+    top: 342px;
+    left: 265px;
   }
 
   .credit__box_question {
@@ -362,4 +362,30 @@ header {
 
 .register_complete_img {
   margin-top: 40px;
+}
+
+// detail
+#page_updated_at_2i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 20px;
+  float: left;
+
+  margin: {
+    bottom: 5px;
+    top: 6px;
+  }
+}
+
+sub.month {
+  float: left;
+
+  margin: {
+    top: 24px;
+    left: 5px;
+    ;
+  }
 }

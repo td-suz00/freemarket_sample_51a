@@ -111,12 +111,20 @@ header {
     height: 50px;
     font-size: 16px;
     color: $form_gray;
-    padding-left: 15px;
+
+    padding: {
+      left: 15px;
+    }
 
     margin: {
       bottom: 20px;
       top: 7px;
-      left: 10px;
+      left: 110px;
+    }
+
+    #id_prefecture_id {
+      padding-top: 16px;
+      color: $form_gray;
     }
   }
 
