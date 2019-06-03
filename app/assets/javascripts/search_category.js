@@ -149,30 +149,13 @@ $(function() {
     }
   });
 
-  $("#user-search-field").on("keyup", function() {
-    var input = $("#user-search-field").val();
-    $.ajax({
-      type: "GET",
-      url: "/users",
-      data: { keyword: input },
-      dataType: "json"
-    })
+  $(".sell-price__text_area_2").on("keyup", function() {
+    var input = $(".sell-price__text_area_2").val();
+    console.log(parseInt(input / 10));
+    var fee = parseInt(input / 10);
 
-      .done(function(users) {
-        $("#user-search-result").empty();
-        if (users.length !== 0) {
-          users.forEach(function(user) {
-            var html = appendUser(user);
-            $("#user-search-result").append(html);
-          });
-        } else {
-          var html = appendErrMsgToHTML("一致するユーザーはありません");
-          $("#user-search-result").append(html);
-        }
-      })
-
-      .fail(function() {
-        alert("ユーザー検索に失敗しました");
-      });
+    if (isNaN(fee)) {
+      console.log(parseInt(input / 10));
+    }
   });
 });
