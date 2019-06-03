@@ -18,6 +18,20 @@ class ItemsController < ApplicationController
   def update
   end
 
+  def search_category
+
+    if params[:parent_id].to_i >=159
+
+      @children=Category.find(params[:parent_id]).sizes
+    else
+      @children=Category.find(params[:parent_id]).children
+    end
+   respond_to do |format|
+     format.html
+     format.json
+   end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, item_images_attributes: [:id, :image_url, :item_id]).merge(seller_id: 1)
