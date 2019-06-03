@@ -81,3 +81,4 @@ gem 'erb2haml'
 gem 'devise'
 gem 'carrierwave'
 gem 'dropzonejs-rails'
+gem "jquery-rails"

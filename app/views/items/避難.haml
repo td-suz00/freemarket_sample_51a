@@ -1,27 +1,8 @@
 .item
   .item__title
     %h2 商品の情報を入力
-
-  = form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
-    .sell-form-container
-      %label.sell-form-container__label
-        出品画像
-      %span.sell-form-container__require
-        必須
-      = f.fields_for :item_images do |image|
-        .dropzone-container.clearfix
-          #preview
-          .dropzone-area
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              .input_area
-                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-              %p ここをクリックしてください
-          -# #preview2
-          -# .dropzone-area2
-          -#   = image.label :image, class: "dropzone-box", for: "upload-image" do
-          -#     %p ここをクリックしてください
-
-  = form_for @item do |f|
+  
+  = form_for @item, html: {multipart: true, class: "dropzone"} do |f|
     .item__img
       %ul
         %li
@@ -49,17 +30,16 @@
       -#     %br
       -#     %a またはクリックしてファイルをアップロード
   
-      -# %script
-      -# :javascript
-      -#   $(function() {
-      -#     Dropzone.autoDiscover = false;
+    %script
+    :javascript
+      $(function() {
+        Dropzone.autoDiscover = false;
 
-      -#     $(".dropzone").dropzone({
-      -#       maxFilesize: 1,
-      -#       addRemoveLinks: true
-      -#     });
-      -#   });
-
+        $(".dropzone").dropzone({
+          maxFilesize: 1,
+          addRemoveLinks: true
+        });
+      });
 
     .item__info
       .item__info_name
@@ -244,4 +224,3 @@
         %p もどる
 
 = render 'item_footer'
-
