@@ -180,12 +180,12 @@
         .line
           %p.fee
             販売手数料 (10%)
-          = text_field_tag :content, '                                                                         -', class: 'sell-price__text_area_3'
+          = text_field_tag :content, '-', class: 'sell-price__text_area_3 mercari-share'
 
         .sell-price__profit
           %h3.profit
             販売利益
-          = text_field_tag :content, '                                                                         -',class: 'sell-price__text_area_3'
+          = text_field_tag :content, '-',class: 'sell-price__text_area_3 seller-share'
     .sell-btn
       .dscription
         %span 禁止されている出品

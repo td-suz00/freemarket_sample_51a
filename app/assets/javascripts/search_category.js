@@ -151,11 +151,15 @@ $(function() {
 
   $(".sell-price__text_area_2").on("keyup", function() {
     var input = $(".sell-price__text_area_2").val();
-    console.log(parseInt(input / 10));
-    var fee = parseInt(input / 10);
 
-    if (isNaN(fee)) {
-      console.log(parseInt(input / 10));
+    var fee = parseInt(input / 10);
+    console.log(fee);
+    if (isNaN(fee) == false && input >= 300 && input <= 9999999) {
+      $(".mercari-share").val(fee);
+      $(".seller-share").val(input - fee);
+    } else {
+      $(".mercari-share").val("-");
+      $(".seller-share").val("-");
     }
   });
 });
