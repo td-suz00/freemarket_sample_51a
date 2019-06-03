@@ -6,7 +6,7 @@ $(function() {
     }</option>`;
     return html;
   }
-
+  // $(".root-of-delivery_type-for-css").css("display", "none");
   $(".item__detail__form_box__size").css("display", "none");
   $(".child_id")
     .parent()
@@ -70,11 +70,12 @@ $(function() {
         $(".grandchild_id")
           .parent()
           .css("display", "");
+        console.log(child_ids.length);
         if (child_ids.length == 1) {
           $(".grandchild").empty();
-          $(".child_id")
+          $(".grandchild_id")
             .parent()
-            .css("display", "");
+            .css("display", "none");
         }
         child_ids.forEach(function(child) {
           var html = foamHtml(child);
@@ -112,5 +113,66 @@ $(function() {
         });
       });
     }
+  });
+
+  $("#item_delivery_fee_payer").change(function() {
+    var fee_payer = $("#item_delivery_fee_payer").val();
+    $("#item_delivery_type").empty();
+    $("#item_delivery_type").append(firstSelecthtml);
+    if (fee_payer == "---") {
+      $(".root-of-delivery_type-for-css").attr(
+        "style",
+        "display: none !important;"
+      );
+    } else if (fee_payer == "送料込み（出品者負担）") {
+      $(".root-of-delivery_type-for-css").css("display", "");
+      $("#item_delivery_type").append(
+        ' <option value="未定">未定</option>\
+      <option value="らくらくメルカリ便">らくらくメルカリ便</option>\
+      <option value="ゆうメール">ゆうメール</option>\
+      <option value="レターパック">レターパック</option>\
+      <option value="普通郵便(定形、定形外)">普通郵便(定形、定形外)</option>\
+      <option value="クロネコヤマト">クロネコヤマト</option>\
+      <option value="ゆうパック">ゆうパック</option>\
+      <option value="クリックポスト">クリックポスト</option>\
+      <option value="ゆうパケット">ゆうパケット</option>'
+      );
+    } else if (fee_payer == "着払い（購入者負担）") {
+      $(".root-of-delivery_type-for-css").css("display", "");
+      $("#item_delivery_type").append(
+        ' <option value="未定">未定</option>\
+      <option value="クロネコヤマト">クロネコヤマト</option>\
+      <option value="ゆうパック">ゆうパック</option>\
+      <option value="ゆうメール">ゆうメール</option>\
+      <option value="ゆうパック">ゆうパック</option>'
+      );
+    }
+  });
+
+  $("#user-search-field").on("keyup", function() {
+    var input = $("#user-search-field").val();
+    $.ajax({
+      type: "GET",
+      url: "/users",
+      data: { keyword: input },
+      dataType: "json"
+    })
+
+      .done(function(users) {
+        $("#user-search-result").empty();
+        if (users.length !== 0) {
+          users.forEach(function(user) {
+            var html = appendUser(user);
+            $("#user-search-result").append(html);
+          });
+        } else {
+          var html = appendErrMsgToHTML("一致するユーザーはありません");
+          $("#user-search-result").append(html);
+        }
+      })
+
+      .fail(function() {
+        alert("ユーザー検索に失敗しました");
+      });
   });
 });
