@@ -11,14 +11,22 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
-  resources :purchases, only: :new
-  resources :items, only: [:new, :create, :edit, :update]
+  resources :items, only: [:new, :create, :edit, :update] do
+    resources :purchases, only: :new
+  end
+
   resources :users, only: [:new, :show] do
-    resources :cards, only: [:index, :new, :edit, :show]
+    resources :cards, only: [:index, :new, :edit, :show] do
+      collection do
+        post 'pay', to: 'cards#pay'
+        post 'delete', to: 'cards#delete'
+      end
+    end
     #### :showは仮置き。signup#doneなどのアクションにあてるのが良いか
     resources :user_profiles, only: [:new, :create, :edit, :update]
     resources :user_confirmations, only: [:create, :edit, :update]
     resources :logouts, only: :new
     resources :signups, only: [:index, :new, :show]
   end
+
 end

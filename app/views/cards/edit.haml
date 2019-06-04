@@ -4,6 +4,4 @@
     .credit_2
       .credit__title
         %h2 クレジットカード情報入力
-      = render partial:'cards/cards_detail'
-      .credit__btn_add-2
-        = link_to "追加する", class:'credit_card'
+      = render partial:'cards/cards_detail', locals: { edit_flag: true }

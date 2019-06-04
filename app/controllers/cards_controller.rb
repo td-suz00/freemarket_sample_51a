@@ -11,25 +11,26 @@ class CardsController < ApplicationController
 
   def new
     render layout: 'application-off-header-footer.haml'
-    card = Card.where(user_id: 1)
-    #### 仮置き user_id: current_user.id
-    if card.blank?
-      @card = Card.new
-    else
-      redirect_to action: :edit
-    end
+    # card = Card.where(user_id: 100)
+    # #### 仮置き user_id: current_user.id
+    # if card.blank?
+    #   @card = Card.new
+    # else
+    #   redirect_to action: :edit, id: 1
+      #### 仮置き id: card.id
+    # end
   end
 
   def edit
     card = Card.where(user_id: 1).first
     #### 仮置き user_id: current_user.id
-    if card.blank?
-      redirect_to action: :new
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
-    end
+    # if card.blank?
+    #   redirect_to action: :new
+    # else
+    #   Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
+    #   customer = Payjp::Customer.retrieve(card.customer_id)
+    #   @default_card_information = customer.cards.retrieve(card.card_id)
+    # end
   end
 
   def pay #payjpとCardのデータベース作成を実施
