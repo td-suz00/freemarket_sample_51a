@@ -2,25 +2,6 @@
   .item__title
     %h2 商品の情報を入力
 
-  = form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
-    .sell-form-container
-      %label.sell-form-container__label
-        出品画像
-      %span.sell-form-container__require
-        必須
-      = f.fields_for :item_images do |image|
-        .dropzone-container.clearfix
-          #preview
-          .dropzone-area
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              .input_area
-                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-              %p ここをクリックしてください
-          -# #preview2
-          -# .dropzone-area2
-          -#   = image.label :image, class: "dropzone-box", for: "upload-image" do
-          -#     %p ここをクリックしてください
-
   = form_for @item do |f|
     .item__img
       %ul
@@ -31,35 +12,63 @@
       .clearfix
       %p 最大10枚までアップロードできます
 
-      = f.label :item_images, class: "img-field" do
-        .drop-box
-          .drop-box__discription
-            %a.top ドラッグアンドドロップ
-            %br
-            %a またはクリックしてファイルをアップロード
+      -# = f.label :item_images, class: "img-field" do
 
-            = f.fields_for :item_images, @item.item_images do |image|
-              = image.file_field :image_url, class: "drop-box__discription__file-field"
+      -# ここがdropzone
+      = f.fields_for :item_images, @item.item_images do |image|
+        .dropzone-container.clearfix
+          #preview
+          -# １〜５枚目プレビュー表示
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+              .input_area-description
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+              
+        .dropzone-container2.clearfix
+          #preview2
+          -# １〜５枚目プレビュー表示
+          .dropzone-area2
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+              .item-iretene
+                %a.top ドラッグアンドドロップ
+                %br
+                %a またはクリックしてファイルをアップロード
+      
 
-      -# .dropzone-area
-      -#   .dropzone-area__fallback
-      -#     = f.file_field :image_url, multiple: true
 
-      -#     %a.top ドラッグアンドドロップ
-      -#     %br
-      -#     %a またはクリックしてファイルをアップロード
-  
-      -# %script
-      -# :javascript
-      -#   $(function() {
-      -#     Dropzone.autoDiscover = false;
+        -# = form_for @item do |f|
+        -#   .item__img
+        -#     %ul
+        -#       %li
+        -#         %h3 出品画像
+        -#       %li
+        -#         .required__icon 必須
+        -#     .clearfix
+        -#     %p 最大10枚までアップロードできます
 
-      -#     $(".dropzone").dropzone({
-      -#       maxFilesize: 1,
-      -#       addRemoveLinks: true
-      -#     });
-      -#   });
+        -#     = f.label :item_images, class: "img-field" do
+        -#       .drop-box
+        -#         .drop-box__discription
+        -#           %a.top ドラッグアンドドロップ
+        -#           %br
+        -#           %a またはクリックしてファイルをアップロード
 
+        -#           = f.fields_for :item_images, @item.item_images do |image|
+        -#             = image.file_field :image_url, class: "drop-box__discription__file-field"
+
+        -# .dropzone-area
+        -#   .dropzone-area__fallback
+        -#     = f.file_field :image_url, multiple: true
+
+        -#     %a.top ドラッグアンドドロップ
+        -#     %br
+        -#     %a またはクリックしてファイルをアップロード
 
     .item__info
       .item__info_name

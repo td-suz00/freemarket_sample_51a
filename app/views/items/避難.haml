@@ -22,14 +22,6 @@
             = f.fields_for :item_images, @item.item_images do |image|
               = image.file_field :image_url, class: "drop-box__discription__file-field"
 
-      -# .dropzone-area
-      -#   .dropzone-area__fallback
-      -#     = f.file_field :image_url, multiple: true
-
-      -#     %a.top ドラッグアンドドロップ
-      -#     %br
-      -#     %a またはクリックしてファイルをアップロード
-  
     %script
     :javascript
       $(function() {

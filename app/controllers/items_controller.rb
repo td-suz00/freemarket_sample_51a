@@ -7,8 +7,19 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.create(item_params)
-    redirect_to root_path
+    @item = Item.create(item_params)
+    respond_to do |format|
+      if @item.save
+        binding.pry
+        params[:item_images][:image].each do |image|
+          @item.item_images.create(image_url: image, item_id: @item.id)
+        end
+        format.html{redirect_to root_path}
+      else
+        @item.item_images.build
+        format.html{render action: "new"}
+      end
+    end
   end
 
   def edit
