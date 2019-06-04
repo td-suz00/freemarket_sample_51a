@@ -1,4 +1,5 @@
 $(function() {
+  // ドロップリストの選択肢をjsonデータからhtmlにする関数
   var firstSelecthtml = `<option value="---">---</option>`;
   function foamHtml(search_result) {
     var html = `<option value="${search_result.id}">${
@@ -6,7 +7,8 @@ $(function() {
     }</option>`;
     return html;
   }
-  // $(".root-of-delivery_type-for-css").css("display", "none");
+  // 初期設定：後から出てくるドロップダウンリストをdisplay：noneで隠す
+  $(".root-of-delivery_type-for-css").css("display", "none");
   $(".item__detail__form_box__size").css("display", "none");
   $(".child_id")
     .parent()
@@ -14,7 +16,8 @@ $(function() {
   $(".grandchild_id")
     .parent()
     .css("display", "none");
-
+  $(".item__detail__form_box__brand").css("display", "none");
+  // 親カテゴリーが入力されたとき子カテゴリーを生成
   $(".parent_id").change(function() {
     var parent_id = $(".parent_id").val();
     if (parent_id === "---") {
@@ -35,20 +38,17 @@ $(function() {
         $(".child_id").empty();
         $(".child_id")
           .parent()
+          // display:noneの解除
           .css("display", "");
-        if (child_ids !== 1) {
-          $(".child_id").append(firstSelecthtml);
-          child_ids.forEach(function(child) {
-            var html = foamHtml(child);
-            $(".child_id").append(html);
-          });
-        } else {
-          appendErrMsgToHTML("一致する映画はありません");
-        }
+        $(".child_id").append(firstSelecthtml);
+        child_ids.forEach(function(child) {
+          var html = foamHtml(child);
+          $(".child_id").append(html);
+        });
       });
     }
   });
-
+  // 子カテゴリーが入力されたとき孫カテゴリーを生成
   $(".child_id").change(function() {
     // var input = $(".search__query").val();
     var parent_id = $(".child_id").val();
@@ -85,8 +85,8 @@ $(function() {
     }
   });
 
+  // 孫カテゴリーが入力されたときサイズカテゴリーを生成
   $(".grandchild_id").change(function() {
-    // var input = $(".search__query").val();
     var parent_id = $(".grandchild_id").val();
     console.log(parent_id);
     if (parent_id === "---") {
@@ -102,6 +102,7 @@ $(function() {
         $(".size_id").empty();
         $(".size_id").append(firstSelecthtml);
         $(".item__detail__form_box__size").css("display", "");
+        $(".item__detail__form_box__brand").css("display", "");
         // size_idsが１の時はサイズがない時なので場合分け
         if (size_ids.length == 1) {
           $(".size_id").empty();
@@ -115,6 +116,7 @@ $(function() {
     }
   });
 
+  // 配送料の支払い元が確定した時点で配送方法のドロップダウンリストを生成。
   $("#item_delivery_fee_payer").change(function() {
     var fee_payer = $("#item_delivery_fee_payer").val();
     $("#item_delivery_type").empty();
@@ -149,9 +151,9 @@ $(function() {
     }
   });
 
+  // 購入金額から手数料を計算する関数
   $(".sell-price__text_area_2").on("keyup", function() {
     var input = $(".sell-price__text_area_2").val();
-
     var fee = parseInt(input / 10);
     console.log(fee);
     if (isNaN(fee) == false && input >= 300 && input <= 9999999) {
@@ -161,5 +163,14 @@ $(function() {
       $(".mercari-share").val("-");
       $(".seller-share").val("-");
     }
+  });
+});
+
+$(function() {
+  $("#item_brand_id").autocomplete({
+    autoFocus: true,
+    source: "/items/auto_complete.json",
+    minLength: 1,
+    delay: 0
   });
 });
