@@ -104,8 +104,8 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          -webkit-transform : translate(-50%,-50%);
-          transform : translate(-50%,-50%);
+          -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 
           a {
             text-align: center;
@@ -121,8 +121,7 @@
             }
           }
 
-          &__file-field {
-          }
+          &__file-field {}
         }
       }
     }
@@ -141,10 +140,12 @@
           margin: 0;
         }
 
-        &__size, &__brand, &__condition {
+        &__size,
+        &__brand,
+        &__condition {
           margin-top: 40px;
 
-          .optional__icon  {
+          .optional__icon {
             background: $fa_icon_gray;
             margin: 0 0 0 8px;
             padding: 2px 4px;
@@ -171,18 +172,18 @@
             @extend .form;
             width: 100%;
             padding: 0 16px;
-
             font-size: 16px;
             color: $form_gray;
             line-height: 48px;
           }
 
-          #item_category_id, #item_size_id, #item_condition {
+          #item_category_id,
+          #item_size_id,
+          #item_condition {
             @extend .form;
             width: 100%;
             height: 100%;
             padding: 0 16px;
-
             font-size: 16px;
             color: $form_gray;
             line-height: 1.5;
@@ -211,7 +212,9 @@
       &__form_box {
         margin-left: 250px;
 
-        .delivery-type, .delivery-from-area, .delivery-days {
+        .delivery-type,
+        .delivery-from-area,
+        .delivery-days {
           margin-top: 40px;
         }
 
@@ -227,12 +230,14 @@
           line-height: 1.5;
           cursor: pointer;
 
-          #item_delivery_fee_payer,#item_delivery_type,#item_delivery_days,#item_delibery_from_area {
+          #item_delivery_fee_payer,
+          #item_delivery_type,
+          #item_delivery_days,
+          #item_delibery_from_area {
             @extend .form;
             width: 100%;
             height: 100%;
             padding: 0 16px;
-
             font-size: 16px;
             color: $form_gray;
             line-height: 1.5;

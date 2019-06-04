@@ -1,0 +1,18 @@
+%header
+  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+.user
+  .user__title
+    %h2 新規会員登録
+    .user__btn_container
+      .user__btn_mail
+        = fa_icon 'envelope', class:'mail-icon'
+        = link_to "メールアドレスで登録","/users/1/signups"
+        -#### 仮置き。サーバサイド実装後、/users/:user_id/signupsに修正
+      .user__btn_fb
+        = image_tag 'facebook_icon.png',size: "35x35" , class: "facebook-icon "
+        = link_to "Facebookで登録","＃"
+      .user__btn_google
+        = image_tag 'google_icon.png',size: "37x37" , class: "google-icon "
+        = link_to "Googleで登録","＃"
+
+= render partial:'items/item_footer'

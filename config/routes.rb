@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   resources :purchases, only: :new
   resources :items, only: [:new, :create, :edit, :update]
-  resources :users, only: :show do
-    resources :cards, only: [:index, :new]
+  resources :users, only: [:new, :show] do
+    resources :cards, only: [:index, :new, :edit, :show]
+    #### :showは仮置き。signup#doneなどのアクションにあてるのが良いか
     resources :user_profiles, only: [:new, :create, :edit, :update]
     resources :user_confirmations, only: [:create, :edit, :update]
     resources :logouts, only: :new
+    resources :signups, only: [:index, :new, :show]
   end
-
 end

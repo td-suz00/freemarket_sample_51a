@@ -5,7 +5,12 @@ class CardsController < ApplicationController
   def index
   end
 
+  def show
+    render layout: 'application-off-header-footer.haml'
+  end
+
   def new
+    render layout: 'application-off-header-footer.haml'
     card = Card.where(user_id: 1)
     #### 仮置き user_id: current_user.id
     if card.blank?
@@ -68,4 +73,5 @@ class CardsController < ApplicationController
     params.permit(:payjp-token)
     #### -でも動く？ stringか_か
   end
+
 end

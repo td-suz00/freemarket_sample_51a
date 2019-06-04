@@ -1,0 +1,138 @@
+// new
+header {
+  height: 100px;
+  padding-top: 40px;
+
+  .header__logo-img_signup {
+    display: block;
+
+    margin: {
+      bottom: 30px;
+      left: 70px;
+    }
+  }
+}
+
+.delivery {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 1180px;
+
+  &__title {
+    height: 110px;
+    border-bottom: 0.09px solid $border_gray;
+    font-size: 26px;
+
+    h2 {
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  &__info-container {
+    padding: {
+      top: 35px;
+      left: 210px;
+      right: 150px;
+    }
+
+    h3 {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+
+      float: left;
+      margin-top: 10px;
+    }
+
+    ul {
+      position: relative;
+
+      li {
+        float: left;
+
+        margin: {
+          bottom: 10px;
+        }
+      }
+
+      .required__icon {
+        display: inline;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      .form {
+        border:1px solid $border_gray {
+          radius: 0.3rem;
+        }
+      }
+
+      .text_field {
+        @extend .form;
+        width: 400px;
+        height: 50px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: $form_gray;
+        padding-left: 10px;
+      }
+    }
+
+    .next-btn {
+      background-color: $red;
+      width: 390px;
+      padding: 13px;
+      text-align: center;
+
+      margin: {
+        top: 19px;
+        ;
+      }
+
+      a {
+        color: $white;
+        font-size: 0.9rem;
+        display: inline;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .select-tag {
+    @extend .form;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+
+    padding: {
+      left: 15px;
+    }
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
+      left: 110px;
+    }
+
+    #id_prefecture_id {
+      padding-top: 16px;
+      color: $form_gray;
+    }
+  }
+
+  .fa-icon_4 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 515px;
+    right: 235px;
+  }
+}
