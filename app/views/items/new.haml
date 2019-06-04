@@ -1,4 +1,27 @@
+%script{:src => "https://code.jquery.com/ui/1.12.0/jquery-ui.min.js", :type => "text/javascript"}
 .item_wrapper
   %header
-    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+    = link_to (root_path) do
+      = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
   = render 'item'
+:css
+  <!--
+  .ui-autocomplete {
+    width:100px;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0px 0px 3px rgba(0, 0, 1, 1);
+      overflow-x: hidden;
+      padding-right: 20px;
+            background:white;
+            opacity:1;
+            z-index:10;
+  }
+  #jquery-ui-autocomplete label {
+      float: left;
+      margin-right: 0.5em;
+      color: black;
+      font-size: 15px;
+      background:white;
+  }
+  -->

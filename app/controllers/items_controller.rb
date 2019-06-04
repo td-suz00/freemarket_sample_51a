@@ -6,6 +6,12 @@ class ItemsController < ApplicationController
     render layout: 'application-off-header-footer.haml'
   end
 
+  def auto_complete
+    brands = Brand.select(:name).where("name like '" + params[:term].tr('ぁ-ん','ァ-ン') + "%'").order(:name)
+    brands = brands.map(&:name)
+    render json: brands.to_json
+  end
+
   def create
     item = Item.create(item_params)
     redirect_to root_path
