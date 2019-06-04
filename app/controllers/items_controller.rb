@@ -6,6 +6,12 @@ class ItemsController < ApplicationController
     render layout: 'application-off-header-footer.haml'
   end
 
+  def auto_complete
+    brands = Brand.select(:name).where("name like '" + params[:term].tr('ぁ-ん','ァ-ン') + "%'").order(:name)
+    brands = brands.map(&:name)
+    render json: brands.to_json
+  end
+
   def create
     @item = Item.create(item_params)
     respond_to do |format|
@@ -27,6 +33,20 @@ class ItemsController < ApplicationController
   end
 
   def update
+  end
+
+  def search_category
+
+    if params[:parent_id].to_i >=159
+
+      @children=Category.find(params[:parent_id]).sizes
+    else
+      @children=Category.find(params[:parent_id]).children
+    end
+   respond_to do |format|
+     format.html
+     format.json
+   end
   end
 
   private

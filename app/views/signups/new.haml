@@ -1,0 +1,31 @@
+%header
+  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
+.sigup_sms
+  .sigup__title
+    %h2 電話番号の確認
+    .sigup__info-container
+      %ul
+        %li
+          %h3 携帯電話の番号
+        .clearfix
+        = text_field_tag :content, '携帯電話の番号を入力',class: 'text_field'
+        .clearfix
+        %li
+          %p 本人確認のため、携帯電話番号のSMS (ショートメッセージサービス)を
+          %p 利用して認証を行います。
+        .clearfix
+        .sms-btn
+          = link_to "SMSを送信する","/users/1/signups/1", class:'sms-btn'
+          -#### 仮置き。サーバサイド実装後、/users/:user_id/signups/:idに修正
+        .clearfix
+          %br
+          %p 電話番号は本人確認や不正利用防止のために利用します。
+          %p 他のユーザーに公開されることはありません。
+        .link-box
+          %li
+            %p 電話番号の確認が必要な理由
+          %li
+            = fa_icon 'chevron-right', class:'arrow_blue'
+        .clearfix
+
+= render partial:'items/item_footer'

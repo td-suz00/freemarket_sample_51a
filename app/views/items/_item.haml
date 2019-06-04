@@ -12,6 +12,7 @@
       .clearfix
       %p 最大10枚までアップロードできます
 
+
       -# = f.label :item_images, class: "img-field" do
 
       -# ここがdropzone
@@ -70,6 +71,16 @@
         -#     %br
         -#     %a またはクリックしてファイルをアップロード
 
+
+      -# = f.label :item_images, class: "img-field" do
+      -#   .drop-box
+      -#     .drop-box__discription
+      -#       %a.top ドラッグアンドドロップ
+      -#       %br
+      -#       %a またはクリックしてファイルをアップロード
+      -#       = f.fields_for :item_images, @item.item_images do |image|
+      -#         = image.file_field :image_url, class: "drop-box__discription__file-field"
+
     .item__info
       .item__info_name
       %ul
@@ -102,17 +113,17 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = select_tag "category", options_for_select({'---':'1','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','スポーツ・レジャー':'8','ハンドメイド':'9','チケット':'10','自転車・オートバイ':'11','その他':'12'}), class: "select_tag", id: "item_category_id"
+            = select_tag "category", options_for_select({'---':'---','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','スポーツ・レジャー':'8','ハンドメイド':'9','チケット':'10','自転車・オートバイ':'11','その他':'12'}), class: "select_tag parent_id", id: "item_category_id"
+
+            = fa_icon 'chevron-down', class:'fa_icon' 
+          
+          .select-wrap
+            = select_tag "category" , options_for_select({'---':'---'}), class: "select_tag child_id", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
           
           .select-wrap
-            = select_tag "category" , options_for_select({'---':'13','トップス':'13','ジャケット/アウター':'14','パンツ':'15'}), class: "select_tag", id: "item_category_id"
-
-            = fa_icon 'chevron-down', class:'fa_icon'
-          
-          .select-wrap
-            = f.select :category_id, options_for_select({'---':'16','Tシャツ':'16','シャツ':'17','ポロシャツ':'18'}), class: "select_tag", id: "item_category_id"
+            = f.select :category_id, options_for_select({'---':'---'}),{} ,{class: "select_tag grandchild_id", id: "item_category_id"}
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
@@ -124,7 +135,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :size_id, options_for_select({'---':'1','XXS以下':'1','XS(SS)':'2','S':'3','M':'4','L':'5','XL(LL)':'6','2XL(3L)':'7','3XL(4L)':'8','4XL(5L)以上':'9','FREE SIZE':'10'}), class: "select_tag", id: "item_size_id"
+            = f.select :size_id, options_for_select({'---':'---','XXS以下':'1','XS(SS)':'2','S':'3','M':'4','L':'5','XL(LL)':'6','2XL(3L)':'7','3XL(4L)':'8','4XL(5L)以上':'9','FREE SIZE':'10'}), {},{class: "select_tag size_id", id: "item_size_id"}
 
             = fa_icon 'chevron-down', class:'fa_icon'
         
@@ -164,19 +175,20 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :delivery_fee_payer, options_for_select({'---':'---','送料込み（出品者負担）':'送料込み（出品者負担）','着払い（購入者負担）':'着払い（購入者負担）'}), class: "select_tag", id: "item_delivery_fee_payer"
+            = f.select :delivery_fee_payer, options_for_select({'---':'---','送料込み（出品者負担）':'送料込み（出品者負担）','着払い（購入者負担）':'着払い（購入者負担）'}), {},{class: "select_tag delivery_fee_payer", id: "item_delivery_fee_payer"}
             = fa_icon 'chevron-down', class:'fa_icon'
 
-        .delivery-type
-          %ul
-            %li
-              %h3 配送の方法
-            %li
-              .required__icon 必須
-          .clearfix
-          .select-wrap
-            = f.select :delivery_type, options_for_select({'---':'---','未定':'未定','らくらくメルカリ便':'らくらくメルカリ便','ゆうメール':'ゆうメール','レターパック':'レターパック','普通郵便(定形、定形外)':'普通郵便(定形、定形外)','クロネコヤマト':'クロネコヤマト','ゆうパック':'ゆうパック','クリックポスト':'クリックポスト','ゆうパケット':'ゆうパケット'}), class: 'select_tag', id: "item_delivery_type"
-            = fa_icon 'chevron-down', class:'fa_icon'
+        .root-of-delivery_type-for-css
+          .delivery-type
+            %ul
+              %li
+                %h3 配送の方法
+              %li
+                .required__icon 必須
+            .clearfix
+            .select-wrap
+              = f.select :delivery_type, options_for_select({'---':'---','未定':'未定','らくらくメルカリ便':'らくらくメルカリ便','ゆうメール':'ゆうメール','レターパック':'レターパック','普通郵便(定形、定形外)':'普通郵便(定形、定形外)','クロネコヤマト':'クロネコヤマト','ゆうパック':'ゆうパック','クリックポスト':'クリックポスト','ゆうパケット':'ゆうパケット'}), {}, id: "item_delivery_type"
+              = fa_icon 'chevron-down', class:'fa_icon'
 
         .delivery-from-area
           %ul
@@ -207,7 +219,7 @@
             = fa_icon 'chevron-down', class:'fa_icon'
 
     .sell-price
-      %h3.light_color 販売価格(3300〜9,999,999)
+      %h3.light_color 販売価格(300〜9,999,999)
       %span.icon_question ?
       .clearfix
       .sell-price__form_box
@@ -227,12 +239,12 @@
         .line
           %p.fee
             販売手数料 (10%)
-          = text_field_tag :content, '                                                                         -', class: 'sell-price__text_area_3'
+          = text_field_tag :content, '-', class: 'sell-price__text_area_3 mercari-share'
 
         .sell-price__profit
           %h3.profit
             販売利益
-          = text_field_tag :content, '                                                                         -',class: 'sell-price__text_area_3'
+          = text_field_tag :content, '-',class: 'sell-price__text_area_3 seller-share'
     .sell-btn
       .dscription
         %span 禁止されている出品
@@ -247,7 +259,6 @@
         %p に同意したことになります。
 
       = f.submit "出品する", class: "redbtn"
-      
       .clearfix
       .sell-btn__return
         %p もどる

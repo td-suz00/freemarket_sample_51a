@@ -1,0 +1,466 @@
+// 新規会員登録
+header {
+  height: 100px;
+  padding-top: 40px;
+
+  .header__logo-img {
+    display: block;
+
+    margin: 0 auto {
+      bottom: 30px;
+    }
+  }
+}
+
+.user {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 300px;
+
+  &__title {
+    height: 110px;
+    border-bottom: 0.09px solid $border_gray;
+    font-size: 26px;
+
+    h2 {
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  &__btn_container {
+    box-sizing: border-box;
+
+    padding: {
+      top: 35px;
+      left: 235px;
+      right: 100px;
+    }
+  }
+
+
+  &__btn_mail {
+    background-color: $border_gray;
+    width: 300px;
+    padding: 13px;
+
+    margin: {
+      top: 19px;
+    }
+
+    a {
+      color: $black;
+      font-size: 15px;
+      display: inline;
+      text-decoration: none;
+      text-align: center;
+      margin-left: 40px;
+    }
+
+    .mail-icon {
+      color: rgb(196, 189, 189);
+      margin-left: 5px;
+      margin-top: 6px;
+      text-align: center;
+      float: left;
+    }
+  }
+
+  &__btn_fb {
+    background-color: $facebook_blue;
+    width: 300px;
+    padding: 13px;
+
+    margin: {
+      top: 19px;
+    }
+
+    a {
+      line-height: center;
+      color: $white;
+      font-size: 15px;
+      display: inline;
+      text-decoration: none;
+      text-align: center;
+      margin-left: 40px;
+    }
+
+    .facebook-icon {
+      line-height: center;
+      text-align: center;
+      float: left;
+    }
+  }
+
+  &__btn_google {
+    border: 0.09px solid rgb(155, 152, 152);
+    background-color: $white;
+    width: 296px;
+    padding: 15px;
+
+    margin: {
+      top: 19px;
+    }
+
+    a {
+      color: $black;
+      font-size: 15px;
+      display: inline;
+      text-decoration: none;
+      text-align: center;
+      margin-left: 40px;
+    }
+
+    .google-icon {
+      line-height: center;
+      text-align: center;
+      float: left;
+    }
+  }
+}
+
+
+footer {
+  text-align: center;
+
+  nav {
+    display: inline-block;
+    text-align: center;
+
+    li {
+      float: left;
+      font-size: 0.7rem;
+
+      margin: {
+        top: 35px;
+        left: 20px;
+        bottom: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        color: $black;
+      }
+    }
+  }
+
+  .footer__logo-img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  small {
+    font: {
+      size: 12px;
+      weight: none;
+    }
+  }
+}
+
+// index
+header {
+  height: 100px;
+  padding-top: 40px;
+
+  .header__logo-img_signup {
+    display: block;
+
+    margin: {
+      bottom: 30px;
+      left: 70px;
+    }
+  }
+}
+
+.sigup {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 1515px;
+
+
+  &__title {
+    height: 110px;
+    border-bottom: 0.09px solid $border_gray;
+    font-size: 26px;
+
+    h2 {
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  &__info-container {
+
+    padding: {
+      top: 35px;
+      left: 210px;
+      right: 150px;
+    }
+
+    h3 {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+
+      float: left;
+      margin-top: 10px;
+    }
+
+    ul {
+      position: relative;
+
+      li {
+        float: left;
+
+        margin: {
+          bottom: 10px;
+        }
+      }
+
+      .required__icon {
+        display: inline;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      .form {
+        border:1px solid $border_gray {
+          radius: 0.3rem;
+        }
+      }
+
+      .text_field {
+        @extend .form;
+        width: 400px;
+        height: 50px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: $form_gray;
+        padding-left: 10px;
+      }
+
+    }
+
+    .next-btn {
+      background-color: $red;
+      width: 400px;
+      padding: 13px;
+      text-align: center;
+
+      margin: {
+        top: 19px;
+        ;
+      }
+
+      a {
+        color: $white;
+        font-size: 0.9rem;
+        display: inline;
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+  .select_tag {
+    @extend .form;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 15px;
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
+    }
+  }
+
+  i.fa_icon_1 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1090px;
+    left: 70px;
+  }
+
+  i.fa_icon_2 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1090px;
+    left: 200px;
+  }
+
+  i.fa_icon_3 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1090px;
+    left: 330px;
+  }
+
+  sub {
+    font-size: 0.9rem;
+    background: white;
+  }
+
+  .dscription p {
+    color: $black;
+    display: inline-block;
+    font-size: 12.8px;
+  }
+
+  p.blue {
+    font-size: 12.8px;
+    color: $light_blue;
+  }
+
+  p.gray {
+    font-size: 12.8px;
+    color: $form_gray;
+  }
+
+  .link-box {
+    margin: {
+      top: 40px;
+    }
+
+    p {
+      color: $light_blue;
+      font-size: 14px;
+      float: right;
+      margin-left: 260px;
+    }
+
+    .arrow_blue {
+      color: $light_blue;
+      font-size: 15px;
+      float: right;
+
+      padding: {
+        left: 3px;
+        top: 3px;
+      }
+    }
+  }
+}
+
+// ログイン
+header {
+  height: 100px;
+  padding-top: 40px;
+
+  .header__logo-img {
+    display: block;
+
+    margin: 0 auto {
+      bottom: 30px;
+    }
+  }
+}
+
+.login {
+  width: 600px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 600px;
+
+  &__info-container {
+
+    padding: {
+      top: 35px;
+      left: 150px;
+      right: 150px;
+    }
+
+    p {
+      font-size: 15px;
+      margin-left: 25px;
+    }
+
+    .login__btn_container {
+      padding: {
+        top: 10px;
+      }
+    }
+
+    .user__btn_new {
+      background-color: $light_blue;
+      width: 300px;
+      padding: 13px;
+
+      .new-register {
+        padding-left: 60px;
+      }
+
+      a {
+        margin-left: 40px;
+        color: $white;
+        font-size: 15px;
+        display: inline;
+
+        text: {
+          decoration: none;
+          align: center;
+        }
+      }
+    }
+  }
+
+  .form {
+    border:1px solid $border_gray {
+      radius: 0.3rem;
+    }
+  }
+
+  .text_field {
+    @extend .form;
+    width: 316px;
+    height: 50px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: $form_gray;
+    padding-left: 10px;
+  }
+
+  .rbot-img_2 {
+    margin-left: 150px;
+  }
+
+  .login-btn {
+    background-color: $red;
+    width: 300px;
+    padding: 13px;
+    text-align: center;
+
+    margin: {
+      top: 19px;
+      left: 150px;
+    }
+
+    a {
+      color: $white;
+      font-size: 0.9rem;
+      display: inline;
+      text-decoration: none;
+    }
+  }
+
+  p.blue {
+    font-size: 15px;
+    color: $light_blue;
+    margin-left: 150px;
+  }
+}
