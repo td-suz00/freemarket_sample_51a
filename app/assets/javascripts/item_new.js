@@ -28,7 +28,6 @@ $(function() {
         .parent()
         .css("display", "none");
     } else {
-      console.log(parent_id);
       $.ajax({
         type: "GET",
         url: "/items/search_category",
@@ -52,7 +51,6 @@ $(function() {
   $(".child_id").change(function() {
     // var input = $(".search__query").val();
     var parent_id = $(".child_id").val();
-    console.log(parent_id);
     if (parent_id === "---") {
       $(".grandchild_id")
         .parent()
@@ -70,7 +68,6 @@ $(function() {
         $(".grandchild_id")
           .parent()
           .css("display", "");
-        console.log(child_ids.length);
         if (child_ids.length == 1) {
           $(".grandchild").empty();
           $(".grandchild_id")
@@ -88,7 +85,6 @@ $(function() {
   // 孫カテゴリーが入力されたときサイズカテゴリーを生成
   $(".grandchild_id").change(function() {
     var parent_id = $(".grandchild_id").val();
-    console.log(parent_id);
     if (parent_id === "---") {
       $(".size_id").empty();
       $(".size_id").append(firstSelecthtml);
@@ -155,7 +151,6 @@ $(function() {
   $(".sell-price__text_area_2").on("keyup", function() {
     var input = $(".sell-price__text_area_2").val();
     var fee = parseInt(input / 10);
-    console.log(fee);
     if (isNaN(fee) == false && input >= 300 && input <= 9999999) {
       $(".mercari-share").val(fee);
       $(".seller-share").val(input - fee);

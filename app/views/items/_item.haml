@@ -18,10 +18,8 @@
             %a.top ドラッグアンドドロップ
             %br
             %a またはクリックしてファイルをアップロード
-
             = f.fields_for :item_images, @item.item_images do |image|
               = image.file_field :image_url, class: "drop-box__discription__file-field"
-
     .item__info
       .item__info_name
       %ul
@@ -56,15 +54,15 @@
           .select-wrap
             = select_tag "category", options_for_select({'---':'---','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','スポーツ・レジャー':'8','ハンドメイド':'9','チケット':'10','自転車・オートバイ':'11','その他':'12'}), class: "select_tag parent_id", id: "item_category_id"
 
-            = fa_icon 'chevron-down', class:'fa_icon'
+            = fa_icon 'chevron-down', class:'fa_icon' 
           
           .select-wrap
-            = select_tag "category" , options_for_select({'---':'---','トップス':'13','ジャケット/アウター':'14','パンツ':'15'}), class: "select_tag child_id", id: "item_category_id"
+            = select_tag "category" , options_for_select({'---':'---'}), class: "select_tag child_id", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
           
           .select-wrap
-            = f.select :category_id, options_for_select({'---':'---','Tシャツ':'16','シャツ':'17','ポロシャツ':'18'}),{} ,{class: "select_tag grandchild_id", id: "item_category_id"}
+            = f.select :category_id, options_for_select({'---':'---'}),{} ,{class: "select_tag grandchild_id", id: "item_category_id"}
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
