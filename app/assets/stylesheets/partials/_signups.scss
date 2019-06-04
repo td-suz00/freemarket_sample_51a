@@ -118,7 +118,7 @@
       }
     }
 
-    .fa_icon_1 {
+    i.fa_icon_1 {
       font-size: 0.9rem;
       color: $fa_icon_gray;
       position: absolute;
@@ -370,7 +370,7 @@
 
     margin: {
       bottom: 5px;
-      top: 6px;
+      top: 10px;
     }
   }
 
@@ -385,7 +385,8 @@
 
     margin: {
       bottom: 5px;
-      top: 6px;
+      top: 10px;
+      left: 20px;
     }
   }
 
@@ -394,8 +395,7 @@
 
     margin: {
       top: 24px;
-      left: 5px;
-      ;
+      left: 10px;
     }
   }
 
@@ -410,6 +410,7 @@
 
     margin: {
       bottom: 20px;
-      top: 7px;
+      top: 10px;
+      left: 25px;
     }
   }

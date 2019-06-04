@@ -41,8 +41,8 @@
 
     margin: {
       top: 19px;
-      left: 200px;
     }
+
 
     a {
       color: $white;
@@ -194,6 +194,13 @@
   }
 }
 
+a {
+  color: $white;
+  font-size: 0.9rem;
+  display: inline;
+  text-decoration: none;
+}
+
 // new
 header {
   height: 100px;
@@ -250,7 +257,7 @@ header {
     }
   }
 
-  .select_tag {
+  .select-tag {
     @extend .form;
     width: 90px;
     height: 50px;
@@ -261,6 +268,7 @@ header {
     margin: {
       bottom: 20px;
       top: 7px;
+      left: 20px;
     }
   }
 
@@ -308,7 +316,6 @@ header {
         weight: 100;
       }
     }
-
   }
 }
 
@@ -365,6 +372,22 @@ header {
 }
 
 // detail
+
+#category {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 15px;
+
+  margin: {
+    bottom: 20px;
+    top: 10px;
+    left: 20px;
+  }
+}
+
 #page_updated_at_2i {
   @extend .form;
   width: 90px;
@@ -387,5 +410,17 @@ sub.month {
     top: 24px;
     left: 5px;
     ;
+  }
+}
+
+.credit__btn_add-2 {
+  background-color: $red;
+  width: 300px;
+  padding: 13px;
+  text-align: center;
+
+  margin: {
+    top: 19px;
+    left: 200px;
   }
 }
