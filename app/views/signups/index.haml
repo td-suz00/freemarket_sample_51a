@@ -64,15 +64,15 @@
         %li
           .required__icon 必須
         .clearfix
-        = select_tag 'category', options_for_select({'---':'---','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29'}),class: 'select_tag'
+        = date_select :page, :updated_at,class: 'select', use_month_numbers: true, discard_month: true, discard_day: true, start_year: 1900
         = fa_icon 'chevron-down', class:'fa_icon_1'
-        %sub 年
-        = select_tag 'category', options_for_select({'---':'---','01':'01','02':'02','03':'03','04':'04','05':'05','06':'06','07':'07','08':'08','09':'09','10':'10','11':'11','12':'12'}),class: 'select_tag'
+        %sub.left 年
+        = date_select :page, :updated_at,class: 'select', use_month_numbers: true, discard_year: true, discard_day: true
         = fa_icon 'chevron-down', class:'fa_icon_2'
-        %sub 月
-        = select_tag 'category', options_for_select({'---':'---','01':'01','02':'02','03':'03','04':'04','05':'05','06':'06','07':'07','08':'08','09':'09','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}),class: 'select_tag'
+        %sub.left 月
+        = select_tag 'category', options_for_select({'01':'01','02':'02','03':'03','04':'04','05':'05','06':'06','07':'07','08':'08','09':'09','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}),class: 'select_tag_left'
         = fa_icon 'chevron-down', class:'fa_icon_3'
-        %sub 日
+        %sub.left 日
         .clearfix
         .dscription
           %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
@@ -82,7 +82,8 @@
           %p.blue 利用規約
           %p に同意したものとみなします。
         .next-btn
-          = link_to "次へ進む", class:'next_btn'
+          = link_to "次へ進む","/users/1/signups/new", class:'next_btn'
+          -#### 仮置き。サーバサイド実装後、/users/:user_id/signups/newに修正
         .link-box
           %li
             %p 本人情報の登録について
