@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   get 'items/search_category' , to: 'items#search_category'
+    get 'items/auto_complete' , to: 'items#auto_complete'
   devise_scope :user do
     get "sign_in", to: "users/sessions#new"
     get "sign_out", to: "users/sessions#destroy"
