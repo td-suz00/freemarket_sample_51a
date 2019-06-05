@@ -8,20 +8,25 @@
       .item__info__inner-content
         .item__info__inner-content__image
           = image_tag 'ねこ２.jpg', height: '148', width: '148'
+          -#### 仮置き @item.images
         .item__info__inner-content__name
-          ねこ
+          %p
+            = @item.name
         .item__info__inner-content__subtotal
           .item__info__inner-content__subtotal__price
-            ¥1,980
+            %p
+              = "¥ #{@item.price.to_s(:delimited)}"
           .item__info__inner-content__subtotal__delivery-fee
-            %p 送料込み
+            %p
+              = @item.delivery_fee_payer
         .item__info__inner-content__point
           ポイントはありません
         .item__info__inner-content__account
           .item__info__inner-content__account__text
             支払い金額
           .item__info__inner-content__account__price
-            %p ¥ 1,980
+            %p
+              = "¥ #{(@item.price - 0).to_s(:delimited)}"
         .item__info__inner-content__purchase-btn
           購入する
     .item__address
@@ -35,6 +40,7 @@
             東京都 渋谷区神南 1-2-3
             %br
             目瑠可里 太郎
+            -#### 仮置き
           .item__address__inner-content__info__fix
             変更する
             %i >
@@ -44,6 +50,7 @@
           支払い方法
         .item__payment__inner-content__info
           .item__payment__inner-content__info__text
+            -#### 仮置き
             ************1234
             %br
             01 / 20
