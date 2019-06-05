@@ -1,7 +1,6 @@
 .item
   .item__title
     %h2 商品の情報を入力
-
   = form_for @item do |f|
     .item__img
       %ul
@@ -12,7 +11,6 @@
       .clearfix
       %p 最大10枚までアップロードできます
 
-      -# ここからdropzone
       = f.fields_for :item_images, @item.item_images do |image|
         .item__img__dropzone.clearfix
           #preview

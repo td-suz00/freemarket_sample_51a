@@ -87,7 +87,7 @@ $(document).on('turbolinks:load', function(){
     target_image_num = target_image.attr('data-image');
 
     // 対象の画像を削除した新たな配列を生成
-    images.splice( target_image_num, 1);
+    images.splice( target_image_num, 1 );
 
     // 削除後の配列の中身の数で条件分岐
     // 画像が４枚以下のとき

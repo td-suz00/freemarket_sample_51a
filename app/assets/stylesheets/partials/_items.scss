@@ -101,7 +101,6 @@
         #preview, #preview2 {
           float: left;
           height: 100%;
-
           // プレビュー画像のスタイル
           .add_img {
             float: left;
@@ -501,25 +500,3 @@
   height: 50px;
   line-height: 50px;
 }
-
-// &__discription {
-//   text-align: center;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   -webkit-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-
-//   a {
-//     text-align: center;
-
-//     font: {
-//       weight: 600;
-//       size: 0.8rem;
-//       family: sans-serif;
-//     }
-
-//     .top {
-//       padding-left: 30px;
-//     }
-//   }

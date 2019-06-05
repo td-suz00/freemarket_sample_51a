@@ -14,10 +14,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.create(item_params)
-    binding.pry
     respond_to do |format|
       if @item.save
-        # binding.pry
         params[:item_images][:image].each do |image|
           @item.item_images.create(image_url: image, item_id: @item.id)
         end
