@@ -27,8 +27,8 @@
           .item__info__inner-content__account__price
             %p
               = "¥ #{(@item.price - 0).to_s(:delimited)}"
-        .item__info__inner-content__purchase-btn
-          購入する
+        = form_tag(pay_item_purchases_path(@item), method: :post) do
+          = submit_tag "購入する", class: 'item__info__inner-content__purchase-btn'
     .item__address
       .item__address__inner-content
         .item__address__inner-content__heading

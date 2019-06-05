@@ -5,6 +5,5 @@
   .credit_3
     .credit__title
       %h2 支払い方法
-    = render partial:'cards/cards_detail'
+    = render partial:'cards/cards_detail', locals: { move_from_action: "new" }
 = render partial:'items/item_footer'
-

@@ -20,19 +20,15 @@
     %span セキュリティコード
     .required__icon 必須
     .clearfix
-    = text_field_tag :cvc, '',  class: 'text_field', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号'
+    = text_field_tag :cvc, '',  class: 'text_field', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: '3'
 
   .credit__box_question
     %span.icon_question ?
     %p カード裏面の番号とは？
   #card_token
-  - if local_assigns[:edit_flag].present?
-    -# cards#edit
-    .credit__btn_add-2
-      = submit_tag "追加する", id: "token_submit", class:'credit_card'
-      -# = link_to "追加する", class:'credit_card', id: "token_submit"
-  - else
-    -# cards#new
-    = submit_tag "次へ進む", id: "token_submit", class:'credit_card credit__btn_add-2'
-    -# = link_to "次へ進む", "/users/1/cards/1", class:'credit_card', id: "token_submit"
-    -#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:idに修正
+    %input{type: 'hidden', name: 'move_from_action', value: move_from_action}
+  - case local_assigns[:move_from_action]
+    - when 'add'
+      = submit_tag '追加する', id: 'token_submit', class:'credit_card redbtn'
+    - when 'new'
+      = submit_tag '次へ進む', id: 'token_submit', class:'credit_card redbtn'
