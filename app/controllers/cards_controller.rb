@@ -55,7 +55,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def destroy #PayjpとCardデータベースを削除します
     card = Card.where(user_id: 1).first
     #### 仮置き user_id: current_user.id
     if card.present?

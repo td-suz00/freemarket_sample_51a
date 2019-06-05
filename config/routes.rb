@@ -16,10 +16,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :show] do
-    resources :cards, only: [:index, :new, :edit, :show] do
+    resources :cards, only: [:index, :new, :edit, :show, :destroy] do
       collection do
         post 'pay', to: 'cards#pay'
-        post 'delete', to: 'cards#delete'
       end
     end
     #### :showは仮置き。signup#doneなどのアクションにあてるのが良いか
