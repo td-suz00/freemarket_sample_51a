@@ -1,0 +1,38 @@
+= form_tag(pay_user_cards_path, method: :post, id: 'charge-form',  name: 'inputForm', class: 'credit__box_list') do
+  %span カード番号
+  .required__icon 必須
+  .clearfix
+  = text_field_tag :number, '', class: 'text_field number', placeholder: '半角数字のみ', maxlength: '16', type: 'text', id: 'card_number'
+  = image_tag 'credit_card_icon.png',size: '290x38' , class: 'credit__logo-img'
+  .credit__box_expiration_date
+    %span 有効期限
+    .required__icon 必須
+  .clearfix
+  = date_select :exp_month, :updated_at, class: 'date_select', use_month_numbers: true, discard_year: true, discard_day: true, type: 'text'
+  = fa_icon 'chevron-down', class:'fa_icon_1'
+  %sub.month 月
+  .clearfix
+  = select_tag :exp_year, options_for_select({'19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29'}),class: 'select-tag', type: 'text'
+  = fa_icon 'chevron-down', class:'fa_icon_2'
+  %sub 年
+  .credit__box_security_code
+    %br
+    %span セキュリティコード
+    .required__icon 必須
+    .clearfix
+    = text_field_tag :cvc, '',  class: 'text_field', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号'
+
+  .credit__box_question
+    %span.icon_question ?
+    %p カード裏面の番号とは？
+  #card_token
+  - if local_assigns[:edit_flag].present?
+    -# cards#edit
+    .credit__btn_add-2
+      = submit_tag "追加する", id: "token_submit", class:'credit_card'
+      -# = link_to "追加する", class:'credit_card', id: "token_submit"
+  - else
+    -# cards#new
+    = submit_tag "次へ進む", id: "token_submit", class:'credit_card credit__btn_add-2'
+    -# = link_to "次へ進む", "/users/1/cards/1", class:'credit_card', id: "token_submit"
+    -#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:idに修正

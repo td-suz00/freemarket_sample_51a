@@ -3,6 +3,7 @@
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title FreemarketSample51a
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,7 +15,7 @@
     .grobal--footer
     .footer--sell--button
   .mercari-wrapper
-    = yield 
+    = yield
     -# fontawesome
     %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.8.2/css/all.css", integrity: "sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay", rel: "stylesheet"}/
 

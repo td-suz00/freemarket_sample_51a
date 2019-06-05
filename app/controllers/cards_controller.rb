@@ -11,36 +11,36 @@ class CardsController < ApplicationController
 
   def new
     render layout: 'application-off-header-footer.haml'
-    # card = Card.where(user_id: 100)
-    # #### 仮置き user_id: current_user.id
-    # if card.blank?
-    #   @card = Card.new
-    # else
-    #   redirect_to action: :edit, id: 1
+    card = Card.where(user_id: 1)
+    #### 仮置き user_id: current_user.id
+    if card.present?
+      redirect_to action: :edit, id: 1
       #### 仮置き id: card.id
-    # end
+    end
   end
 
   def edit
     card = Card.where(user_id: 1).first
     #### 仮置き user_id: current_user.id
-    # if card.blank?
-    #   redirect_to action: :new
-    # else
-    #   Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
-    #   customer = Payjp::Customer.retrieve(card.customer_id)
-    #   @default_card_information = customer.cards.retrieve(card.card_id)
-    # end
+    if card.blank?
+      redirect_to action: :new
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def pay #payjpとCardのデータベース作成を実施
     Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
     if card_params.blank?
-      redirect_to action: :new
+      redirect_to action: :new, notice: '入力されたカード情報が不正です'
     else
       customer = Payjp::Customer.create(
-      email: current_user.email,
-      card: card_params,
+      description: 'メルカリ',
+      email: 'test@gmail.com',
+      #### 仮置き current_user.email
+      card: params[:payjp_token],
       metadata: {user_id: 1}
       #### 仮置き user_id: current_user.id
       )
@@ -56,7 +56,7 @@ class CardsController < ApplicationController
   end
 
   def delete #PayjpとCardデータベースを削除します
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: 1).first
     #### 仮置き user_id: current_user.id
     if card.present?
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
@@ -71,8 +71,7 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.permit(:payjp-token)
-    #### -でも動く？ stringか_か
+    params.permit(:payjp_token)
   end
 
 end

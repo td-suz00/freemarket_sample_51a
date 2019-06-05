@@ -373,7 +373,7 @@ header {
 
 // detail
 
-#category {
+ #exp_year {
   @extend .form;
   width: 90px;
   height: 50px;
@@ -388,7 +388,7 @@ header {
   }
 }
 
-#page_updated_at_2i {
+ #exp_month_updated_at_2i {
   @extend .form;
   width: 90px;
   height: 50px;
@@ -400,6 +400,7 @@ header {
   margin: {
     bottom: 5px;
     top: 6px;
+    left: 20px;
   }
 }
 
