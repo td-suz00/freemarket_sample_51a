@@ -81,4 +81,5 @@ gem 'erb2haml'
 gem 'devise'
 gem 'carrierwave'
 gem 'payjp'
-gem "jquery-rails"
+gem 'activerecord-import'
+gem 'jquery-rails'
