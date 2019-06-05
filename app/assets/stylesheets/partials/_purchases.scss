@@ -117,17 +117,176 @@
   }
 }
 
+#item-info {
+  padding: 0 20px 20px 20px;
+}
+
 #content-detail {
   max-width: 600px;
+  padding: 0 0 25px 0;
 
 }
 
 #btn-detail {
-  border-radius: 5px;
-  padding: 5px;
+  padding: 2px;
+  margin-right: 10px;
+}
+
+.btn-detail {
+ font: {
+   size: 24px;
+   weight: bold;
+ }
+}
+
+
+#content-img {
+  background-color: $background_gray;
+  max-width: 220px;
+  max-height: 350px;
+  float: left;
+  margin-right: 30px;
+  padding: 0 25px 0 25px;
+}
+
+.item_img {
+  float: left;
+}
+
+th,
+td {
+  border: 1px solid $border_gray;
+  height: 30px;
+  padding: 8px;
+  font-size: 0.9rem;
+}
+
+th {
+  width: 100px;
+  background-color: $background_gray;
+}
+
+td {
+  width: 200px;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.item__info__inner-content__account__price-detail {
+  margin: {
+    top: 20px;
+    left: 200px;
+  }
+}
+
+.fas.fa-grin {
+  margin-top: 4px;
+  color: #ef5185;
+  font-size: 1rem;
+}
+
+.fas.fa-meh {
+  color: #fba933;
+  font-size: 1rem;
+}
+
+.fas.fa-frown {
+  color: #6ab5d8;
+  font-size: 1rem;
+}
+
+#blue {
+  color:$light_blue;
+}
+
+
+.price {
+  float: left;
 
   font: {
-    size: 25px;
+    size: 2.9rem;
     weight: bold;
   }
+}
+
+.tax {
+  float: left;
+
+  margin: {
+    top: 27px;
+    left: 10px;
+  }
+
+  font: {
+    size: 0.7rem;
+  }
+}
+
+.deliverly-btn {
+  float: left;
+  color: $white;
+  font-size: 0.9rem;
+  display: inline;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: $delivery_btn_green;
+  padding: 1px 3px 1px 3px;
+
+  margin: {
+    top: 21px;
+    left: 10px;
+  }
+}
+
+.item__info__inner-content__text {
+  margin: 40px 0 40px 0;
+  text-align: left;
+  font-size: 19px;
+}
+
+.item__info__inner-content__like-btn {
+  background-color: $background_gray;
+  padding: 7px 20px 7px 20px;
+  border-radius: 20px;
+  display: inline;
+
+  i {
+    color: $btn_gray;
+    margin-right: 3px;
+  }
+
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+.item__info__inner-content__alert-btn {
+  background-color: $background_gray;
+  padding: 7px 20px 7px 20px;
+  margin-left: 10px;
+  border-radius: 20px;
+  display: inline;
+
+  i {
+    color: $btn_gray;
+    margin-right: 3px;
+  }
+
+  span {
+    font-size: 0.9rem;
+  }
+}
+
+.item__info__inner-content__safety-btn {
+  display: inline;
+  margin-left: 50px;
+  color: $light_blue;
+  font-size: 0.9rem;
+}
+
+.btn-box {
+  float: left;
 }
