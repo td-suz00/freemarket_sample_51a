@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
     if(images.length <= 4) {
       $('#preview').empty();
       $.each(images, function(index, image) {
-        image.attr('data-image', index);
+        image.data('image', index);
         preview.append(image);
       })
       dropzone.css({
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function(){
       } else if(images.length == 5) {
         $('#preview').empty();
         $.each(images, function(index, image) {
-          image.attr('data-image', index);
+          image.data('image', index);
           preview.append(image);
         })
         appendzone.css({
@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', function(){
         var pickup_images = images.slice(5);
 
         $.each(pickup_images, function(index, image) {
-          image.attr('data-image', index+5);
+          image.data('image', index+5);
           preview2.append(image);
           dropzone2.css({
             'width': `calc(100% - (20% * ${images.length - 5}))`
@@ -80,11 +80,11 @@ $(document).on('turbolinks:load', function(){
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
 
+    // 削除画像のdata-image番号を取得
+    var target_image_num = target_image.data('image');
+    
     // 対象の画像を削除
     target_image.remove();
-
-    // 削除画像のdata-image番号を取得
-    target_image_num = target_image.attr('data-image');
 
     // 対象の画像を削除した新たな配列を生成
     images.splice( target_image_num, 1 );
@@ -94,7 +94,7 @@ $(document).on('turbolinks:load', function(){
     if(images.length <= 4) {
       $('#preview').empty();
       $.each(images, function(index, image) {
-        image.attr('data-image', index);
+        image.data('image', index);
         preview.append(image);
       })
       dropzone.css({
@@ -109,7 +109,7 @@ $(document).on('turbolinks:load', function(){
       } else if(images.length == 5) {
         $('#preview').empty();
         $.each(images, function(index, image) {
-          image.attr('data-image', index);
+          image.data('image', index);
           preview.append(image);
         })
         appendzone.css({
@@ -131,7 +131,7 @@ $(document).on('turbolinks:load', function(){
         // １〜５枚目を１段目に表示
         $('#preview').empty();
         $.each(pickup_images1, function(index, image) {
-          image.attr('data-image', index);
+          image.data('image', index);
           preview.append(image);
         })
       
@@ -140,7 +140,7 @@ $(document).on('turbolinks:load', function(){
 
         // ６枚目以降を２段目に表示
         $.each(pickup_images2, function(index, image) {
-          image.attr('data-image', index+5);
+          image.data('image', index+5);
           preview2.append(image);
           dropzone2.css({
             'display': 'block',
