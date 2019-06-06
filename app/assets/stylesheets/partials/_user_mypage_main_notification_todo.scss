@@ -1,12 +1,12 @@
-.user_mypage__container__main__notification_todo{
+.user_mypage__container__main__notification_todo {
   margin: 0;
   background: #fff;
 
-  &__tabs{
+  &__tabs {
     background: #fff;
 
     // タブのスタイル
-    .tab_item{
+    .tab_item {
       width: 50%;
       height: 74px;
       background-color: #EAEAEA;
@@ -18,25 +18,27 @@
       text-align: center;
       font-weight: bold;
     }
+
     // ラジオボタン消す
     input[name="tab_item"] {
       display: none;
     }
+
     // 中身のスタイル
-    &__content{
+    &__content {
       display: none;
       clear: both;
       overflow: hidden;
 
-      &__list{
+      &__list {
         display: block;
         list-style: none;
 
-        &__item{
+        &__item {
           border-bottom: 1px solid #eee;
           position: relative;
 
-          &__link{
+          &__link {
             display: block;
             padding: 16px;
             color: #333;
@@ -44,7 +46,7 @@
             touch-action: manipulation;
             overflow: hidden;
 
-            figure{
+            figure {
               position: relative;
               overflow: hidden;
               float: left;
@@ -52,7 +54,7 @@
               height: 48px;
               margin: 0;
 
-              .user_mypage__container__main__notification_todo__tabs__content__list__item__link__icon{
+              .user_mypage__container__main__notification_todo__tabs__content__list__item__link__icon {
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -64,33 +66,33 @@
               }
             }
 
-            &__body{
+            &__body {
               margin: 0 40px 0 68px;
               text-align: left;
 
-              &__text{
+              &__text {
                 overflow: hidden;
                 max-height: 4.4em;
                 text-overflow: ellipsis;
                 line-height: 1.5;
               }
 
-              time{
+              time {
                 display: inline-block;
                 color: #888;
 
-                .far.fa-clock{
+                .far.fa-clock {
                   margin: 0 8px 0 0;
                 }
 
-                span{
+                span {
                   vertical-align: middle;
                   font-size: 14px;
                 }
               }
             }
 
-            .fas.fa-chevron-right{
+            .fas.fa-chevron-right {
               position: absolute;
               top: 50%;
               right: 16px;
@@ -99,12 +101,12 @@
           }
         }
 
-        &__go-list{
+        &__go-list {
           border: 0;
           position: relative;
           padding: 16px;
 
-          &__link{
+          &__link {
             display: block;
             height: 56px;
             margin: 0 auto;
@@ -117,8 +119,8 @@
           }
         }
       }
-      
-      &__todo_list{
+
+      &__todo_list {
         padding: 160px 0 60px;
         clear: both;
         overflow: hidden;
@@ -130,15 +132,15 @@
     }
 
     // 選択されているタブのコンテンツのみ表示
-    #information_tab:checked ~ #information_content,
-    #todo_tab:checked ~ #todo_content{
+    #information_tab:checked~#information_content,
+    #todo_tab:checked~#todo_content {
       display: block;
     }
 
     // 選択されているタブのスタイルを変える
-    input:checked + .tab_item {
+    input:checked+.tab_item {
       background-color: #fff;
       border-top: solid 2px red;
     }
-  }  
+  }
 }

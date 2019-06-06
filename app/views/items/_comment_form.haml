@@ -1,0 +1,17 @@
+.item_wrapper
+  .item
+    .item__attention
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .item__comment-form
+      %textarea
+    .item__comment-btn
+      %button
+        = link_to "コメントする", new_purchase_path, id:'btn-comment'
+        -# リンク仮置きです
+  .icon_next
+    .icon_next__left
+      = fa_icon 'chevron-left'
+      = link_to "GUCCI財布", class: "link"
+    .icon_next__right
+      = link_to "Hermes バッグ", class: "link"
+      = fa_icon 'chevron-right'

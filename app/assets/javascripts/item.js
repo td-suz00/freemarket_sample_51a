@@ -1,5 +1,4 @@
 // サムネイルスライダー
-
 $(function () {
   var slider = "#slider";
   var thumbnailItem = "#thumb .item_s-img";
