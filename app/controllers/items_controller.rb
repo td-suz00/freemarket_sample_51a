@@ -2,13 +2,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-
-
-
     @item.item_images.build
     render layout: 'application-off-header-footer.haml'
   end
-
 
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
@@ -18,7 +14,6 @@ class ItemsController < ApplicationController
       params[:item][:brand_id]==Brand.create(name:params[:item][:brand_id]).id
     end
     @item = Item.new(item_params)
-
     if params[:item][:item_images_attributes].present?&&@item.save
       # 写真２枚目以降があれば保存（１枚目はItem.createで保存されています）
       if params[:item_images].present?
