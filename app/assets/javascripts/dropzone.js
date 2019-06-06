@@ -76,13 +76,13 @@ $(document).on('turbolinks:load', function(){
 
   // 削除ボタン
   $(document).on('click', '.btn_delete', function() {
-    
+
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
 
     // 削除画像のdata-image番号を取得
     var target_image_num = target_image.data('image');
-    
+
     // 対象の画像を削除
     target_image.remove();
 
@@ -104,7 +104,7 @@ $(document).on('turbolinks:load', function(){
       appendzone.css({
         'display': 'none'
       })
-      
+
       // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
       } else if(images.length == 5) {
         $('#preview').empty();
@@ -124,7 +124,7 @@ $(document).on('turbolinks:load', function(){
         preview2.empty();
 
       // 画像が６枚以上のとき
-      } else {        
+      } else {
         // １〜５枚目の画像を抽出
         var pickup_images1 = images.slice(0, 5);
 
@@ -134,7 +134,7 @@ $(document).on('turbolinks:load', function(){
           image.data('image', index);
           preview.append(image);
         })
-      
+
         // ６枚目以降の画像を抽出
         var pickup_images2 = images.slice(5);
 
@@ -147,6 +147,6 @@ $(document).on('turbolinks:load', function(){
             'width': `calc(100% - (20% * ${images.length - 5}))`
           })
         })
-    } 
+    }
   })
 });
