@@ -9,9 +9,9 @@ class ItemsController < ApplicationController
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
     if  brand = Brand.find_by(name:params[:item][:brand_id])
-      params[:item][:brand_id]= brand.id  
+      params[:item][:brand_id] = brand.id  
     else
-      params[:item][:brand_id]==Brand.create(name:params[:item][:brand_id]).id
+      params[:item][:brand_id] = Brand.create(name:params[:item][:brand_id]).id
     end
     @item = Item.new(item_params)
     if params[:item][:item_images_attributes].present?&&@item.save
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
   def search_category
 
-    if params[:parent_id].to_i >=159
+    if params[:parent_id].to_i >= 159
 
       @children=Category.find(params[:parent_id]).sizes
     else
