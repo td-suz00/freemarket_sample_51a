@@ -8,9 +8,33 @@
     .item__info#item-info
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
-          = image_tag 'item-bag.jpg', height: '230', width: '230', class:'item_img'
-          = image_tag 'item-bag.jpg', height: '60', width: '60', class:'item_img'
-          = image_tag 'item-bag.jpg', height: '60', width: '60', class:'item_img'
+          %ul#slider
+            %li
+              = image_tag 'item-bag.jpg', height: '230', width: '230', class:'item_img'
+            %li
+              = image_tag 'ねこ２.jpeg', height: '230', width: '230', class:'item_img'
+            %li
+              = image_tag 'penguin.jpg', height: '230', width: '230', class:'item_img'
+            %li
+              = image_tag 'cat1.jpg', height: '230', width: '230', class:'item_img'
+            %li
+              = image_tag 'cat2.jpg', height: '230', width: '230', class:'item_img'
+            %li
+              = image_tag 'cat3.jpg', height: '230', width: '230', class:'item_img'
+          %ul#thumb
+            %li
+              = image_tag 'item-bag.jpg', height: '60', width: '60', class:'item_s-img'
+            %li
+              = image_tag 'ねこ２.jpeg', height: '60', width: '60', class:'item_s-img'
+            %li
+              = image_tag 'penguin.jpg', height: '60', width: '60', class:'item_s-img'
+            %li
+              = image_tag 'cat1.jpg', height: '60', width: '60', class:'item_s-img'
+            %li
+              = image_tag 'cat2.jpg', height: '60', width: '60', class:'item_s-img'
+            %li
+              = image_tag 'cat3.jpg', height: '60', width: '60', class:'item_s-img'
+
         .item__info__inner-content__table
         %table
           %tbody
@@ -67,6 +91,8 @@
           どんな洋服にも合います。
           %br
           破格です。限定デザインなので、とても希少です！
+          %br
+          おまけに、動物たちもバッグに入れて送ります♪
         .btn-box
           .item__info__inner-content__like-btn
             %i.far.fa-heart
