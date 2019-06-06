@@ -83,5 +83,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'payjp'
 gem 'activerecord-import'
-gem 'jquery-rails'
 gem 'gon'
+gem 'dropzonejs-rails'
+gem "jquery-rails"
+gem 'mini_magick'

@@ -1,7 +1,6 @@
 .item
   .item__title
     %h2 商品の情報を入力
-  
   = form_for @item do |f|
     .item__img
       %ul
@@ -12,14 +11,33 @@
       .clearfix
       %p 最大10枚までアップロードできます
 
-      = f.label :item_images, class: "img-field" do
-        .drop-box
-          .drop-box__discription
-            %a.top ドラッグアンドドロップ
-            %br
-            %a またはクリックしてファイルをアップロード
-            = f.fields_for :item_images, @item.item_images do |image|
-              = image.file_field :image_url, class: "drop-box__discription__file-field"
+      = f.fields_for :item_images, @item.item_images do |image|
+        .item__img__dropzone.clearfix
+          #preview
+          -# １〜５枚目プレビュー表示
+          .item__img__dropzone__input
+            = image.label :image, for: "upload-image" do
+              .input-area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+              .item__img__dropzone__input__description
+                .item__img__dropzone__input__description__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+              
+        .item__img__dropzone2.clearfix
+          #preview2
+          -# ６〜１０枚目プレビュー表示
+          .item__img__dropzone2__input2
+            = image.label :image, for: "upload-image" do
+              .input-area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+              .item__img__dropzone2__input2__description
+                .item__img__dropzone2__input2__description__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+
     .item__info
       .item__info_name
       %ul
@@ -203,3 +221,4 @@
         %p もどる
 
 = render 'item_footer'
+

@@ -33,5 +33,4 @@ Rails.application.routes.draw do
     resources :logouts, only: :new
     resources :signups, only: [:index, :new, :show]
   end
-
 end
