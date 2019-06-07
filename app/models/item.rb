@@ -4,6 +4,10 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :item_images
   has_one :deal
   belongs_to :category
-  belongs_to :size
+  belongs_to :size, optional: true
   belongs_to :brand, optional: true
+  with_options presence: true do
+    validates :name, :text, :price, :category_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days
+  end
+validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999}
 end
