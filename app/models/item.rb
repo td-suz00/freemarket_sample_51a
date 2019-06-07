@@ -5,4 +5,9 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :size
   belongs_to :brand
+
+  def choose_redies_items(items)
+    redies_items = items.where(category.parent.parent.name: "レディース")
+  end
+
 end

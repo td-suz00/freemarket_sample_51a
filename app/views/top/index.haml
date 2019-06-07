@@ -4,17 +4,17 @@
     / Additional required wrapper
     .swiper-wrapper
       / Slides
-      .swiper-slide.camp-slide 
-      .swiper-slide.natsukashi-slide 
-      .swiper-slide.mercari-info-slide 
+      .swiper-slide.camp-slide
+      .swiper-slide.natsukashi-slide
+      .swiper-slide.mercari-info-slide
         .mercari-info-slide__content
           = image_tag "banner-mercari-info-hand-phone.png", width: "390", height: "390"  ,class:"hand-phone"
           .mercari-info-slide__content__left
             .mercari-info-slide__content__left__title
               スマホでかんたん
               %br/
-              フリマアプリ  
-            .mercari-info-slide__content__left__content 
+              フリマアプリ
+            .mercari-info-slide__content__left__content
               メルカリはスマホカメラからすぐに出品できる
               %br/
               購入時も安心な独自システムのアプリです
@@ -25,11 +25,15 @@
     .swiper-pagination
     .swiper-button-prev
     .swiper-button-next
+
   .pickup-categories
     .pickup-categories__title ピックアップカテゴリー
     .pickup-category
       = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-category__title'
       .item-box.clearfix
+
+        redies_items = choose_redies_items(@items)
+        redies_items.each do |item|
         .item
           = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
           .item__lower
