@@ -97,17 +97,17 @@
   .item
     .item__edit-btn
       %button
-        = link_to "商品の編集", new_purchase_path, id:'btn-comment'
-        -# リンク仮置きです
+        = link_to "商品の編集", new_item_path, id:'btn-comment'
+        -#### リンク仮置きです
     %sub#or or
     .item__comment-btn
       %button
         = link_to "出品を一旦停止する", new_purchase_path, id:'btn-stop'
-        -# リンク仮置きです
+        -#### リンク仮置きです
     .item__comment-btn
       %button
         = link_to "この商品を削除する", new_purchase_path, id:'btn-stop'
-        -# リンク仮置きです
+        -#### リンク仮置きです
   %br
   .item
     .item__attention
@@ -117,5 +117,6 @@
     .item__comment-btn
       %button
         = link_to "コメントする", new_purchase_path, id:'btn-comment'
+        -#### リンク仮置きです
   %br
 = render partial:'shared/global-only-footer'

@@ -80,7 +80,6 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'carrierwave'
-gem 'dropzonejs-rails'
 gem "jquery-rails"
 gem 'mini_magick'
 gem 'activerecord-import'

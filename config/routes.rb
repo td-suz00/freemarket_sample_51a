@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
-  resources :purchases, only: [:new]
+  resources :purchases, only: :new
   resources :items, only: [:new, :show, :create, :edit, :update]
   resources :users, only: [:new, :show] do
     resources :cards, only: [:index, :new, :edit, :show]
