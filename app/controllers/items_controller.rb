@@ -15,13 +15,14 @@ class ItemsController < ApplicationController
     end
     @item = Item.new(item_params)
     if params[:item][:item_images_attributes].present?&&@item.save
-      # 写真２枚目以降があれば保存（１枚目はItem.createで保存されています）
+      # 写真２枚目以降があれば保存（１枚目はItem.saveで保存されています）
       if params[:item_images].present?
         params[:item_images][:image].each do |image|
           @item.item_images.create(image_url: image, item_id: @item.id)
         end
       end
       Deal.create(seller_id:1,item_id:@item.id, status_id:1)
+      ####仮置き   正：Deal.create(seller_id:current_user,item_id:@item.id, status_id:1)
       redirect_to root_path
     else
       @item.item_images.build

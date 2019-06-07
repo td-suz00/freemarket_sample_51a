@@ -68,18 +68,6 @@ describe Item do
       item.valid?
       expect(item.errors[:delivery_days]).to include("can't be blank")
     end
-
-    it "is invalid without name" do
-      item = build(:item,name:"")
-      item.valid?
-      expect(item.errors[:name]).to include("can't be blank")
-    end
-
-    it "is invalid without category_id" do
-      item = build(:item,category_id:nil)
-      item.valid?
-      expect(item.errors[:category_id]).to include("can't be blank")
-    end
     
     it "is valid with lowest price" do
       item = build(:item,price:300)
@@ -105,7 +93,6 @@ describe Item do
 
     it "is valid without size_id" do
       item = build(:item,size_id:"")
-      binding.pry
       expect(item).to be_valid
     end
   end
