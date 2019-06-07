@@ -12,7 +12,7 @@
   = fa_icon 'chevron-down', class:'fa_icon_1'
   %sub.month 月
   .clearfix
-  = select_tag :exp_year, options_for_select({'19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29'}),class: 'select-tag', type: 'text'
+  = select_tag :exp_year, options_for_select(get_card_exp_year),class: 'select-tag', type: 'text'
   = fa_icon 'chevron-down', class:'fa_icon_2'
   %sub 年
   .credit__box_security_code
