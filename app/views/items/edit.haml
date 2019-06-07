@@ -85,7 +85,8 @@
             .tax (税込)
             %sub 送料込み
         .item__info__inner-content__purchase-btn#btn-detail
-          = link_to "購入画面に進む", new_purchase_path, class:'btn-detail'
+          = link_to "購入画面に進む", new_item_path, class:'btn-detail'
+          -#### リンク仮置きです
         .item__info__inner-content__text
           LOUIS VUITTON 今年購入 美品！
           どんな洋服にも合います。
@@ -102,11 +103,11 @@
     %sub#or or
     .item__comment-btn
       %button
-        = link_to "出品を一旦停止する", new_purchase_path, id:'btn-stop'
+        = link_to "出品を一旦停止する", new_item_path, id:'btn-stop'
         -#### リンク仮置きです
     .item__comment-btn
       %button
-        = link_to "この商品を削除する", new_purchase_path, id:'btn-stop'
+        = link_to "この商品を削除する", new_item_path, id:'btn-stop'
         -#### リンク仮置きです
   %br
   .item
@@ -116,7 +117,7 @@
       %textarea
     .item__comment-btn
       %button
-        = link_to "コメントする", new_purchase_path, id:'btn-comment'
+        = link_to "コメントする", new_item_path, id:'btn-comment'
         -#### リンク仮置きです
   %br
 = render partial:'shared/global-only-footer'

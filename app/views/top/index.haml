@@ -31,7 +31,8 @@
       = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-category__title'
       .item-box.clearfix
         .item
-          = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+          = link_to item_path(1), data: {turbolinks: false} do
+            = image_tag "item-bag.jpg", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
           .item__lower
             .item__lower__name LV トートバッグ
             .item__lower__price ¥800
