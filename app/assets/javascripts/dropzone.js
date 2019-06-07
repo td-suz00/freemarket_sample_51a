@@ -124,6 +124,8 @@ $(document).on('turbolinks:load', function () {
       preview2.empty();
 
       // 画像が６枚以上のとき
+      <<
+      << << < HEAD
     } else {
       // １〜５枚目の画像を抽出
       var pickup_images1 = images.slice(0, 5);
@@ -140,13 +142,38 @@ $(document).on('turbolinks:load', function () {
 
       // ６枚目以降を２段目に表示
       $.each(pickup_images2, function (index, image) {
-        image.data('image', index + 5);
-        preview2.append(image);
-        dropzone2.css({
-          'display': 'block',
-          'width': `calc(100% - (20% * ${images.length - 5}))`
-        })
+          image.data('image', index + 5);
+          preview2.append(image);
+          dropzone2.css({
+            'display': 'block',
+            'width': `calc(100% - (20% * ${images.length - 5}))`
+          })
+        }) ===
+        === =
+    } else {
+      // １〜５枚目の画像を抽出
+      var pickup_images1 = images.slice(0, 5);
+
+      // １〜５枚目を１段目に表示
+      $('#preview').empty();
+      $.each(pickup_images1, function (index, image) {
+        image.data('image', index);
+        preview.append(image);
       })
+
+      // ６枚目以降の画像を抽出
+      var pickup_images2 = images.slice(5);
+
+      // ６枚目以降を２段目に表示
+      $.each(pickup_images2, function (index, image) {
+          image.data('image', index + 5);
+          preview2.append(image);
+          dropzone2.css({
+            'display': 'block',
+            'width': `calc(100% - (20% * ${images.length - 5}))`
+          })
+        }) >>>
+        >>> > master
     }
   })
 });

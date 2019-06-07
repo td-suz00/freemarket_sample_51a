@@ -3,10 +3,17 @@
     %h2 支払い方法
   .credit__box_list
     %p クレジットカード一覧
-    .credit__btn_add
-      = fa_icon 'credit-card', class:'credit-card'
-      = link_to "クレジットカードを追加する","/users/1/cards/1/edit", class:'credit_card'
-      -#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:id/editに修正
+    - if @default_card_information
+      .credit__btn_add
+        = form_tag('/users/1/cards/1', method: :delete, id: 'charge-form',  name: "inputForm") do
+          -#### 仮置き "/users/#{current_user.id}/cards/#{@card.id}"
+          %input{ type: "hidden", name: "card_id", value: "" }
+          %button{class: 'redbtn'} 削除する
+    - else
+      .credit__btn_add
+        = fa_icon 'credit-card', class:'credit-card'
+        = link_to "クレジットカードを追加する", add_user_cards_path , class:'credit_card',  data: {turbolinks: false}
+        -#### 仮置き。サーバサイド実装後、add_user_cards_path(current_user)に修正"
   .box__bottom_line
   .credit__box_link
     %li

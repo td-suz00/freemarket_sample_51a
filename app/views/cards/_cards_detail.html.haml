@@ -1,0 +1,34 @@
+= form_tag(pay_user_cards_path, method: :post, id: 'charge-form',  name: 'inputForm', class: 'credit__box_list') do
+  %span カード番号
+  .required__icon 必須
+  .clearfix
+  = text_field_tag :number, '', class: 'text_field number', placeholder: '半角数字のみ', maxlength: '16', type: 'text', id: 'card_number'
+  = image_tag 'credit_card_icon.png',size: '290x38' , class: 'credit__logo-img'
+  .credit__box_expiration_date
+    %span 有効期限
+    .required__icon 必須
+  .clearfix
+  = date_select :exp_month, :updated_at, class: 'date_select', use_month_numbers: true, discard_year: true, discard_day: true, type: 'text'
+  = fa_icon 'chevron-down', class:'fa_icon_1'
+  %sub.month 月
+  .clearfix
+  = select_tag :exp_year, options_for_select(get_card_exp_year),class: 'select-tag', type: 'text'
+  = fa_icon 'chevron-down', class:'fa_icon_2'
+  %sub 年
+  .credit__box_security_code
+    %br
+    %span セキュリティコード
+    .required__icon 必須
+    .clearfix
+    = text_field_tag :cvc, '',  class: 'text_field', id: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: '3'
+
+  .credit__box_question
+    %span.icon_question ?
+    %p カード裏面の番号とは？
+  #card_token
+    %input{type: 'hidden', name: 'move_from_action', value: move_from_action}
+  - case local_assigns[:move_from_action]
+    - when 'add'
+      = submit_tag '追加する', id: 'token_submit', class:'credit_card redbtn'
+    - when 'new'
+      = submit_tag '次へ進む', id: 'token_submit', class:'credit_card redbtn'
