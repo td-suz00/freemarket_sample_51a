@@ -62,3 +62,6 @@
     .footer-copylight
       %small © 2019 Mercari
 = render partial:'shared/global-sell-button'
+= link_to(new_item_path,class:'footer-sell-button', data: {"turbolinks" => false}) do
+  %h2 出品
+  %i.fas.fa-camera

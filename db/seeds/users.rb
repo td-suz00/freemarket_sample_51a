@@ -1,0 +1,12 @@
+User.create!(
+  email:'sell@sell.sell',
+  nickname:'seller_user',
+  password:'sellsell',
+  password_confirmation:'sellsell'
+)
+User.create!(
+  email:'buy@buy.buy',
+  nickname:'buyer_user',
+  password:'buybuy',
+  password_confirmation:'buybuy'
+)
