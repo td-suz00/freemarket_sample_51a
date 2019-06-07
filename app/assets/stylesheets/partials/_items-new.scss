@@ -92,13 +92,15 @@
         display: none;
       }
 
-      &__dropzone, &__dropzone2 {
+      &__dropzone,
+      &__dropzone2 {
         height: 162px;
         position: relative;
         cursor: pointer;
         margin-top: 16px;
 
-        #preview, #preview2 {
+        #preview,
+        #preview2 {
           float: left;
           height: 100%;
           // プレビュー画像のスタイル
@@ -110,7 +112,7 @@
             position: relative;
             border: solid 1px $border_gray;
           }
-    
+
           .img_area {
             width: 111px;
             height: 116px;
@@ -118,19 +120,20 @@
             justify-content: center;
             align-items: center;
           }
-    
+
           .image {
-            width:auto;
-            height:auto;
-            max-width:100%;
-            max-height:100%;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
           }
 
           .btn_wrapper {
             position: absolute;
             bottom: 0;
 
-            .btn_edit, .btn_delete {
+            .btn_edit,
+            .btn_delete {
               display: inline-block;
               width: 55px;
               background: #f5f5f5;
@@ -139,7 +142,7 @@
               color: #0099e8;
               text-decoration: none;
             }
-      
+
             .btn_edit {
               border-right: solid 1px $border_gray;
             }
@@ -147,7 +150,8 @@
           // ここまでプレビュー画像のスタイル
         }
 
-        &__input, &__input2 {
+        &__input,
+        &__input2 {
           border: dashed 0.2px rgb(207, 206, 206);
           background-color: #f5f5f5;
           float: right;
@@ -156,7 +160,7 @@
           text-align: center;
           position: relative;
 
-          .input-area{
+          .input-area {
             height: 100%;
             width: 100%;
             position: relative;
@@ -180,13 +184,13 @@
               weight: 600;
               size: 0.8rem;
             }
-    
+
             &__text {
               position: absolute;
               top: 50%;
               left: 50%;
-              -webkit-transform : translate(-50%,-50%);
-              transform : translate(-50%,-50%);
+              -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
             }
           }
         }
