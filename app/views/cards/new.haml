@@ -5,9 +5,5 @@
   .credit_3
     .credit__title
       %h2 支払い方法
-    = render partial:'cards/cards_detail'
-    .credit__btn_add-2
-      = link_to "次へ進む", "/users/1/cards/1", class:'credit_card'
-      -#### 仮置き。サーバサイド実装後、/users/:user_id/cards/:idに修正
+    = render partial:'cards/cards_detail', locals: { move_from_action: "new" }
 = render partial:'items/item_footer'
-

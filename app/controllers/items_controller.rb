@@ -35,6 +35,10 @@ class ItemsController < ApplicationController
     render layout: 'application-off-header-footer.haml'
   end
 
+  def show
+    render layout: 'application-off-header-footer.haml'
+  end
+
   def update
   end
 

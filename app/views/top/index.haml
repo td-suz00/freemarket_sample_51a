@@ -35,7 +35,8 @@
         - @redies_items.each do |item|
           .item
             - item_image = item.item_images.first.image_url
-            = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -51,7 +52,8 @@
         - @mens_items.each do |item|
           .item
             - item_image = item.item_images.first.image_url
-            = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -67,7 +69,8 @@
         - @baby_kids_items.each do |item|
           .item
             - item_image = item.item_images.first.image_url
-            = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -83,7 +86,8 @@
         - @beauty_items.each do |item|
           .item
             - item_image = item.item_images.first.image_url
-            = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
