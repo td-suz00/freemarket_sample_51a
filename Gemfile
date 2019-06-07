@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
 end
 
 group :development do
@@ -80,7 +81,9 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem 'devise'
 gem 'carrierwave'
+gem 'payjp'
+gem 'activerecord-import'
+gem 'gon'
 gem 'dropzonejs-rails'
 gem "jquery-rails"
 gem 'mini_magick'
-gem 'activerecord-import'
