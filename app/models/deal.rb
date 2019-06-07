@@ -4,6 +4,5 @@ class Deal < ApplicationRecord
   belongs_to :status
   belongs_to :item
 
-  validates :charge_id, uniqueness: true
   validates :item_id, presence: true, uniqueness: true
 end
