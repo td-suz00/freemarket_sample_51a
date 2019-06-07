@@ -40,15 +40,13 @@ class ItemsController < ApplicationController
 
   def auto_complete
     brands = Brand.select(:name).where("name like '" + params[:term].tr('ぁ-ん','ァ-ン') + "%'").order(:name)
-    brands = brands.map(&:name)
+    brands = brands.pluck(:name)
     render json: brands.to_json
   end
 
 
   def search_category
-
     if params[:parent_id].to_i >= 159
-
       @children=Category.find(params[:parent_id]).sizes
     else
       @children=Category.find(params[:parent_id]).children
