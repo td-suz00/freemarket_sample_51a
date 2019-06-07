@@ -1,18 +1,18 @@
-.user_mypage__container__side{
+.user_mypage__container__side {
   width: calc(30% - 40px);
   float: left;
   margin: 30px 40px 30px 0;
 
-  &__menu{
+  &__menu {
 
-    &__list{
+    &__list {
       list-style: none;
 
-      &__item{
+      &__item {
         border-top: 1px solid #eee;
         background-color: #fff;
 
-        &__text-active{
+        &__text-active {
           background: #eee;
           font-weight: 600;
           position: relative;
@@ -23,7 +23,7 @@
           text-decoration: none;
           touch-action: manipulation;
 
-          .fas.fa-chevron-right{
+          .fas.fa-chevron-right {
             position: absolute;
             top: 50%;
             right: 16px;
@@ -33,7 +33,7 @@
           }
         }
 
-        &__text{
+        &__text {
           position: relative;
           display: block;
           padding: 16px;
@@ -42,7 +42,7 @@
           text-decoration: none;
           touch-action: manipulation;
 
-          .fas.fa-chevron-right{
+          .fas.fa-chevron-right {
             position: absolute;
             top: 50%;
             right: 16px;
@@ -53,8 +53,8 @@
         }
       }
     }
-    
-    &__title{
+
+    &__title {
       margin: 40px 0 0;
       font-size: 16px;
     }

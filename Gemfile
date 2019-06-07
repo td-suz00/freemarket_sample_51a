@@ -84,6 +84,5 @@ gem 'carrierwave'
 gem 'payjp'
 gem 'activerecord-import'
 gem 'gon'
-gem 'dropzonejs-rails'
 gem "jquery-rails"
 gem 'mini_magick'

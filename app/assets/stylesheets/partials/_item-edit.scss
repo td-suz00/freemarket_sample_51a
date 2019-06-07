@@ -1,0 +1,37 @@
+sub {
+  font-size: 0.9rem;
+  display: inline-block;
+
+  margin: {
+    top: 25px;
+    left: 10px;
+  }
+}
+
+.item__edit-btn {
+  margin: 16px 0 0;
+  width: calc(100% - 22px);
+  height: 30px;
+  padding: 10px;
+  background-color: $red;
+}
+
+#btn-comment {
+  font-size: 14px;
+  color: $white;
+  line-height: 30px;
+  margin: 297px;
+}
+
+#btn-stop {
+  font-size: 14px;
+  color: $white;
+  line-height: 30px;
+  margin: 275px;
+}
+
+#or {
+  margin-left: 325px;
+  text-align: center;
+  font-size: 1rem;
+}
