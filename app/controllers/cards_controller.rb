@@ -51,6 +51,7 @@ class CardsController < ApplicationController
             redirect_to action: :index
           when 'new'
             redirect_to action: :show, id: 1
+            #### 仮置き ユーザー登録完了のビューのルーティング変更時に併せて修正
         end
       else
         case card_params[:move_from_action]

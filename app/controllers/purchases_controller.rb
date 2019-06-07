@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
       )
       deal.charge_id = charge.id
       deal.buyer_id = 1
-      #### 仮置き deal.buyer_id = 1
+      #### 仮置き deal.buyer_id = current_user.id
       deal.status_id = 2 # ステータスを取引中に更新
       deal.deal_at = DateTime.now
       deal.save
