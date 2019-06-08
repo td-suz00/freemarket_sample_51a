@@ -10,7 +10,7 @@
       padding: 8px 24px;
       border-bottom: 1px solid $border_gray;
       text-align: center;
-      line-height: 1.4;  
+      line-height: 1.4;
       font-weight: 600;
     }
   }
@@ -25,6 +25,7 @@
         margin: 8px 0 0;
         line-height: 1.5;
       }
+
       &__text-right {
         text-align: right;
 
@@ -38,10 +39,11 @@
 
     &__list {
       margin: 40px 0 0;
-      
+
       label {
         font-weight: 600;
       }
+
       p {
         margin: 8px 0 0;
         line-height: 1.5;
@@ -95,14 +97,15 @@
         }
       }
     }
+
     &__button {
       margin: 40px 0 0 0;
     }
-    
+
     &__about-registration {
       margin: 40px 0 0;
-      
-      p{
+
+      p {
         text-align: right;
 
         .user_mypage__container__edit__form__about-registration__link {

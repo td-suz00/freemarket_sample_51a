@@ -1,3 +1,4 @@
+// new
 .item {
   &__title {
     line-height: 110px;
@@ -5,6 +6,7 @@
     text-align: center;
     font-weight: bold;
   }
+
   &__info {
 
     &__inner-content {
@@ -24,15 +26,18 @@
           font-size: 24px;
           display: inline-block;
         }
+
         &__delivery-fee {
           display: inline-block;
           font-size: 14px;
         }
       }
+
       &__point {
         @extend .graybtn;
         margin-top: 15px;
       }
+
       &__account {
         padding: 12px 0;
         display: flex;
@@ -43,10 +48,12 @@
           display: inline-block;
           font-weight: bold;
         }
+
         &__price {
           display: inline-block;
         }
       }
+
       &__purchase-btn {
         @extend .redbtn;
         margin-top: 10px;
@@ -64,6 +71,7 @@
       &__heading {
         font-weight: bold;
       }
+
       &__info {
 
         &__fix {
@@ -84,6 +92,7 @@
       &__heading {
         font-weight: bold;
       }
+
       &__info {
 
         &__fix {
