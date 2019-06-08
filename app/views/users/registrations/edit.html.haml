@@ -1,36 +1,130 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+-# %h2
+-#   Edit #{resource_name.to_s.humanize}
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+-#     %div
+-#       Currently waiting confirmation for: #{resource.unconfirmed_email}
+-#   .field
+-#     = f.label :password
+-#     %i (leave blank if you don't want to change it)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#     - if @minimum_password_length
+-#       %br/
+-#       %em
+-#         = @minimum_password_length
+-#         characters minimum
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .field
+-#     = f.label :current_password
+-#     %i (we need your current password to confirm your changes)
+-#     %br/
+-#     = f.password_field :current_password, autocomplete: "current-password"
+-#   .actions
+-#     = f.submit "Update"
+-# %h3 Cancel my account
+-# %p
+-#   Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+-# = link_to "Back", :back
+%header
+  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
+.sigup
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .sigup__title
+      %h2 会員情報入力
+      .sigup__info-container
+        %ul
+          %li
+            %h3 ニックネーム
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '例) メルカリ太郎',class: 'text_field'
+          %li
+            %h3 メールアドレス
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, 'PC・携帯どちらでも可',class: 'text_field'
+          %li
+            %h3 パスワード
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '6文字以上',class: 'text_field'
+          %li
+            %h3 パスワード（確認）
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '6文字以上',class: 'text_field'
+          %li
+            %h3 本人確認
+          .clearfix
+          %li
+            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .clearfix
+          %li
+            %h3 姓（全角）
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '例) 山田',class: 'text_field'
+          %li
+            %h3 名（全角）
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '例) 彩',class: 'text_field'
+          %li
+            %h3 姓カナ（全角)
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '例) ヤマダ',class: 'text_field'
+          %li
+            %h3 名カナ（全角）
+          %li
+            .required__icon 必須
+          .clearfix
+          = text_field_tag :content, '例) アヤ',class: 'text_field'
+          %li
+            %h3 生年月日
+          %li
+            .required__icon 必須
+          .clearfix
+          = select_tag 'category', options_for_select({'---':'---','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon_1'
+          %sub 年
+          = select_tag 'category', options_for_select({'---':'---','01':'01','02':'02','03':'03','04':'04','05':'05','06':'06','07':'07','08':'08','09':'09','10':'10','11':'11','12':'12'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon_2'
+          %sub 月
+          = select_tag 'category', options_for_select({'---':'---','01':'01','02':'02','03':'03','04':'04','05':'05','06':'06','07':'07','08':'08','09':'09','10':'10','11':'11','12':'12','13':'13','14':'14','15':'15','16':'16','17':'17','18':'18','19':'19','20':'20','21':'21','22':'22','23':'23','24':'24','25':'25','26':'26','27':'27','28':'28','29':'29','30':'30','31':'31'}),class: 'select_tag'
+          = fa_icon 'chevron-down', class:'fa_icon_3'
+          %sub 日
+          .clearfix
+          .dscription
+            %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+          = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img"
+          .dscription
+            %p「次へ進む」のボタンを押すことにより、
+            %p.blue 利用規約
+            %p に同意したものとみなします。
+          .next-btn
+            = link_to "次へ進む", class:'next_btn'
+          .link-box
+            %li
+              %p 本人情報の登録について
+            %li
+              = fa_icon 'chevron-right', class:'arrow_blue'
+          .clearfix
+
+  = render partial:'items/item_footer'

@@ -1,243 +1,298 @@
-  // index
-  header {
-    height: 100px;
-    padding-top: 40px;
+// index
+header {
+  height: 100px;
+  padding-top: 40px;
 
-    .header__logo-img_signup {
-      display: block;
+  .header__logo-img_signup {
+    display: block;
 
-      margin: {
-        bottom: 30px;
-        left: 70px;
-      }
-    }
-  }
-
-  .sigup {
-    width: 800px;
-    padding-bottom: 150px;
-    margin: 0 auto;
-    background-color: $white;
-    height: 1515px;
-
-    &__title {
-      height: 110px;
-      border-bottom: 0.09px solid $border_gray;
-      font-size: 26px;
-
-      h2 {
-        padding: 32px 16px;
-        text-align: center;
-        font-weight: 600;
-      }
-    }
-
-    &__info-container {
-      padding: {
-        top: 35px;
-        left: 210px;
-        right: 150px;
-      }
-
-      h3 {
-        font: {
-          weight: 600;
-          size: 15px;
-        }
-
-        float: left;
-        margin-top: 10px;
-      }
-
-      ul {
-        position: relative;
-
-        li {
-          float: left;
-
-          margin: {
-            bottom: 10px;
-          }
-        }
-
-        .required__icon {
-          display: inline;
-        }
-
-        p {
-          font-size: 13px;
-        }
-
-        .form {
-          border:1px solid $border_gray {
-            radius: 0.3rem;
-          }
-        }
-
-        .text_field {
-          @extend .form;
-          width: 400px;
-          height: 50px;
-          font-size: 16px;
-          margin-bottom: 20px;
-          color: $form_gray;
-          padding-left: 10px;
-        }
-      }
-
-      .next-btn {
-        background-color: $red;
-        width: 400px;
-        padding: 13px;
-        text-align: center;
-
-        margin: {
-          top: 19px;
-        }
-
-        a {
-          color: $white;
-          font-size: 0.9rem;
-          display: inline;
-          text-decoration: none;
-        }
-      }
-    }
-
-    .select_tag {
-      @extend .form;
-      width: 100px;
-      height: 50px;
-      font-size: 16px;
-      color: $form_gray;
-      padding-left: 15px;
-
-      margin: {
-        bottom: 20px;
-        top: 7px;
-      }
-    }
-
-    i.fa_icon_1 {
-      font-size: 0.9rem;
-      color: $fa_icon_gray;
-      position: absolute;
-      top: 1083px;
+    margin: {
+      bottom: 30px;
       left: 70px;
     }
+  }
+}
 
-    i.fa_icon_2 {
-      font-size: 0.9rem;
-      color: $fa_icon_gray;
-      position: absolute;
-      top: 1090px;
-      left: 200px;
+.sigup {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 1515px;
+
+  &__title {
+    height: 110px;
+    border-bottom: 0.09px solid $border_gray;
+    font-size: 26px;
+
+    h2 {
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+
+  &__info-container {
+    padding: {
+      top: 35px;
+      left: 210px;
+      right: 150px;
     }
 
-    i.fa_icon_3 {
-      font-size: 0.9rem;
-      color: $fa_icon_gray;
-      position: absolute;
-      top: 1090px;
-      left: 330px;
+    h3 {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+
+      float: left;
+      margin-top: 10px;
     }
 
-    sub {
-      font-size: 0.9rem;
-      background: white;
-    }
+    ul {
+      position: relative;
 
-    .dscription p {
-      color: $black;
-      display: inline-block;
-      font-size: 12.8px;
-    }
+      li {
+        float: left;
 
-    p.blue {
-      font-size: 12.8px;
-      color: $light_blue;
-    }
+        margin: {
+          bottom: 10px;
+        }
+      }
 
-    p.gray {
-      font-size: 12.8px;
-      color: $form_gray;
-    }
-
-    .link-box {
-      margin: {
-        top: 40px;
+      .required__icon {
+        display: inline;
       }
 
       p {
-        color: $light_blue;
-        font-size: 14px;
-        float: right;
-        margin-left: 260px;
+        font-size: 13px;
       }
 
-      .arrow_blue {
-        color: $light_blue;
-        font-size: 15px;
-        float: right;
-
-        padding: {
-          left: 3px;
-          top: 3px;
+      .form {
+        border: 1px solid $border_gray {
+          radius: 0.3rem;
         }
+      }
+
+      .text_field {
+        @extend .form;
+        width: 400px;
+        height: 50px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: $form_gray;
+        padding-left: 10px;
+      }
+    }
+
+    .next-btn {
+      background-color: $red;
+      width: 400px;
+      padding: 13px;
+      text-align: center;
+
+      margin: {
+        top: 19px;
+      }
+
+      a {
+        color: $white;
+        font-size: 0.9rem;
+        display: inline;
+        text-decoration: none;
       }
     }
   }
 
-  // new
-  .sigup_sms {
-    width: 800px;
-    padding-bottom: 150px;
-    margin: 0 auto;
-    background-color: $white;
-    height: 400px;
+  .select_tag {
+    @extend .form;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    padding-left: 15px;
+
+    margin: {
+      bottom: 20px;
+      top: 7px;
+    }
+  }
+
+  i.fa_icon_1 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1083px;
+    left: 70px;
+  }
+
+  i.fa_icon_2 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1090px;
+    left: 200px;
+  }
+
+  i.fa_icon_3 {
+    font-size: 0.9rem;
+    color: $fa_icon_gray;
+    position: absolute;
+    top: 1090px;
+    left: 330px;
+  }
+
+  sub {
+    font-size: 0.9rem;
+    background: white;
+  }
+
+  .dscription p {
+    color: $black;
+    display: inline-block;
+    font-size: 12.8px;
+  }
+
+  p.blue {
+    font-size: 12.8px;
+    color: $light_blue;
+  }
+
+  p.gray {
+    font-size: 12.8px;
+    color: $form_gray;
+  }
+
+  .link-box {
+    margin: {
+      top: 40px;
+    }
 
     p {
-      font-size: 13px;
+      color: $light_blue;
+      font-size: 14px;
+      float: right;
+      margin-left: 260px;
     }
 
-    .link-box {
-      margin: {
-        top: 40px;
-      }
+    .arrow_blue {
+      color: $light_blue;
+      font-size: 15px;
+      float: right;
 
-      p {
-        color: $light_blue;
-        font-size: 14px;
-        float: right;
-        margin-left: 200px;
-      }
-
-      .arrow_blue {
-        color: $light_blue;
-        font-size: 15px;
-        float: right;
-
-        padding: {
-          left: 3px;
-          top: 3px;
-        }
+      padding: {
+        left: 3px;
+        top: 3px;
       }
     }
   }
+}
 
-  .sms-btn {
+// new
+.sigup_sms {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 400px;
+
+  p {
+    font-size: 13px;
+  }
+
+  .link-box {
+    margin: {
+      top: 40px;
+    }
+
+    p {
+      color: $light_blue;
+      font-size: 14px;
+      float: right;
+      margin-left: 200px;
+    }
+
+    .arrow_blue {
+      color: $light_blue;
+      font-size: 15px;
+      float: right;
+
+      padding: {
+        left: 3px;
+        top: 3px;
+      }
+    }
+  }
+}
+
+.sms-btn {
+  background-color: $red;
+  width: 350px;
+  padding: 13px;
+  text-align: center;
+
+  padding: {
+    left: 30px;
+    right: 30px;
+  }
+
+  margin: {
+    top: 19px;
+  }
+
+  a {
+    color: $white;
+    font-size: 0.9rem;
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
+// show
+.sigup_sms-2 {
+  width: 800px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  background-color: $white;
+  height: 750px;
+
+  p {
+    font-size: 13px;
+  }
+
+  .sigup__info-box {
+    box-sizing: border-box;
+
+    padding: {
+      top: 35px;
+      left: 210px;
+      right: 150px;
+    }
+
+    h3 {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
+
+      margin-top: 10px;
+    }
+
+    border: {
+      bottom: 1px solid $border_gray;
+    }
+  }
+
+  .sms-btn_2 {
     background-color: $red;
-    width: 350px;
+    width: 380px;
     padding: 13px;
     text-align: center;
 
-    padding: {
-      left: 30px;
-      right: 30px;
-    }
-
     margin: {
       top: 19px;
+      bottom: 10px;
     }
 
     a {
@@ -245,172 +300,162 @@
       font-size: 0.9rem;
       display: inline;
       text-decoration: none;
-      text-align: center;
     }
   }
 
-  // show
-  .sigup_sms-2 {
-    width: 800px;
-    padding-bottom: 150px;
-    margin: 0 auto;
-    background-color: $white;
-    height: 750px;
+  .sms-btn_3 {
+    background-color: $red;
+    width: 380px;
+    padding: 13px;
+    text-align: center;
 
-    p {
-      font-size: 13px;
+    margin: {
+      top: 19px;
+      bottom: 60px;
     }
 
-    .sigup__info-box {
-      box-sizing: border-box;
+    a {
+      color: $white;
+      font-size: 0.9rem;
+      display: inline;
+      text-decoration: none;
+    }
+  }
 
-      padding: {
-        top: 35px;
-        left: 210px;
-        right: 150px;
-      }
+  .sigup__info-box_2 {
+    box-sizing: border-box;
 
-
-      h3 {
-        font: {
-          weight: 600;
-          size: 15px;
-        }
-
-        margin-top: 10px;
-      }
-
-      border: {
-        bottom: 1px solid $border_gray;
-      }
+    padding: {
+      top: 35px;
+      left: 210px;
+      right: 150px;
     }
 
-    .sms-btn_2 {
-      background-color: $red;
-      width: 380px;
-      padding: 13px;
-      text-align: center;
+    h3 {
+      font: {
+        weight: 600;
+        size: 15px;
+      }
 
       margin: {
-        top: 19px;
-        bottom: 10px;
-      }
-
-      a {
-        color: $white;
-        font-size: 0.9rem;
-        display: inline;
-        text-decoration: none;
+        top: 10px;
+        bottom: 20px;
       }
     }
 
-    .sms-btn_3 {
-      background-color: $red;
-      width: 380px;
-      padding: 13px;
-      text-align: center;
-
-      margin: {
-        top: 19px;
-        bottom: 60px;
-      }
-
-      a {
-        color: $white;
-        font-size: 0.9rem;
-        display: inline;
-        text-decoration: none;
-      }
+    p.blue {
+      color: $light_blue;
     }
 
-    .sigup__info-box_2 {
-      box-sizing: border-box;
+    .dscription {
+      font-size: 12.8px;
 
-      padding: {
-        top: 35px;
-        left: 210px;
-        right: 150px;
-      }
-
-      h3 {
-        font: {
-          weight: 600;
-          size: 15px;
-        }
-
-        margin: {
-          top: 10px;
-          bottom: 20px;
-        }
-      }
-
-      p.blue {
+      span.blue {
         color: $light_blue;
       }
-
-      .dscription {
-        font-size: 12.8px;
-
-        span.blue {
-          color: $light_blue;
-        }
-      }
     }
   }
+}
 
+#page_updated_at_1i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 20px;
+  float: left;
 
-  #page_updated_at_1i {
-    @extend .form;
-    width: 90px;
-    height: 50px;
-    font-size: 16px;
-    color: $form_gray;
-    padding-left: 20px;
-    float: left;
-
-    margin: {
-      bottom: 5px;
-      top: 10px;
-    }
+  margin: {
+    bottom: 5px;
+    top: 10px;
   }
+}
 
-  #page_updated_at_2i {
-    @extend .form;
-    width: 90px;
-    height: 50px;
-    font-size: 16px;
-    color: $form_gray;
-    padding-left: 20px;
-    float: left;
+#page_updated_at_2i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 20px;
+  float: left;
 
-    margin: {
-      bottom: 5px;
-      top: 10px;
-      left: 20px;
-    }
+  margin: {
+    bottom: 5px;
+    top: 10px;
+    left: 20px;
   }
+}
 
-  sub.left {
-    float: left;
+sub.left {
+  float: left;
 
-    margin: {
-      top: 24px;
-      left: 10px;
-    }
+  margin: {
+    top: 24px;
+    left: 10px;
   }
+}
 
-  .select_tag_left {
-    @extend .form;
-    width: 90px;
-    height: 50px;
-    font-size: 16px;
-    color: $form_gray;
-    padding-left: 15px;
-    float: left;
+#user_profile_attributes_birth_ymd_1i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 20px;
+  float: left;
 
-    margin: {
-      bottom: 20px;
-      top: 10px;
-      left: 25px;
-    }
+  margin: {
+    bottom: 5px;
+    top: 10px;
   }
+}
+
+#user_profile_attributes_birth_ymd_2i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 20px;
+  float: left;
+
+  margin: {
+    bottom: 5px;
+    top: 10px;
+    left: 20px;
+  }
+}
+
+#user_profile_attributes_birth_ymd_3i {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 15px;
+  float: left;
+
+  margin: {
+    bottom: 20px;
+    top: 10px;
+    left: 25px;
+  }
+}
+
+.select_tag_left {
+  @extend .form;
+  width: 90px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  padding-left: 15px;
+  float: left;
+
+  margin: {
+    bottom: 20px;
+    top: 10px;
+    left: 25px;
+  }
+}
