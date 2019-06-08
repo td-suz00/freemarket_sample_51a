@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
 
   # ピックアップカテゴリーのitemsの配列を生成するメソッド
-  def self.choose_items(id)
+  def self.pickup_category_items(id)
     # 引数で渡されたidの子カテゴリのidの配列を生成
     child_category_ids = Category.find(id).children.ids
     # 子カテゴリのidと合致する孫カテゴリのidの配列を生成
@@ -22,6 +22,12 @@ class Item < ApplicationRecord
     items = Item.where("category_id IN (?)", grand_child_category_ids)
     # 最新の４件を取得
     items.order("created_at DESC").limit(4)
+  end
+
+  # ピックアップブランドのitemsの配列を生成するメソッド
+  def self.pickup_brand_items(brand_name)
+    pickup_brand_id = Brand.find_by(name: brand_name).id
+    Item.where(brand_id: pickup_brand_id).order("created_at DESC").limit(4)
   end
 
 end

@@ -30,7 +30,7 @@
     .pickup-categories__title ピックアップカテゴリー
 
     .pickup-category
-      = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-category__title'
+      = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-brand__title'
       .item-box.clearfix
         - @redies_items.each do |item|
           .item
@@ -47,7 +47,7 @@
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
 
     .pickup-category
-      = link_to 'メンズ 新着アイテム(signup)',new_user_registration_path,class:'pickup-category__title'
+      = link_to 'メンズ 新着アイテム(signup)',new_user_registration_path,class:'pickup-brand__title'
       .item-box.clearfix
         - @mens_items.each do |item|
           .item
@@ -64,7 +64,7 @@
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
 
     .pickup-category
-      = link_to 'ベビー・キッズ 新着アイテム',new_user_registration_path,class:'pickup-category__title'
+      = link_to 'ベビー・キッズ 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
       .item-box.clearfix
         - @baby_kids_items.each do |item|
           .item
@@ -81,7 +81,7 @@
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
 
     .pickup-category
-      = link_to 'コスメ・香水・美容 新着アイテム',new_user_registration_path,class:'pickup-category__title'
+      = link_to 'コスメ・香水・美容 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
       .item-box.clearfix
         - @beauty_items.each do |item|
           .item
@@ -96,6 +96,78 @@
                 = item.price
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+
+
+  .pickup-brands
+    .pickup-brands__title ピックアップブランド
+
+    .pickup-brand
+      = link_to 'シャネル 新着アイテム(signin)',sign_in_path,class:'pickup-brand__title'
+      .item-box.clearfix
+        - @chanel_items.each do |item|
+          .item
+            - item_image = item.item_images.first.image_url
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            .item__lower
+              .item__lower__name
+                = item.name
+              .item__lower__price
+                ¥
+                = item.price
+              .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+
+    .pickup-category
+      = link_to 'ルイ ヴィトン 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
+      .item-box.clearfix
+        - @vuitton_items.each do |item|
+          .item
+            - item_image = item.item_images.first.image_url
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            .item__lower
+              .item__lower__name
+                = item.name
+              .item__lower__price
+                ¥
+                = item.price
+              .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+
+    .pickup-category
+      = link_to 'シュプリーム 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
+      .item-box.clearfix
+        - @supreme_items.each do |item|
+          .item
+            - item_image = item.item_images.first.image_url
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            .item__lower
+              .item__lower__name
+                = item.name
+              .item__lower__price
+                ¥
+                = item.price
+              .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
+
+    .pickup-category
+      = link_to 'ナイキ 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
+      .item-box.clearfix
+        - @nike_items.each do |item|
+          .item
+            - item_image = item.item_images.first.image_url
+            = link_to item_path(item.id), data: {turbolinks: false} do
+              = image_tag "#{item_image}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+            .item__lower
+              .item__lower__name
+                = item.name
+              .item__lower__price
+                ¥
+                = item.price
+              .item__lower__tax (税込)
+      = link_to ' すべての商品を見る',"#",class:'pickup-brand__show-all'
 
 
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
