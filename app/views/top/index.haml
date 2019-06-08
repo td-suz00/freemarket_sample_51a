@@ -32,7 +32,7 @@
     .pickup-category
       = link_to 'レディース 新着アイテム(signin)',sign_in_path,class:'pickup-brand__title'
       .item-box.clearfix
-        - @redies_items.each do |item|
+        - @ladies_items.each do |item|
           .item
             - item_image = item.item_images.first.image_url
             = link_to item_path(item.id), data: {turbolinks: false} do

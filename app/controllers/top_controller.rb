@@ -1,7 +1,7 @@
 class TopController < ApplicationController
 
   def index
-    @redies_items = Item.pickup_category_items(1)
+    @ladies_items = Item.pickup_category_items(1)
     @mens_items = Item.pickup_category_items(2)
     @baby_kids_items = Item.pickup_category_items(3)
     @beauty_items = Item.pickup_category_items(7)
