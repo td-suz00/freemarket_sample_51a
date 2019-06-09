@@ -36,7 +36,7 @@
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
               -# top_helper.rb内のメソッドを呼び出し、imagesの最初の１枚を表示
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -51,7 +51,7 @@
         - @mens_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -66,7 +66,7 @@
         - @baby_kids_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -81,7 +81,7 @@
         - @beauty_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -100,7 +100,7 @@
         - @chanel_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -115,7 +115,7 @@
         - @vuitton_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -130,7 +130,7 @@
         - @supreme_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
@@ -145,7 +145,7 @@
         - @nike_items.each do |item|
           .item
             = link_to item_path(item.id), data: {turbolinks: false} do
-              = image_tag "#{first_item_image(item)}", width: "213", height: "213"  ,class:"banner-mercari-info-hand-phone"
+              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
             .item__lower
               .item__lower__name
                 = item.name
