@@ -80,7 +80,6 @@ header {
         height: 50px;
         font-size: 16px;
         margin-bottom: 20px;
-        color: $form_gray;
         padding-left: 10px;
       }
     }
@@ -90,11 +89,12 @@ header {
       width: 400px;
       padding: 13px;
       text-align: center;
-
+      input {
+        color: $white;
+      }
       margin: {
         top: 19px;
       }
-
       a {
         color: $white;
         font-size: 0.9rem;
@@ -109,7 +109,6 @@ header {
     width: 100px;
     height: 50px;
     font-size: 16px;
-    color: $form_gray;
     padding-left: 15px;
 
     margin: {
@@ -160,7 +159,6 @@ header {
 
   p.gray {
     font-size: 12.8px;
-    color: $form_gray;
   }
 
   .link-box {
@@ -198,6 +196,11 @@ header {
 
   p {
     font-size: 13px;
+  }
+  .sms-btn {
+    input {
+      color: white;
+    }
   }
 
   .link-box {
@@ -362,7 +365,6 @@ header {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 20px;
   float: left;
 
@@ -377,7 +379,6 @@ header {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 20px;
   float: left;
 
@@ -402,7 +403,6 @@ sub.left {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 20px;
   float: left;
 
@@ -417,7 +417,6 @@ sub.left {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 20px;
   float: left;
 
@@ -433,7 +432,6 @@ sub.left {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 15px;
   float: left;
 
@@ -449,7 +447,6 @@ sub.left {
   width: 90px;
   height: 50px;
   font-size: 16px;
-  color: $form_gray;
   padding-left: 15px;
   float: left;
 
@@ -458,4 +455,10 @@ sub.left {
     top: 10px;
     left: 25px;
   }
+}
+.signup-errors {
+  text-align: center;
+  font-size: 14px;
+  color: red;
+  padding-top: 10px;
 }
