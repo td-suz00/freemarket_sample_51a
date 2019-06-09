@@ -4,6 +4,8 @@
   = form_for(@profile, url: signup_sms_confirmation_certify_path) do |f|
     .sigup__title
       %h2 電話番号の確認
+      .signup-errors
+        =@errors
       .sigup__info-container
         %ul
           %li
@@ -16,7 +18,7 @@
             %p 利用して認証を行います。
           .clearfix
           .sms-btn
-            = f.submit
+            = f.submit('次へ進む' ,class:'next_btn')
           .clearfix
             %br
             %p 電話番号は本人確認や不正利用防止のために利用します。

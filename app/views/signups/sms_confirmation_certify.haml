@@ -3,12 +3,14 @@
 .sigup_sms-2
   .sigup__title
     %h2 電話番号認証
+    .signup-errors
+      =@errors
     .sigup__info-container
       %ul
         %li
           %h3 認証番号
         .clearfix
-        = text_field_tag :content, '認証番号を入力',class: 'text_field'
+        = text_field_tag :content, '',{ class: 'text_field', placeholder: "携帯電話の番号を入力"}
         .clearfix
         %li
           %p SMSで届いた認証番号を入力してください。

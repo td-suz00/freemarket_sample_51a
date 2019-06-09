@@ -4,6 +4,8 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     .sigup__title
       %h2 会員情報入力
+      .signup-errors
+        =@errors
       .sigup__info-container
         %ul
           %li
@@ -48,7 +50,6 @@
             %li
               .required__icon 必須
             .clearfix
-            -# = text_field_tag :content, '例) 彩',class: 'text_field'
             = f.text_field :last_name,{class: 'text_field', placeholder: "例) 彩"}
             %li
               %h3 姓カナ（全角)
@@ -61,14 +62,13 @@
             %li
               .required__icon 必須
             .clearfix
-            -# = text_field_tag :content, '例) アヤ',class: 'text_field'
             = f.text_field :kana_last_name,{class: 'text_field', placeholder: "例) アヤ"}            
             %li
               %h3 生年月日
             %li
               .required__icon 必須
             .clearfix
-            = f.date_select( :birth_ymd, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 18), default: Date.new(1989, 1, 1), id:'page_updated_at_1i')
+            = f.date_select( :birth_ymd, use_month_numbers: true, prompt:  '　　---',start_year: 1930, end_year: (Time.now.year - 18), blank:'---',default: Date.new(1989, 1, 1), id:'page_updated_at_1i')
             .clearfix
             .dscription
               %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
@@ -78,9 +78,9 @@
               %p.blue 利用規約
               %p に同意したものとみなします。
             .next-btn
-              = link_to "次へ進む","/users/1/signups/new", class:'next_btn'
-              = f.submit "Create Account", class: 'btn'
-              -#### 仮置き。サーバサイド実装後、/users/:user_id/signups/newに修正
+              = f.submit('次へ進む' ,class:'next_btn')
+              -# = link_to "次へ進む","/users/1/signups/new", class:'next_btn'
+              -# = f.submit "Create Account", class: 'btn'
             .link-box
               %li
                 %p 本人情報の登録について
@@ -89,40 +89,3 @@
             .clearfix
 
 = render partial:'items/item_footer'
--# #account-page.account-page
--#   .account-page__inner.clearfix
--#     .account-page__inner--left.account-page__header
--#       %h2 Create Account
--#       %h5 新規アカウントの作成
--#       = render "devise/shared/links"
--#     .account-page__inner--right.user-form
--# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
--#   = devise_error_messages!
--#   .field
--#     .field-label
--#       = f.label :nickname
--#     .field-input
--#       = f.text_field :nickname, autofocus: true ,class: 'text_field'
--#   .field
--#     .field-label
--#       = f.label :email
--#     .field-input
--#       = f.email_field :email
--#   .field
--#     .field-label
--#       = f.label :password
--#       %i (英数字8文字以上)
--#     .field-input
--#       = f.password_field :password, autocomplete: "off"
--#   .field
--#     .field-label
--#       = f.label :password_confirmation
--#     .field-input
--#       = f.password_field :password_confirmation, autocomplete: "off"
--#   .actions
--#     = f.submit "Create Account", class: 'btn'
-  -# = f.fields_for :profile do |f|
-  -#   .field
-  -#     = f.label :name
-  -#     %br/
-  -#     = f.text_field :name
