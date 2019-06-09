@@ -161,7 +161,8 @@ $height_pixel: 44px;
 }
 
 .top {
-  .pickup-categories, .pickup-brands {
+  .pickup-categories,
+  .pickup-brands {
     &__title {
       font-size: 28px;
       font-weight: bold;
@@ -169,7 +170,8 @@ $height_pixel: 44px;
       padding: 40px;
     }
 
-    .pickup-category, .pickup-brand {
+    .pickup-category,
+    .pickup-brand {
       height: 480px;
       padding-bottom: 20px;
       margin: auto;
