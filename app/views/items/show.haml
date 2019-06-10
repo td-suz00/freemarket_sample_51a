@@ -9,35 +9,15 @@
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
-            %li
-              = image_tag ItemImage.first.image_url.to_s, height: '230', width: '230', class:'item_img'
-              -# - @images.each do |image|
-              -# - item_image = image.first.image_url.to_s
-              -# = image_tag "#{item_image}".first.image_url.to_s, height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'penguin.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat1.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat2.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat3.jpg', height: '230', width: '230', class:'item_img'
+            - @images.each do |image|
+              - if image.present?
+                %li
+                  = image_tag image.image_url.to_s, class:'item_img'
           %ul#thumb
             %li
-              = image_tag ItemImage.first.image_url.to_s, height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'penguin.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat1.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat2.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat3.jpg', height: '60', width: '60', class:'item_s-img'
-
+              - @images.each do |image|
+                - if image.present?
+                  = image_tag image.image_url.to_s, class:'item_s-img'
         .item__info__inner-content__table
         %table
           %tbody
@@ -98,7 +78,7 @@
         .item__info__inner-content__account
           .item__info__inner-content__account__price-detail
             .item-price
-              ="¥#{@item.price}"
+              ="¥#{@item.price.to_s(:delimited)}"
             %sub.tax
               (税込)
             .deliverly-btn
@@ -106,6 +86,7 @@
             .clearfix
         .item__info__inner-content__purchase-btn#btn-detail
           = link_to "購入画面に進む", new_item_purchase_path(1), class:'btn-detail'
+          -###/items/:item_id/purchases/new
         .item__info__inner-content__text
           = @item.text
         .btn-box

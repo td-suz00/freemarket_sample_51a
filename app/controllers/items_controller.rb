@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
-    if  brand = Brand.find_by(name:params[:item][:brand_id])
+    if brand = Brand.find_by(name:params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
     else
       params[:item][:brand_id] = Brand.create(name:params[:item][:brand_id]).id
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @images = ItemImage.find(params[:id])
+    @images = ItemImage.where(item_id: @item.id)
     render layout: 'application-off-header-footer.haml'
   end
 
@@ -53,9 +53,9 @@ class ItemsController < ApplicationController
 
   def search_category
     if params[:parent_id].to_i >= 159
-      @children=Category.find(params[:parent_id]).sizes
+      @children = Category.find(params[:parent_id]).sizes
     else
-      @children=Category.find(params[:parent_id]).children
+      @children = Category.find(params[:parent_id]).children
     end
    respond_to do |format|
      format.html
