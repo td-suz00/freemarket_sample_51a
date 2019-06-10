@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
     if  brand = Brand.find_by(name:params[:item][:brand_id])
-      params[:item][:brand_id] = brand.id  
+      params[:item][:brand_id] = brand.id
     else
       params[:item][:brand_id] = Brand.create(name:params[:item][:brand_id]).id
     end
@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
     render layout: 'application-off-header-footer.haml'
   end
 

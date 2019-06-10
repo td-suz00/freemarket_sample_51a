@@ -1,123 +1,25 @@
-= render partial:'shared/global-header'
 .item_wrapper
-  %br
-  %br
-  .item
-    .item__title-detail
-      LV トートバッグ
-    .item__info#item-info
-      .item__info__inner-content#content-detail
-        .item__info__inner-content__image#content-img
-          %ul#slider
-            %li
-              = image_tag 'item-bag.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'penguin.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat1.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat2.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat3.jpg', height: '230', width: '230', class:'item_img'
-          %ul#thumb
-            %li
-              = image_tag 'item-bag.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'penguin.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat1.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat2.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat3.jpg', height: '60', width: '60', class:'item_s-img'
-
-        .item__info__inner-content__table
-        %table
-          %tbody
-            %tr
-              %th 出品者
-              %td
-                %p#blue daisuke
-                %i.fas.fa-grin
-                500
-                %i.fas.fa-meh
-                10
-                %i.fas.fa-frown
-                5
-            %tr
-              %th カテゴリー
-              %td#blue
-                %p レディース
-                %p
-                = fa_icon 'chevron-right'
-                バッグ
-                %p
-                = fa_icon 'chevron-right'
-                トートバッグ
-            %tr
-              %th ブランド
-              %td#blue ルイ ヴィトン
-            %tr
-              %th 商品のサイズ
-              %td
-            %tr
-              %th 商品の状態
-              %td 新品、未使用
-            %tr
-              %th 配送料の負担
-              %td 送料込み(出品者負担)
-            %tr
-              %th 配送方法
-              %td 未定
-            %tr
-              %th 配送元地域
-              %td#blue 東京都
-            %tr
-              %th 発送の目安
-              %td 1~2日で発送
-        .item__info__inner-content__account
-          .item__info__inner-content__account__price-detail
-            .price ¥ 800
-            .tax (税込)
-            %sub 送料込み
-        .item__info__inner-content__purchase-btn#btn-detail
-          = link_to "購入画面に進む", new_item_path, class:'btn-detail'
-          -#### リンク仮置きです
-        .item__info__inner-content__text
-          LOUIS VUITTON 今年購入 美品！
-          どんな洋服にも合います。
-          %br
-          破格です。限定デザインなので、とても希少です！
-          %br
-          おまけに、動物たちもバッグに入れて送ります♪
-  %br
-  .item
-    .item__edit-btn
-      %button
-        = link_to "商品の編集", new_item_path, id:'btn-comment'
-        -#### リンク仮置きです
-    %sub#or or
-    .item__comment-btn
-      %button
-        = link_to "出品を一旦停止する", new_item_path, id:'btn-stop'
-        -#### リンク仮置きです
-    .item__comment-btn
-      %button
-        = link_to "この商品を削除する", new_item_path, id:'btn-stop'
-        -#### リンク仮置きです
-  %br
-  .item
-    .item__attention
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    .item__comment-form
-      %textarea
-    .item__comment-btn
-      %button
-        = link_to "コメントする", new_item_path, id:'btn-comment'
-        -#### リンク仮置きです
-  %br
-= render partial:'shared/global-only-footer'
+  %header
+    = link_to (root_path) do
+      = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+  = render 'item'
+:css
+  <!--
+  .ui-autocomplete {
+    width:100px;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0px 0px 3px rgba(0, 0, 1, 1);
+      overflow-x: hidden;
+      padding-right: 20px;
+            background:white;
+            opacity:1;
+            z-index:10;}
+  #jquery-ui-autocomplete label {
+      float: left;
+      margin-right: 0.5em;
+      color: black;
+      font-size: 15px;
+      background:white;
+  }
+  -->
