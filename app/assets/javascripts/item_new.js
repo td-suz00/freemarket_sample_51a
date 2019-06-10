@@ -18,13 +18,14 @@ $(function() {
     .css("display", "none");
   $(".new_item .item__detail__form_box__brand").css("display", "none");
   // 親カテゴリーが入力されたとき子カテゴリーを生成
-  $(".new_item .parent_id").change(function() {
-    var parent_id = $(".new_item .parent_id").val();
+  $(".parent_id").change(function() {
+    console.log(this)
+    var parent_id = $(".parent_id").val();
     if (parent_id === "---") {
-      $(".new_item .child_id")
+      $(".child_id")
         .parent()
         .css("display", "none");
-      $(".new_item .grandchild_id")
+      $(".grandchild_id")
         .parent()
         .css("display", "none");
     } else {
@@ -34,19 +35,21 @@ $(function() {
         data: { parent_id: parent_id },
         dataType: "json"
       }).done(function(child_ids) {
-        $(".new_item .child_id").empty();
-        $(".new_item .child_id")
+        $(".child_id").empty();
+        $(".child_id")
           .parent()
           // display:noneの解除
           .css("display", "");
-        $(".new_item .child_id").append(firstSelecthtml);
+        $(".child_id").append(firstSelecthtml);
         child_ids.forEach(function(child) {
           var html = foamHtml(child);
-          $(".new_item .child_id").append(html);
+          $(".child_id").append(html);
         });
       });
     }
   });
+  // edit用に画面loda時にも発火させる
+  $(".parent_id").trigger("change");
   // 子カテゴリーが入力されたとき孫カテゴリーを生成
   $(".new_item .child_id").change(function() {
     // var input = $(".search__query").val();

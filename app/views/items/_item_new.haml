@@ -70,7 +70,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = select_tag "category", options_for_select(get_category_name), class: "select_tag parent_id", id: "item_category_id"
+            = select_tag "category", options_for_select(get_category_name, selected: @item.category.parent.parent.id), class: "select_tag parent_id", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
