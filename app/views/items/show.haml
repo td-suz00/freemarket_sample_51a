@@ -81,8 +81,12 @@
               ="¥#{@item.price.to_s(:delimited)}"
             %sub.tax
               (税込)
-            .deliverly-btn
-              送料込み
+            - if @item.delivery_fee_payer == "送料込み（出品者負担）"
+              .deliverly-btn
+                送料込み
+            - else
+              %sub.payment
+                着払い
             .clearfix
         .item__info__inner-content__purchase-btn#btn-detail
           = link_to "購入画面に進む", new_item_purchase_path(1), class:'btn-detail'
