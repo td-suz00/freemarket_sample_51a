@@ -1,14 +1,17 @@
 // index
 header {
   height: 100px;
-  padding-top: 40px;
+  padding-top: 50px;
+  margin-bottom: 30px;
 
   .header__logo-img_signup {
     display: block;
+    float: left;
 
     margin: {
       bottom: 30px;
       left: 70px;
+      right: 100px;
     }
   }
 }
