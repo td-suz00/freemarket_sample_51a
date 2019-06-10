@@ -16,7 +16,7 @@
           #preview
           -# １〜５枚目プレビュー表示
           .item__img__dropzone__input
-            = image.label :image, for: "upload-image" do
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
               .input-area
                 = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
               .item__img__dropzone__input__description
@@ -29,7 +29,7 @@
           #preview2
           -# ６〜１０枚目プレビュー表示
           .item__img__dropzone2__input2
-            = image.label :image, for: "upload-image" do
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
               .input-area
                 = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
               .item__img__dropzone2__input2__description

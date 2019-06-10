@@ -1,13 +1,14 @@
-$(document).on('turbolinks:load', function () {
-  var dropzone = $('.item__img__dropzone__input');
-  var dropzone2 = $('.item__img__dropzone2__input2');
-  var appendzone = $('.item__img__dropzone2')
+$(document).on("turbolinks:load", function() {
+  var dropzone = $(".item__img__dropzone__input");
+  var dropzone2 = $(".item__img__dropzone2__input2");
+  var appendzone = $(".item__img__dropzone2")
   var images = [];
   var inputs = [];
-  var preview = $('#preview');
-  var preview2 = $('#preview2');
+  var input_area = $(".input-area");
+  var preview = $("#preview");
+  var preview2 = $("#preview2");
 
-  $(document).on("change", 'input[type= "file"].upload-image', function (event) {
+  $(document).on("change", 'input[type= "file"].upload-image', function(event) {
     var file = $(this).prop("files")[0];
     var reader = new FileReader();
     inputs.push($(this));
@@ -29,7 +30,7 @@ $(document).on('turbolinks:load', function () {
     // 画像が４枚以下のとき
     if (images.length <= 4) {
       $('#preview').empty();
-      $.each(images, function (index, image) {
+      $.each(images, function(index, image){
         image.data('image', index);
         preview.append(image);
       })
@@ -40,7 +41,7 @@ $(document).on('turbolinks:load', function () {
       // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
     } else if (images.length == 5) {
       $('#preview').empty();
-      $.each(images, function (index, image) {
+      $.each(images, function(index, image){
         image.data('image', index);
         preview.append(image);
       })
@@ -57,7 +58,7 @@ $(document).on('turbolinks:load', function () {
       // 配列から６枚目以降の画像を抽出
       var pickup_images = images.slice(5);
 
-      $.each(pickup_images, function (index, image) {
+      $.each(pickup_images, function(index, image){
         image.data('image', index + 5);
         preview2.append(image);
         dropzone2.css({
@@ -72,6 +73,13 @@ $(document).on('turbolinks:load', function () {
         })
       }
     }
+
+    var new_image = $(
+      `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${
+        images.length
+      } type="file" id="upload-image">`
+    );
+    input_area.prepend(new_image);
   });
 
   // 削除ボタン
