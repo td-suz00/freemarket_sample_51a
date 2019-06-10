@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     end
     @item = Item.new(item_params)
     binding.pry
-    if params[:item][:item_images_attributes].present?&&@item.save
+    if params[:item][:item_images_attributes].present? && @item.save
       # 写真２枚目以降があれば保存（１枚目はItem.saveで保存されています）
       if params[:item_images].present?
         params[:item_images][:image].each do |image|

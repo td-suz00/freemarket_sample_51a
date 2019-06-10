@@ -1,4 +1,39 @@
 .top
+  / Slider main container
+  .swiper-container
+    / Additional required wrapper
+    .swiper-wrapper
+      / Slides
+      .swiper-slide.camp-slide
+      .swiper-slide.natsukashi-slide
+      .swiper-slide.mercari-info-slide
+        .mercari-info-slide__content
+          = image_tag "banner-mercari-info-hand-phone.png", width: "390", height: "390"  ,class:"hand-phone"
+          .mercari-info-slide__content__left
+            .mercari-info-slide__content__left__title
+              スマホでかんたん
+              %br/
+              フリマアプリ
+            .mercari-info-slide__content__left__content
+              メルカリはスマホカメラからすぐに出品できる
+              %br/
+              購入時も安心な独自システムのアプリです
+              %br/
+              %br/
+        = image_tag "banner-mercari-info-apple.svg", width: "128", height: "39"  ,class:"banner-mercari-info-hand-phone"
+        = image_tag "banner-mercari-info-google-play.svg", width: "128", height: "39"  ,class:"banner-mercari-info-hand-phone"
+    .swiper-pagination
+    .swiper-button-prev
+    .swiper-button-next
+
+  .pickup-categories
+    .pickup-categories__title ピックアップカテゴリー
+
+    .pickup-category
+      = link_to 'レディース 新着アイテム',sign_in_path,class:'pickup-brand__title'
+      .item-box.clearfix
+        - @ladies_items.each do |item|
+          .item
             = link_to item_path(item.id), data: {turbolinks: false} do
               -# top_helper.rb内のメソッドを呼び出し、imagesの最初の１枚を表示
               = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
@@ -9,7 +44,7 @@
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
-    .swiper-button-next
+
     .pickup-category
       = link_to 'メンズ 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
       .item-box.clearfix
@@ -24,7 +59,7 @@
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
-              = image_tag "#{first_item_image(item)}",class:"banner-mercari-info-hand-phone"
+
     .pickup-category
       = link_to 'ベビー・キッズ 新着アイテム',"#",class:'pickup-brand__title'
       .item-box.clearfix
@@ -88,7 +123,7 @@
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
-            = link_to item_path(item.id), data: {turbolinks: false} do
+
     .pickup-category
       = link_to 'シュプリーム 新着アイテム',"#",class:'pickup-brand__title'
       .item-box.clearfix
@@ -103,7 +138,7 @@
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
-                = item.name
+
     .pickup-category
       = link_to 'ナイキ 新着アイテム',"#",class:'pickup-brand__title'
       .item-box.clearfix
@@ -118,8 +153,8 @@
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
       = link_to ' すべての商品を見る',"#",class:'pickup-brand__show-all'
-              .item__lower__name
-        - @supreme_items.each do |item|
+
+
 = javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"
 :javascript
   var mySwiper = new Swiper ('.swiper-container', {

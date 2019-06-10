@@ -8,7 +8,7 @@ $(document).on("turbolinks:load", function() {
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
-  $(document).on("change", 'input[type= "file"].upload-image', function(event) {
+  $(document).on("change", 'input[type= "file"].upload-image', function() {
     var file = $(this).prop("files")[0];
     var reader = new FileReader();
     inputs.push($(this));
@@ -30,7 +30,7 @@ $(document).on("turbolinks:load", function() {
     // 画像が４枚以下のとき
     if (images.length <= 4) {
       $('#preview').empty();
-      $.each(images, function(index, image){
+      $.each(images, function(index, image) {
         image.data('image', index);
         preview.append(image);
       })
@@ -40,17 +40,17 @@ $(document).on("turbolinks:load", function() {
 
       // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
     } else if (images.length == 5) {
-      $('#preview').empty();
-      $.each(images, function(index, image){
-        image.data('image', index);
+      $("#preview").empty();
+      $.each(images, function(index, image) {
+        image.data("image", index);
         preview.append(image);
-      })
+      });
       appendzone.css({
-        'display': 'block'
-      })
+        display: "block"
+      });
       dropzone.css({
-        'display': 'none'
-      })
+        display: "none"
+      });
       preview2.empty();
 
       // 画像が６枚以上のとき
@@ -58,32 +58,30 @@ $(document).on("turbolinks:load", function() {
       // 配列から６枚目以降の画像を抽出
       var pickup_images = images.slice(5);
 
-      $.each(pickup_images, function(index, image){
-        image.data('image', index + 5);
+      $.each(pickup_images, function(index, image) {
+        image.data("image", index + 5);
         preview2.append(image);
         dropzone2.css({
-          'width': `calc(100% - (20% * ${images.length - 5}))`
-        })
-      })
+          width: `calc(100% - (20% * ${images.length - 5}))`
+        });
+      });
 
       // 画像が１０枚になったら枠を消す
       if (images.length == 10) {
         dropzone2.css({
-          'display': 'none'
-        })
+          display: "none"
+        });
       }
     }
 
     var new_image = $(
-      `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${
-        images.length
-      } type="file" id="upload-image">`
+      `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`
     );
-    input_area.prepend(new_image);
+    input_area.append(new_image);
   });
 
   // 削除ボタン
-  $(document).on('click', '.btn_delete', function () {
+  $(document).on('click', '.btn_delete', function() {
 
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
@@ -101,7 +99,7 @@ $(document).on("turbolinks:load", function() {
     // 画像が４枚以下のとき
     if (images.length <= 4) {
       $('#preview').empty();
-      $.each(images, function (index, image) {
+      $.each(images, function(index, image) {
         image.data('image', index);
         preview.append(image);
       })
@@ -116,7 +114,7 @@ $(document).on("turbolinks:load", function() {
       // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
     } else if (images.length == 5) {
       $('#preview').empty();
-      $.each(images, function (index, image) {
+      $.each(images, function(index, image) {
         image.data('image', index);
         preview.append(image);
       })
@@ -139,7 +137,7 @@ $(document).on("turbolinks:load", function() {
 
       // １〜５枚目を１段目に表示
       $('#preview').empty();
-      $.each(pickup_images1, function (index, image) {
+      $.each(pickup_images1, function(index, image) {
         image.data('image', index);
         preview.append(image);
       })
@@ -148,7 +146,7 @@ $(document).on("turbolinks:load", function() {
       var pickup_images2 = images.slice(5);
 
       // ６枚目以降を２段目に表示
-      $.each(pickup_images2, function (index, image) {
+      $.each(pickup_images2, function(index, image) {
           image.data('image', index + 5);
           preview2.append(image);
           dropzone2.css({
