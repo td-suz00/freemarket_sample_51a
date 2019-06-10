@@ -1,6 +1,13 @@
 $(function() {
   // ドロップリストの選択肢をjsonデータからhtmlにする関数
   var firstSelecthtml = `<option value="---">---</option>`;
+  // edit時、登録したものを表示するためのHTML
+  function foamHtml_select(search_result) {
+    var html = `<option value="${search_result.id}" selected>${
+      search_result.name
+    }</option>`;
+    return html;
+  }
   function foamHtml(search_result) {
     var html = `<option value="${search_result.id}">${
       search_result.name
@@ -17,9 +24,9 @@ $(function() {
     .parent()
     .css("display", "none");
   $(".new_item .item__detail__form_box__brand").css("display", "none");
+
   // 親カテゴリーが入力されたとき子カテゴリーを生成
   $(".parent_id").change(function() {
-    console.log(this)
     var parent_id = $(".parent_id").val();
     if (parent_id === "---") {
       $(".child_id")
@@ -41,18 +48,29 @@ $(function() {
           // display:noneの解除
           .css("display", "");
         $(".child_id").append(firstSelecthtml);
+
+        // 子カテゴリーのカスタムデータ属性の取得
+        var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
+
         child_ids.forEach(function(child) {
-          var html = foamHtml(child);
-          $(".child_id").append(html);
+          // edit時、登録した子カテゴリーを表示するための条件分岐
+          if (item_catgory_child_id == child.id) {
+            var html = foamHtml_select(child);
+            $(".child_id").append(html);
+          } else {
+            var html = foamHtml(child);
+            $(".child_id").append(html);
+          };
         });
       });
     }
   });
+
   // edit用に画面loda時にも発火させる
   $(".parent_id").trigger("change");
-  // 子カテゴリーが入力されたとき孫カテゴリーを生成
+
+  // new用 子カテゴリーが入力されたとき孫カテゴリーを生成
   $(".new_item .child_id").change(function() {
-    // var input = $(".search__query").val();
     var parent_id = $(".new_item .child_id").val();
     if (parent_id === "---") {
       $(".new_item .grandchild_id")
@@ -84,6 +102,53 @@ $(function() {
       });
     }
   });
+
+  // edit用 子カテゴリーが入力されたとき孫カテゴリーを生成
+  $(".child_id").change(function() {
+    var parent_id = $(".child_id").data("item_catgory_child_id");
+    if (parent_id === "---") {
+      $(".grandchild_id")
+        .parent()
+        .css("display", "none");
+      $(".item__detail__form_box__size").css("display", "none");
+    } else {
+      $.ajax({
+        type: "GET",
+        url: "/items/search_category",
+        data: { parent_id: parent_id },
+        dataType: "json"
+      }).done(function(child_ids) {
+        $(".grandchild_id").empty();
+        $(".grandchild_id").append(firstSelecthtml);
+        $(".grandchild_id")
+          .parent()
+          .css("display", "");
+        if (child_ids.length == 1) {
+          $(".grandchild_id").empty();
+          $(".grandchild_id")
+            .parent()
+            .css("display", "none");
+        }
+
+        // 孫カテゴリーのカスタムデータ属性の取得
+        var item_catgory_grandchild_id = $(".grandchild_id").data('item_catgory_grandchild_id');
+        child_ids.forEach(function(child) {
+          // edit時、登録した孫カテゴリーを表示するための条件分岐
+          if (item_catgory_grandchild_id == child.id) {
+            var html = foamHtml_select(child);
+            $(".grandchild_id").append(html);
+          } else {
+            var html = foamHtml(child);
+            $(".grandchild_id").append(html);
+          };
+        });
+      });
+    }
+  });
+
+  // edit用に画面loda時にも発火させる
+  $(".child_id").trigger("change");
+
 
   // 孫カテゴリーが入力されたときサイズカテゴリーを生成
   $(".new_item .grandchild_id").change(function() {
