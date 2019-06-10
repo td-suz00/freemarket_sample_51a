@@ -31,14 +31,12 @@ set :repo_url,  'git@github.com:td-suz00/freemarket_sample_51a.git'
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# set :default_env, {
-#   rbenv_root: "/usr/local/rbenv",
-#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-#   # AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-#   # AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"],
-#   basic_auth_user: ENV["BASIC_AUTH_USER"],
-#   basic_auth_password: ENV["BASIC_AUTH_PASSWORD"]
-# }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
 
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }

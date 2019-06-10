@@ -72,7 +72,7 @@
           .select-wrap
             = select_tag "category", options_for_select({'---':'---','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','家電・スマホ・カメラ':'8','スポーツ・レジャー':'9','ハンドメイド':'10','チケット':'11','自転車・オートバイ':'12','その他':'13'}), class: "select_tag parent_id", id: "item_category_id"
 
-            = fa_icon 'chevron-down', class:'fa_icon' 
+            = fa_icon 'chevron-down', class:'fa_icon'
 
           .select-wrap
             = select_tag "category" , options_for_select({'---':'---'}), class: "select_tag child_id", id: "item_category_id"
