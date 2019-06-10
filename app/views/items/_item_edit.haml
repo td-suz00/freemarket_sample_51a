@@ -70,7 +70,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = select_tag "category", options_for_select({'---':'---','レディース':'1','メンズ':'2','ベビー・キッズ':'3','インテリア・住まい・小物':'4','本・音楽・ゲーム':'5','おもちゃ・ホビー・グッズ':'6','コスメ・香水・美容':'7','家電・スマホ・カメラ':'8','スポーツ・レジャー':'9','ハンドメイド':'10','チケット':'11','自転車・オートバイ':'12','その他':'13'}), class: "select_tag parent_id", id: "item_category_id"
+            = select_tag "category", options_for_select(get_category_name), class: "select_tag parent_id", id: "item_category_id"
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
@@ -92,7 +92,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :size_id, options_for_select({'---':'---','XXS以下':'1','XS(SS)':'2','S':'3','M':'4','L':'5','XL(LL)':'6','2XL(3L)':'7','3XL(4L)':'8','4XL(5L)以上':'9','FREE SIZE':'10'}), {},{class: "select_tag size_id", id: "item_size_id"}
+            = f.select :size_id, options_for_select(get_size_name), {},{class: "select_tag size_id", id: "item_size_id"}
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
@@ -114,7 +114,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :condition, options_for_select({'---':'---','新品、未使用':'新品、未使用','未使用に近い':'未使用に近い','目立った傷や汚れなし':'目立った傷や汚れなし','やや傷や汚れあり':'やや傷や汚れあり','傷や汚れあり':'傷や汚れあり','全体的に状態が悪い':'全体的に状態が悪い'}), class: "select_tag", id: "item_condition"
+            = f.select :condition, options_for_select(get_condition), class: "select_tag", id: "item_condition"
 
             = fa_icon 'chevron-down', class:'fa_icon'
 
@@ -132,10 +132,10 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :delivery_fee_payer, options_for_select({'---':'---','送料込み（出品者負担）':'送料込み（出品者負担）','着払い（購入者負担）':'着払い（購入者負担）'}), {},{class: "select_tag delivery_fee_payer", id: "item_delivery_fee_payer"}
+            = f.select :delivery_fee_payer, options_for_select(get_delivery_fee_payer), {},{class: "select_tag delivery_fee_payer", id: "item_delivery_fee_payer"}
             = fa_icon 'chevron-down', class:'fa_icon'
 
-        .root-of-delivery_type-for-css
+        .root-of-delivery_type-for-css#new-delivery-type
           .delivery-type
             %ul
               %li
@@ -144,7 +144,7 @@
                 .required__icon 必須
             .clearfix
             .select-wrap
-              = f.select :delivery_type, options_for_select({'---':'---','未定':'未定','らくらくメルカリ便':'らくらくメルカリ便','ゆうメール':'ゆうメール','レターパック':'レターパック','普通郵便(定形、定形外)':'普通郵便(定形、定形外)','クロネコヤマト':'クロネコヤマト','ゆうパック':'ゆうパック','クリックポスト':'クリックポスト','ゆうパケット':'ゆうパケット'}), {}, id: "item_delivery_type"
+              = f.select :delivery_type, options_for_select(get_delivery_type), {}, id: "item_delivery_type"
               = fa_icon 'chevron-down', class:'fa_icon'
 
         .delivery-from-area
@@ -155,7 +155,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :delibery_from_area, options_for_select({'---':'---','北海道':'北海道','青森県':'青森県','岩手県':'岩手県','宮城県':'宮城県','秋田県':'秋田県','山形県':'山形県','福島県':'福島県','東京都':'東京都','神奈川県':'神奈川県','埼玉県':'埼玉県','千葉県':'千葉県','茨城県':'茨城県','栃木県':'栃木県','群馬県':'群馬県','山梨県':'山梨県','新潟県':'新潟県','長野県':'長野県','富山県':'富山県','石川県':'石川県','福井県':'福井県','愛知県':'愛知県','岐阜県':'岐阜県','静岡県':'静岡県','三重県':'三重県','大阪府':'大阪府','兵庫県':'兵庫県','京都府':'京都府','滋賀県':'滋賀県','奈良県':'奈良県','和歌山県':'和歌山県','鳥取県':'鳥取県','島根県':'島根県','岡山県':'岡山県','広島県':'広島県','山口県':'山口県','徳島県':'徳島県','香川県':'香川県','愛媛県':'愛媛県','高知県':'高知県','福岡県':'福岡県','佐賀県':'佐賀県','長崎県':'長崎県','熊本県':'熊本県','大分県':'大分県','宮崎県':'宮崎県','鹿児島県':'鹿児島県','沖縄県':'沖縄県'}),class: 'select-tag', id: "item_delibery_from_area"
+            = f.select :delibery_from_area, options_for_select(get_delivery_from_area),class: 'select-tag', id: "item_delibery_from_area"
 
             -# できればこっち使いたい
             -# = form_tag new_item_path, method: :get, class: 'select_tag_2' do
@@ -172,7 +172,7 @@
               .required__icon 必須
           .clearfix
           .select-wrap
-            = f.select :delivery_days, options_for_select({'---':'---','1~2日で発送':'1~2日で発送','2~3日で発送':'2~3日で発送','4~7日で発送':'4~7日で発送'}),class: 'select_tag', id: "item_category_id"
+            = f.select :delivery_days, options_for_select(get_delivery_days),class: 'select_tag', id: "item_category_id"
             = fa_icon 'chevron-down', class:'fa_icon'
 
     .sell-price
@@ -196,12 +196,20 @@
         .line
           %p.fee
             販売手数料 (10%)
-          = text_field_tag :content, '-', class: 'sell-price__text_area_3 mercari-share'
+          - if @item.price  # editのときは手数料を表示
+            = text_field_tag :content, @item.price/10, class: 'sell-price__text_area_3 mercari-share'
+          - else  # newのときは手数料を非表示
+            = text_field_tag :content, "-", class: 'sell-price__text_area_3 mercari-share'
+
 
         .sell-price__profit
           %h3.profit
             販売利益
-          = text_field_tag :content, '-',class: 'sell-price__text_area_3 seller-share'
+          - if @item.price  # editのときは販売利益を表示
+            = text_field_tag :content, @item.price*0.9.round, class: 'sell-price__text_area_3 seller-share'
+
+          - else  # editのときは販売利益を表示
+            = text_field_tag :content, '-',class: 'sell-price__text_area_3 seller-share'
     .sell-btn
       .dscription
         %span 禁止されている出品
