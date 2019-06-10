@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-           has_one :profile
+  has_one :profile
   accepts_nested_attributes_for :profile
 
   has_one :card

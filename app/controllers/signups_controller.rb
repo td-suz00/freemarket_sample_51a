@@ -8,23 +8,21 @@ class SignupsController < ApplicationController
     if  profile_params[:phone_number].present?
       current_user.profile.update(profile_params)
     else
-    @profile=Profile.new
-    @errors='未記入箇所があります'
-    render 'sms_confirmation_send'
+      @profile=Profile.new
+      @errors='未記入箇所があります'
+      render 'sms_confirmation_send'
     end
   end
 
   def address
-  @profile=current_user.profile
+    @profile=current_user.profile
   end
 
   def address_create
-  # current_user.profile.update(profile_params)
-
-    if  profile_params[:postalcode].present?\
-      &&profile_params[:address_prefecture].present?\
-      &&profile_params[:address_city].present?\
-      &&profile_params[:address_street_number].present?
+    if profile_params[:postalcode].present?\
+       &&profile_params[:address_prefecture].present?\
+       &&profile_params[:address_city].present?\
+       &&profile_params[:address_street_number].present?
       current_user.profile.update(profile_params)
       redirect_to new_user_card_path(1)
     else

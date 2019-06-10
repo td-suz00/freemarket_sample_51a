@@ -5,8 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 def new
   @user = User.new
-  @profile = @user.build_profile
-  
+  @profile = @user.build_profile　  
 end
 
   # GET /resource/sign_up
@@ -17,12 +16,12 @@ end
   # POST /resource
   def create
     if params[:user][:profile_attributes][:family_name].present?\
-      &&params[:user][:profile_attributes][:last_name].present?\
-      &&params[:user][:profile_attributes][:kana_family_name].present?\
-      &&params[:user][:profile_attributes][:kana_last_name].present?\
-      &&params[:user][:profile_attributes][:'birth_ymd(1i)'].present?\
-      &&params[:user][:profile_attributes][:'birth_ymd(2i)'].present?\
-      &&params[:user][:profile_attributes][:'birth_ymd(3i)'].present?
+       &&params[:user][:profile_attributes][:last_name].present?\
+       &&params[:user][:profile_attributes][:kana_family_name].present?\
+       &&params[:user][:profile_attributes][:kana_last_name].present?\
+       &&params[:user][:profile_attributes][:'birth_ymd(1i)'].present?\
+       &&params[:user][:profile_attributes][:'birth_ymd(2i)'].present?\
+       &&params[:user][:profile_attributes][:'birth_ymd(3i)'].present?
        super
     else
     @user =build_resource(sign_up_params)

@@ -5,7 +5,7 @@
     .sigup__title
       %h2 会員情報入力
       .signup-errors
-        =@errors
+        =@ errors
       .sigup__info-container
         %ul
           %li
@@ -79,8 +79,6 @@
               %p に同意したものとみなします。
             .next-btn
               = f.submit('次へ進む' ,class:'next_btn')
-              -# = link_to "次へ進む","/users/1/signups/new", class:'next_btn'
-              -# = f.submit "Create Account", class: 'btn'
             .link-box
               %li
                 %p 本人情報の登録について
