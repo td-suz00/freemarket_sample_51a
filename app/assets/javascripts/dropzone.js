@@ -8,6 +8,14 @@ $(document).on("turbolinks:load", function() {
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
+  gon.item_images.forEach(function(image){
+    var img = $(`<div class= "add_img"><div class="img_area"><div class=image><image width="100%", height="100%"></div</div></div>`);
+    images.push(img)
+  })
+
+  console.log(images)
+
+
   $(document).on("change", 'input[type= "file"].upload-image', function() {
     var file = $(this).prop("files")[0];
     var reader = new FileReader();
@@ -26,6 +34,9 @@ $(document).on("turbolinks:load", function() {
 
     reader.readAsDataURL(file);
     images.push(img);
+
+    console.log(images)
+
 
     // 画像が４枚以下のとき
     if (images.length <= 4) {
