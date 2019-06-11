@@ -8,14 +8,14 @@ class ItemsController < ApplicationController
 
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
-    if  brand = Brand.find_by(name:params[:item][:brand_id])
+    if  brand = Brand.find_by(name: params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
     else
-      params[:item][:brand_id] = Brand.create(name:params[:item][:brand_id]).id
+      params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
     end
     @item = Item.new(item_params)
     if params[:item][:item_images_attributes].present? && @item.save
-      # 写真２枚目以降があれば保存（１枚目はItem.saveで保存されています）
+      # 写真２枚目以降があれば保存（１枚目は@item.saveで保存されています）
       if params[:item_images].present?
         params[:item_images][:image].each do |image|
           @item.item_images.create(image_url: image, item_id: @item.id)
@@ -31,16 +31,38 @@ class ItemsController < ApplicationController
 
   end
 
+  def show
+    render layout: 'application-off-header-footer.haml'
+  end
+
   def edit
     @item = Item.find(params[:id])
     render layout: 'application-off-header-footer.haml'
   end
 
-  def show
-    render layout: 'application-off-header-footer.haml'
-  end
-
   def update
+    # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
+    if  brand = Brand.find_by(name: params[:item][:brand_id])
+      params[:item][:brand_id] = brand.id
+    else
+      params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
+    end
+
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to root_path
+    # if params[:item][:item_images_attributes].present? && @item.update
+    #   # 写真２枚目以降があれば保存（１枚目は@item.updateで保存されています）
+    #   if params[:item_images].present?
+    #     params[:item_images][:image].each do |image|
+    #       @item.item_images.update(image_url: image, item_id: @item.id)
+    #     end
+    #   end
+    #   redirect_to root_path
+    # else
+    #   @item.item_images.build
+    #   render action: "edit"
+    # end
   end
 
   def auto_complete
@@ -64,7 +86,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, item_images_attributes: [:id, :image_url, :item_id])
+    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price)
+    # , item_images_attributes: [:id, :image_url, :item_id]
     #### ログイン機能ができたら.merge(seller_id: current_user.id)
   end
 
