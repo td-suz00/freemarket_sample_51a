@@ -16,7 +16,6 @@ class SignupsController < ApplicationController
   end
 
   def address
-    @profile=current_user.profile
   end
 
   def address_create
