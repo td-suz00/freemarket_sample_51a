@@ -15,13 +15,7 @@ end
 
   # POST /resource
   def create
-    if params[:user][:profile_attributes][:family_name].present?\
-       &&params[:user][:profile_attributes][:last_name].present?\
-       &&params[:user][:profile_attributes][:kana_family_name].present?\
-       &&params[:user][:profile_attributes][:kana_last_name].present?\
-       &&params[:user][:profile_attributes][:'birth_ymd(1i)'].present?\
-       &&params[:user][:profile_attributes][:'birth_ymd(2i)'].present?\
-       &&params[:user][:profile_attributes][:'birth_ymd(3i)'].present?
+    if User.profile_nested_with_user_is_valid?(params)
        super and return
     else
     @user =build_resource(sign_up_params)
