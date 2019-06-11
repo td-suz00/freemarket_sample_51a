@@ -1,3 +1,4 @@
+- breadcrumb :item, @item
 = render partial:'shared/global-header'
 .item_wrapper
   %br
@@ -86,7 +87,6 @@
             .clearfix
         .item__info__inner-content__purchase-btn#btn-detail
           = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
-          -###/items/:item_id/purchases/new
         .item__info__inner-content__text
           = @item.text
         .btn-box

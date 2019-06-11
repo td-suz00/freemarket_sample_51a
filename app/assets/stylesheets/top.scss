@@ -9,13 +9,35 @@ $height_pixel: 44px;
 .global-header {
   background-color: $white;
 
+  .breadcrumbs {
+    height: 48px;
+    line-height: 48px;
+    background-color: $white;
+    border-top: solid 1px $border_gray;
+    box-shadow: 0 3px 3px $shadow_black;
+    position: relative;
+    z-index: 2;
+
+    a {
+      color: $black;
+    }
+
+    a:hover {
+      text-decoration-line: underline;
+      color: $dark_gray;
+    }
+
+    .current {
+      font-weight: bold;
+    }
+
   .header {
     z-index: 3;
     background-color: $white;
     padding-top: 8px;
     margin: auto;
-    height: 94px;
     width: 1022px;
+    }
   }
 
   .header-upper {
