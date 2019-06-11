@@ -9,11 +9,11 @@
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
-            - @images.each do |image|
+            - @item.item_images.each do |image|
               %li
                 = image_tag image.image_url.to_s, class:'item_img'
           %ul#thumb
-            - @images.each do |image|
+            - @item.item_images.each do |image|
               %li
                 = image_tag image.image_url.to_s, class:'item_s-img'
         .item__info__inner-content__table
@@ -47,9 +47,7 @@
               %td#blue
                 = @item.brand.name
             %tr
-              - if @item.size.name == "none"
-                = ""
-              - else
+              - if @item.size.name != "none"
                 %th 商品のサイズ
                 %td
                   = @item.size.name
