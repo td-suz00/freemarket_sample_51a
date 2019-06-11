@@ -4,44 +4,27 @@
   %br
   .item
     .item__title-detail
-      LV トートバッグ
+      = @item.name
     .item__info#item-info
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
-            %li
-              = image_tag 'item-bag.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'penguin.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat1.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat2.jpg', height: '230', width: '230', class:'item_img'
-            %li
-              = image_tag 'cat3.jpg', height: '230', width: '230', class:'item_img'
+            - @item.item_images.each do |image|
+              %li
+                = image_tag image.image_url.to_s, class:'item_img'
           %ul#thumb
-            %li
-              = image_tag 'item-bag.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'ねこ２.jpeg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'penguin.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat1.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat2.jpg', height: '60', width: '60', class:'item_s-img'
-            %li
-              = image_tag 'cat3.jpg', height: '60', width: '60', class:'item_s-img'
-
+            - @item.item_images.each do |image|
+              %li
+                = image_tag image.image_url.to_s, class:'item_s-img'
         .item__info__inner-content__table
         %table
           %tbody
             %tr
               %th 出品者
               %td
-                %p#blue daisuke
+                %p#blue
+                = @item.deal.seller.nickname
+                %p
                 %i.fas.fa-grin
                 500
                 %i.fas.fa-meh
@@ -51,48 +34,61 @@
             %tr
               %th カテゴリー
               %td#blue
-                %p レディース
+                %p
+                = @item.category.parent.parent.name
                 %p
                 = fa_icon 'chevron-right'
-                バッグ
+                = @item.category.parent.name
                 %p
                 = fa_icon 'chevron-right'
-                トートバッグ
+                = @item.category.name
             %tr
               %th ブランド
-              %td#blue ルイ ヴィトン
+              %td#blue
+                = @item.brand.name
             %tr
-              %th 商品のサイズ
-              %td
+              - if @item.size.name != "none"
+                %th 商品のサイズ
+                %td
+                  = @item.size.name
             %tr
               %th 商品の状態
-              %td 新品、未使用
+              %td
+                = @item.condition
             %tr
               %th 配送料の負担
-              %td 送料込み(出品者負担)
+              %td
+                = @item.delivery_fee_payer
             %tr
               %th 配送方法
-              %td 未定
+              %td
+                = @item.delivery_type
             %tr
               %th 配送元地域
-              %td#blue 東京都
+              %td#blue
+                = @item.delibery_from_area
             %tr
               %th 発送の目安
-              %td 1~2日で発送
+              %td
+                = @item.delivery_days
         .item__info__inner-content__account
           .item__info__inner-content__account__price-detail
-            .price ¥ 800
-            .tax (税込)
-            .deliverly-btn 送料込み
+            .item-price
+              ="¥#{@item.price.to_s(:delimited)}"
+            %sub.tax
+              (税込)
+            - if @item.delivery_fee_payer == "送料込み（出品者負担）"
+              .deliverly-btn
+                送料込み
+            - else
+              %sub.payment
+                着払い
+            .clearfix
         .item__info__inner-content__purchase-btn#btn-detail
-          = link_to "購入画面に進む", new_item_purchase_path(1), class:'btn-detail'
+          = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
+          -###/items/:item_id/purchases/new
         .item__info__inner-content__text
-          LOUIS VUITTON 今年購入 美品！
-          どんな洋服にも合います。
-          %br
-          破格です。限定デザインなので、とても希少です！
-          %br
-          おまけに、動物たちもバッグに入れて送ります♪
+          = @item.text
         .btn-box
           .item__info__inner-content__like-btn
             %i.far.fa-heart

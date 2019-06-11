@@ -32,15 +32,12 @@ header {
   }
 
   &__btn_container {
-    box-sizing: border-box;
-
     padding: {
       top: 35px;
       left: 235px;
       right: 100px;
     }
   }
-
 
   &__btn_mail {
     background-color: $border_gray;
@@ -71,7 +68,7 @@ header {
 
   &__btn_fb {
     background-color: $facebook_blue;
-    width: 300px;
+    width: 100%;
     padding: 13px;
 
     margin: {
@@ -89,7 +86,7 @@ header {
     }
 
     .facebook-icon {
-      line-height: center;
+      line-height: 53px;
       text-align: center;
       float: left;
     }
@@ -98,7 +95,7 @@ header {
   &__btn_google {
     border: 0.09px solid rgb(155, 152, 152);
     background-color: $white;
-    width: 296px;
+    width: 100%;
     padding: 15px;
 
     margin: {
@@ -115,13 +112,12 @@ header {
     }
 
     .google-icon {
-      line-height: center;
+      line-height: 53px;
       text-align: center;
       float: left;
     }
   }
 }
-
 
 footer {
   text-align: center;
@@ -167,11 +163,6 @@ header {
 
   .header__logo-img_signup {
     display: block;
-
-    margin: {
-      bottom: 30px;
-      left: 70px;
-    }
   }
 }
 
@@ -181,7 +172,6 @@ header {
   margin: 0 auto;
   background-color: $white;
   height: 1515px;
-
 
   &__title {
     height: 110px;
@@ -196,7 +186,6 @@ header {
   }
 
   &__info-container {
-
     padding: {
       top: 35px;
       left: 210px;
@@ -233,7 +222,7 @@ header {
       }
 
       .form {
-        border:1px solid $border_gray {
+        border: 1px solid $border_gray {
           radius: 0.3rem;
         }
       }
@@ -244,10 +233,8 @@ header {
         height: 50px;
         font-size: 16px;
         margin-bottom: 20px;
-        color: $form_gray;
         padding-left: 10px;
       }
-
     }
 
     .next-btn {
@@ -258,7 +245,6 @@ header {
 
       margin: {
         top: 19px;
-        ;
       }
 
       a {
@@ -267,9 +253,7 @@ header {
         display: inline;
         text-decoration: none;
       }
-
     }
-
   }
 
   .select_tag {
@@ -277,7 +261,6 @@ header {
     width: 100px;
     height: 50px;
     font-size: 16px;
-    color: $form_gray;
     padding-left: 15px;
 
     margin: {
@@ -328,7 +311,6 @@ header {
 
   p.gray {
     font-size: 12.8px;
-    color: $form_gray;
   }
 
   .link-box {
@@ -358,7 +340,7 @@ header {
 
 // ログイン
 header {
-  height: 100px;
+  height: 115px;
   padding-top: 40px;
 
   .header__logo-img {
@@ -378,7 +360,6 @@ header {
   height: 600px;
 
   &__info-container {
-
     padding: {
       top: 35px;
       left: 150px;
@@ -398,8 +379,9 @@ header {
 
     .user__btn_new {
       background-color: $light_blue;
-      width: 300px;
+      width: 100%;
       padding: 13px;
+      text-align: center;
 
       .new-register {
         padding-left: 60px;
@@ -420,23 +402,18 @@ header {
   }
 
   .form {
-    border:1px solid $border_gray {
+    border: 1px solid $border_gray {
       radius: 0.3rem;
     }
   }
 
   .text_field {
     @extend .form;
-    width: 316px;
+    width: 100%;
     height: 50px;
     font-size: 16px;
     margin-bottom: 20px;
-    color: $form_gray;
     padding-left: 10px;
-  }
-
-  .rbot-img_2 {
-    margin-left: 150px;
   }
 
   .login-btn {

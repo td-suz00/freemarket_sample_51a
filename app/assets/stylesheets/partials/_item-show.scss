@@ -9,6 +9,35 @@
       weight: bold;
     }
   }
+  &__info {
+    &__inner-content__account {
+      &__price-detail {
+        margin: {
+          top: 20px;
+          left: 200px;
+        }
+
+        .item-price {
+          float: left;
+
+          font: {
+            size: 2.9rem;
+            weight: bold;
+          }
+        }
+
+        .tax {
+          font: {
+            size: 0.7rem;
+          }
+        }
+
+        .payment {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
 
 #item-info {
@@ -33,6 +62,7 @@
   }
 }
 
+// slick
 #content-img {
   background-color: $background_gray;
   max-width: 220px;
@@ -44,6 +74,13 @@
 
 .item_img {
   float: left;
+  width: 230px;
+  height: 230px;
+}
+
+.item_s-img {
+  width: 60px;
+  height: 60px;
 }
 
 #thumb {
@@ -51,6 +88,7 @@
   opacity: 0.9;
 }
 
+// 商品詳細表
 th,
 td {
   border: 1px solid $border_gray;
@@ -60,7 +98,7 @@ td {
 }
 
 th {
-  width: 100px;
+  width: 110px;
   background-color: $background_gray;
 }
 
@@ -71,13 +109,6 @@ td {
 
 table {
   border-collapse: collapse;
-}
-
-.item__info__inner-content__account__price-detail {
-  margin: {
-    top: 20px;
-    left: 200px;
-  }
 }
 
 .fas.fa-grin {
@@ -100,30 +131,8 @@ table {
   color: $light_blue;
 }
 
-.price {
-  float: left;
-
-  font: {
-    size: 2.9rem;
-    weight: bold;
-  }
-}
-
-.tax {
-  float: left;
-
-  margin: {
-    top: 27px;
-    left: 10px;
-  }
-
-  font: {
-    size: 0.7rem;
-  }
-}
-
 .deliverly-btn {
-  float: left;
+  float: right;
   color: $white;
   font-size: 0.9rem;
   display: inline;

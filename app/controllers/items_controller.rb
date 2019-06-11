@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   def create
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
-    if  brand = Brand.find_by(name: params[:item][:brand_id])
+    if brand = Brand.find_by(name: params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
     else
       params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
@@ -32,13 +32,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    set_item
     render layout: 'application-off-header-footer.haml'
   end
 
   def edit
     @item = Item.find(params[:id])
     gon.item_images = @item.item_images
-    render layout: 'application-off-header-footer.haml'
   end
 
   def update
@@ -74,10 +74,11 @@ class ItemsController < ApplicationController
 
 
   def search_category
+    category = Category.find(params[:parent_id])
     if params[:parent_id].to_i >= 159
-      @children=Category.find(params[:parent_id]).sizes
+      @children = category.sizes
     else
-      @children=Category.find(params[:parent_id]).children
+      @children = category.children
     end
    respond_to do |format|
      format.html
@@ -86,6 +87,10 @@ class ItemsController < ApplicationController
   end
 
   private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   def item_params
     params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, item_images_attributes: [:id, :image_url, :item_id])
     #### ログイン機能ができたら.merge(seller_id: current_user.id)

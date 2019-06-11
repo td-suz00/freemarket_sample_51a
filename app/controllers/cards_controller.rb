@@ -3,17 +3,12 @@ class CardsController < ApplicationController
   require 'payjp'
 
   def index # カード追加ボタン表示 or カード情報&削除ボタン表示
-    @card = Card.find_by(user_id: 1)
-    #### 仮置き user_id: current_user.id
+    @card = current_user.card
     if @card
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
-  end
-
-  def show #### 仮置き ユーザー登録完了のビュー
-    render layout: 'application-off-header-footer.haml'
   end
 
   def new # ユーザー新規登録時のビュー
@@ -37,21 +32,17 @@ class CardsController < ApplicationController
     else
       customer = Payjp::Customer.create(
         description: 'メルカリ',
-        email: 'test@gmail.com',
-        #### 仮置き current_user.email
+        email: current_user.email,
         card: card_params[:payjp_token],
-        metadata: {user_id: 1}
-        #### 仮置き user_id: current_user.id
+        metadata: {user_id: current_user.id}
       )
-      card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
-      #### 仮置き user_id: current_user.id
+      card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if card.save
         case card_params[:move_from_action]
           when 'add'
             redirect_to action: :index
           when 'new'
-            redirect_to action: :show, id: 1
-            #### 仮置き ユーザー登録完了のビューのルーティング変更時に併せて修正
+            redirect_to signup_successful_path
         end
       else
         case card_params[:move_from_action]
@@ -65,8 +56,7 @@ class CardsController < ApplicationController
   end
 
   def destroy #PayjpとCardデータベースを削除
-    card = Card.find_by(user_id: 1)
-    #### 仮置き user_id: current_user.id
+    card = Card.find_by(user_id: current_user.id)
     if card.present?
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
       customer = Payjp::Customer.retrieve(card.customer_id)

@@ -5,8 +5,9 @@
   .login__info-container
     %p アカウントをお持ちでない方はこちら
     .login__btn_container
-    .user__btn_new
-      = link_to "新規会員登録","#### 仮置き。サーバサイド実装後、/users/:user_id/signupsに修正", class: "new-register"
+      = link_to new_user_registration_path, class: "new-register" do
+        .user__btn_new
+          新規会員登録
     %br
     %br
     .user__btn_fb
@@ -17,14 +18,13 @@
       = link_to "Googleで登録","＃", class: "google-register"
     %br
     %br
-    = text_field_tag :content, 'メールアドレス',class: 'text_field'
-    = text_field_tag :content, 'パスワード',class: 'text_field'
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.email_field :email, autofocus: true, placeholder: 'メールアドレス', class: 'text_field'
+      = f.password_field :password, autocomplete: "off", placeholder: 'パスワード', class: 'text_field'
+      = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img_2"
+      = f.submit 'ログイン', class: 'redbtn'
 
-  = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img_2"
 
-  .login-btn
-    = link_to "ログイン","/users/1", class:'login_btn'
-    -#### 仮置き。サーバサイド実装後、/users/:idに修正
   %br
   %br
   %p.blue パスワードをお忘れの方

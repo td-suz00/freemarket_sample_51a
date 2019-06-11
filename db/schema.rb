@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_084607) do
+ActiveRecord::Schema.define(version: 2019_06_06_074753) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -83,6 +83,26 @@ ActiveRecord::Schema.define(version: 2019_06_03_084607) do
     t.index ["size_id"], name: "index_items_on_size_id"
   end
 
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "profile_comment"
+    t.string "avatar"
+    t.string "family_name"
+    t.string "last_name"
+    t.string "kana_family_name"
+    t.string "kana_last_name"
+    t.string "postalcode"
+    t.string "address_prefecture"
+    t.string "address_city"
+    t.string "address_street_number"
+    t.string "address_building_name"
+    t.date "birth_ymd"
+    t.string "phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "size_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "size_id", null: false
     t.bigint "category_id", null: false
@@ -125,6 +145,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_084607) do
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "sizes"
+  add_foreign_key "profiles", "users"
   add_foreign_key "size_categories", "categories"
   add_foreign_key "size_categories", "sizes"
 end

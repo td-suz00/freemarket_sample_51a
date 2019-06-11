@@ -104,5 +104,20 @@ $height_pixel: 44px;
         }
       }
     }
+    .menu__signup {
+      float: left;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      margin-left: 175px;
+      border-radius: 4px;
+    }
+    .menu__signin {
+      float: right;
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 4px;
+    }
   }
 }
