@@ -8,6 +8,7 @@ $height_pixel: 44px;
 
 .global-header {
   background-color: $white;
+  width: 100%;
 
   .breadcrumbs {
     height: 48px;
@@ -17,6 +18,7 @@ $height_pixel: 44px;
     box-shadow: 0 3px 3px $shadow_black;
     position: relative;
     z-index: 2;
+    padding: 0 200px;
 
     a {
       color: $black;
@@ -33,14 +35,17 @@ $height_pixel: 44px;
 
   .header {
     z-index: 3;
-    background-color: $white;
-    padding-top: 8px;
+    background-color: red;
+    // padding-top: 8px;
     margin: auto;
-    width: 1022px;
+    // width: 1022px;
+    width: 700px;
     }
   }
 
   .header-upper {
+    padding: 8px 200px 0;
+
     .logo {
       float: left;
       height: 36px;
@@ -51,17 +56,16 @@ $height_pixel: 44px;
       position: relative;
       float: right;
       height: 40px;
-      width: 841px;
-      background-color: $white;
+      width: 80%;
       margin-left: 45px;
 
       .textbox {
+        box-sizing: border-box;
         background: $background_gray;
         border: 1px solid $border_gray;
-        padding: 0px;
-        height: 38px;
+        height: 40px;
         padding: 0 42px 0 10px;
-        width: 787px;
+        width: 100%;
         border-radius: 4px;
       }
 
@@ -98,18 +102,18 @@ $height_pixel: 44px;
   .header-lower {
     height: 44px;
     margin-top: 8px;
+    padding: 0 200px;
 
     .header-lower-left {
       float: left;
+      height: 44px;
+      width: 306px;
 
       ul {
         height: 100%;
         margin: 0;
         padding: 0;
       }
-
-      height: 44px;
-      width: 306px;
 
       .list {
         float: left;
