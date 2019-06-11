@@ -9,14 +9,14 @@
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
-            - @images.each do |image|
-              - if image.present?
+            - if @images.present?
+              - @images.each do |image|
                 %li
                   = image_tag image.image_url.to_s, class:'item_img'
           %ul#thumb
             %li
-              - @images.each do |image|
-                - if image.present?
+              - if @images.present?
+                - @images.each do |image|
                   = image_tag image.image_url.to_s, class:'item_s-img'
         .item__info__inner-content__table
         %table
@@ -89,7 +89,7 @@
                 着払い
             .clearfix
         .item__info__inner-content__purchase-btn#btn-detail
-          = link_to "購入画面に進む", new_item_purchase_path(1), class:'btn-detail'
+          = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
           -###/items/:item_id/purchases/new
         .item__info__inner-content__text
           = @item.text
