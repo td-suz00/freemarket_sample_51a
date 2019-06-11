@@ -13,115 +13,115 @@
       .header-lower-left
         %ul.menu
           %li.menu__category-menu
-            %a.menu__category-menu__button{href: "#"}
+            = link_to '#', class: 'menu__category-menu__button' do
               %i.fas.fa-list-ul
               カテゴリーから探す
             %ul.menu__second-level
               / 第一階層
               %li
-                %a.second-level{href: "#"} メンズ
+                = link_to 'メンズ', '#', class: 'second-level'
                 %ul.menu__third-level
                   / 第二階層
                   %li
-                    %a.child-categories{href: "#"} トップス
+                    = link_to 'トップス', '#', class: 'child-categories'
                     %ul.menu__fourth-level
                       / 第三階層
                       %li
-                        %a.child-categories{href: "#"} タンクトップ
+                        = link_to 'タンクトップ', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} ノースリーブ
+                        = link_to 'ノースリーブ', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} チューブトップ
+                        = link_to 'チューブトップ', '#', class: 'child-categories'
                   %li
-                    %a.child-categories{href: "#"} ジャケット/アウタ
+                    = link_to 'ジャケット/アウター', '#', class: 'child-categories'
                     %ul.menu__fourth-level
                       / 第三階層
                       %li
-                        %a.child-categories{href: "#"} MA-1
+                        = link_to 'MA-1', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} Flightjacket
+                        = link_to 'Flightjacket', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} 法被
+                        = link_to '法被', '#', class: 'child-categories'
                   -# クリックを無効にした透明なAタグを使い、child_categoryの名前がないところにマウスホバーしても収納されないようになっています。
                   -# child_category_cntに代入すると透明なAタグの大きさがurに合うように変わります。
                   %li{:style => "\n    background: white;\n"}
                     - child_category_cnt = "2"
                     - class_name = "init-right last item#{child_category_cnt}"
-                    = link_to '透明Aタグ',"#", class: class_name
+                    = link_to '透明Aタグ','#', class: class_name
                     %ul.menu__fourth-level
                       / 第三階層
               / 第一階層
               %li
-                %a.second-level{href: "#"} レディース
+                = link_to 'レディース', '#', class: 'second-level'
                 %ul.menu__third-level
                   / 第二階層
                   %li
-                    %a.child-categories{href: "#"} トップス
+                    = link_to 'トップス', '#', class: 'child-categories'
                     %ul.menu__fourth-level
                       / 第三階層
                       %li
-                        %a.child-categories{href: "#"} タンクトップ
+                        = link_to 'タンクトップ', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} ノースリーブ
+                        = link_to 'ノースリーブ', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} チューブトップ
+                        = link_to 'チューブトップ', '#', class: 'child-categories'
                   %li
-                    %a.child-categories{href: "#"} ジャケット/アウタ
+                    = link_to 'ジャケット/アウター', '#', class: 'child-categories'
                     %ul.menu__fourth-level
                       / 第三階層
                       %li
-                        %a.child-categories{href: "#"} MA-1
+                        = link_to 'MA-1', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} Flightjacket
+                        = link_to 'Flightjacket', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} 法被
+                        = link_to '法被', '#', class: 'child-categories'
                   %li
-                    %a.child-categories.init-right{href: "#"} パンツ
+                    = link_to 'パンツ', '#', class: 'child-categories init-right'
                     %ul.menu__fourth-level
                       / 第三階層
                       %li
-                        %a.child-categories{href: "#"} MA-1
+                        = link_to 'MA-1', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} Flightjacket
+                        = link_to 'Flightjacket', '#', class: 'child-categories'
                       %li
-                        %a.child-categories{href: "#"} 法被
+                        = link_to '法被', '#', class: 'child-categories'
                   %li{:style => "\n    background: white;\n"}
                     -items="3"
                     - class_name="init-right last item#{items}"
-                    = link_to '透明Aタグ',"#", class: class_name
+                    = link_to '透明Aタグ','#', class: class_name
                     %ul.menu__fourth-level
                       / 第三階層
           %li.menu__brand-menu
-            %a.menu__brand-menu__button{href: "#"}
+            = link_to '#', class: 'menu__brand-menu__button' do
               %i.fas.fa-tag
               ブランドから探す
             %ul.menu__second-level.brand-height
               / 第一階層
               %li
-                %a.second-level{href: "#"} supreme
+                = link_to 'supreme', '#', class: 'second-level'
               / 第一階層
               %li
-                %a.second-level{href: "#"} panasonic
+                = link_to 'panasonic', '#', class: 'second-level'
               / 第一階層
               %li
-                %a.second-level{href: "#"} genius
+                = link_to 'genius', '#', class: 'second-level'
               / 第一階層
               %li
-                %a.second-level{href: "#"} techinics
+                = link_to 'techinics', '#', class: 'second-level'
               / 第一階層
               %li
-                %a.second-level{href: "#"} india
+                = link_to 'india', '#', class: 'second-level'
       .header-lower-right
         %ul.menu
           - if current_user
             %li.menu__notice-menu
-              %a.menu__notice-menu__button{href: "#"}
+              = link_to '#', class: 'menu__notice-menu__button' do
                 %i.far.fa-bell
                 お知らせ
               %ul.menu__second-level.notice
                 / 第一階層
                 %li
-                  %a.second-level.noticepack{href: "#"}
+                  = link_to '#', class: 'second-level noticepack' do
                     .notice-box
                       = image_tag "mercari_profile.png", width: "48", height: "48"  ,class:"notice-img"
                       .text-box
@@ -131,7 +131,7 @@
                         20日前
                         %i.fas.fa-chevron-right
                 %li
-                  %a.second-level.noticepack{href: "#"}
+                  = link_to '#', class: 'second-level noticepack' do
                     .notice-box
                       = image_tag "mercari_profile.png", width: "48", height: "48"  ,class:"notice-img"
                       .text-box
@@ -141,13 +141,13 @@
                         20日前
                         %i.fas.fa-chevron-right.two
             %li.menu__todo-menu.todo-list
-              %a.menu__todo-menu__button{href: "#"}
+              = link_to '#', class: 'menu__todo-menu__button' do
                 %i.fas.fa-check
                 やることリスト
               %ul.menu__second-level.todo
                 / 第一階層
                 %li
-                  %a.second-level.noticepack{href: "#"}
+                  = link_to '#', class: 'second-level noticepack' do
                     .todo-box
                       = image_tag "gray-mercari-icon.png", width: "75", height: "75"  ,class:"todo-img"
                       .text-box
@@ -162,7 +162,7 @@
                   .user-box
                     = image_tag "user_top_background_image.jpg", width: "320", height: "80", class:"user-img"
                     = image_tag "user-profile.png", width: "60", height: "60", class:"user-profile-img"
-                  %a.second-level{href: "#"}
+                  = link_to '#', class: 'second-level' do
                     .text-box
                       .user-name ユーザー名
                       %br/
