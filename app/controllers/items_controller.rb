@@ -43,12 +43,18 @@ class ItemsController < ApplicationController
   def update
   end
 
+  def destroy
+    if @item.user_id === current_user.id
+      @item.destroy
+      redirect_to root_path
+    end
+  end
+
   def auto_complete
     brands = Brand.select(:name).where("name like '" + params[:term].tr('ぁ-ん','ァ-ン') + "%'").order(:name)
     brands = brands.pluck(:name)
     render json: brands.to_json
   end
-
 
   def search_category
     category = Category.find(params[:parent_id])
