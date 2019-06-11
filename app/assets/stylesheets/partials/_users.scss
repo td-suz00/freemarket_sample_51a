@@ -39,7 +39,6 @@ header {
     }
   }
 
-
   &__btn_mail {
     background-color: $border_gray;
     width: 300px;
@@ -120,7 +119,6 @@ header {
   }
 }
 
-
 footer {
   text-align: center;
 
@@ -165,11 +163,6 @@ header {
 
   .header__logo-img_signup {
     display: block;
-
-    margin: {
-      bottom: 30px;
-      left: 70px;
-    }
   }
 }
 
@@ -179,7 +172,6 @@ header {
   margin: 0 auto;
   background-color: $white;
   height: 1515px;
-
 
   &__title {
     height: 110px;
@@ -194,7 +186,6 @@ header {
   }
 
   &__info-container {
-
     padding: {
       top: 35px;
       left: 210px;
@@ -231,7 +222,7 @@ header {
       }
 
       .form {
-        border:1px solid $border_gray {
+        border: 1px solid $border_gray {
           radius: 0.3rem;
         }
       }
@@ -242,10 +233,8 @@ header {
         height: 50px;
         font-size: 16px;
         margin-bottom: 20px;
-        color: $form_gray;
         padding-left: 10px;
       }
-
     }
 
     .next-btn {
@@ -256,7 +245,6 @@ header {
 
       margin: {
         top: 19px;
-        ;
       }
 
       a {
@@ -265,9 +253,7 @@ header {
         display: inline;
         text-decoration: none;
       }
-
     }
-
   }
 
   .select_tag {
@@ -275,7 +261,6 @@ header {
     width: 100px;
     height: 50px;
     font-size: 16px;
-    color: $form_gray;
     padding-left: 15px;
 
     margin: {
@@ -326,7 +311,6 @@ header {
 
   p.gray {
     font-size: 12.8px;
-    color: $form_gray;
   }
 
   .link-box {
@@ -356,7 +340,7 @@ header {
 
 // ログイン
 header {
-  height: 100px;
+  height: 115px;
   padding-top: 40px;
 
   .header__logo-img {
@@ -376,7 +360,6 @@ header {
   height: 600px;
 
   &__info-container {
-
     padding: {
       top: 35px;
       left: 150px;
@@ -419,7 +402,7 @@ header {
   }
 
   .form {
-    border:1px solid $border_gray {
+    border: 1px solid $border_gray {
       radius: 0.3rem;
     }
   }
@@ -430,7 +413,6 @@ header {
     height: 50px;
     font-size: 16px;
     margin-bottom: 20px;
-    color: $form_gray;
     padding-left: 10px;
   }
 

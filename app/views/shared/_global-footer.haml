@@ -50,8 +50,10 @@
           %li= link_to '個人データの安全管理に係る基本方針',"#"
           %li= link_to '特定商取引に関する表記',"#"
           %li= link_to '資金決済法に基づく表示',"#"
-          %li= link_to '法令遵守と犯罪抑止のために',"#"
-          %li= link_to '返品・返金ポリシー',"#"
+          %li= link_to '法令遵守と犯罪抑止のために',destroy_user_session_path,method: :delete
+          -# ####仮置き 
+          %li= link_to '返品・返金ポリシー',new_user_registration_path
+          -# ####仮置き 
     .global-footer__upper__cell.country
       %h2 国
       %ul

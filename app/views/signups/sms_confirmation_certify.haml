@@ -1,20 +1,23 @@
-= render partial:'signups/signup-header-2'
+%header
+  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
+  = image_tag 'signup_header2.png',size: "700x120" , class: "header__bar-img"
 .sigup_sms-2
   .sigup__title
     %h2 電話番号認証
+    .signup-errors
+      = @errors
     .sigup__info-container
       %ul
         %li
           %h3 認証番号
         .clearfix
-        = text_field_tag :content, '認証番号を入力',class: 'text_field'
+        = text_field_tag :content, '',{ class: 'text_field', placeholder: "携帯電話の番号を入力"}
         .clearfix
         %li
           %p SMSで届いた認証番号を入力してください。
         .clearfix
         .sms-btn_2
-          = link_to "認証して完了","/users/1/user_profiles/new", class:'sms-btn'
-          -#### 仮置き。サーバサイド実装後、/users/:user_id/user_profiles/newに修正
+          = link_to "認証して完了",signup_address_path, class:'sms-btn'
         .clearfix
     .sigup__info-box
     .sigup__info-box
@@ -32,5 +35,4 @@
         ※SMSが届かない場合は
         %span.blue SMS受信設定
         を確認して、もう一度電話番号を入力してください。
-
 = render partial:'items/item_footer'
