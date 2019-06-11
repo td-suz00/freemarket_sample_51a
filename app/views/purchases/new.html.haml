@@ -7,8 +7,7 @@
     .item__info
       .item__info__inner-content
         .item__info__inner-content__image
-          = image_tag 'ねこ２.jpg', height: '148', width: '148'
-          -#### 仮置き @item.images
+          = image_tag @item.item_images.first.image_url.to_s, height: '148', width: '148'
         .item__info__inner-content__name
           %p
             = @item.name
