@@ -1,11 +1,12 @@
 class SignupsController < ApplicationController
-  layout 'application-off-header-footer.haml'
+  layout 'application-off-header-footer'
   def sms_confirmation_send
     @profile=Profile.new
   end
 
   def sms_confirmation_certify
-    if  profile_params[:phone_number].present?
+    @profile=current_user.profile.assign_attributes(profile_params)
+    if  current_user.profile.valid?(:sms_confirmation_send)
       current_user.profile.update(profile_params)
     else
       @profile=Profile.new
@@ -19,11 +20,9 @@ class SignupsController < ApplicationController
   end
 
   def address_create
-    if profile_params[:postalcode].present?\
-       &&profile_params[:address_prefecture].present?\
-       &&profile_params[:address_city].present?\
-       &&profile_params[:address_street_number].present?
-      current_user.profile.update(profile_params)
+    @profile=current_user.profile.assign_attributes(profile_params)
+    if current_user.profile.valid?(:hoge)
+      current_user.profile.update(profile_params) 
       redirect_to new_user_card_path(1)
     else
       @profile=current_user.profile
@@ -40,8 +39,10 @@ class SignupsController < ApplicationController
 
   def show
   end
-def succesful 
-end
+
+  def succesful 
+  end
+  
   private
 
   def profile_params

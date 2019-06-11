@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   require 'payjp'
 
   def index # カード追加ボタン表示 or カード情報&削除ボタン表示
-    @card = Card.find_by(user_id: current_user.id)
+    @card = current_user.card
     if @card
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
       customer = Payjp::Customer.retrieve(@card.customer_id)

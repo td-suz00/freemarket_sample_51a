@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+    layout 'application-off-header-footer'
 def new
   @user = User.new
   @profile = @user.build_profile
@@ -22,7 +22,7 @@ end
        &&params[:user][:profile_attributes][:'birth_ymd(1i)'].present?\
        &&params[:user][:profile_attributes][:'birth_ymd(2i)'].present?\
        &&params[:user][:profile_attributes][:'birth_ymd(3i)'].present?
-       super
+       super and return
     else
     @user =build_resource(sign_up_params)
     @profile = @user.profile
