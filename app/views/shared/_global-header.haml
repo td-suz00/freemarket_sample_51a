@@ -153,15 +153,15 @@
                       .text-box
                         現在、やる事リストはありません
             %li.menu__user-menu.user-list
-              = link_to user_path(10000) ,class: "menu__user-menu__button"do
-                = image_tag "user-profile.png", width: "30", height: "30"  ,class:"nav-user-profile-img"
+              = link_to user_path(current_user) ,class: "menu__user-menu__button"do
+                = image_tag "user-profile.png", width: "30", height: "30", class:"nav-user-profile-img"
                 .title-mypage マイページ
               %ul.menu__second-level.user
                 / 第一階層
                 %li
                   .user-box
-                    = image_tag "user_top_background_image.jpg", width: "320", height: "80"  ,class:"user-img"
-                    = image_tag "user-profile.png", width: "60", height: "60"  ,class:"user-profile-img"
+                    = image_tag "user_top_background_image.jpg", width: "320", height: "80", class:"user-img"
+                    = image_tag "user-profile.png", width: "60", height: "60", class:"user-profile-img"
                   %a.second-level{href: "#"}
                     .text-box
                       .user-name ユーザー名
