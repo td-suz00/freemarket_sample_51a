@@ -4,7 +4,6 @@ class PurchasesController < ApplicationController
   require 'date'
 
   def new
-    # @item = Item.find(4)
     @item = Item.find(params[:item_id])
     render layout: 'application-off-header-footer.haml'
   end
