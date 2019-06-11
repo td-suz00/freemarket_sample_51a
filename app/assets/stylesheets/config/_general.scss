@@ -28,6 +28,36 @@
   text-decoration: none;
 }
 
+.bluebtn {
+  margin: 0;
+  background: $white;
+  border: 1px solid $light-blue;
+  color: $light-blue;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.bluebtn:hover {
+  margin: 0;
+  background: $light-blue;
+  border: 1px solid $light-blue;
+  color: $white;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
 .required__icon {
     background-color: $red;
     padding: 3px 5px;
