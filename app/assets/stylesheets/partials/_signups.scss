@@ -1,10 +1,9 @@
 // index
 header {
-  height: 100px;
+  height: 110px;
   padding-top: 50px;
-  margin-bottom: 30px;
 
-  .header__logo-img_signup {
+  &__logo-img_signup {
     display: block;
     float: left;
 
