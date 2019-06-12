@@ -3,40 +3,39 @@ $(document).on("turbolinks:load", function() {
   var dropzone2 = $(".item__img__dropzone2__input2");
   var appendzone = $(".item__img__dropzone2")
   var images = [];
-  var inputs = [];
+  // var inputs = [];
   var input_area = $(".input-area");
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
-  gon.item_images.forEach(function(image){
-    var img = $(`<div class= "add_img"><div class="img_area"><div class=image><image width="100%", height="100%"></div</div></div>`);
-    images.push(img)
-  })
+  $(".new_item .item__img__dropzone, .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
 
-  console.log(images)
-
-
-  $(document).on("change", 'input[type= "file"].upload-image', function() {
+    // "files"があるかどうかを確認
     var file = $(this).prop("files")[0];
+    console.log(file)
     var reader = new FileReader();
-    inputs.push($(this));
+    console.log(reader)
+    // inputs.push($(this));
+
     var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
+    console.log(img)
+
+
+    var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
+
 
     reader.onload = function(e) {
-      var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
-
       // 画像に編集・削除ボタンをつける
       img.append(btn_wrapper);
       img.find("img").attr({
         src: e.target.result
       });
+      console.log(e.target.result)
+
     };
 
     reader.readAsDataURL(file);
     images.push(img);
-
-    console.log(images)
-
 
     // 画像が４枚以下のとき
     if (images.length <= 4) {

@@ -17,18 +17,18 @@
           .clearfix
           %p 最大10枚までアップロードできます
 
-          = f.fields_for :item_images, @item.item_images do |image|
+          = f.fields_for :item_images, @item.item_images.first do |image|
             .item__img__dropzone.clearfix
               #preview
                 -#１〜５枚目プレビュー表示
-                - @item.item_images.each do |image|
-                  .add_img
-                    .img_area
-                      .image
-                        = image_tag("#{image.image_url}")
-                    .btn_wrapper
-                      .btn_edit 編集
-                      .btn_delete 削除
+                -# - @item.item_images.each do |image|
+                -#   .add_img
+                -#     .img_area
+                -#       .image
+                -#         = image_tag("#{image.image_url}", class: "image_tag")
+                -#     .btn_wrapper
+                -#       %a.btn_edit 編集
+                -#       %a.btn_delete 削除
 
 
 
