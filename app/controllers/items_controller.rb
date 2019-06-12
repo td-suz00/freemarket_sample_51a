@@ -38,7 +38,15 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    gon.item_images = @item.item_images
+
+    # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
+    require 'base64'
+    gon.item_images_binary_datas = []
+    @item.item_images.each do |image|
+      binary_data = File.read(image.image_url.file.file)
+      gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+    end
+
   end
 
   def update

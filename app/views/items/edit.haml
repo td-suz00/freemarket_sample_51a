@@ -7,6 +7,7 @@
     .item
       .item__title
         %h2 商品の情報を入力
+
       = form_for @item do |f|
         .item__img
           %ul
@@ -20,18 +21,7 @@
           = f.fields_for :item_images, @item.item_images.first do |image|
             .item__img__dropzone.clearfix
               #preview
-                -#１〜５枚目プレビュー表示
-                -# - @item.item_images.each do |image|
-                -#   .add_img
-                -#     .img_area
-                -#       .image
-                -#         = image_tag("#{image.image_url}", class: "image_tag")
-                -#     .btn_wrapper
-                -#       %a.btn_edit 編集
-                -#       %a.btn_delete 削除
-
-
-
+              -# １〜５枚目プレビュー表示
               .item__img__dropzone__input
                 = image.label :image, for: "upload-image" do
                   .input-area
