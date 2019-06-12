@@ -71,7 +71,7 @@
               %th 発送の目安
               %td
                 = @item.delivery_days
-        .item__info__inner-content__account
+        .item__info__inner-content__account#box-price
           .item__info__inner-content__account__price-detail
             .item-price
               ="¥#{@item.price.to_s(:delimited)}"
@@ -99,9 +99,69 @@
         .item__info__inner-content__safety-btn
           %i.fas.fa-shopping-bag
           %span あんしん・あんぜんへの取り組み
+        -# -----------------仮で置いてます---------------
+        %br
+  .item
+    .item__edit-btn
+      %button#btn-stop
+    .item__edit-btn
+      %button
+        = link_to "商品の編集", new_item_path, id:'btn-comment'
+        -#### リンク仮置きです
+    %sub#or or
+    .item__comment-btn
+      %button
+        = link_to "出品を一旦停止する", new_item_path, id:'btn-stop'
+        -#### リンク仮置きです
+    -# #item__mask
+    .item__comment-btn
+      %button
+        = link_to "この商品を削除する", "", method: :delete, id:'btn-delete'
+        -#### リンク仮置きです
+      -# -----------------仮で置いてます---------------
+      -# -----------------モーダル---------------
+    #item__mask
+      #modal
+        .alert-text
+          %p#bold 確認
+          %p 削除すると二度と復活できません。
+          %p 削除する代わりに停止することもできます。
+          %br
+          %p 本当に削除しますか？
+        .alert-btn
+          .alert-btn-right
+            %button#btn-border
+            = link_to "キャンセル",new_item_path, id:'btn-cancel-modal'
+          .alert-btn-left
+            %button
+            = link_to "削除する","/items/#{@item.id}", id:'btn-delete-modal'
+      #close
+
+
 = render partial:'items/comment_form'
 
 -# imgの飾りアイコンです
 = render partial:'items/sns_icon'
 
 = render partial:'shared/global-only-footer'
+
+:javascript
+  $(function(){
+  var modalOpen = "#btn-stop";
+  var modalMask = "#item__mask";
+  var modalWindow = "#modal";
+  var modalClose = "#btn-delete-modal";
+
+  $(modalOpen).on('click', function(){
+  $('body').append(modalMask);
+  $(modalMask).fadeIn();
+  $(modalWindow).fadeIn();
+  ('body').css('overflow', 'hidden');
+  });
+  modalClose.on('click', function(){
+  modalMask.fadeOut();
+  modalWindow.fadeOut();
+  $('body').css('overflow', 'auto');
+  });
+  });
+
