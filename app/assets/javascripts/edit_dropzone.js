@@ -2,17 +2,19 @@ $(window).on("load", function() {
   var dropzone = $(".item__img__dropzone__input");
   var dropzone2 = $(".item__img__dropzone2__input2");
   var appendzone = $(".item__img__dropzone2")
+  // 登録済画像と新規追加画像を全て格納する配列（ビュー用）
   var images = [];
   // var inputs = [];
-  var files = [];
+  // 登録済画像データだけの配列（DB用）
+  var registered_images_ids =[]
+  // 新規追加画像データだけの配列（DB用）
+  var new_image_files = [];
   var input_area = $(".input-area");
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
   // 登録していた画像のプレビュー表示
   gon.item_images.forEach(function(image, index){
-    // files.push(image)
-
     var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
 
     // カスタムデータ属性を付与
@@ -30,13 +32,15 @@ $(window).on("load", function() {
       src: "data:image/jpeg;base64," + binary_data
     });
 
-    // 登録されていたitem_imageのビューをimagesに格納
+    // 登録済画像のビューをimagesに格納
     images.push(img)
-    // inputs.push(img)
+    registered_images_ids.push(image.id)
   })
 
-  console.log(files)
   console.log(images)
+  console.log(registered_images_ids)
+  console.log(new_image_files)
+
 
   // 画像が４枚以下のとき
   if (images.length <= 4) {
@@ -110,10 +114,12 @@ $(window).on("load", function() {
   input_area.append(new_image);
 
 
+
+
+  // 画像を新しく追加する場合
   $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
     var file = $(this).prop("files")[0];
-    files.push(file)
-    console.log(files)
+    new_image_files.push(file)
     var reader = new FileReader();
     // inputs.push($(this));
     var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
@@ -130,6 +136,10 @@ $(window).on("load", function() {
 
     reader.readAsDataURL(file);
     images.push(img);
+
+    console.log(images)
+    console.log(registered_images_ids)
+    console.log(new_image_files)
 
     // 画像が４枚以下のとき
     if (images.length <= 4) {
@@ -186,6 +196,8 @@ $(window).on("load", function() {
   });
 
 
+
+
   // 削除ボタン
   $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on('click', '.btn_delete', function() {
 
@@ -195,13 +207,24 @@ $(window).on("load", function() {
     // 削除画像のdata-image番号を取得
     var target_image_num = target_image.data('image');
 
-    // 対象の画像を削除
+    // 対象の画像をビュー上で削除
     target_image.remove();
 
     // 対象の画像を削除した新たな配列を生成
     images.splice(target_image_num, 1);
-    files.splice(target_image_num, 1);
-    console.log(files)
+
+    // target_image_numが登録済画像の数以下の場合は登録済画像データの配列から削除、それより大きい場合は新たに追加した画像データの配列から削除
+    if (target_image_num <= registered_images_ids.length) {
+      registered_images_ids.splice(target_image_num, 1);
+    } else {
+      new_image_files.splice((target_image_num - registered_images_ids.length), 1);
+    }
+
+    console.log(images)
+    console.log(registered_images_ids)
+    console.log(new_image_files)
+
+
 
     if(images.length == 0) {
       $('input[type= "file"].upload-image').attr({
@@ -278,10 +301,19 @@ $(window).on("load", function() {
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
 
-    // imagesをformDataに追加していく
-    if (files.length != 0) {
-      files.forEach(function(file){
-        formData.append("item_images[images][]", file)
+
+
+    // 登録済画像で、まだ残っている画像のidをformDataに追加していく
+    if (registered_images_ids.length != 0) {
+      registered_images_ids.forEach(function(registered_image){
+        formData.append("registered_images_ids[ids][]", registered_image)
+      });
+    }
+
+    // 新しく追加したimagesをformDataに追加していく
+    if (new_image_files.length != 0) {
+      new_image_files.forEach(function(file){
+        formData.append("new_images[images][]", file)
       });
     }
 

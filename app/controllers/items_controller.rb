@@ -66,16 +66,28 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.find(params[:id])
-    if @item.update(item_params) && image_params[:images].length != 0
-      image_params[:images].each do |image|
+    @item.update(item_params)
+
+    # 登録済画像のidの配列を生成
+    ids = @item.item_images.map{|image| image.id }
+    # まだ残っているidの配列を生成
+    exist_ids = registered_image_params[:ids].map(&:to_i)
+    # 削除する画像のidの配列を生成
+    delete_ids = ids - exist_ids
+    # 登録済画像のうち削除ボタンをおした画像を削除
+    delete_ids.each do |id|
+      @item.item_images.find(id).destroy
+    end
+
+    # 新規登録画像があればcreate
+    if new_image_params[:images].length != 0
+      new_image_params[:images].each do |image|
         item_image = @item.item_images.new(image_url: image, item_id: @item.id)
         item_image.save
       end
-
-      redirect_to root_path
-    else
-      render action: "edit"
     end
+
+    redirect_to root_path
 
   end
 
@@ -118,8 +130,12 @@ class ItemsController < ApplicationController
     #### ログイン機能ができたら.merge(seller_id: current_user.id)
   end
 
-  def image_params
-    params.require(:item_images).permit({images: []})
+  def registered_image_params
+    params.require(:registered_images_ids).permit({ids: []})
+  end
+
+  def new_image_params
+    params.require(:new_images).permit({images: []})
   end
 
 
