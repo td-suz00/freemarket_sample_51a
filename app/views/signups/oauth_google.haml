@@ -2,7 +2,9 @@
   = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
   = image_tag 'signup_header1.png',size: "670x103" , class: "header__bar-img"
 .sigup
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(@user, url: user_registration_path ) do |f|
+
     .sigup__title
       %h2 会員情報入力
       .signup-errors
@@ -21,23 +23,9 @@
             .required__icon 必須
           .clearfix
           = f.email_field :email,{ class: 'text_field', placeholder: "PC・携帯どちらでも可"}
-          -if session["devise.facebook_data"] || session["devise.google_data"]
+          -if session["devise.google_data"]
             = f.hidden_field :password, value: password=Devise.friendly_token[0,20]
             = f.hidden_field :password_confirmation, value: password
-            わいわいわい
-          -else
-            %li
-              %h3 パスワード
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.password_field :password,{ class: 'text_field', placeholder: "6文字以上",autocomplete: "off"}
-            %li
-              %h3 パスワード（確認）
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.password_field :password_confirmation,{ class: 'text_field', placeholder: "6文字以上",autocomplete: "off"}
           %li
             %h3 本人確認
           .clearfix
