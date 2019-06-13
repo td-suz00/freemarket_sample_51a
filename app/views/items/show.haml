@@ -85,7 +85,7 @@
               %sub.payment
                 着払い
         -# --------------current_userの時、非表示------------------
-        - if @item.deal.seller.id != current_user.id
+        - if @item.deal.seller != current_user
           .item__info__inner-content__purchase-btn#btn-detail
             = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
 
@@ -94,7 +94,7 @@
           = @item.text
 
         -# --------------current_userの時、非表示------------------
-        - if @item.deal.seller.id != current_user.id
+        - if @item.deal.seller != current_user
           .btn-box
             .item__info__inner-content__like-btn
               %i.far.fa-heart
@@ -107,7 +107,7 @@
             %span あんしん・あんぜんへの取り組み
 
         -# --------------current_userの時のみ、編集・停止。削除btn表示------------------
-  - if @item.deal.seller.id == current_user.id
+  - if @item.deal.seller == current_user
     %br
     .item
       .item__edit-btn
@@ -143,7 +143,7 @@
 
 = render partial:'items/comment_form'
 
-- if @item.deal.seller.id != current_user.id
+- if @item.deal.seller != current_user
   -# imgの飾りアイコンです
   = render partial:'items/sns_icon'
 
