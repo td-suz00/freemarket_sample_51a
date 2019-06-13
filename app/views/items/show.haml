@@ -89,6 +89,7 @@
           .item__info__inner-content__purchase-btn#btn-detail
             = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
 
+        -# --------------どちらのページも表示------------------
         .item__info__inner-content__text
           = @item.text
 
@@ -148,24 +149,6 @@
 
 = render partial:'shared/global-only-footer'
 
-//item_show 削除btnのモーダル
-:javascript
-  var modalOpen = $("#btn-delete");
-  var modalMask = $("#item__mask");
-  var modalWindow = $("#modal");
-  var modalClose = $("#btn-delete-modal");
-  console.log("test");
-
-  modalOpen.click(function(){
-  modalMask.fadeIn();
-  modalWindow.fadeIn();
-  ('body').css('overflow', 'hidden');
-  });
-  modalClose.click(function(){
-  modalMask.fadeOut();
-  modalWindow.fadeOut();
-  $('body').css('overflow', 'auto');
-  });
 
 
 
