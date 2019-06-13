@@ -13,17 +13,19 @@ class ItemsController < ApplicationController
     else
       params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
     end
+
     @item = Item.new(item_params)
-    if params[:item][:item_images_attributes].present? && @item.save
-      # 写真２枚目以降があれば保存（１枚目は@item.saveで保存されています）
-      if params[:item_images].present?
-        params[:item_images][:image].each do |image|
-          @item.item_images.create(image_url: image, item_id: @item.id)
-        end
+    if @item.save
+      binding.pry
+      image_params[:images].each do |image|
+        @item.item_images.create(image_url: image, item_id: @item.id)
       end
-      Deal.create(seller_id:1,item_id:@item.id, status_id:1)
+
+      Deal.new(seller_id: 1, item_id: @item.id, status_id: 1)
       ####仮置き   正：Deal.create(seller_id:current_user,item_id:@item.id, status_id:1)
+
       redirect_to root_path
+
     else
       @item.item_images.build
       render action: "new"
@@ -38,6 +40,9 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    # binding.pry
+
+    gon.item_images = @item.item_images
 
     # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
     require 'base64'
@@ -47,9 +52,12 @@ class ItemsController < ApplicationController
       gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
     end
 
+    # @item.item_images.build
+
   end
 
   def update
+
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
     if  brand = Brand.find_by(name: params[:item][:brand_id])
       params[:item][:brand_id] = brand.id
@@ -58,20 +66,19 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.find(params[:id])
-    @item.update(item_params)
-    redirect_to root_path
-    # if params[:item][:item_images_attributes].present? && @item.update
-    #   # 写真２枚目以降があれば保存（１枚目は@item.updateで保存されています）
-    #   if params[:item_images].present?
-    #     params[:item_images][:image].each do |image|
-    #       @item.item_images.update(image_url: image, item_id: @item.id)
-    #     end
-    #   end
-    #   redirect_to root_path
-    # else
-    #   @item.item_images.build
-    #   render action: "edit"
-    # end
+    binding.pry
+    if @item.update(item_params)
+      image_params[:images].each do |image|
+        item_image = @item.item_images.new(image_url: image, item_id: @item.id)
+        binding.pry
+        item_image.save
+      end
+
+      redirect_to root_path
+    else
+      render action: "edit"
+    end
+
   end
 
   def auto_complete
@@ -79,7 +86,6 @@ class ItemsController < ApplicationController
     brands = brands.pluck(:name)
     render json: brands.to_json
   end
-
 
   def search_category
     category = Category.find(params[:parent_id])
@@ -100,8 +106,22 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, item_images_attributes: [:id, :image_url, :item_id])
+    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price)
     #### ログイン機能ができたら.merge(seller_id: current_user.id)
+  end
+
+  # def item_params
+  #   params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, item_images_attributes: [:id, :image_url, :item_id])
+  #   #### ログイン機能ができたら.merge(seller_id: current_user.id)
+  # end
+
+  def item_edit_params
+    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price)
+    #### ログイン機能ができたら.merge(seller_id: current_user.id)
+  end
+
+  def image_params
+    params.require(:item_images).permit({images: []})
   end
 
 end

@@ -4,15 +4,19 @@ $(document).on("turbolinks:load", function() {
   var appendzone = $(".item__img__dropzone2")
   var images = [];
   // var inputs = [];
+  var files = [];
   var input_area = $(".input-area");
   var preview = $("#preview");
   var preview2 = $("#preview2");
 
-  $(".new_item .item__img__dropzone, .new_item .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
+  $("#new_item .item__img__dropzone, #new_item .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
 
     var file = $(this).prop("files")[0];
+    files.push(file)
+    console.log(files)
     var reader = new FileReader();
     // inputs.push($(this));
+
 
     var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
 
@@ -85,13 +89,10 @@ $(document).on("turbolinks:load", function() {
 
 
   // 削除ボタン
-  $(".new_item .item__img__dropzone, .new_item .item__img__dropzone2").on('click', '.btn_delete', function() {
-    console.log(this)
+  $("#new_item .item__img__dropzone, #new_item .item__img__dropzone2").on('click', '.btn_delete', function() {
 
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
-    console.log(this)
-
 
     // 削除画像のdata-image番号を取得
     var target_image_num = target_image.data('image');
@@ -101,6 +102,14 @@ $(document).on("turbolinks:load", function() {
 
     // 対象の画像を削除した新たな配列を生成
     images.splice(target_image_num, 1);
+    // inputs.splice(target_image_num, 1);
+    files.splice(target_image_num, 1);
+
+    if(images.length == 0) {
+      $('input[type= "file"].upload-image').attr({
+        'data-image': 0
+      })
+    }
 
     // 削除後の配列の中身の数で条件分岐
     // 画像が４枚以下のとき
@@ -163,4 +172,36 @@ $(document).on("turbolinks:load", function() {
         })
     }
   })
+
+
+  $('.new_item').on('submit', function(e){
+    console.log(this)
+    // 通常のsubmitイベントを止める
+    e.preventDefault();
+    // images以外のform情報をformDataに追加
+    var formData = new FormData($(this).get(0));
+
+    // imagesをformDataに追加していく
+    files.forEach(function(file){
+      formData.append("item_images[images][]", file)
+    });
+
+    $.ajax({
+      url:         '/items',
+      type:        "POST",
+      data:        formData,
+      contentType: false,
+      processData: false,
+    })
+
+    .done(function(data){
+      alert('出品に成功しました！');
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      alert('出品に失敗しました！');
+      console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+      console.log("textStatus     : " + textStatus);
+      console.log("errorThrown    : " + errorThrown.message);
+    });
+  });
 });
