@@ -52,7 +52,6 @@ $(function () {
   var modalMask = $("#item__mask");
   var modalWindow = $("#modal");
   var modalClose = $("#btn-delete-modal");
-  console.log("test");
 
   modalOpen.click(function () {
     modalMask.fadeIn();
