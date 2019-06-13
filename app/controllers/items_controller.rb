@@ -44,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # @item = Item.find_by(params[:id])
     set_item
     if @item.deal.seller.id == current_user.id
     @item.destroy
