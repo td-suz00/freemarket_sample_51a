@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+          devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+
+         
   has_one :profile
   accepts_nested_attributes_for :profile
 
@@ -28,4 +31,14 @@ class User < ApplicationRecord
        &&params[:user][:profile_attributes][:'birth_ymd(2i)'].present?\
        &&params[:user][:profile_attributes][:'birth_ymd(3i)'].present?
   end
+    # omniauthのコールバック時に呼ばれるメソッド
+  def self.from_omniauth(auth)
+    @credential=SnsCredential.where(provider: auth.provider, uid: auth.uid,email:auth.info.email).first_or_create
+      @user=User.where(email:auth.info.email).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.password_confirmation = Devise.friendly_token[0,20] 
+    end
+@user
+end
 end
