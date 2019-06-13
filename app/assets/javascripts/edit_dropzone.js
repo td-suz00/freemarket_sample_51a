@@ -11,7 +11,7 @@ $(window).on("load", function() {
 
   // 登録していた画像のプレビュー表示
   gon.item_images.forEach(function(image, index){
-    files.push(image)
+    // files.push(image)
 
     var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
 
@@ -36,6 +36,7 @@ $(window).on("load", function() {
   })
 
   console.log(files)
+  console.log(images)
 
   // 画像が４枚以下のとき
   if (images.length <= 4) {
@@ -65,16 +66,35 @@ $(window).on("load", function() {
 
     // 画像が６枚以上のとき
   } else if (images.length >= 6) {
-    // 配列から６枚目以降の画像を抽出
-    var pickup_images = images.slice(5);
+    // １〜５枚目の画像を抽出
+    var pickup_images1 = images.slice(0, 5);
 
-    $.each(pickup_images, function(index, image) {
-      image.data("image", index + 5);
+    // １〜５枚目を１段目に表示
+    $('#preview').empty();
+    $.each(pickup_images1, function(index, image) {
+      image.data('image', index);
+      preview.append(image);
+    })
+
+    // ６枚目以降の画像を抽出
+    var pickup_images2 = images.slice(5);
+
+    // ６枚目以降を２段目に表示
+    $.each(pickup_images2, function(index, image) {
+      image.data('image', index + 5);
       preview2.append(image);
-      dropzone2.css({
-        width: `calc(100% - (20% * ${images.length - 5}))`
-      });
-    });
+    })
+
+    dropzone.css({
+      'display': 'none'
+    })
+    appendzone.css({
+      'display': 'block'
+    })
+    dropzone2.css({
+      'display': 'block',
+      'width': `calc(100% - (20% * ${images.length - 5}))`
+    })
 
     // 画像が１０枚になったら枠を消す
     if (images.length == 10) {
@@ -90,7 +110,7 @@ $(window).on("load", function() {
   input_area.append(new_image);
 
 
-  $(".edit_item .item__img__dropzone, .edit_item .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
+  $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on("change", 'input[type= "file"].upload-image', function() {
     var file = $(this).prop("files")[0];
     files.push(file)
     console.log(files)
@@ -167,7 +187,7 @@ $(window).on("load", function() {
 
 
   // 削除ボタン
-  $(".edit_item .item__img__dropzone, .edit_item .item__img__dropzone2").on('click', '.btn_delete', function() {
+  $("#edit_item .item__img__dropzone, #edit_item .item__img__dropzone2").on('click', '.btn_delete', function() {
 
     // 削除ボタンを押した画像を取得
     var target_image = $(this).parent().parent();
@@ -251,7 +271,7 @@ $(window).on("load", function() {
   })
 
 
-  $('.new_item').on('submit', function(e){
+  $('.edit_item').on('submit', function(e){
     console.log(this)
     // 通常のsubmitイベントを止める
     e.preventDefault();
@@ -259,13 +279,15 @@ $(window).on("load", function() {
     var formData = new FormData($(this).get(0));
 
     // imagesをformDataに追加していく
-    files.forEach(function(file){
-      formData.append("item_images[images][]", file)
-    });
+    if (files.length != 0) {
+      files.forEach(function(file){
+        formData.append("item_images[images][]", file)
+      });
+    }
 
     $.ajax({
-      url:         '/items',
-      type:        "POST",
+      url:         '/items/' + gon.item.id,
+      type:        "PATCH",
       data:        formData,
       contentType: false,
       processData: false,

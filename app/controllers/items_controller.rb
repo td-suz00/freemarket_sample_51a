@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
 
     @item = Item.new(item_params)
     if @item.save
-      binding.pry
       image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
@@ -41,6 +40,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     # binding.pry
+    gon.item = @item
 
     gon.item_images = @item.item_images
 
@@ -66,11 +66,9 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.find(params[:id])
-    binding.pry
-    if @item.update(item_params)
+    if @item.update(item_params) && image_params[:images].length != 0
       image_params[:images].each do |image|
         item_image = @item.item_images.new(image_url: image, item_id: @item.id)
-        binding.pry
         item_image.save
       end
 
@@ -123,5 +121,7 @@ class ItemsController < ApplicationController
   def image_params
     params.require(:item_images).permit({images: []})
   end
+
+
 
 end
