@@ -72,8 +72,7 @@
     %h3.user_mypage__container__side__menu__title 設定
     %ul.user_mypage__container__side__menu__list
       %li.user_mypage__container__side__menu__list__item
-        -# サーバーサイド実装したらid部分修正
-        = link_to "/users/1/user_profiles/1/edit", class: 'user_mypage__container__side__menu__list__item__text' do
+        = link_to edit_user_user_profile_path(current_user, 1), class: 'user_mypage__container__side__menu__list__item__text' do
           プロフィール
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
@@ -81,7 +80,7 @@
           発送元・お届け先住所変更
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
-        = link_to "/users/1/cards", class: 'user_mypage__container__side__menu__list__item__text' do
+        = link_to user_cards_path(current_user), class: 'user_mypage__container__side__menu__list__item__text' do
           支払い方法
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
@@ -89,7 +88,7 @@
           メール/パスワード
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
-        = link_to "/users/1/user_confirmations/1/edit", class: 'user_mypage__container__side__menu__list__item__text' do
+        = link_to edit_user_user_confirmation_path(current_user, 1), class: 'user_mypage__container__side__menu__list__item__text' do
           本人情報
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
@@ -97,7 +96,6 @@
           電話番号の確認
           %i.fas.fa-chevron-right
       %li.user_mypage__container__side__menu__list__item
-        -# サーバーサイド実装できたらurlにuser_idを付与
-        = link_to "/users/:user_id/logouts/new", class: 'user_mypage__container__side__menu__list__item__text' do
+        = link_to new_user_logout_path(current_user), class: 'user_mypage__container__side__menu__list__item__text' do
           ログアウト
           %i.fas.fa-chevron-right

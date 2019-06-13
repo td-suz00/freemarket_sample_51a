@@ -11,8 +11,7 @@
         %span.complete 会員登録が完了しました。
       .clearfix
     .start-btn
-      = link_to "メルカリをはじめる","/users/1", class:'sms-btn'
-      -#### 仮置き。サーバサイド実装後、 /users/:idに修正
+      = link_to "メルカリをはじめる","/users/#{current_user.id}", class:'sms-btn'
     .clearfix
     = image_tag 'register_complete_img.png',size: "800x300", class: "register_complete_img"
 = render partial:'items/item_footer'

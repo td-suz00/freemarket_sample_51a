@@ -6,8 +6,7 @@
     .user__btn_container
       .user__btn_mail
         = fa_icon 'envelope', class:'mail-icon'
-        = link_to "メールアドレスで登録","/users/1/signups"
-        -#### 仮置き。サーバサイド実装後、/users/:user_id/signupsに修正
+        = link_to "メールアドレスで登録", new_user_registration_path
       .user__btn_fb
         = image_tag 'facebook_icon.png',size: "35x35" , class: "facebook-icon "
         = link_to "Facebookで登録","＃"
