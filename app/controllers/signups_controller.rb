@@ -19,15 +19,15 @@ class SignupsController < ApplicationController
   end
 
   def oauth_google
-      @user = User.new
-  @user.email=session["devise.google_data"]["info"]["unverified_email"]
-  @profile = @user.build_profile
+    @user = User.new
+    @user.email=session["devise.google_data"]["info"]["unverified_email"]
+    @profile = @user.build_profile
   end
 
   def oauth_facebook
-  @user = User.new
-  @user.email=session["devise.facebook_data"]['info']['email']
-  @profile = @user.build_profile
+    @user = User.new
+    @user.email=session["devise.facebook_data"]['info']['email']
+    @profile = @user.build_profile
   end
 
   def address_create

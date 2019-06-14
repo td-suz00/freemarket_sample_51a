@@ -3,7 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
           devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
-         
   has_one :profile
   accepts_nested_attributes_for :profile
 
