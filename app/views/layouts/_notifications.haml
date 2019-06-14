@@ -1,0 +1,8 @@
+.notification
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
+
+:javascript
+  setTimeout(function(){
+    $('.notification').fadeOut('slow');
+  },3000);

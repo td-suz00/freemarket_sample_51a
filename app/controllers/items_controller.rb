@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
 
   def new
     @item = Item.new
@@ -19,8 +20,9 @@ class ItemsController < ApplicationController
       new_image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
-      Deal.create(seller_id: 1, item_id: @item.id, status_id: 1)
-      ####仮置き   正：Deal.create(seller_id:current_user,item_id:@item.id, status_id:1)
+
+      Deal.create(seller_id: current_user.id ,item_id: @item.id, status_id:1)
+
       redirect_to root_path
     else
       @item.item_images.build
@@ -29,7 +31,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     render layout: 'application-off-header-footer.haml'
   end
 
@@ -90,6 +91,15 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item), data: {turbolinks: false}
     end
 
+  end
+
+  def destroy
+    if @item.deal.seller == current_user
+      @item.destroy
+      redirect_to root_path, notice: "削除しました。"
+    else
+      redirect_to :back, alert: "削除できませんでした。"
+    end
   end
 
   def auto_complete

@@ -1,0 +1,114 @@
+// 編集・停止・削除btn
+.item {
+  &__edit-btn {
+    margin: 16px 0 0;
+    width: calc(100% - 22px);
+    height: 30px;
+    padding: 10px;
+    background-color: $red;
+  }
+
+  sub {
+    font-size: 0.9rem;
+    display: inline-block;
+
+    margin: {
+      top: 25px;
+      left: 10px;
+    }
+  }
+
+  #btn-comment {
+    font-size: 14px;
+    color: $white;
+    line-height: 30px;
+    margin: 297px;
+  }
+
+  #btn-stop {
+    font-size: 14px;
+    color: $white;
+    line-height: 30px;
+    margin: 275px;
+  }
+
+  #btn-delete {
+    font-size: 14px;
+    color: $white;
+    line-height: 30px;
+    margin: 275px;
+  }
+
+  #or {
+    margin-top: 10px;
+    margin-left: 325px;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+//  -----------------モーダル---------------
+#item__mask {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+
+  #modal {
+    text-align: center;
+    background-color: #fff;
+    width: 700px;
+    position: absolute;
+    top: 250px;
+    left: 500;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
+    transform: translate(0, -500px);
+    -webkit-transform: translate(-50%, -50%);
+    display: none;
+  }
+
+  #bold {
+    font-weight: bold;
+  }
+
+  .alert-text {
+    padding: 55px;
+  }
+
+  .alert-btn {
+    border-top: 1px solid $border_gray;
+    display: flex;
+    padding: 0 90px;
+  }
+
+  .alert-btn-right {
+    border-right: 1px solid $border_gray;
+    height: 45px;
+    padding-top: 25px;
+  }
+
+  .alert-btn-left {
+    height: 45px;
+    padding-top: 25px;
+  }
+
+  #btn-cancel-modal {
+    color: $black;
+    padding: 0 95px;
+  }
+
+  #btn-delete-modal {
+    color: $light_blue;
+    padding: 0 90px;
+  }
+}
+
+#btn-delete {
+  cursor: pointer;
+}
