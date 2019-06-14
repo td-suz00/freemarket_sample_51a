@@ -57,29 +57,39 @@ class ItemsController < ApplicationController
 
     @item = Item.find(params[:id])
     @item.update(item_params)
-    binding.pry
 
     # 登録済画像のidの配列を生成
     ids = @item.item_images.map{|image| image.id }
-    # 消されずにまだ残っている画像のidの配列を生成
+    # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
     exist_ids = registered_image_params[:ids].map(&:to_i)
+    # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
+    exist_ids.clear if exist_ids[0] == 0
 
-    unless ids.length == exist_ids.length
-      # 削除する画像のidの配列を生成
-      delete_ids = ids - exist_ids
+    # 登録済画像も全て削除され、新規登録画像もない場合は編集画面へ戻す
+    if exist_ids.length == 0 && new_image_params[:images][0] == " "
+      flash[:notice] = '画像をアップロードしてください'
+      redirect_back(fallback_location: root_path)
+    else
+
       # 登録済画像のうち削除ボタンをおした画像を削除
-      delete_ids.each do |id|
-        @item.item_images.find(id).destroy
+      unless ids.length == exist_ids.length
+        # 削除する画像のidの配列を生成
+        delete_ids = ids - exist_ids
+        delete_ids.each do |id|
+          @item.item_images.find(id).destroy
+        end
       end
+
+      # 新規登録画像があればcreate
+      unless new_image_params[:images][0] == " "
+        new_image_params[:images].each do |image|
+          @item.item_images.create(image_url: image, item_id: @item.id)
+        end
+      end
+
+      redirect_to item_path(@item), data: {turbolinks: false}
     end
 
-    # 新規登録画像があればcreate
-    if new_image_params.present?
-      new_image_params[:images].each do |image|
-        @item.item_images.create(image_url: image, item_id: @item.id)
-      end
-    end
-    redirect_to root_path
   end
 
   def auto_complete

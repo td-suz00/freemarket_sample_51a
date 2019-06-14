@@ -274,6 +274,9 @@ $(window).on("load", function() {
     }
   })
 
+  console.log(registered_images_ids.length)
+  console.log(new_image_files.length)
+
 
   $('.edit_item').on('submit', function(e){
     // 通常のsubmitイベントを止める
@@ -281,15 +284,25 @@ $(window).on("load", function() {
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
 
-    // 登録済画像で、まだ残っている画像のidをformDataに追加していく
-    registered_images_ids.forEach(function(registered_image){
-      formData.append("registered_images_ids[ids][]", registered_image)
-    });
+    // 登録済画像が残っていない場合は便宜的に空の文字列を入れる
+    if (registered_images_ids.length == 0) {
+      formData.append("registered_images_ids[ids][]", 0)
+    // 登録済画像で、まだ残っている画像があればidをformDataに追加していく
+    } else {
+      registered_images_ids.forEach(function(registered_image){
+        formData.append("registered_images_ids[ids][]", registered_image)
+      });
+    }
 
-    // 新しく追加したimagesをformDataに追加していく
-    new_image_files.forEach(function(file){
-      formData.append("new_images[images][]", file)
-    });
+    // 新しく追加したimagesがない場合は便宜的に空の文字列を入れる
+    if (new_image_files.length == 0) {
+      formData.append("new_images[images][]", " ")
+    // 新しく追加したimagesがある場合はformDataに追加する
+    } else {
+      new_image_files.forEach(function(file){
+        formData.append("new_images[images][]", file)
+      });
+    }
 
     $.ajax({
       url:         '/items/' + gon.item.id,
@@ -299,15 +312,15 @@ $(window).on("load", function() {
       processData: false,
     })
 
-    .done(function(data){
-      alert('出品に成功しました！');
-    })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown){
-      alert('出品に失敗しました！');
-      console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-      console.log("textStatus     : " + textStatus);
-      console.log("errorThrown    : " + errorThrown.message);
-    });
+    // .done(function(data){
+    //   alert('出品に成功しました！');
+    // })
+    // .fail(function(XMLHttpRequest, textStatus, errorThrown){
+    //   alert('出品に失敗しました！');
+    //   console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+    //   console.log("textStatus     : " + textStatus);
+    //   console.log("errorThrown    : " + errorThrown.message);
+    // });
   });
 });
 

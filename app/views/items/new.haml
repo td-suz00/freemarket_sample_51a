@@ -3,7 +3,6 @@
     = link_to (root_path) do
       = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
   #new_item
-    -# = render 'item'
     .item
       .item__title
         %h2 商品の情報を入力
@@ -17,7 +16,7 @@
           .clearfix
           %p 最大10枚までアップロードできます
 
-          = f.fields_for :item_images, @item.item_images do |image|
+          = f.fields_for :item_images, @item.item_images.first do |image|
             .item__img__dropzone.clearfix
               #preview
               -# １〜５枚目プレビュー表示
