@@ -16,7 +16,7 @@ $(window).on("load", function() {
 
   // 登録済画像のプレビュー表示
   gon.item_images.forEach(function(image, index){
-    var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
+    var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
 
     // カスタムデータ属性を付与
     img.data("image", index)
@@ -115,7 +115,7 @@ $(window).on("load", function() {
     var file = $(this).prop("files")[0];
     new_image_files.push(file)
     var reader = new FileReader();
-    var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
+    var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
 
     reader.onload = function(e) {
       var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');

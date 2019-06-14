@@ -17,7 +17,7 @@ $(document).on("turbolinks:load", function() {
     new_image_files.push(file)
     var reader = new FileReader();
 
-    var img = $(`<div class= "add_img"><div class="img_area"><div class=image><img width="100%", height="100%"></div</div></div>`);
+    var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
 
     var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
 
