@@ -72,7 +72,7 @@
               %th 発送の目安
               %td
                 = @item.delivery_days
-        .item__info__inner-content__account
+        .item__info__inner-content__account#box-price
           .item__info__inner-content__account__price-detail
             .item-price
               ="¥#{@item.price.to_s(:delimited)}"
@@ -84,23 +84,70 @@
             - else
               %sub.payment
                 着払い
-        .item__info__inner-content__purchase-btn#btn-detail
-          = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
+        -# --------------current_userの時、非表示------------------
+        - if @item.deal.seller != current_user
+          .item__info__inner-content__purchase-btn#btn-detail
+            = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
+
+        -# --------------どちらのページも表示------------------
         .item__info__inner-content__text
           = @item.text
-        .btn-box
-          .item__info__inner-content__like-btn
-            %i.far.fa-heart
-            %span いいね! 1000
-          .item__info__inner-content__alert-btn
-            %i.far.fa-flag
-            %span 不適切な商品の報告
-        .item__info__inner-content__safety-btn
-          %i.fas.fa-shopping-bag
-          %span あんしん・あんぜんへの取り組み
+
+        -# --------------current_userの時、非表示------------------
+        - if @item.deal.seller != current_user
+          .btn-box
+            .item__info__inner-content__like-btn
+              %i.far.fa-heart
+              %span いいね! 1000
+            .item__info__inner-content__alert-btn
+              %i.far.fa-flag
+              %span 不適切な商品の報告
+          .item__info__inner-content__safety-btn
+            %i.fas.fa-shopping-bag
+            %span あんしん・あんぜんへの取り組み
+
+        -# --------------current_userの時のみ、編集・停止。削除btn表示------------------
+  - if @item.deal.seller == current_user
+    %br
+    .item
+      .item__edit-btn
+        %button
+          = link_to "商品の編集", edit_item_path(@item), id:'btn-comment'
+      %sub#or or
+      .item__comment-btn
+        %button
+          = link_to "出品を一旦停止する", new_item_path, id:'btn-stop'
+          -#### リンク仮置きです
+      .item__comment-btn
+        -# このbtnでモーダル発火
+        %a#btn-delete
+          この商品を削除する
+
+      -# -----------------削除btnのモーダル---------------
+    #item__mask
+      #modal
+        .alert-text
+          %p#bold 確認
+          %p 削除すると二度と復活できません。
+          %p 削除する代わりに停止することもできます。
+          %br
+          %p 本当に削除しますか？
+        .alert-btn
+          .alert-btn-right
+            %button#btn-border
+            = link_to "キャンセル","/items/#{@item.id}", id:'btn-cancel-modal', data: {turbolinks: false}
+          .alert-btn-left
+            %button
+            = link_to "削除する","/items/#{@item.id}",method: :delete, id:'btn-delete-modal'
+
 = render partial:'items/comment_form'
 
--# imgの飾りアイコンです
-= render partial:'items/sns_icon'
+- if @item.deal.seller != current_user
+  -# imgの飾りアイコンです
+  = render partial:'items/sns_icon'
 
 = render partial:'shared/global-only-footer'
+
+
+
+

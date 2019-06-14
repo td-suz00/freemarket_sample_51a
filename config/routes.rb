@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'top#index'
   resources :top, only: :index
-  resources :items, only: [:new, :create, :edit, :update,:show] do
+  resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :purchases, only: :new do
       collection do
         post 'pay', to: 'purchases#pay'
