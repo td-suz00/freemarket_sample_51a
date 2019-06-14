@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
 
   def new
     @item = Item.new
@@ -35,7 +36,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     render layout: 'application-off-header-footer.haml'
   end
 
@@ -43,10 +43,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    set_item
     if @item.deal.seller == current_user
       @item.destroy
       redirect_to root_path
+    else
+      redirect_to :back
     end
   end
 
