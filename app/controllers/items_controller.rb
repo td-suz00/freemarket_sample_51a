@@ -20,7 +20,9 @@ class ItemsController < ApplicationController
       new_image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
+
       Deal.create(seller_id: current_user.id ,item_id: @item.id, status_id:1)
+
       redirect_to root_path
     else
       @item.item_images.build
