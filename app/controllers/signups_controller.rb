@@ -48,4 +48,7 @@ class SignupsController < ApplicationController
     params.require(:profile).permit(:phone_number,:family_name, :last_name, :kana_family_name, :kana_last_name, :postalcode, :address_prefecture, :address_city, :address_street_number,:address_building_name)
   end
 
+  def use_check_address_nil?
+    false
+  end
 end
