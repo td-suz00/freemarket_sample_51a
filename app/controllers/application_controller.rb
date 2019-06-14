@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
-    def check_address_nil
+  
+  def check_address_nil
     if current_user && current_user.profile.postalcode.nil?
     redirect_to sign_out_path 
     current_user.destroy
@@ -27,6 +28,6 @@ class ApplicationController < ActionController::Base
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|
       username == Rails.application.credentials.production[:basic_auth_user] && password == Rails.application.credentials.production[:basic_auth_password]
-    end
+  end
   end
 end
