@@ -264,18 +264,15 @@ $(window).on("load", function() {
 
       // ６枚目以降を２段目に表示
       $.each(pickup_images2, function(index, image) {
-          image.data('image', index + 5);
-          preview2.append(image);
-          dropzone2.css({
-            'display': 'block',
-            'width': `calc(100% - (20% * ${images.length - 5}))`
-          })
+        image.data('image', index + 5);
+        preview2.append(image);
+        dropzone2.css({
+          'display': 'block',
+          'width': `calc(100% - (20% * ${images.length - 5}))`
         })
+      })
     }
   })
-
-  console.log(registered_images_ids.length)
-  console.log(new_image_files.length)
 
 
   $('.edit_item').on('submit', function(e){
@@ -284,7 +281,7 @@ $(window).on("load", function() {
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
 
-    // 登録済画像が残っていない場合は便宜的に空の文字列を入れる
+    // 登録済画像が残っていない場合は便宜的に0を入れる
     if (registered_images_ids.length == 0) {
       formData.append("registered_images_ids[ids][]", 0)
     // 登録済画像で、まだ残っている画像があればidをformDataに追加していく
@@ -311,16 +308,6 @@ $(window).on("load", function() {
       contentType: false,
       processData: false,
     })
-
-    // .done(function(data){
-    //   alert('出品に成功しました！');
-    // })
-    // .fail(function(XMLHttpRequest, textStatus, errorThrown){
-    //   alert('出品に失敗しました！');
-    //   console.log("XMLHttpRequest : " + XMLHttpRequest.status);
-    //   console.log("textStatus     : " + textStatus);
-    //   console.log("errorThrown    : " + errorThrown.message);
-    // });
   });
 });
 
