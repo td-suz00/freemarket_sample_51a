@@ -9,12 +9,13 @@
       weight: bold;
     }
   }
+
   &__info {
     &__inner-content__account {
+
       &__price-detail {
         margin: {
           top: 20px;
-          left: 200px;
         }
 
         .item-price {
@@ -38,6 +39,11 @@
       }
     }
   }
+}
+
+#box-price {
+  display: inline-block;
+  text-align: center;
 }
 
 #item-info {

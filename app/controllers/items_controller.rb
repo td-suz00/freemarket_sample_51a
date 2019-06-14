@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :destroy]
 
   def new
     @item = Item.new
@@ -35,11 +36,19 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     render layout: 'application-off-header-footer.haml'
   end
 
   def update
+  end
+
+  def destroy
+    if @item.deal.seller == current_user
+      @item.destroy
+      redirect_to root_path, notice: "削除しました。"
+    else
+      redirect_to :back, alert: "削除できませんでした。"
+    end
   end
 
   def auto_complete
@@ -47,7 +56,6 @@ class ItemsController < ApplicationController
     brands = brands.pluck(:name)
     render json: brands.to_json
   end
-
 
   def search_category
     category = Category.find(params[:parent_id])
