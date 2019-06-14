@@ -21,8 +21,8 @@ class SignupsController < ApplicationController
   def address_create
     @profile=current_user.profile.assign_attributes(profile_params)
     if current_user.profile.valid?(:hoge)
-      current_user.profile.update(profile_params) 
-      redirect_to new_user_card_path(1)
+      current_user.profile.update(profile_params)
+      redirect_to new_user_card_path(current_user.id)
     else
       @profile=current_user.profile
       @errors='未記入箇所があります'
@@ -39,9 +39,9 @@ class SignupsController < ApplicationController
   def show
   end
 
-  def succesful 
+  def succesful
   end
-  
+
   private
 
   def profile_params

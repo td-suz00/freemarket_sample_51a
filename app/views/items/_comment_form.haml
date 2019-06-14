@@ -7,11 +7,12 @@
     .item__comment-btn
       %button
         = link_to "コメントする", new_item_path, id:'btn-comment'
-        -# リンク仮置きです
-  .icon_next
-    .icon_next__left
-      = fa_icon 'chevron-left'
-      = link_to "GUCCI財布", class: "link"
-    .icon_next__right
-      = link_to "Hermes バッグ", class: "link"
-      = fa_icon 'chevron-right'
+        -#### リンク仮置きです
+  - if @item.deal.seller.id != current_user.id
+    .icon_next
+      .icon_next__left
+        = fa_icon 'chevron-left'
+        = link_to "GUCCI財布", class: "link"
+      .icon_next__right
+        = link_to "Hermes バッグ", class: "link"
+        = fa_icon 'chevron-right'

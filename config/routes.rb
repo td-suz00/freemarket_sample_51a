@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   patch 'signup/address/create' , to: 'signups#address_create'
   get 'signup/sms_confirmation' , to: 'signups#sms_confirmation_send'
   get 'signup/address' , to: 'signups#address'
-  
+
   get 'items/search_category' , to: 'items#search_category'
   get 'items/auto_complete' , to: 'items#auto_complete'
   devise_scope :user do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
   root 'top#index'
   resources :top, only: :index
-  resources :items, only: [:new, :create, :edit, :update, :show] do
+  resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :purchases, only: :new do
       collection do
         post 'pay', to: 'purchases#pay'

@@ -1,0 +1,25 @@
+.notification {
+  position: relative;
+
+  .notice {
+    background-color: rgb(223, 250, 223);
+    color: rgb(87, 175, 87);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+  }
+
+  .alert {
+    background-color: $red;
+    color: $white;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+  }
+}
