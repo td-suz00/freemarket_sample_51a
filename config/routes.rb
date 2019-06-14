@@ -18,7 +18,6 @@ Rails.application.routes.draw do
     get "sign_out", to: "users/sessions#destroy"
     post 'signup/sms_confirmation' => 'signup#sms_confirmation_send'
   end
-  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'top#index'
   resources :top, only: :index
   resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do

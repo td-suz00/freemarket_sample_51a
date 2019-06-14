@@ -2,7 +2,6 @@
   = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
   = image_tag 'signup_header1.png',size: "670x103" , class: "header__bar-img"
 .sigup
-  -# = form_for(resource, as: resource_name, url: ration_path(resource_name)egistr) do |f|
   = form_for(@user, url: user_registration_path ) do |f|
     .sigup__title
       %h2 会員情報入力
