@@ -45,9 +45,9 @@ class ItemsController < ApplicationController
   def destroy
     if @item.deal.seller == current_user
       @item.destroy
-      redirect_to root_path
+      redirect_to root_path, notice: "削除しました。"
     else
-      redirect_to :back
+      redirect_to :back, alert: "削除できませんでした。"
     end
   end
 
