@@ -24,7 +24,6 @@
           -if session["devise.facebook_data"] || session["devise.google_data"]
             = f.hidden_field :password, value: password=Devise.friendly_token[0,20]
             = f.hidden_field :password_confirmation, value: password
-            わいわいわい
           -else
             %li
               %h3 パスワード
