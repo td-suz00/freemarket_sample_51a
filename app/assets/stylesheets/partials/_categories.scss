@@ -2,17 +2,94 @@
   margin: 0 40px 0 40px;
 
   &__content-btn-category {
-    margin-top: 30px;
-    margin-left: 250px;
-    height: 500px;
+    margin: 30px 140px;
+    height: 270px;
+
+    &__heading {
+      margin: 3px;
+
+      h1 {
+        font: {
+          size: 1.4rem;
+          weight: bold;
+        }
+      }
+    }
+
+    &__btns {
+      #btn-category {
+        color: $black;
+        letter-spacing: 1px;
+        background-color: $white;
+        padding: 10px 40px 10px 40px;
+        margin: 6px 3px 6px;
+        display: inline-block;
+        border-radius: 3px;
+      }
+    }
   }
 
-  #btn-category {
-    color: $black;
-    background-color: $white;
-    padding: 10px 40px 10px 40px;
-    margin: 5px 5px 5px;
-    display: inline-block;
-    border-radius: 3px;
+  &__content-category-wrapper {
+    padding: 30px 140px;
+
+    &__heading {
+      height: 45px;
+      background-color: $red;
+      border-radius: 3px 3px 0 0;
+
+      h1 {
+        color: $white;
+        line-height: 45px;
+        padding-left: 30px;
+
+        font: {
+          size: 1.4rem;
+          weight: bold;
+        }
+      }
+    }
+
+    &__box {
+      min-height: 500px;
+      background-color: $white;
+      border-radius: 3px;
+      padding: 25px 30px 30px 30px;
+
+      #item-category {
+        color: $light_blue;
+        font-size: 1rem;
+      }
+
+      &__all {
+        margin: 15px;
+
+      }
+
+      &__item {
+        padding: 10px;
+        margin-bottom: 50px;
+        min-height: 200px;
+
+
+        p {
+          color: $black;
+
+          font: {
+            size: 0.9rem;
+            weight: bold;
+          }
+        }
+      }
+
+      &__categories {
+        margin: 5px;
+
+        &__name {
+          float: left;
+          width: 50%;
+          margin: 5px 0 5px 0;
+        }
+      }
+    }
   }
 }
