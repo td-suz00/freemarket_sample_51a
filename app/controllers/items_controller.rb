@@ -70,6 +70,11 @@ class ItemsController < ApplicationController
    end
   end
 
+  def search_items
+    @keyword = params[:keyword]
+    @searched_items = Item.where("name LIKE(?)", "%#{@keyword}%")
+  end
+
   private
   def set_item
     @item = Item.find(params[:id])

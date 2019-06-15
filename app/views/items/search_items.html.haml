@@ -1,0 +1,6 @@
+= "#{@keyword}の検索結果"
+%ul
+  - @searched_items.each do |item|
+    %li
+      = item.id
+      = item.name
