@@ -16,17 +16,19 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save && new_image_params[:images][0] != " "
       new_image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
 
       Deal.create(seller_id: current_user.id ,item_id: @item.id, status_id:1)
 
+      flash[:notice] = '出品が完了しました'
       redirect_to root_path
     else
       @item.item_images.build
-      render action: "new"
+      flash[:alert] = '未入力項目があります'
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -66,11 +68,7 @@ class ItemsController < ApplicationController
     # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
     exist_ids.clear if exist_ids[0] == 0
 
-    # 登録済画像も全て削除され、新規登録画像もない場合は編集画面へ戻す
-    if exist_ids.length == 0 && new_image_params[:images][0] == " "
-      flash[:notice] = '画像をアップロードしてください'
-      redirect_back(fallback_location: root_path)
-    else
+    if @item.update(item_params) && (exist_ids.length != 0 || new_image_params[:images][0] != " ")
 
       # 登録済画像のうち削除ボタンをおした画像を削除
       unless ids.length == exist_ids.length
@@ -88,7 +86,12 @@ class ItemsController < ApplicationController
         end
       end
 
+      flash[:notice] = '編集が完了しました'
       redirect_to item_path(@item), data: {turbolinks: false}
+
+    else
+      flash[:alert] = '未入力項目があります'
+      redirect_back(fallback_location: root_path)
     end
 
   end

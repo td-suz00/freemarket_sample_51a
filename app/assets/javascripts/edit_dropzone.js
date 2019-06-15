@@ -1,4 +1,4 @@
-$(window).on("load", function() {
+$(window).on("turbolinks:load", function() {
   var dropzone = $(".item__img__dropzone__input");
   var dropzone2 = $(".item__img__dropzone2__input2");
   var appendzone = $(".item__img__dropzone2")

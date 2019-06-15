@@ -178,10 +178,15 @@ $(document).on("turbolinks:load", function() {
     // images以外のform情報をformDataに追加
     var formData = new FormData($(this).get(0));
 
-    // imagesをformDataに追加していく
-    new_image_files.forEach(function(file){
-      formData.append("new_images[images][]", file)
-    });
+    // imagesがない場合は便宜的に空の文字列を入れる
+    if (new_image_files.length == 0) {
+      formData.append("new_images[images][]", " ")
+    // imagesがある場合はformDataに追加する
+    } else {
+      new_image_files.forEach(function(file){
+        formData.append("new_images[images][]", file)
+      });
+    }
 
     $.ajax({
       url:         '/items',

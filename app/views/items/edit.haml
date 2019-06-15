@@ -1,6 +1,3 @@
-.edit_alert
-  = flash[:notice]
-
 .item_wrapper
   %header
     = link_to (root_path) do
@@ -9,7 +6,6 @@
     .item
       .item__title
         %h2 商品の情報を入力
-
       = form_for @item do |f|
         .item__img
           %ul
@@ -81,17 +77,16 @@
               .clearfix
               .select-wrap
                 = select_tag "category", options_for_select(get_category_name, selected: @item.category.parent.parent.id), class: "select_tag parent_id", id: "item_category_id"
-
                 = fa_icon 'chevron-down', class:'fa_icon'
 
               .select-wrap
-                = select_tag "category" , options_for_select({'---':'---'}, selected: @item.category.parent.id), class: "select_tag child_id", id: "item_category_id", 'data-item_catgory_child_id': @item.category.parent.id
-
+                -# 中身はjsで表示
+                = select_tag "category" , options_for_select({}), class: "select_tag child_id", id: "item_category_id", 'data-item_catgory_child_id': @item.category.parent.id
                 = fa_icon 'chevron-down', class:'fa_icon'
 
               .select-wrap
-                = f.select :category_id, options_for_select({'---':'---'}),{} ,{class: "select_tag grandchild_id", id: "item_category_id", 'data-item_catgory_grandchild_id': @item.category.id}
-
+                -# 中身はjsで表示
+                = f.select :category_id, options_for_select({}), {}, class: "select_tag grandchild_id", id: "item_category_id", 'data-item_catgory_grandchild_id': @item.category.id
                 = fa_icon 'chevron-down', class:'fa_icon'
 
             .item__detail__form_box__size
@@ -102,8 +97,8 @@
                   .required__icon 必須
               .clearfix
               .select-wrap
-                = f.select :size_id, options_for_select(get_size_name), {},{class: "select_tag size_id", id: "item_size_id", 'data-item_size_id': @item.size.id}
-
+                -# 中身はjsで表示
+                = f.select :size_id, options_for_select({}), {}, class: "select_tag size_id", id: "item_size_id", 'data-item_size_id': @item.size.id
                 = fa_icon 'chevron-down', class:'fa_icon'
 
             .item__detail__form_box__brand
@@ -125,7 +120,6 @@
               .clearfix
               .select-wrap
                 = f.select :condition, options_for_select(get_condition, selected: @item.condition), class: "select_tag", id: "item_condition"
-
                 = fa_icon 'chevron-down', class:'fa_icon'
 
         .delivery-fee
@@ -154,7 +148,8 @@
                     .required__icon 必須
                 .clearfix
                 .select-wrap
-                  = f.select :delivery_type, options_for_select(get_delivery_type, selected: @item.delivery_type), {}, id: "item_delivery_type"
+                  -# 中身はjsで表示
+                  = f.select :delivery_type, options_for_select({}), {}, id: "item_delivery_type"
                   = fa_icon 'chevron-down', class:'fa_icon'
 
             .delivery-from-area
@@ -166,12 +161,6 @@
               .clearfix
               .select-wrap
                 = f.select :delibery_from_area, options_for_select(get_delivery_from_area, selected: @item.delibery_from_area),class: 'select-tag', id: "item_delibery_from_area"
-
-                -# できればこっち使いたい
-                -# = form_tag new_item_path, method: :get, class: 'select_tag_2' do
-                -#   .input-append
-                -#     = collection_select :id, :prefecture_id, Prefecture.all, :id, :name
-
                 = fa_icon 'chevron-down', class:'fa_icon'
 
             .delivery-days
@@ -207,8 +196,6 @@
               %p.fee
                 販売手数料 (10%)
               = text_field_tag :content, "¥ #{(@item.price/10).to_s(:delimited)}", class: 'sell-price__text_area_3 mercari-share'
-
-
             .sell-price__profit
               %h3.profit
                 販売利益
@@ -232,11 +219,6 @@
             %p キャンセル
 
   = render 'item_footer'
-
-
-
-
-
 
 :css
   <!--

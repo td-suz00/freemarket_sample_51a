@@ -8,7 +8,7 @@
       %button
         = link_to "コメントする", new_item_path, id:'btn-comment'
         -#### リンク仮置きです
-  - if @item.deal.seller.id != current_user.id
+  - if @item.deal.seller.id != current_user
     .icon_next
       .icon_next__left
         = fa_icon 'chevron-left'
