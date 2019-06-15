@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one :profile, dependent: :destroy
   devise :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
-  has_one :profile
   accepts_nested_attributes_for :profile
 
-  has_one :card
+  has_one :card, dependent: :destroy
 
   has_many :buyed_deals, foreign_key: :buyer_id, class_name: :Deal
   has_many :selling_deals, -> { where("buyer_id is NULL") }, foreign_key: :seller_id, class_name: :Deal

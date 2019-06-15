@@ -6,7 +6,7 @@
   .item
     .item__title-detail
       = @item.name
-    .item__info#item-info
+    .item__info-2
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
@@ -91,8 +91,7 @@
 
         -# --------------どちらのページも表示------------------
         .item__info__inner-content__text
-          = @item.text
-
+          = simple_format @item.text
         -# --------------current_userの時、非表示------------------
         - if @item.deal.seller != current_user
           .btn-box
