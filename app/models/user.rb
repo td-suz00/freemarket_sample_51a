@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
 
-  has_one :card
+  has_one :card, dependent: :destroy
 
   has_many :buyed_deals, foreign_key: :buyer_id, class_name: :Deal
   has_many :selling_deals, -> { where("buyer_id is NULL") }, foreign_key: :seller_id, class_name: :Deal
