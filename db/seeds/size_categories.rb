@@ -4,8 +4,8 @@ size_categories=[[159, 1..10], [160, 1..10], [161, 1..10], [162, 1..10], [163, 1
 size_categories_new=[]
 size_categories.each do|category_id,size_array|
   # サイズがない場合のみsize_arrayは配列の形を取らないので場合分け
-  if size_array==82
-  size_categories_new << SizeCategory.new(size_id:82,category_id:category_id)
+  if size_array==83
+  size_categories_new << SizeCategory.new(size_id:83,category_id:category_id)
   else
   size_array.each do |size_id|
     # size_catgories_newという配列を作成し、newで作成したデータを入れています
