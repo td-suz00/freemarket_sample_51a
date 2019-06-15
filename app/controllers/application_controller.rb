@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
   
   def check_address_nil
     if current_user && current_user.profile.postalcode.nil?
-    redirect_to sign_out_path 
-    current_user.destroy
+      current_user.destroy
+      redirect_to sign_out_path 
     end
   end
   
