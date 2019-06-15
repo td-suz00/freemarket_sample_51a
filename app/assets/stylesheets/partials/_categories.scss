@@ -1,0 +1,18 @@
+.category {
+  margin: 0 40px 0 40px;
+
+  &__content-btn-category {
+    margin-top: 30px;
+    margin-left: 250px;
+    height: 500px;
+  }
+
+  #btn-category {
+    color: $black;
+    background-color: $white;
+    padding: 10px 40px 10px 40px;
+    margin: 5px 5px 5px;
+    display: inline-block;
+    border-radius: 3px;
+  }
+}
