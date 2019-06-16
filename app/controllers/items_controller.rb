@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
 
   def search_items
     @keyword = params[:keyword]
-    @searched_items = Item.where("name LIKE(?)", "%#{@keyword}%")
+    @searched_items = Item.where("name LIKE(?)", "%#{@keyword}%").page(params[:page]).per(48)
   end
 
   private

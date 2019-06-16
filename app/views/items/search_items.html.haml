@@ -132,3 +132,10 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
+    %ul(class="uk-pagination")
+      %li
+        = paginate @searched_items
+      %li(class="uk-active")
+        %span
+      %li(class="uk-disabled")
+        %span

@@ -91,10 +91,12 @@
     width: 900px;
     padding-left: 30px;
     &__heading {
+      font-size: 1.2rem;
       &--keyword {
         font-weight: bold;
       }
       &__result {
+        margin-top: 10px;
         &--count {
           color: $btn-gray;
           font-size: 0.7rem;
