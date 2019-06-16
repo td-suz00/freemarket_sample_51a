@@ -1,0 +1,123 @@
+.search-items-container {
+  padding-top: 40px;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .fa_icon_2 {
+    position: relative;
+    top: -30px;
+    left: 230px;
+    color: $btn-gray;
+    z-index: 10;
+  }
+  .fas {
+    color: $form-gray;
+  }
+
+  &__left-container {
+    width: 300px;
+
+    .select_tag {
+      @extend .form;
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      color: $form_gray;
+      background-color: $white;
+      padding: 10px;
+    }
+
+    &__order {
+      margin-bottom: 30px;
+    }
+
+    &__main {
+      background-color: $white;
+      padding: 15px;
+      &__heading {
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      &__requirement {
+        margin-bottom: 25px;
+        &__title {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        &__input {
+          .text_field {
+            @extend .form;
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+          }
+          &__checkboxes {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            &__checkbox {
+              width: 48%;
+              font-size: 0.95rem;
+              .search-checkbox {
+                -webkit-appearance: checkbox;
+              }
+            }
+          }
+        }
+      }
+      &__btn {
+        display: flex;
+        justify-content: space-around;
+        &__graybtn {
+          width: 40%;
+          @extend .graybtn;
+          color: $white;
+        }
+        &__redbtn {
+          width: 40%;
+          @extend .redbtn;
+        }
+      }
+    }
+  }
+
+  &__right-container {
+    width: 900px;
+    padding-left: 30px;
+    &__heading {
+      &--keyword {
+        font-weight: bold;
+      }
+      &__result {
+        &--count {
+          color: $btn-gray;
+          font-size: 0.7rem;
+        }
+        &--nothing {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    &__main {
+      display: flex;
+      justify-content: space-between;
+      .item-box {
+        .item {
+          width: 22%;
+          margin: 0 20px 20px 0;
+          .banner-mercari-info-hand-phone {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+          }
+        }
+      }
+    }
+  }
+}

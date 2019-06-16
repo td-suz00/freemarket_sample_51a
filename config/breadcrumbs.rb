@@ -37,6 +37,11 @@ crumb :item do |item|
   parent :root
 end
 
+crumb :searched_items do |keyword|
+  link keyword, search_items_path
+  parent :root
+end
+
 #### 以下はビュー作成次第対応予定
 # カテゴリ一覧
 # 親カテゴリ
