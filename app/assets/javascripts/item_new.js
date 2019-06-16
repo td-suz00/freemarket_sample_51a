@@ -20,11 +20,12 @@ $(function() {
   // 親カテゴリーが入力されたとき子カテゴリーを生成
   $(".parent_id").change(function() {
     var parent_id = $(".parent_id").val();
+    $(".grandchild_id")
+      .parent()
+      .css("display", "none");
+    $(".item__detail__form_box__size").css("display", "none");
     if (parent_id === "---") {
       $(".child_id")
-        .parent()
-        .css("display", "none");
-      $(".grandchild_id")
         .parent()
         .css("display", "none");
     } else {
@@ -49,7 +50,7 @@ $(function() {
   });
   // 子カテゴリーが入力されたとき孫カテゴリーを生成
   $(".child_id").change(function() {
-    // var input = $(".search__query").val();
+    $(".item__detail__form_box__size").css("display", "none");
     var parent_id = $(".child_id").val();
     if (parent_id === "---") {
       $(".grandchild_id")
