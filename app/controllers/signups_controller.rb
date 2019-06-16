@@ -18,6 +18,18 @@ class SignupsController < ApplicationController
   def address
   end
 
+  def oauth_google
+    @user = User.new
+    @user.email = session["devise.google_data"]["info"]["unverified_email"]
+    @profile = @user.build_profile
+  end
+
+  def oauth_facebook
+    @user = User.new
+    @user.email = session["devise.facebook_data"]['info']['email']
+    @profile = @user.build_profile
+  end
+
   def address_create
     @profile=current_user.profile.assign_attributes(profile_params)
     if current_user.profile.valid?(:hoge)
@@ -48,4 +60,7 @@ class SignupsController < ApplicationController
     params.require(:profile).permit(:phone_number,:family_name, :last_name, :kana_family_name, :kana_last_name, :postalcode, :address_prefecture, :address_city, :address_street_number,:address_building_name)
   end
 
+  def use_check_address_nil?
+    false
+  end
 end

@@ -31,7 +31,7 @@
     .pickup-categories__title ピックアップカテゴリー
 
     .pickup-category
-      = link_to 'レディース 新着アイテム',sign_in_path,class:'pickup-brand__title'
+      = link_to 'レディース 新着アイテム','####kari',class:'pickup-brand__title'
       .item-box.clearfix
         - @ladies_items.each do |item|
           .item
@@ -47,7 +47,7 @@
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
 
     .pickup-category
-      = link_to 'メンズ 新着アイテム',new_user_registration_path,class:'pickup-brand__title'
+      = link_to 'メンズ 新着アイテム',"####kari",class:'pickup-brand__title'
       .item-box.clearfix
         - @mens_items.each do |item|
           .item
@@ -62,7 +62,7 @@
       = link_to ' すべての商品を見る',"#",class:'pickup-category__show-all'
 
     .pickup-category
-      = link_to 'ベビー・キッズ 新着アイテム',"#",class:'pickup-brand__title'
+      = link_to 'ベビー・キッズ 新着アイテム',"#", data: {turbolinks: false}, class:'pickup-brand__title'
       .item-box.clearfix
         - @baby_kids_items.each do |item|
           .item

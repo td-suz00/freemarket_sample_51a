@@ -6,7 +6,7 @@
   .item
     .item__title-detail
       = @item.name
-    .item__info#item-info
+    .item__info-2
       .item__info__inner-content#content-detail
         .item__info__inner-content__image#content-img
           %ul#slider
@@ -91,8 +91,7 @@
 
         -# --------------どちらのページも表示------------------
         .item__info__inner-content__text
-          = @item.text
-
+          = simple_format @item.text
         -# --------------current_userの時、非表示------------------
         - if @item.deal.seller != current_user
           .btn-box
@@ -112,7 +111,7 @@
     .item
       .item__edit-btn
         %button
-          = link_to "商品の編集", edit_item_path(@item), id:'btn-comment'
+          = link_to "商品の編集", edit_item_path(@item), data: {turbolinks: false}, id:'btn-comment'
       %sub#or or
       .item__comment-btn
         %button
@@ -147,7 +146,3 @@
   = render partial:'items/sns_icon'
 
 = render partial:'shared/global-only-footer'
-
-
-
-

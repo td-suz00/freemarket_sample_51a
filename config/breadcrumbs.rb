@@ -39,6 +39,10 @@ end
 
 crumb :searched_items do |keyword|
   link keyword, search_items_path
+end
+
+crumb :categories do
+  link "カテゴリー一覧", categories_path(current_user)
   parent :root
 end
 
