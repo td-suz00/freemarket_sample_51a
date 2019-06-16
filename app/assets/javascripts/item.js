@@ -1,5 +1,5 @@
 // サムネイルスライダー
-$(function () {
+$(document).on("turbolinks:load", function () {
   var slider = "#slider";
   var thumbnailItem = "#thumb .item_s-img";
 

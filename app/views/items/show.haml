@@ -111,7 +111,7 @@
     .item
       .item__edit-btn
         %button
-          = link_to "商品の編集", edit_item_path(@item), id:'btn-comment'
+          = link_to "商品の編集", edit_item_path(@item), data: {turbolinks: false}, id:'btn-comment'
       %sub#or or
       .item__comment-btn
         %button
@@ -146,7 +146,3 @@
   = render partial:'items/sns_icon'
 
 = render partial:'shared/global-only-footer'
-
-
-
-

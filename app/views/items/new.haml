@@ -2,7 +2,223 @@
   %header
     = link_to (root_path) do
       = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
-  = render 'item'
+  #new_item
+    .item
+      .item__title
+        %h2 商品の情報を入力
+      = form_for @item do |f|
+        .item__img
+          %ul
+            %li
+              %h3 出品画像
+            %li
+              .required__icon 必須
+          .clearfix
+          %p 最大10枚までアップロードできます
+
+          = f.fields_for :item_images, @item.item_images.first do |image|
+            .item__img__dropzone.clearfix
+              #preview
+              -# １〜５枚目プレビュー表示
+              .item__img__dropzone__input
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                  .item__img__dropzone__input__description
+                    .item__img__dropzone__input__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+
+            .item__img__dropzone2.clearfix
+              #preview2
+              -# ６〜１０枚目プレビュー表示
+              .item__img__dropzone2__input2
+                = image.label :image, for: "upload-image" do
+                  .input-area
+                    = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+                  .item__img__dropzone2__input2__description
+                    .item__img__dropzone2__input2__description__text
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
+
+        .item__info
+          .item__info_name
+          %ul
+            %li
+              %h3 商品名
+            %li
+              .required__icon 必須
+            .clearfix
+            = f.text_field :name, class: 'text_field', placeholder: "商品名（必須 40文字まで）"
+
+          .item__info_text
+          %ul
+            %li
+              %h3 商品の説明
+            %li
+              .required__icon 必須
+            .clearfix
+            = f.text_area :text, placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', size:"71x6",class: 'text_area'
+
+        .item__detail
+          %h3.light_color 商品詳細
+
+          .clearfix
+          .item__detail__form_box
+            .item__detail__form_box__category
+              %ul
+                %li
+                  %h3 カテゴリー
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                = select_tag "category", options_for_select(get_category_name), class: "select_tag parent_id", id: "item_category_id"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+              .select-wrap
+                -# 中身はjsで表示
+                = select_tag "category" , options_for_select({}), class: "select_tag child_id", id: "item_category_id"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+              .select-wrap
+                -# 中身はjsで表示
+                = f.select :category_id, options_for_select({}), {}, class: "select_tag grandchild_id", id: "item_category_id"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+            .item__detail__form_box__size
+              %ul
+                %li
+                  %h3 サイズ
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                -# 中身はjsで表示
+                = f.select :size_id, options_for_select({}), {}, class: "select_tag size_id", id: "item_size_id"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+            .item__detail__form_box__brand
+              %ul
+                %li
+                  %h3 ブランド
+                %li
+                  .optional__icon 任意
+              .clearfix
+              .select-wrap
+                = f.text_field :brand_id, class: 'text_field', placeholder: "例） シャネル"
+
+            .item__detail__form_box__condition
+              %ul
+                %li
+                  %h3 商品の状態
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                = f.select :condition, options_for_select(get_condition), class: "select_tag", id: "item_condition"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+        .delivery-fee
+          %h3.light_color 配送について
+          %span.icon_question ?
+
+          .clearfix
+          .delivery-fee__form_box
+            .delivery-fee-payer
+              %ul
+                %li
+                  %h3 配送料の負担
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                = f.select :delivery_fee_payer, options_for_select(get_delivery_fee_payer), {}, class: "select_tag delivery_fee_payer", id: "item_delivery_fee_payer"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+            .root-of-delivery_type-for-css#new-delivery-type
+              .delivery-type
+                %ul
+                  %li
+                    %h3 配送の方法
+                  %li
+                    .required__icon 必須
+                .clearfix
+                .select-wrap
+                  -# 中身はjsで表示
+                  = f.select :delivery_type, options_for_select({}), {}, id: "item_delivery_type"
+                  = fa_icon 'chevron-down', class:'fa_icon'
+
+            .delivery-from-area
+              %ul
+                %li
+                  %h3 発送元の地域
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                = f.select :delibery_from_area, options_for_select(get_delivery_from_area),class: 'select-tag', id: "item_delibery_from_area"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+            .delivery-days
+              %ul
+                %li
+                  %h3 発送までの日数
+                %li
+                  .required__icon 必須
+              .clearfix
+              .select-wrap
+                = f.select :delivery_days, options_for_select(get_delivery_days),class: 'select_tag', id: "item_category_id"
+                = fa_icon 'chevron-down', class:'fa_icon'
+
+        .sell-price
+          %h3.light_color 販売価格(300〜9,999,999)
+          %span.icon_question ?
+          .clearfix
+          .sell-price__form_box
+            .sell__fee
+              %ul
+                %li
+                  %h3 価格
+                %li
+                  .required__icon 必須
+                %li.yen ¥
+                %li.price_tag
+                  = f.text_field :price, placeholder: '例) 300',class: 'sell-price__text_area_2'
+                  .clearfix
+                %br
+                %br
+                %br
+            .line
+              %p.fee
+                販売手数料 (10%)
+              = text_field_tag :content, "-", class: 'sell-price__text_area_3 mercari-share'
+            .sell-price__profit
+              %h3.profit
+                販売利益
+              = text_field_tag :content, '-',class: 'sell-price__text_area_3 seller-share'
+
+        .sell-btn
+          .dscription
+            %span 禁止されている出品
+            %p、
+            %span 行為
+            %p を必ずご確認ください。
+            %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+            %span 偽ブランドの販売
+            %p は犯罪であり処罰される可能性があります。
+            %p また、出品をもちまして
+            %span 加盟店規約
+            %p に同意したことになります。
+          = f.submit "出品する", class: "redbtn"
+          .clearfix
+          .sell-btn__return
+            %p もどる
+
+    = render 'item_footer'
+
 :css
   <!--
   .ui-autocomplete {
