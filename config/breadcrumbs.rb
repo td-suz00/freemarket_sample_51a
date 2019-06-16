@@ -37,6 +37,11 @@ crumb :item do |item|
   parent :root
 end
 
+crumb :categories do
+  link "カテゴリー一覧", categories_path(current_user)
+  parent :root
+end
+
 #### 以下はビュー作成次第対応予定
 # カテゴリ一覧
 # 親カテゴリ

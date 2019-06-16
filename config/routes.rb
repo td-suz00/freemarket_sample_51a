@@ -38,4 +38,5 @@ Rails.application.routes.draw do
     resources :user_confirmations, only: [:create, :edit, :update]
     resources :logouts, only: :new
   end
+  resources :categories, only: :index
 end
