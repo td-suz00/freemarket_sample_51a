@@ -5,7 +5,7 @@ FactoryBot.define do
     text                  {"item1-text"}
     price                 {1000}
     brand_id              {1}
-    category_id           {12}
+    category_id           {1}
     size_id               {1}
     condition             {"目立った傷や汚れなし"}
     delivery_fee_payer    {"送料込み（出品者負担）"}
