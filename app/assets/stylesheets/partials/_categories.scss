@@ -17,18 +17,18 @@
     }
 
     &__btns {
-      #btn-category {
+      .btn-category {
         color: $black;
         letter-spacing: 1px;
         background-color: $white;
-        padding: 10px 40px 10px 40px;
+        padding: 10px 40px;
         margin: 6px 3px 6px;
         display: inline-block;
         border-radius: 3px;
         box-shadow: 0.9px 0.9px 3px $border_gray;
       }
 
-      #btn-category:hover {
+      .btn-category:hover {
         background: $red;
         color: $white;
         box-shadow: 0.9px 0.9px 2px $border_gray;
@@ -62,12 +62,12 @@
       border-radius: 3px;
       padding: 25px 30px 30px 30px;
 
-      #item-category {
+      .item-category {
         color: $light_blue;
         font-size: 1rem;
       }
 
-      #item-category:hover {
+      .item-category:hover {
         color: $light_blue;
         opacity: 0.7;
         font-size: 1rem;
