@@ -12,10 +12,10 @@
     %br
     .user__btn_fb
       = image_tag 'facebook_icon.png',size: "35x35" , class: "facebook-icon"
-      = link_to "Facebookで登録",user_facebook_omniauth_authorize_path, class: "new-register", method: :post
+      = link_to "Facebookでログイン",user_facebook_omniauth_authorize_path, class: "new-register", method: :post
     .user__btn_google
       = image_tag 'google_icon.png',size: "37x37" , class: "google-icon "
-      = link_to "Googleで登録",user_google_oauth2_omniauth_authorize_path, class: "google-register", method: :post
+      = link_to "Googleでログイン",user_google_oauth2_omniauth_authorize_path, class: "google-register", method: :post
     %br
     %br
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
