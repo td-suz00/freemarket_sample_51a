@@ -46,13 +46,8 @@ class ItemsController < ApplicationController
     require 'base64'
     gon.item_images_binary_datas = []
     @item.item_images.each do |image|
-      if Rails.env.production?
-        binary_data = File.read(image.image_url.fog.fog)
-        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
-      else
-        binary_data = File.read(image.image_url.file.file)
-        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
-      end
+      binary_data = File.read(image.image_url.file.file)
+      gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
     end
   end
 
