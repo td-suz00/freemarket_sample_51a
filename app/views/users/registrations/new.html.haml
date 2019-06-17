@@ -78,18 +78,18 @@
             .clearfix
             .dscription
               %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
-            = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img"
+            = recaptcha_tags
             .dscription
               %p「次へ進む」のボタンを押すことにより、
               %p.blue 利用規約
               %p に同意したものとみなします。
-            .next-btn
-              = f.submit('次へ進む' ,class:'next_btn')
+            
+            = f.submit('次へ進む' ,class:'next_btn') do
+              .next-btn
             .link-box
               %li
                 %p 本人情報の登録について
               %li
                 = fa_icon 'chevron-right', class:'arrow_blue'
             .clearfix
-
 = render partial:'items/item_footer'
