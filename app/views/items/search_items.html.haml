@@ -3,7 +3,7 @@
   .search-items-container__left-container
     = form_tag '#' do
       .search-items-container__left-container__order
-        = select_tag :order, options_for_select(get_search_categories), class: 'select_tag', type: 'text'
+        = select_tag :order, options_for_select(get_search_order), class: 'select_tag', type: 'text'
         = fa_icon 'chevron-down', class:'fa_icon_2'
     = form_tag '#' do
       .search-items-container__left-container__main
@@ -20,7 +20,7 @@
             %i(class="fas fa-bars")
             カテゴリーを選択する
           .search-items-container__left-container__main__requirement__input
-            = select_tag :order, options_for_select(get_search_order), class: 'select_tag', type: 'text'
+            = select_tag :order, options_for_select(get_search_categories), class: 'select_tag', type: 'text'
             = fa_icon 'chevron-down', class:'fa_icon_2'
         .search-items-container__left-container__main__requirement
           .search-items-container__left-container__main__requirement__title
