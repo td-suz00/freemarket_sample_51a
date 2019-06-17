@@ -3,7 +3,7 @@
   .search-items-container__left-container
     = form_tag '#' do
       .search-items-container__left-container__order
-        = select_tag :order, options_for_select({'並び替え':'0', '価格の安い順':'1', '価格の高い順':'2', '出品の古い順':'3', '出品の新しい順':'4', 'いいねの！の多い順':'5'}), class: 'select_tag', type: 'text'
+        = select_tag :order, options_for_select(get_search_categories), class: 'select_tag', type: 'text'
         = fa_icon 'chevron-down', class:'fa_icon_2'
     = form_tag '#' do
       .search-items-container__left-container__main
@@ -20,7 +20,7 @@
             %i(class="fas fa-bars")
             カテゴリーを選択する
           .search-items-container__left-container__main__requirement__input
-            = select_tag :order, options_for_select({'すべて':'0', 'レディース':'1', 'メンズ':'2', 'ベビー・キッズ':'3', 'インテリア・住まい・小物':'4', '本・音楽・ゲーム':'5', 'おもちゃ・ホビー・グッズ':'6', 'コスメ・香水・美容':'7', '家電・スマホ・カメラ':'8' ,'スポーツ・レジャー':'9', 'ハンドメイド':'10', 'チケット':'11', '自転車・オートバイ':'12', 'その他':'13'}), class: 'select_tag', type: 'text'
+            = select_tag :order, options_for_select(get_search_order), class: 'select_tag', type: 'text'
             = fa_icon 'chevron-down', class:'fa_icon_2'
         .search-items-container__left-container__main__requirement
           .search-items-container__left-container__main__requirement__title
@@ -34,14 +34,14 @@
             %i(class="fas fa-crop-alt")
             サイズを指定する
           .search-items-container__left-container__main__requirement__input
-            = select_tag :size, options_for_select({'すべて':'0', '洋服のサイズ':'1', 'メンズ靴のサイズ':'2', 'レディース靴のサイズ':'3', 'スカートのサイズ':'4', 'キッズ服のサイズ':'5', 'ベビー・キッズ靴のサイズ':'6', 'ベビー服のサイズ':'7', 'テレビのサイズ':'8', 'カメラレンズのサイズ':'9', 'オートバイのサイズ':'10', 'ヘルメットのサイズ':'11', 'タイヤのサイズ':'12', 'スキーのサイズ':'13', 'スノーボードのサイズ':'14'}), class: 'select_tag', type: 'text'
+            = select_tag :size, options_for_select(get_search_size), class: 'select_tag', type: 'text'
             = fa_icon 'chevron-down', class:'fa_icon_2'
         .search-items-container__left-container__main__requirement
           .search-items-container__left-container__main__requirement__title
             %i(class="fas fa-coins")
             価格
           .search-items-container__left-container__main__requirement__input
-            = select_tag :price, options_for_select({'選択してください':'0', '300 ~ 1000':'1', '1000 ~ 5000':'2', '5000 ~ 10000':'3', '10000 ~ 30000':'4', '30000 ~ 50000':'5', '50000 ~':'6'}), class: 'select_tag', type: 'text'
+            = select_tag :price, options_for_select(get_search_price), class: 'select_tag', type: 'text'
             = fa_icon 'chevron-down', class:'fa_icon_2'
         .search-items-container__left-container__main__requirement
           .search-items-container__left-container__main__requirement__title
@@ -132,10 +132,4 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-    %ul(class="uk-pagination")
-      %li
-        = paginate @searched_items
-      %li(class="uk-active")
-        %span
-      %li(class="uk-disabled")
-        %span
+    = paginate @searched_items
