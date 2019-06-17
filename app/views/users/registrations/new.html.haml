@@ -6,6 +6,7 @@
     .sigup__title
       %h2 会員情報入力
       .signup-errors
+        = devise_error_messages!
         = @errors
       .sigup__info-container
         %ul
