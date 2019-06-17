@@ -14,8 +14,9 @@ end
   # end
 
   # POST /resource
+
   def create
-    if User.profile_nested_with_user_is_valid?(params)
+    if User.profile_nested_with_user_is_valid?(params)&&verify_recaptcha(model: resource)
        super and return
     else
       @user =build_resource(sign_up_params)
