@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :search_category]
 
   def new
     @item = Item.new
@@ -123,6 +123,11 @@ class ItemsController < ApplicationController
      format.html
      format.json
    end
+  end
+
+  def search_items
+    @keyword = params[:keyword]
+    @searched_items = Item.where("name LIKE(?)", "%#{@keyword}%").page(params[:page]).per(48)
   end
 
   private
