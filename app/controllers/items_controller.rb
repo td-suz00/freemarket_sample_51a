@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     require 'base64'
     gon.item_images_binary_datas = []
     @item.item_images.each do |image|
-      binary_data = File.read(image.image_url.file.path)
+      binary_data = File.read('https://freemarket-sample-51a.s3.amazonaws.com/' + image.image_url.file.path)
       gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
     end
   end
