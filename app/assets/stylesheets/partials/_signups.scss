@@ -17,7 +17,7 @@ header {
 
 .sigup {
   width: 800px;
-  padding-bottom: 150px;
+  padding-bottom: 250px;
   margin: 0 auto;
   background-color: $white;
   height: 1515px;
@@ -462,4 +462,8 @@ sub.left {
   font-size: 14px;
   color: red;
   padding-top: 10px;
+}
+
+.g-recaptcha {
+  margin: 20px 0;
 }
