@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
+  before_action :authenticate_user!, except: [:show, :search_items]
 
   def new
     @item = Item.new
@@ -42,10 +43,24 @@ class ItemsController < ApplicationController
 
     # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
     require 'base64'
+    require 'aws-sdk'
+
     gon.item_images_binary_datas = []
-    @item.item_images.each do |image|
-      binary_data = File.read(image.image_url.file.file)
-      gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                             region: 'ap-northeast-1',
+                             access_key_id: Rails.application.credentials.aws[:access_key_id],
+                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+                             )
+      @item.item_images.each do |image|
+        binary_data = client.get_object(bucket: 'freemarket-sample-51a', key: image.image_url.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @item.item_images.each do |image|
+        binary_data = File.read(image.image_url.file.file)
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
     end
   end
 

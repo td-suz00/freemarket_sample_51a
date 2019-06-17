@@ -4,10 +4,10 @@
       .logo
         = link_to(root_path) do
           = image_tag "logo.svg", width:  "134", height: "36"
-      = form_tag(root_path, method: :post,class: "form") do
-        = text_field_tag :name,"", class: 'textbox',placeholder: '何かお探しですか？'
+      = form_tag(search_items_path, method: :get, class: "form") do
+        = text_field_tag :keyword, "", class: 'textbox', placeholder: '何かお探しですか？'
         .form__icon-search
-          = button_tag type:  "submit", class: "btn"  do
+          = button_tag type: "submit", class: "btn"  do
             %i.fa.fa-search
     .header-lower.clearfix
       .header-lower-left

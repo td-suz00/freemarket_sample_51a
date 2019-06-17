@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :top, only: :index
   resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
+    collection do
+      get 'search', to: 'items#search_items'
+    end
     resources :purchases, only: :new do
       collection do
         post 'pay', to: 'purchases#pay'
