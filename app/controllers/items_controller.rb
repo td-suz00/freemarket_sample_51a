@@ -46,6 +46,14 @@ class ItemsController < ApplicationController
     require 'base64'
     gon.item_images_binary_datas = []
     @item.item_images.each do |image|
+puts '###############################'
+puts "image.image_url"
+puts image.image_url
+puts "image.image_url.file"
+puts image.image_url.file
+puts "image.image_url.file.file"
+puts image.image_url.file.file
+puts '###############################'
       binary_data = File.read(image.image_url.file.file)
       gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
     end
