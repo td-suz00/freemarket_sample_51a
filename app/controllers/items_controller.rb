@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
       new_image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
-
       Deal.create(seller_id: current_user.id ,item_id: @item.id, status_id:1)
 
       flash[:notice] = '出品が完了しました'
@@ -122,6 +121,11 @@ class ItemsController < ApplicationController
      format.html
      format.json
    end
+  end
+
+  def search_items
+    @keyword = params[:keyword]
+    @searched_items = Item.where("name LIKE(?)", "%#{@keyword}%").page(params[:page]).per(48)
   end
 
   private
