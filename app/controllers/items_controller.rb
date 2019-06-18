@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.new(item_params)
-    if @item.save && new_image_params[:images][0] != " "
+    if new_image_params[:images][0] != " " && @item.save
       new_image_params[:images].each do |image|
         @item.item_images.create(image_url: image, item_id: @item.id)
       end
