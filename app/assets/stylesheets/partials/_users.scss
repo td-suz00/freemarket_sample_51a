@@ -173,11 +173,13 @@ header {
 
 .sigup {
   width: 800px;
-  padding-bottom: 150px;
+  padding-bottom: 250px;
   margin: 0 auto;
   background-color: $white;
   height: 1515px;
-
+  .signup-errors {
+    min-height: 50px;
+  }
   &__title {
     height: 110px;
     border-bottom: 0.09px solid $border_gray;

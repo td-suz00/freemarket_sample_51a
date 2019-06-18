@@ -17,7 +17,7 @@ header {
 
 .sigup {
   width: 800px;
-  padding-bottom: 150px;
+  padding-bottom: 250px;
   margin: 0 auto;
   background-color: $white;
   height: 1515px;
@@ -86,14 +86,13 @@ header {
       }
     }
 
-    .next-btn {
+    input.next_btn {
+      color: $white;
       background-color: $red;
       width: 400px;
       padding: 13px;
       text-align: center;
-      input {
-        color: $white;
-      }
+
       margin: {
         top: 19px;
       }
@@ -292,7 +291,7 @@ header {
   .sms-btn_2 {
     background-color: $red;
     width: 380px;
-    padding: 13px;
+    padding: 13px 162px;
     text-align: center;
 
     margin: {
@@ -463,4 +462,8 @@ sub.left {
   font-size: 14px;
   color: red;
   padding-top: 10px;
+}
+
+.g-recaptcha {
+  margin: 20px 0;
 }

@@ -104,7 +104,13 @@ header {
       }
     }
   }
-
+  input.next_btn {
+    color: $white;
+    background-color: $red;
+    width: 410px;
+    padding: 13px;
+    text-align: center;
+  }
   .select-tag {
     @extend .form;
     width: 100px;
@@ -123,7 +129,8 @@ header {
     }
 
     #profile_address_prefecture {
-      padding-top: 16px;
+      height: 52px;
+      width: 100px;
     }
   }
 

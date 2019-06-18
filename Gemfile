@@ -96,7 +96,7 @@ gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
-
+gem 'recaptcha', require: "recaptcha/rails"
 gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 gem 'pry-rails'
 gem 'aws-sdk'

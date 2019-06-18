@@ -2,6 +2,7 @@ class SignupsController < ApplicationController
   layout 'application-off-header-footer'
   def sms_confirmation_send
     @profile=Profile.new
+    flash.delete(:notice)
   end
 
   def sms_confirmation_certify
