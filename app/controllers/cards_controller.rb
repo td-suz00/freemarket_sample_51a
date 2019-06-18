@@ -23,6 +23,7 @@ class CardsController < ApplicationController
   def pay #payjpとCardsテーブルへの登録
     Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
     if card_params.blank?
+      flash[:alert] = '入力されたカード情報が不正です'
       case card_params[:move_from_action]
         when 'add'
           redirect_to action: :add, notice: '入力されたカード情報が不正です'
@@ -40,11 +41,13 @@ class CardsController < ApplicationController
       if card.save
         case card_params[:move_from_action]
           when 'add'
+            flash[:notice] = 'クレジットカードを登録しました'
             redirect_to action: :index
           when 'new'
             redirect_to signup_successful_path
         end
       else
+        flash[:alert] = '入力されたカード情報が不正です'
         case card_params[:move_from_action]
           when 'add'
             redirect_to action: :add, notice: '入力されたカード情報が不正です'
@@ -63,10 +66,12 @@ class CardsController < ApplicationController
       customer.delete
       card.delete
       card.destroy
-      redirect_to action: :index, notice: 'カード情報を削除しました'
+      flash[:notice] = 'クレジットカードを削除しました'
+      redirect_to action: :index, notice: 'クレジットカードを削除しました'
       return
     end
     redirect_to action: :index
+    flash[:alert] = 'クレジットカードが登録されていません'
   end
 
   private

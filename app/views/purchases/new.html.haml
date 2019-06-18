@@ -43,21 +43,23 @@
             %br
             = current_user.profile.family_name
             = current_user.profile.last_name
-          .item__address__inner-content__info__fix
-            変更する
+          = link_to edit_item_purchase_path(@item, 1) do
+            .item__address__inner-content__info__fix
+              変更する
             %i >
     .item__payment
       .item__payment__inner-content
         .item__payment__inner-content__heading
           支払い方法
-        .item__payment__inner-content__info
-          .item__payment__inner-content__info__text
-            = "************" + @default_card_information.last4
-            %br
-            = get_card_exp(@default_card_information)
-          .item__payment__inner-content__info__figure
-            = get_cards_brand_logo(@default_card_information.brand)
-            -# = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
+        - if @default_card_information
+          .item__payment__inner-content__info
+            .item__payment__inner-content__info__text
+              = "************" + @default_card_information.last4
+              %br
+              = get_card_exp(@default_card_information)
+            .item__payment__inner-content__info__figure
+              = get_cards_brand_logo(@default_card_information.brand)
+        = link_to add_user_cards_path(current_user) do
           .item__payment__inner-content__info__fix
             変更する
             %i >

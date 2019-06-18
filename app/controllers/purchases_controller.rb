@@ -31,10 +31,16 @@ class PurchasesController < ApplicationController
       deal.status_id = 2 # ステータスを取引中に更新
       deal.deal_at = DateTime.now
       deal.save
+      flash[:notice] = '商品を購入しました'
       redirect_to controller: :users, action: :show, id: current_user.id
     else
-      redirect_to controller: :purchases, action: :new, item_id: item.id, notice: 'カード情報を登録してください'
+      flash[:alert] = 'カード情報を登録してください'
+      redirect_to controller: :purchases, action: :new, item_id: item.id
     end
   end
 
+  def edit
+    @item = Item.find(params[:item_id])
+    render layout: 'application-off-header-footer.haml'
+  end
 end

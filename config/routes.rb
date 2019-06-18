@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'items#search_items'
     end
-    resources :purchases, only: :new do
+    resources :purchases, only: [:new, :edit] do
       collection do
         post 'pay', to: 'purchases#pay'
       end

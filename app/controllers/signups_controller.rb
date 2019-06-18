@@ -35,11 +35,16 @@ class SignupsController < ApplicationController
     @profile=current_user.profile.assign_attributes(profile_params)
     if current_user.profile.valid?(:hoge)
       current_user.profile.update(profile_params)
-      redirect_to new_user_card_path(current_user.id)
     else
       @profile=current_user.profile
       @errors='未記入箇所があります'
       render 'address'
+    end
+    case params[:move_from]
+      when 'signup'
+        redirect_to new_user_card_path(current_user.id)
+      when 'purchase'
+        redirect_to new_item_purchase_path(params[:item_id])
     end
   end
 
