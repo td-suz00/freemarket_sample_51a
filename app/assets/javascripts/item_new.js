@@ -1,4 +1,4 @@
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   // ドロップリストの選択肢をjsonデータからhtmlにする関数
   var firstSelecthtml = `<option value="---">---</option>`;
   function foamHtml(search_result) {
