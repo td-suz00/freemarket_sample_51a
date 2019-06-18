@@ -55,7 +55,25 @@
   padding: 2px;
 }
 
+#btn-soldout {
+  background-color: $btn_thick-gray;
+  border: $btn_thick-gray;
+
+  a {
+    font: {
+      size: 24px;
+      weight: bold;
+    }
+
+    cursor: no-drop;
+  }
+
+}
+
 .btn-detail {
+  max-width: 650px;
+  padding: 0 0 15px 0;
+
   font: {
     size: 24px;
     weight: bold;
@@ -78,6 +96,33 @@
   max-width: 230px;
   max-height: 230px;
   margin-left: 33px;
+  position: relative;
+  z-index: 0px;
+}
+
+.image_soldout_red-triangle {
+  width: 0;
+  height: 0;
+  border-left: 120px solid $red;
+  border-right: 120px solid transparent;
+  border-bottom: 120px solid transparent;
+  position: absolute;
+  top: 327px;
+  z-index: 20px;
+
+}
+
+.image_soldout_red-letter {
+  p {
+    color: $white;
+    font-weight: 600;
+    font-size: 25px;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    z-index: 30px;
+    position: absolute;
+    top: 355px;
+  }
 }
 
 .item_s-img {
