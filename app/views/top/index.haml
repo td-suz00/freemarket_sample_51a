@@ -44,7 +44,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -63,7 +63,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -82,7 +82,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - if item.deal.status.id == 2 || item.deal.status.id == 3
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -101,7 +101,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -124,7 +124,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -143,7 +143,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -162,7 +162,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal.status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
@@ -181,7 +181,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - unless item.deal.status.id == 1
+            - unless item.deal_status_id == 1
               .image_soldout_red-triangle-top
               .image_soldout_red-letter-top
                 %p SOLD
