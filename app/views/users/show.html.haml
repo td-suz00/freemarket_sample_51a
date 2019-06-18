@@ -78,7 +78,7 @@
           -# タブ部分のjs
           %script{crossorigin: "anonymous", integrity: "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", src: "https://code.jquery.com/jquery-3.3.1.js"}
           :javascript
-            $(function () {
+            $(document).on("turbolinks:load", function () {
               /*初期表示*/
               $('.user_mypage__container__main__buyed_items__tabs__content').hide();
               $('.user_mypage__container__main__buyed_items__tabs__content').eq(0).show();
