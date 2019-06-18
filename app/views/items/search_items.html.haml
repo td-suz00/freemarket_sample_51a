@@ -132,7 +132,7 @@
               .item__lower__price
                 = "¥ #{item.price.to_s(:delimited)}"
               .item__lower__tax (税込)
-            - if item.deal.status.id == 2 || item.deal.status.id == 3
+            - unless item.deal.status.id == 1
               .image_soldout_red-triangle-search-item
                 .image_soldout_red-letter-search-item
                   %p SOLD
