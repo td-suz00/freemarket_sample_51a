@@ -65,18 +65,21 @@ $height_pixel: 44px;
               position: absolute;
               left: 20px;
               float: left;
+              line-height: 40px;
             }
             &__value {
               font-size: 14px;
               position: absolute;
               right: 35px;
               margin-right: 8px;
+              line-height: 40px;
             }
             &__arrow {
               font-size: 8px;
               color: $fa_icon_gray;
               position: absolute;
               right: 30px;
+              line-height: 40px;
             }
           }
         }
@@ -84,14 +87,16 @@ $height_pixel: 44px;
           &__item {
             width: 100%;
             border-top: 1px solid $border_gray;
-            background: $background_gray;
+            background: $white;
             height: 50px;
             &__text {
               position: absolute;
+              line-height: 50px;
             }
             &__arrow {
               position: absolute;
               right: 20px;
+              line-height: 50px;
             }
           }
         }
