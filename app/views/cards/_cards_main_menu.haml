@@ -6,7 +6,7 @@
     - if @default_card_information
       .credit__box_list__inner-content__info
         .credit__box_list__inner-content__info__figure
-          = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
+          = get_cards_brand_logo(@default_card_information.brand)
           .credit__btn_delete
             = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
