@@ -94,6 +94,9 @@
       }
 
       &__info {
+        &__figure {
+          margin-bottom: 30px;
+        }
 
         &__fix {
           color: $light_blue;
