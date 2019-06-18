@@ -14,16 +14,17 @@ end
   # end
 
   # POST /resource
+
   def create
-    if User.profile_nested_with_user_is_valid?(params)
+    if User.profile_nested_with_user_is_valid?(params)&&verify_recaptcha(model: resource)
        super and return
     else
-    @user =build_resource(sign_up_params)
-    @profile = @user.profile
-    render 'new' and return
-    @errors='未記入箇所があります'
+      @user =build_resource(sign_up_params)
+      @profile = @user.profile
+      @errors='未記入箇所があります'
+      render 'new' and return
+    end
   end
-end
   # GET /resource/edit
   # def edit
   #   super

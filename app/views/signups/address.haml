@@ -62,7 +62,6 @@
             .required__icon 任意
           .clearfix
           = f.text_field :phone_number,{class: 'text_field', placeholder: '例) 09012345678'}
-          .next-btn
-            = f.submit('次へ進む' ,class:'next_btn')
+          = f.submit('次へ進む' ,class:'next_btn')
           .clearfix
 = render partial:'items/item_footer'
