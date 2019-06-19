@@ -26,7 +26,6 @@ class Users::SessionsController < Devise::SessionsController
   private
 
   def confirm_recaptcha
-      binding.pry
     unless verify_recaptcha(model: resource)
       self.resource = User.new
         render 'new' and return

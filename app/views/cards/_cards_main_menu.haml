@@ -7,7 +7,7 @@
       .credit__box_list__inner-content__info
         .credit__box_list__inner-content__info__figure
           = get_cards_brand_logo(@default_card_information.brand)
-          .credit__btn_delete
+          .credit__btn--delete
             = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
               %button
