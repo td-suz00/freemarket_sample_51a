@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
   def confirm_recaptcha
     unless verify_recaptcha(model: resource)
       self.resource = User.new
-        render 'new' and return
-      end
+      render 'new' and return
+    end
   end
 end

@@ -4,10 +4,19 @@
   .credit__box_list
     %p クレジットカード一覧
     - if @default_card_information
-      .credit__btn_add
-        = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button{class: 'redbtn'} 削除する
+      .credit__box_list__inner-content__info
+        .credit__box_list__inner-content__info__figure
+          = get_cards_brand_logo(@default_card_information.brand)
+          .credit__btn--delete
+            = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button
+                削除する
+        .credit__box_list__inner-content__info__text
+          = "************" + @default_card_information.last4
+          %br
+          = get_card_exp(@default_card_information)
+        .credit__box_list__inner-content__info__fix
     - else
       .credit__btn_add
         = fa_icon 'credit-card', class:'credit-card'
