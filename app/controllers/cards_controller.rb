@@ -70,7 +70,6 @@ class CardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
-      card.delete
       card.destroy
       flash[:notice] = 'クレジットカードを削除しました'
       case params[:move_from]
