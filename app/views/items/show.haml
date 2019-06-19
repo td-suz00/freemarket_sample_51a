@@ -17,6 +17,13 @@
             - @item.item_images.each do |image|
               %li
                 = image_tag image.image_url.to_s, class:'item_s-img'
+
+          -# --------------商品取引中・売却済後、表示------------------
+        - unless @item.deal.status_id == 1
+          .image_soldout_red-triangle
+          .image_soldout_red-letter
+            %p SOLD
+
         .item__info__inner-content__table
         %table
           %tbody
@@ -86,8 +93,14 @@
                 着払い
         -# --------------current_userの時、非表示------------------
         - if @item.deal.seller != current_user
-          .item__info__inner-content__purchase-btn#btn-detail
-            = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
+          - if @item.deal.status_id == 1
+            .item__info__inner-content__purchase-btn#btn-detail
+              = link_to "購入画面に進む", new_item_purchase_path(@item), class:'btn-detail'
+
+        -# --------------商品取引中・売却済後、表示------------------
+        - unless @item.deal.status_id == 1
+          .item__info__inner-content__purchase-btn#btn-soldout
+            %a 売り切れました
 
         -# --------------どちらのページも表示------------------
         .item__info__inner-content__text

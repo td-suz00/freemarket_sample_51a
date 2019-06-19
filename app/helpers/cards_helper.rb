@@ -4,12 +4,7 @@ module CardsHelper
   end
 
   def get_card_exp(info)
-    if info.exp_month < 10
-      view_exp_month = "0" + info.exp_month.to_s
-    else
-      view_exp_month = info.exp_month.to_s
-    end
-    view_exp_month + " / " + info.exp_year.to_s[2, 2]
+    sprintf "%<month>02d / %{year}", month: info.exp_month, year: info.exp_year.to_s[2, 2]
   end
 
   def get_cards_brand_logo(brand)

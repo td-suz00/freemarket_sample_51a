@@ -87,6 +87,7 @@ $height_pixel: 44px;
         height: 40px;
         width: 40px;
         border-color: $background_gray;
+        cursor: pointer;
       }
 
       .fa-search {
@@ -185,6 +186,7 @@ $height_pixel: 44px;
 }
 
 .top {
+
   .pickup-categories,
   .pickup-brands {
     &__title {
