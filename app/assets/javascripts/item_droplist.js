@@ -1,6 +1,6 @@
 $(function() {
   // ドロップリストの選択肢をjsonデータからhtmlにする関数
-  var firstSelecthtml = `<option value="---">---</option>`;
+  var firstSelecthtml = `<option value=" ">---</option>`;
   // edit時、登録したものを表示するためのHTML
   function foamHtml_select(search_result) {
     var html = `<option value="${search_result.id}" selected>${
@@ -45,6 +45,8 @@ $(function() {
 
         // 子カテゴリーのカスタムデータ属性の取得
         var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
+        console.log(item_catgory_child_id)
+
 
         child_ids.forEach(function(child) {
           // edit時、登録した子カテゴリーを表示するための条件分岐
@@ -87,6 +89,8 @@ $(function() {
 
         // 孫カテゴリーのカスタムデータ属性の取得
         var item_catgory_grandchild_id = $(".edit_item .grandchild_id").data('item_catgory_grandchild_id');
+        console.log(item_catgory_grandchild_id)
+
         child_ids.forEach(function(child) {
           // edit時、登録した孫カテゴリーを表示するための条件分岐
           if (item_catgory_grandchild_id == child.id) {
@@ -124,6 +128,8 @@ $(function() {
         }
         // サイズカテゴリーのカスタムデータ属性の取得
         var item_size_id = $(".edit_item .size_id").data('item_size_id');
+        console.log(item_size_id)
+
         size_ids.forEach(function(size) {
           // edit時、登録したサイズカテゴリーを表示するための条件分岐
           if (item_size_id == size.id) {
@@ -213,18 +219,19 @@ $(function() {
             .css("display", "none");
           $(".child_id").append(firstSelecthtml);
 
-          // 子カテゴリーのカスタムデータ属性の取得
-          var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
+          // // edit時 子カテゴリーのカスタムデータ属性の取得
+          // var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
+
 
           child_ids.forEach(function(child) {
             // edit時、登録した子カテゴリーを表示するための条件分岐
-            if (item_catgory_child_id == child.id) {
-              var html = foamHtml_select(child);
-              $(".child_id").append(html);
-            } else {
-              var html = foamHtml(child);
-              $(".child_id").append(html);
-            };
+            // if (item_catgory_child_id == child.id) {
+            //   var html = foamHtml_select(child);
+            //   $(".child_id").append(html);
+            // } else {
+            var html = foamHtml(child);
+            $(".child_id").append(html);
+            // };
           });
         });
       }
@@ -233,7 +240,7 @@ $(function() {
     // 子カテゴリーが入力されたとき孫カテゴリーを生成
     $(".child_id").change(function() {
       var parent_id = $(".child_id").val();
-      if (parent_id === "---") {
+      if (parent_id === " ") {
         $(".grandchild_id")
           .parent()
           .css("display", "none");
@@ -267,7 +274,7 @@ $(function() {
     // 孫カテゴリーが入力されたときサイズカテゴリーを生成
     $(".grandchild_id").change(function() {
       var parent_id = $(".grandchild_id").val();
-      if (parent_id === "---") {
+      if (parent_id === " ") {
         $(".size_id").empty();
         $(".size_id").append(firstSelecthtml);
       } else {
@@ -299,7 +306,7 @@ $(function() {
       var fee_payer = $("#item_delivery_fee_payer").val();
       $("#item_delivery_type").empty();
       $("#item_delivery_type").append(firstSelecthtml);
-      if (fee_payer == "---") {
+      if (fee_payer == " ") {
         $(".root-of-delivery_type-for-css").attr(
           "style",
           "display: none !important;"

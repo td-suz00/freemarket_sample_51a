@@ -73,6 +73,8 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.find(params[:id])
+    # binding.pry
+
     @item.update(item_params)
 
     # 登録済画像のidの配列を生成
