@@ -41,7 +41,7 @@
                       %li
                         = link_to 'Flightjacket', '#', class: 'child-categories'
                       %li
-                        = link_to '法被', '#', class: 'child-categories'
+                        = link_to 'jacket', '#', class: 'child-categories'
                   -# クリックを無効にした透明なAタグを使い、child_categoryの名前がないところにマウスホバーしても収納されないようになっています。
                   -# child_category_cntに代入すると透明なAタグの大きさがurに合うように変わります。
                   %li{:style => "\n    background: white;\n"}
@@ -98,19 +98,23 @@
             %ul.menu__second-level.brand-height
               / 第一階層
               %li
-                = link_to 'supreme', '#', class: 'second-level'
+                = link_to 'シャネル', '#', class: 'second-level'
               / 第一階層
               %li
-                = link_to 'panasonic', '#', class: 'second-level'
+                = link_to 'ナイキ', '#', class: 'second-level'
               / 第一階層
               %li
-                = link_to 'genius', '#', class: 'second-level'
+                = link_to 'ルイヴィトン', '#', class: 'second-level'
               / 第一階層
               %li
-                = link_to 'techinics', '#', class: 'second-level'
+                = link_to 'シュプリーム', '#', class: 'second-level'
               / 第一階層
               %li
-                = link_to 'india', '#', class: 'second-level'
+                = link_to 'アディダス', '#', class: 'second-level'
+              %li
+                = link_to 'グッチ', '#', class: 'second-level'
+              %li
+                = link_to 'ブランド一覧', '#', class: 'second-level'
       .header-lower-right
         %ul.menu
           - if current_user

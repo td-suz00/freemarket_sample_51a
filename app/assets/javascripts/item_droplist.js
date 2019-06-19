@@ -1,4 +1,4 @@
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   // ドロップリストの選択肢をjsonデータからhtmlにする関数
   var firstSelecthtml = `<option value=" ">---</option>`;
   // edit時、登録したものを表示するためのHTML
@@ -44,9 +44,9 @@ $(function() {
         $(".child_id").append(firstSelecthtml);
 
         // 子カテゴリーのカスタムデータ属性の取得
-        var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
-        console.log(item_catgory_child_id)
-
+        var item_catgory_child_id = $(".child_id").data(
+          "item_catgory_child_id"
+        );
 
         child_ids.forEach(function(child) {
           // edit時、登録した子カテゴリーを表示するための条件分岐
@@ -56,7 +56,7 @@ $(function() {
           } else {
             var html = foamHtml(child);
             $(".child_id").append(html);
-          };
+          }
         });
       });
     }
@@ -88,9 +88,9 @@ $(function() {
         }
 
         // 孫カテゴリーのカスタムデータ属性の取得
-        var item_catgory_grandchild_id = $(".edit_item .grandchild_id").data('item_catgory_grandchild_id');
-        console.log(item_catgory_grandchild_id)
-
+        var item_catgory_grandchild_id = $(".edit_item .grandchild_id").data(
+          "item_catgory_grandchild_id"
+        );
         child_ids.forEach(function(child) {
           // edit時、登録した孫カテゴリーを表示するための条件分岐
           if (item_catgory_grandchild_id == child.id) {
@@ -99,13 +99,15 @@ $(function() {
           } else {
             var html = foamHtml(child);
             $(".edit_item .grandchild_id").append(html);
-          };
+          }
         });
       });
     }
 
     // サイズの表示
-    var parent_id = $(".edit_item .grandchild_id").data("item_catgory_grandchild_id");
+    var parent_id = $(".edit_item .grandchild_id").data(
+      "item_catgory_grandchild_id"
+    );
 
     if (parent_id === "---") {
       $(".edit_item .size_id").empty();
@@ -127,9 +129,7 @@ $(function() {
           $(".edit_item .item__detail__form_box__size").css("display", "none");
         }
         // サイズカテゴリーのカスタムデータ属性の取得
-        var item_size_id = $(".edit_item .size_id").data('item_size_id');
-        console.log(item_size_id)
-
+        var item_size_id = $(".edit_item .size_id").data("item_size_id");
         size_ids.forEach(function(size) {
           // edit時、登録したサイズカテゴリーを表示するための条件分岐
           if (item_size_id == size.id) {
@@ -138,7 +138,7 @@ $(function() {
           } else {
             var html = foamHtml(size);
             $(".edit_item .size_id").append(html);
-          };
+          }
         });
       });
     }
@@ -154,8 +154,18 @@ $(function() {
       );
     } else if (fee_payer == "送料込み（出品者負担）") {
       $(".root-of-delivery_type-for-css").css("display", "");
-      delivery_types = ["未定", "らくらくメルカリ便", "ゆうメール", "レターパック", "普通郵便(定形、定形外)", "クロネコヤマト", "ゆうパック", "クリックポスト", "ゆうパケット"]
-      delivery_types.forEach(function(delively_type){
+      delivery_types = [
+        "未定",
+        "らくらくメルカリ便",
+        "ゆうメール",
+        "レターパック",
+        "普通郵便(定形、定形外)",
+        "クロネコヤマト",
+        "ゆうパック",
+        "クリックポスト",
+        "ゆうパケット"
+      ];
+      delivery_types.forEach(function(delively_type) {
         if (delively_type == gon.item.delivery_type) {
           var html = `<option value="${delively_type}" selected>${delively_type}</option>`;
           $("#item_delivery_type").append(html);
@@ -163,12 +173,18 @@ $(function() {
           var html = `<option value="${delively_type}">${delively_type}</option>`;
           $("#item_delivery_type").append(html);
         }
-      })
+      });
     } else if (fee_payer == "着払い（購入者負担）") {
       $(".root-of-delivery_type-for-css").css("display", "");
 
-      delivery_types = ["未定", "クロネコヤマト", "ゆうパック", "ゆうメール", "ゆうパック"]
-      delivery_types.forEach(function(delively_type){
+      delivery_types = [
+        "未定",
+        "クロネコヤマト",
+        "ゆうパック",
+        "ゆうメール",
+        "ゆうパック"
+      ];
+      delivery_types.forEach(function(delively_type) {
         if (delively_type == gon.item.delivery_type) {
           var html = `<option value="${delively_type}" selected>${delively_type}</option>`;
           $("#item_delivery_type").append(html);
@@ -176,11 +192,11 @@ $(function() {
           var html = `<option value="${delively_type}">${delively_type}</option>`;
           $("#item_delivery_type").append(html);
         }
-      })
+      });
     }
   });
 
-  $(document).on("turbolinks:load", function(){
+  $(document).on("turbolinks:load", function() {
     // 初期設定：後から出てくるドロップダウンリストをdisplay：noneで隠す
     $(".new_item .child_id")
       .parent()
@@ -218,20 +234,9 @@ $(function() {
             .parent()
             .css("display", "none");
           $(".child_id").append(firstSelecthtml);
-
-          // // edit時 子カテゴリーのカスタムデータ属性の取得
-          // var item_catgory_child_id = $(".child_id").data('item_catgory_child_id');
-
-
           child_ids.forEach(function(child) {
-            // edit時、登録した子カテゴリーを表示するための条件分岐
-            // if (item_catgory_child_id == child.id) {
-            //   var html = foamHtml_select(child);
-            //   $(".child_id").append(html);
-            // } else {
             var html = foamHtml(child);
             $(".child_id").append(html);
-            // };
           });
         });
       }
@@ -337,8 +342,8 @@ $(function() {
     });
 
     // ３桁区切りにする
-    function separate(num){
-      return String(num).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+    function separate(num) {
+      return String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     }
 
     // 購入金額から手数料を計算する関数
@@ -346,7 +351,7 @@ $(function() {
       var input = $(".sell-price__text_area_2").val();
       var fee = parseInt(input / 10);
       var separate_fee = separate(fee);
-      var separate_profit = separate(input - fee)
+      var separate_profit = separate(input - fee);
       if (isNaN(fee) == false && input >= 300 && input <= 9999999) {
         $(".mercari-share").val(separate_fee);
         $(".seller-share").val(separate_profit);
@@ -355,11 +360,10 @@ $(function() {
         $(".seller-share").val("-");
       }
     });
-
-  })
+  });
 });
 
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   $("#item_brand_id").autocomplete({
     autoFocus: true,
     source: "/items/auto_complete.json",

@@ -33,13 +33,14 @@ $height_pixel: 44px;
       font-weight: bold;
     }
 
-  .header {
-    z-index: 3;
-    margin: auto;
+    .header {
+      z-index: 3;
+      margin: auto;
     }
   }
 
   .header-upper {
+    width: 905px;
     padding: 8px 200px 0;
 
     .logo {
@@ -86,6 +87,7 @@ $height_pixel: 44px;
         height: 40px;
         width: 40px;
         border-color: $background_gray;
+        cursor: pointer;
       }
 
       .fa-search {
@@ -96,6 +98,7 @@ $height_pixel: 44px;
   }
 
   .header-lower {
+    width: 905px;
     height: 44px;
     margin-top: 8px;
     padding: 0 200px;
@@ -183,6 +186,7 @@ $height_pixel: 44px;
 }
 
 .top {
+
   .pickup-categories,
   .pickup-brands {
     &__title {
