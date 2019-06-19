@@ -7,77 +7,77 @@
 
     .sigup__title
       %h2 会員情報入力
-      .signup-errors
-        = @errors
-      .sigup__info-container
-        %ul
+    .signup-errors
+      = @errors
+    .sigup__info-container
+      %ul
+        %li
+          %h3 ニックネーム
+        %li
+          .required__icon 必須
+        .clearfix
+        = f.text_field :nickname,{ autofocus: true ,class: 'text_field', placeholder: "例) メルカリ太郎",autocomplete: "off"}
+        %li
+          %h3 メールアドレス
+        %li
+          .required__icon 必須
+        .clearfix
+        = f.email_field :email,{ class: 'text_field', placeholder: "PC・携帯どちらでも可"}
+        -if session["devise.google_data"]
+          = f.hidden_field :password, value: password=Devise.friendly_token[0,20]
+          = f.hidden_field :password_confirmation, value: password
+        %li
+          %h3 本人確認
+        .clearfix
+        %li
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        = f.fields_for :profile do |f|
+          .clearfix
           %li
-            %h3 ニックネーム
+            %h3 姓（全角）
           %li
             .required__icon 必須
           .clearfix
-          = f.text_field :nickname,{ autofocus: true ,class: 'text_field', placeholder: "例) メルカリ太郎",autocomplete: "off"}
+          = f.text_field :family_name,{class: 'text_field', placeholder: "例) 山田"}
           %li
-            %h3 メールアドレス
+            %h3 名（全角）
           %li
             .required__icon 必須
           .clearfix
-          = f.email_field :email,{ class: 'text_field', placeholder: "PC・携帯どちらでも可"}
-          -if session["devise.google_data"]
-            = f.hidden_field :password, value: password=Devise.friendly_token[0,20]
-            = f.hidden_field :password_confirmation, value: password
+          = f.text_field :last_name,{class: 'text_field', placeholder: "例) 彩"}
           %li
-            %h3 本人確認
+            %h3 姓カナ（全角)
+          %li
+            .required__icon 必須
           .clearfix
+          = f.text_field :kana_family_name,{class: 'text_field', placeholder: "例) ヤマダ"}
           %li
-            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          = f.fields_for :profile do |f|
-            .clearfix
+            %h3 名カナ（全角）
+          %li
+            .required__icon 必須
+          .clearfix
+          = f.text_field :kana_last_name,{class: 'text_field', placeholder: "例) アヤ"}
+          %li
+            %h3 生年月日
+          %li
+            .required__icon 必須
+          .clearfix
+          = f.date_select( :birth_ymd, use_month_numbers: true, prompt:  '　　---',start_year: 1930, end_year: (Time.now.year - 18), blank:'---',default: Date.new(1989, 1, 1), id:'page_updated_at_1i')
+          .clearfix
+          .dscription
+            %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+          = recaptcha_tags
+          .dscription
+            %p「次へ進む」のボタンを押すことにより、
+            %p.blue 利用規約
+            %p に同意したものとみなします。
+          .next-btn
+            = f.submit('次へ進む' ,class:'redbtn')
+          .link-box
             %li
-              %h3 姓（全角）
+              %p 本人情報の登録について
             %li
-              .required__icon 必須
-            .clearfix
-            = f.text_field :family_name,{class: 'text_field', placeholder: "例) 山田"}
-            %li
-              %h3 名（全角）
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.text_field :last_name,{class: 'text_field', placeholder: "例) 彩"}
-            %li
-              %h3 姓カナ（全角)
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.text_field :kana_family_name,{class: 'text_field', placeholder: "例) ヤマダ"}
-            %li
-              %h3 名カナ（全角）
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.text_field :kana_last_name,{class: 'text_field', placeholder: "例) アヤ"}
-            %li
-              %h3 生年月日
-            %li
-              .required__icon 必須
-            .clearfix
-            = f.date_select( :birth_ymd, use_month_numbers: true, prompt:  '　　---',start_year: 1930, end_year: (Time.now.year - 18), blank:'---',default: Date.new(1989, 1, 1), id:'page_updated_at_1i')
-            .clearfix
-            .dscription
-              %p.gray ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
-            = image_tag 'rbot-img.png',size: "325x90" , class: "rbot-img"
-            .dscription
-              %p「次へ進む」のボタンを押すことにより、
-              %p.blue 利用規約
-              %p に同意したものとみなします。
-            .next-btn
-              = f.submit('次へ進む' ,class:'next_btn')
-            .link-box
-              %li
-                %p 本人情報の登録について
-              %li
-                = fa_icon 'chevron-right', class:'arrow_blue'
-            .clearfix
+              = fa_icon 'chevron-right', class:'arrow_blue'
+          .clearfix
 
 = render partial:'items/item_footer'
