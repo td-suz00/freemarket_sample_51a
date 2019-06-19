@@ -57,7 +57,7 @@ document.addEventListener("turbolinks:load", function() {
 });
 
 //item_show 削除btnのモーダル
-$(function() {
+$(document).on("turbolinks:load", function() {
   var modalOpen = $("#btn-delete");
   var modalMask = $("#item__mask");
   var modalWindow = $("#modal");

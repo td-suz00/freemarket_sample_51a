@@ -215,7 +215,7 @@
           = f.submit "出品する", class: "redbtn"
           .clearfix
           .sell-btn__return
-            %p もどる
+            = link_to "もどる", :back
 
     = render 'item_footer'
 
