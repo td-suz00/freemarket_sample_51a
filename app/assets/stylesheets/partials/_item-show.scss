@@ -12,7 +12,6 @@
 
   &__info {
     &__inner-content__account {
-
       &__price-detail {
         margin: {
           top: 20px;
@@ -45,7 +44,9 @@
   display: inline-block;
   text-align: center;
 }
-
+.item__info__inner-content__image#content-img {
+  min-width: 200px;
+}
 #content-detail {
   max-width: 650px;
   padding: 0 0 15px 0;

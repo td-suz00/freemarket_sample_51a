@@ -30,7 +30,9 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :users, only: [:new, :show] do
+
+  get 'mypage', to: 'users#show'
+  resources :users, only: :new do
     resources :cards, only: [:index, :new, :destroy] do
       collection do
         get 'add', to: 'cards#add'

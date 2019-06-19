@@ -25,6 +25,10 @@
       left: 200px;
     }
 
+    &__inner-content__info {
+      padding-top: 20px;
+    }
+
     p {
       font: {
         weight: 600;
@@ -43,7 +47,6 @@
       top: 19px;
     }
 
-
     a {
       color: $white;
       font-size: 0.9rem;
@@ -60,6 +63,21 @@
 
   .credit__btn_add:hover {
     opacity: 0.8;
+  }
+
+  .credit__btn--delete {
+    float: right;
+    border: solid 1px $red;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 3px 10px;
+    cursor: pointer;
+
+    button {
+      font-size: 14px;
+      color: $red;
+      cursor: pointer;
+    }
   }
 
   .box__bottom_line {
@@ -150,15 +168,15 @@
   i.fa_icon_1 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 278px;
-    left: 275px;
+    top: 273px;
+    left: 285px;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 354px;
-    left: 275px;
+    top: 336px;
+    left: 285px;
   }
 
   .credit__box_question {
@@ -237,7 +255,7 @@ header {
     }
 
     .form {
-      border:1px solid $border_gray {
+      border: 1px solid $border_gray {
         radius: 0.3rem;
       }
     }
@@ -275,15 +293,15 @@ header {
   i.fa_icon_1 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 278px;
-    left: 265px;
+    top: 269px;
+    left: 279px;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 342px;
-    left: 265px;
+    top: 334px;
+    left: 279px;
   }
 
   .credit__box_question {
@@ -330,6 +348,7 @@ header {
 
 .description {
   margin-top: 10px;
+  margin-bottom: 30px;
 
   .thanks {
     font-size: 15px;
@@ -342,11 +361,12 @@ header {
   }
 }
 
-.start-btn {
+a.start-btn {
   background-color: $red;
   width: 250px;
   padding: 13px;
   text-align: center;
+  margin: auto;
 
   padding: {
     left: 30px;
@@ -355,16 +375,14 @@ header {
 
   margin: {
     top: 30px;
-    left: 250px;
+    left: 305px;
   }
 
-  a {
-    color: $white;
-    font-size: 0.9rem;
-    display: inline;
-    text-decoration: none;
-    text-align: center;
-  }
+  color: $white;
+  font-size: 0.9rem;
+  display: inline;
+  text-decoration: none;
+  text-align: center;
 }
 
 .register_complete_img {
@@ -373,7 +391,7 @@ header {
 
 // detail
 
- #exp_year {
+#exp_year {
   @extend .form;
   width: 90px;
   height: 50px;
@@ -388,7 +406,7 @@ header {
   }
 }
 
- #exp_month_updated_at_2i {
+#exp_month_updated_at_2i {
   @extend .form;
   width: 90px;
   height: 50px;
@@ -410,7 +428,6 @@ sub.month {
   margin: {
     top: 24px;
     left: 5px;
-    ;
   }
 }
 
@@ -428,8 +445,4 @@ sub.month {
 
 .credit_card {
   margin-top: 50px;
-}
-
-img.credit__logo-img {
-  margin-bottom: 30px;
 }
