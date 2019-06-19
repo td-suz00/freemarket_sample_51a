@@ -91,9 +91,13 @@
 
       &__heading {
         font-weight: bold;
+        margin-bottom: 5px;
       }
 
       &__info {
+        &__figure {
+          margin: 5px 0 20px;
+        }
 
         &__fix {
           color: $light_blue;
