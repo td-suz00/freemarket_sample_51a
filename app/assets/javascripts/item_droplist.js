@@ -108,7 +108,6 @@ document.addEventListener("turbolinks:load", function() {
     var parent_id = $(".edit_item .grandchild_id").data(
       "item_catgory_grandchild_id"
     );
-
     if (parent_id === "---") {
       $(".edit_item .size_id").empty();
       $(".edit_item .size_id").append(firstSelecthtml);
@@ -196,7 +195,7 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
-  $(document).on("turbolinks:load", function() {
+  $(function() {
     // 初期設定：後から出てくるドロップダウンリストをdisplay：noneで隠す
     $(".new_item .child_id")
       .parent()
@@ -218,6 +217,8 @@ document.addEventListener("turbolinks:load", function() {
         $(".grandchild_id")
           .parent()
           .css("display", "none");
+        $(".grandchild_id")
+          .val(" ");
       } else {
         $.ajax({
           type: "GET",
@@ -249,6 +250,8 @@ document.addEventListener("turbolinks:load", function() {
         $(".grandchild_id")
           .parent()
           .css("display", "none");
+        $(".grandchild_id")
+          .val(" ");
         $(".item__detail__form_box__size").css("display", "none");
       } else {
         $.ajax({
