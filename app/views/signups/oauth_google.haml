@@ -1,5 +1,6 @@
 %header
-  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img_signup"
+  = link_to(root_path) do
+    = image_tag "mercari_logo_horizontal.png", width:  "234", height: "76", class: "header__logo-img_signup"
   = image_tag 'signup_header1.png',size: "670x103" , class: "header__bar-img"
 .sigup
   = form_for(@user, url: user_registration_path ) do |f|
@@ -55,7 +56,7 @@
             %li
               .required__icon 必須
             .clearfix
-            = f.text_field :kana_last_name,{class: 'text_field', placeholder: "例) アヤ"}            
+            = f.text_field :kana_last_name,{class: 'text_field', placeholder: "例) アヤ"}
             %li
               %h3 生年月日
             %li
