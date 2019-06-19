@@ -4,7 +4,7 @@
 
   &__title {
     padding: 0 16px;
-    background: $background_gray;
+    background: #F9F9F9;
     font-size: 16px;
     line-height: 72px;
   }
@@ -24,6 +24,7 @@
       float: left;
       text-align: center;
       font-weight: bold;
+      color: $black;
     }
 
     &__content {

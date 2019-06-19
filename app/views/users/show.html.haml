@@ -6,8 +6,12 @@
       .user_mypage__container__main__user_info
         = link_to "#", class: 'user_mypage__container__main__user_info__link' do
           %figure
-            = image_tag "ねこ２.jpeg", width: "60", height: "60"
-          %h2.user_mypage__container__main__user_info__link__user-name daisuke
+            -if @user.profile.avatar
+              = image_tag @user.profile.avatar, width: "60", height: "60"
+            -else
+              = image_tag "memberphotonoimage.png", width: "60", height: "60"
+          %h2.user_mypage__container__main__user_info__link__user-name
+            = @user.nickname
           .user_mypage__container__main__user_info__link__count
             .user_mypage__container__main__user_info__link__count__rating
               評価
@@ -78,7 +82,7 @@
           -# タブ部分のjs
           %script{crossorigin: "anonymous", integrity: "sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=", src: "https://code.jquery.com/jquery-3.3.1.js"}
           :javascript
-            $(function () {
+            $(document).on("turbolinks:load", function () {
               /*初期表示*/
               $('.user_mypage__container__main__buyed_items__tabs__content').hide();
               $('.user_mypage__container__main__buyed_items__tabs__content').eq(0).show();

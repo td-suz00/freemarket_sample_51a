@@ -95,10 +95,10 @@
 
             &__checkbox {
               font-size: 0.95rem;
-              display: block;
+              <<<<<<< HEAD display: block;
               width: 48%;
 
-              .search-checkbox {
+              =======>>>>>>>1fc4ebb38e70e34c8b2cec1f4e0173674fe42e9b .search-checkbox {
                 -webkit-appearance: checkbox;
               }
 
@@ -130,56 +130,85 @@
   }
 
   &__right-container {
-    float: left;
+    <<<<<<< HEAD float: left;
 
     &__heading {
       font-size: 1.2rem;
       display: inline-block;
       margin-left: 40px;
+      =======width: 900px;
+      padding-left: 30px;
 
-      &--keyword {
-        font-weight: bold;
-      }
+      &__heading {
+        font-size: 1.2rem;
 
-      &__result {
-        margin-top: 10px;
-
-        &--count {
-          color: $btn-gray;
-          font-size: 0.7rem;
+        >>>>>>>1fc4ebb38e70e34c8b2cec1f4e0173674fe42e9b &--keyword {
+          font-weight: bold;
         }
 
-        &--nothing {
-          font-size: 0.9rem;
+        &__result {
+          margin-top: 10px;
+
+          &--count {
+            color: $btn-gray;
+            font-size: 0.7rem;
+          }
+
+          &--nothing {
+            font-size: 0.9rem;
+          }
         }
       }
-    }
 
-    &__main {
-      width: 100%;
+      &__main {
+        width: 100%;
 
-      .item-box {
-        padding: 20px;
+        .item-box {
+          padding: 20px;
 
-        .item {
-          margin-top: 20px;
+          .item {
+            margin-top: 20px;
 
-          .banner-mercari-info-hand-phone {
-            width: 100%;
-            height: 180px;
+            .banner-mercari-info-hand-phone {
+              width: 100%;
+              height: 180px;
+            }
           }
         }
       }
     }
   }
-}
 
-.select_tag1 {
-  @extend .form;
-  width: 280px;
-  height: 50px;
-  font-size: 16px;
-  color: $form_gray;
-  background-color: $white;
-  padding: 10px;
-}
+  .select_tag1 {
+    @extend .form;
+    width: 280px;
+    height: 50px;
+    font-size: 16px;
+    color: $form_gray;
+    background-color: $white;
+    padding: 10px;
+
+    .image_soldout_red-triangle-search-item {
+      width: 0;
+      height: 0;
+      border-left: 100px solid $red;
+      border-right: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      position: absolute;
+      top: 0;
+      z-index: 20px;
+    }
+
+    .image_soldout_red-letter-search-item {
+      p {
+        color: $white;
+        font-weight: 600;
+        font-size: 20px;
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        z-index: 30px;
+        position: absolute;
+        top: 25px;
+        right: 35px;
+      }
+    }

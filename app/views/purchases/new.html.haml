@@ -34,12 +34,15 @@
           配送先
         .item__address__inner-content__info
           .item__address__inner-content__info__text
-            〒123-456
+            = "〒" + current_user.profile.postalcode
             %br
-            東京都 渋谷区神南 1-2-3
+            = Prefecture.where(id: current_user.profile.address_prefecture)[0].attributes[:name]
+            = current_user.profile.address_city
+            = current_user.profile.address_street_number
+            = current_user.profile.address_building_name
             %br
-            目瑠可里 太郎
-            -#### 仮置き
+            = current_user.profile.family_name
+            = current_user.profile.last_name
           .item__address__inner-content__info__fix
             変更する
             %i >
@@ -49,12 +52,11 @@
           支払い方法
         .item__payment__inner-content__info
           .item__payment__inner-content__info__text
-            -#### 仮置き
-            ************1234
+            = "************" + @default_card_information.last4
             %br
-            01 / 20
+            = get_card_exp(@default_card_information)
           .item__payment__inner-content__info__figure
-            = image_tag 'jcb-logo.svg',size: "26x20" , class: "credit__logo-img"
+            = get_cards_brand_logo(@default_card_information.brand)
           .item__payment__inner-content__info__fix
             変更する
             %i >

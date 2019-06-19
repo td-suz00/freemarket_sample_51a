@@ -25,6 +25,10 @@
       left: 200px;
     }
 
+    &__inner-content__info {
+      padding-top: 20px;
+    }
+
     p {
       font: {
         weight: 600;
@@ -59,6 +63,21 @@
 
   .credit__btn_add:hover {
     opacity: 0.8;
+  }
+
+  .credit__btn--delete {
+    float: right;
+    border: solid 1px $red;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 3px 10px;
+    cursor: pointer;
+
+    button {
+      font-size: 14px;
+      color: $red;
+      cursor: pointer;
+    }
   }
 
   .box__bottom_line {
@@ -426,8 +445,4 @@ sub.month {
 
 .credit_card {
   margin-top: 50px;
-}
-
-img.credit__logo-img {
-  margin-bottom: 30px;
 }
