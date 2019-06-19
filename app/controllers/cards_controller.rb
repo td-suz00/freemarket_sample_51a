@@ -73,11 +73,18 @@ class CardsController < ApplicationController
       card.delete
       card.destroy
       flash[:notice] = 'クレジットカードを削除しました'
-      redirect_to action: :index, notice: 'クレジットカードを削除しました'
-      return
+      case params[:move_from]
+        when 'purchase'
+          redirect_to new_item_purchase_path(params[:item_id]), notice: 'クレジットカードを削除しました'
+          return
+        else
+          redirect_to action: :index, notice: 'クレジットカードを削除しました'
+          return
+      end
+    else
+      flash[:alert] = 'クレジットカードが登録されていません'
+      redirect_to action: :index
     end
-    redirect_to action: :index
-    flash[:alert] = 'クレジットカードが登録されていません'
   end
 
   private

@@ -49,4 +49,15 @@ class PurchasesController < ApplicationController
     gon.payjp_test_pk = Rails.application.credentials.payjp[:test_public_key]
     render layout: 'application-off-header-footer.haml'
   end
+
+  def card_index
+    @item = Item.find(params[:item_id])
+    @card = current_user.card
+    if @card
+      Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+    render layout: 'application-off-header-footer.haml'
+  end
 end

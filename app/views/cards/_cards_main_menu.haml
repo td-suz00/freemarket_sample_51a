@@ -8,10 +8,17 @@
         .credit__box_list__inner-content__info__figure
           = get_cards_brand_logo(@default_card_information.brand)
           .credit__btn_delete
-            = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
+            = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form', name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
-              %button
-                削除する
+              %input{type: 'hidden', name: 'move_from', value: move_from}
+              - case move_from
+                - when 'purchase'
+                  %input{ type: "hidden", name: "item_id", value: item_id }
+                  %button
+                    削除する
+                - else
+                  %button
+                    削除する
         .credit__box_list__inner-content__info__text
           = "************" + @default_card_information.last4
           %br

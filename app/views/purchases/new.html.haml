@@ -1,6 +1,7 @@
 .item_wrapper
   %header
-    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+    = link_to (root_path) do
+      = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
   .item
     .item__title
       購入内容の確認
@@ -59,8 +60,13 @@
               = get_card_exp(@default_card_information)
             .item__payment__inner-content__info__figure
               = get_cards_brand_logo(@default_card_information.brand)
-        = link_to card_item_purchases_path(@item) do
-          .item__payment__inner-content__info__fix
-            変更する
-            %i >
+          = link_to card_index_item_purchases_path(@item) do
+            .item__payment__inner-content__info__fix
+              変更する
+              %i >
+        - else
+          = link_to card_item_purchases_path(@item), data: {turbolinks: false} do
+            .item__payment__inner-content__info__fix
+              追加する
+              %i >
   = render 'items/item_footer'
