@@ -149,15 +149,15 @@
   i.fa_icon_1 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 278px;
-    left: 275px;
+    top: 273px;
+    left: 285px;
   }
 
   i.fa_icon_2 {
     color: $fa_icon_gray;
     position: absolute;
-    top: 354px;
-    left: 275px;
+    top: 336px;
+    left: 285px;
   }
 
   .credit__box_question {
@@ -330,6 +330,7 @@ header {
 .description {
   margin-top: 10px;
   margin-bottom: 30px;
+
   .thanks {
     font-size: 15px;
     margin-left: 114px;
@@ -347,6 +348,7 @@ a.start-btn {
   padding: 13px;
   text-align: center;
   margin: auto;
+
   padding: {
     left: 30px;
     right: 30px;

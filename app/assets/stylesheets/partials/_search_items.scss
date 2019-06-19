@@ -1,32 +1,57 @@
 .search-items-container {
   padding-top: 40px;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
 
   * {
     box-sizing: border-box;
   }
 
-  .fa_icon_2 {
-    position: relative;
-    top: -30px;
-    left: 230px;
+  .fa_icon_c1 {
+    position: absolute;
+    top: 30px;
+    left: 253px;
     color: $btn-gray;
-    z-index: 10;
   }
+
+  .fa_icon_c2 {
+    position: absolute;
+    top: 300px;
+    left: 239px;
+    color: $btn-gray;
+  }
+
+  .fa_icon_c3 {
+    position: absolute;
+    top: 510px;
+    left: 239px;
+    color: $btn-gray;
+  }
+
+  .fa_icon_c4 {
+    position: absolute;
+    top: 615px;
+    left: 239px;
+    color: $btn-gray;
+  }
+
   .fas {
     color: $form-gray;
   }
 
+
   &__left-container {
     width: 300px;
+    padding: 10px;
     margin-bottom: 100px;
+    float: left;
+    position: relative;
+
 
     .select_tag {
       @extend .form;
-      width: 100%;
+      width: 250px;
       height: 50px;
       font-size: 16px;
       color: $form_gray;
@@ -41,16 +66,20 @@
     &__main {
       background-color: $white;
       padding: 15px;
+
       &__heading {
         font-weight: bold;
         margin-bottom: 20px;
       }
+
       &__requirement {
         margin-bottom: 25px;
+
         &__title {
           font-weight: bold;
           margin-bottom: 5px;
         }
+
         &__input {
           .text_field {
             @extend .form;
@@ -58,28 +87,40 @@
             height: 50px;
             padding: 10px;
           }
+
           &__checkboxes {
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
+
             &__checkbox {
-              width: 48%;
               font-size: 0.95rem;
+              display: block;
+              width: 48%;
+
               .search-checkbox {
                 -webkit-appearance: checkbox;
+              }
+
+              .search-checkbox-letter {
+                display: inline;
+                line-height: 30px;
               }
             }
           }
         }
       }
+
       &__btn {
         display: flex;
         justify-content: space-around;
+
         &__graybtn {
           width: 40%;
           @extend .graybtn;
           color: $white;
         }
+
         &__redbtn {
           width: 40%;
           @extend .redbtn;
@@ -89,38 +130,56 @@
   }
 
   &__right-container {
-    width: 900px;
-    padding-left: 30px;
+    float: left;
+
     &__heading {
       font-size: 1.2rem;
+      display: inline-block;
+      margin-left: 40px;
+
       &--keyword {
         font-weight: bold;
       }
+
       &__result {
         margin-top: 10px;
+
         &--count {
           color: $btn-gray;
           font-size: 0.7rem;
         }
+
         &--nothing {
           font-size: 0.9rem;
         }
       }
     }
+
     &__main {
-      display: flex;
-      justify-content: space-between;
+      width: 100%;
+
       .item-box {
+        padding: 20px;
+
         .item {
-          width: 22%;
-          margin: 0 20px 20px 0;
+          margin-top: 20px;
+
           .banner-mercari-info-hand-phone {
             width: 100%;
             height: 180px;
-            background-size: cover;
           }
         }
       }
     }
   }
+}
+
+.select_tag1 {
+  @extend .form;
+  width: 280px;
+  height: 50px;
+  font-size: 16px;
+  color: $form_gray;
+  background-color: $white;
+  padding: 10px;
 }
