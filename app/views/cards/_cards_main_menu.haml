@@ -18,9 +18,10 @@
           = get_card_exp(@default_card_information)
         .credit__box_list__inner-content__info__fix
     - else
-      .credit__btn_add
-        = fa_icon 'credit-card', class:'credit-card'
-        = link_to "クレジットカードを追加する", add_user_cards_path(current_user) , class:'credit_card',  data: {turbolinks: false}
+      = link_to add_user_cards_path(current_user) , class:'credit_card',  data: {turbolinks: false} do
+        .credit__btn_add
+          = fa_icon 'credit-card', class:'credit-card'
+          クレジットカードを追加する
   .box__bottom_line
   .credit__box_link
     %li

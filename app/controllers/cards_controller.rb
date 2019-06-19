@@ -29,6 +29,8 @@ class CardsController < ApplicationController
           redirect_to action: :add, notice: '入力されたカード情報が不正です'
         when 'new'
           redirect_to action: :new, notice: '入力されたカード情報が不正です'
+        when 'purchase'
+          redirect_to card_item_purchases_path(params[:item_id]), notice: '入力されたカード情報が不正です'
       end
     else
       customer = Payjp::Customer.create(
@@ -45,6 +47,8 @@ class CardsController < ApplicationController
             redirect_to action: :index
           when 'new'
             redirect_to signup_successful_path
+          when 'purchase'
+            redirect_to new_item_purchase_path(params[:item_id])
         end
       else
         flash[:alert] = '入力されたカード情報が不正です'
@@ -53,6 +57,8 @@ class CardsController < ApplicationController
             redirect_to action: :add, notice: '入力されたカード情報が不正です'
           when 'new'
             redirect_to action: :new, notice: '入力されたカード情報が不正です'
+          when 'purchase'
+            redirect_to card_item_purchases_path(params[:item_id]), alert: '入力されたカード情報が不正です'
         end
       end
     end

@@ -24,9 +24,11 @@ Rails.application.routes.draw do
     collection do
       get 'search', to: 'items#search_items'
     end
-    resources :purchases, only: [:new, :edit] do
+    resources :purchases, only: :new do
       collection do
         post 'pay', to: 'purchases#pay'
+        get 'address', to: 'purchases#address'
+        get 'card', to: 'purchases#card'
       end
     end
   end

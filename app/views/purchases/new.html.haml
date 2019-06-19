@@ -43,7 +43,7 @@
             %br
             = current_user.profile.family_name
             = current_user.profile.last_name
-          = link_to edit_item_purchase_path(@item, 1) do
+          = link_to address_item_purchases_path(@item) do
             .item__address__inner-content__info__fix
               変更する
             %i >
@@ -59,7 +59,7 @@
               = get_card_exp(@default_card_information)
             .item__payment__inner-content__info__figure
               = get_cards_brand_logo(@default_card_information.brand)
-        = link_to add_user_cards_path(current_user) do
+        = link_to card_item_purchases_path(@item) do
           .item__payment__inner-content__info__fix
             変更する
             %i >

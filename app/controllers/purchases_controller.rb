@@ -39,8 +39,14 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def edit
+  def address
     @item = Item.find(params[:item_id])
+    render layout: 'application-off-header-footer.haml'
+  end
+
+  def card
+    @item = Item.find(params[:item_id])
+    gon.payjp_test_pk = Rails.application.credentials.payjp[:test_public_key]
     render layout: 'application-off-header-footer.haml'
   end
 end

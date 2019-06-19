@@ -1,0 +1,10 @@
+%header
+  = link_to(root_path) do
+    = image_tag "logo.svg", width:  "234", height: "76", class: "header__logo-img"
+.user_mypage
+.user_mypage__container
+  .credit_3
+    .credit__title
+      %h2 支払い方法
+    = render partial:'cards/cards_detail', locals: { move_from_action: "purchase", item_id: @item.id }
+= render partial:'items/item_footer'
