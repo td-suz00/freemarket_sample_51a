@@ -40,7 +40,6 @@
     color: $form-gray;
   }
 
-
   &__left-container {
     width: 300px;
     padding: 10px;
@@ -129,56 +128,50 @@
   }
 
   &__right-container {
-    float: left;
 
     &__heading {
       font-size: 1.2rem;
-      display: inline-block;
-      margin-left: 40px;
-      width: 900px;
+      margin-left: 10px;
       padding-left: 30px;
 
-      &__heading {
-        font-size: 1.2rem;
-
-        &--keyword {
-          font-weight: bold;
-        }
-
-        &__result {
-          margin-top: 10px;
-
-          &--count {
-            color: $btn-gray;
-            font-size: 0.7rem;
-          }
-
-          &--nothing {
-            font-size: 0.9rem;
-          }
-        }
+      &--keyword {
+        font-weight: bold;
       }
 
-      &__main {
-        width: 100%;
+      &__result {
+        margin-top: 10px;
 
-        .item-box {
-          padding: 20px;
+        &--count {
+          color: $btn-gray;
+          font-size: 0.7rem;
+        }
 
-          .item {
-            margin-top: 20px;
+        &--nothing {
+          font-size: 0.9rem;
+        }
+      }
+    }
 
-            .banner-mercari-info-hand-phone {
-              width: 100%;
-              height: 180px;
-            }
+    &__main {
+      width: 100%;
+      height: 100%;
+
+      .item-box {
+        padding: 20px;
+
+        .item {
+          margin-bottom: 20px;
+          position: relative;
+
+          .banner-mercari-info-hand-phone {
+            width: 100%;
+            height: 180px;
           }
         }
       }
     }
   }
 }
-
 
 .select_tag1 {
   @extend .form;
