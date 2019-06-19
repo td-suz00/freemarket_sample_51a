@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   // ドロップリストの選択肢をjsonデータからhtmlにする関数
-  var firstSelecthtml = `<option value="---">---</option>`;
+  var firstSelecthtml = `<option value=" ">---</option>`;
   // edit時、登録したものを表示するためのHTML
   function foamHtml_select(search_result) {
     var html = `<option value="${search_result.id}" selected>${
@@ -108,7 +108,6 @@ document.addEventListener("turbolinks:load", function() {
     var parent_id = $(".edit_item .grandchild_id").data(
       "item_catgory_grandchild_id"
     );
-
     if (parent_id === "---") {
       $(".edit_item .size_id").empty();
       $(".edit_item .size_id").append(firstSelecthtml);
@@ -196,7 +195,7 @@ document.addEventListener("turbolinks:load", function() {
     }
   });
 
-  $(document).on("turbolinks:load", function() {
+  $(function() {
     // 初期設定：後から出てくるドロップダウンリストをdisplay：noneで隠す
     $(".new_item .child_id")
       .parent()
@@ -218,6 +217,8 @@ document.addEventListener("turbolinks:load", function() {
         $(".grandchild_id")
           .parent()
           .css("display", "none");
+        $(".grandchild_id")
+          .val(" ");
       } else {
         $.ajax({
           type: "GET",
@@ -234,21 +235,9 @@ document.addEventListener("turbolinks:load", function() {
             .parent()
             .css("display", "none");
           $(".child_id").append(firstSelecthtml);
-
-          // 子カテゴリーのカスタムデータ属性の取得
-          var item_catgory_child_id = $(".child_id").data(
-            "item_catgory_child_id"
-          );
-
           child_ids.forEach(function(child) {
-            // edit時、登録した子カテゴリーを表示するための条件分岐
-            if (item_catgory_child_id == child.id) {
-              var html = foamHtml_select(child);
-              $(".child_id").append(html);
-            } else {
-              var html = foamHtml(child);
-              $(".child_id").append(html);
-            }
+            var html = foamHtml(child);
+            $(".child_id").append(html);
           });
         });
       }
@@ -257,10 +246,12 @@ document.addEventListener("turbolinks:load", function() {
     // 子カテゴリーが入力されたとき孫カテゴリーを生成
     $(".child_id").change(function() {
       var parent_id = $(".child_id").val();
-      if (parent_id === "---") {
+      if (parent_id === " ") {
         $(".grandchild_id")
           .parent()
           .css("display", "none");
+        $(".grandchild_id")
+          .val(" ");
         $(".item__detail__form_box__size").css("display", "none");
       } else {
         $.ajax({
@@ -291,7 +282,7 @@ document.addEventListener("turbolinks:load", function() {
     // 孫カテゴリーが入力されたときサイズカテゴリーを生成
     $(".grandchild_id").change(function() {
       var parent_id = $(".grandchild_id").val();
-      if (parent_id === "---") {
+      if (parent_id === " ") {
         $(".size_id").empty();
         $(".size_id").append(firstSelecthtml);
       } else {
@@ -323,7 +314,7 @@ document.addEventListener("turbolinks:load", function() {
       var fee_payer = $("#item_delivery_fee_payer").val();
       $("#item_delivery_type").empty();
       $("#item_delivery_type").append(firstSelecthtml);
-      if (fee_payer == "---") {
+      if (fee_payer == " ") {
         $(".root-of-delivery_type-for-css").attr(
           "style",
           "display: none !important;"

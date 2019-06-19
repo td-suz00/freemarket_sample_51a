@@ -73,7 +73,6 @@ class ItemsController < ApplicationController
     end
 
     @item = Item.find(params[:id])
-    @item.update(item_params)
 
     # 登録済画像のidの配列を生成
     ids = @item.item_images.map{|image| image.id }
@@ -82,7 +81,7 @@ class ItemsController < ApplicationController
     # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
     exist_ids.clear if exist_ids[0] == 0
 
-    if @item.update(item_params) && (exist_ids.length != 0 || new_image_params[:images][0] != " ")
+    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
 
       # 登録済画像のうち削除ボタンをおした画像を削除
       unless ids.length == exist_ids.length

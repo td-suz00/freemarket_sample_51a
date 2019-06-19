@@ -6,6 +6,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 def new
   @user = User.new
   @profile = @user.build_profile
+  session["devise.facebook_data"] = nil
+  session["devise.google_data"] = nil
 end
 
   # GET /resource/sign_up

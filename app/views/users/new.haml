@@ -1,5 +1,7 @@
 %header
-  = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+  = link_to(root_path) do
+    = image_tag "mercari_logo_horizontal.png", width:  "234", height: "76", class: "header__logo-img"
+
 .user
   .user__title
     %h2 新規会員登録
