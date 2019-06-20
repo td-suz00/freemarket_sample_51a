@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources :purchases, only: :new do
       collection do
         post 'pay', to: 'purchases#pay'
+        get 'address', to: 'purchases#address'
+        get 'card', to: 'purchases#card'
+        get 'card_index', to: 'purchases#card_index'
       end
     end
   end

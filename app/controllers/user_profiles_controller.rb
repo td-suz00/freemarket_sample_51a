@@ -1,6 +1,6 @@
 class UserProfilesController < ApplicationController
   def new
-     render layout: 'application-off-header-footer.haml'
+    render layout: 'application-off-header-footer.haml'
   end
 
   def create

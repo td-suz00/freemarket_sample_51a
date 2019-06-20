@@ -1,0 +1,8 @@
+%header
+  = link_to(root_path) do
+    = image_tag "logo.svg", width:  "234", height: "76", class: "header__logo-img"
+.reposition-wrapper
+.user_mypage
+  .user_mypage__container
+    = render partial: 'cards/cards_main_menu', locals: { move_from: 'purchase', item_id: @item.id }
+    = render partial: 'items/item_footer'

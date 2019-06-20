@@ -8,19 +8,27 @@
         .credit__box_list__inner-content__info__figure
           = get_cards_brand_logo(@default_card_information.brand)
           .credit__btn--delete
-            = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form',  name: "inputForm") do
+            = form_tag("/users/#{current_user.id}/cards/#{@card.id}", method: :delete, id: 'charge-form', name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
-              %button
-                削除する
+              %input{type: 'hidden', name: 'move_from', value: move_from}
+              - case move_from
+                - when 'purchase'
+                  %input{ type: "hidden", name: "item_id", value: item_id }
+                  %button
+                    削除する
+                - else
+                  %button
+                    削除する
         .credit__box_list__inner-content__info__text
           = "************" + @default_card_information.last4
           %br
           = get_card_exp(@default_card_information)
         .credit__box_list__inner-content__info__fix
     - else
-      .credit__btn_add
-        = fa_icon 'credit-card', class:'credit-card'
-        = link_to "クレジットカードを追加する", add_user_cards_path(current_user) , class:'credit_card',  data: {turbolinks: false}
+      = link_to add_user_cards_path(current_user) , class:'credit_card',  data: {turbolinks: false} do
+        .credit__btn_add
+          = fa_icon 'credit-card', class:'credit-card'
+          クレジットカードを追加する
   .box__bottom_line
   .credit__box_link
     %li
