@@ -1,4 +1,4 @@
-= form_tag(pay_user_cards_path, method: :post, id: 'charge-form',  name: 'inputForm', class: 'credit__box_list') do
+= form_tag(pay_user_cards_path(current_user), method: :post, id: 'charge-form',  name: 'inputForm', class: 'credit__box_list') do
   %span カード番号
   .required__icon 必須
   .clearfix
@@ -32,3 +32,6 @@
       = submit_tag '追加する', id: 'token_submit', class:'credit_card redbtn'
     - when 'new'
       = submit_tag '次へ進む', id: 'token_submit', class:'credit_card redbtn'
+    - when 'purchase'
+      %input{type: 'hidden', name: 'item_id', value: item_id}
+      = submit_tag '追加する', id: 'token_submit', class:'credit_card redbtn'

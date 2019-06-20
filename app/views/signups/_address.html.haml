@@ -64,5 +64,6 @@
             - when 'signup'
               = f.submit '次へ進む', id: 'token_submit', class:'next_btn'
             - when 'purchase'
+              %input{type: 'hidden', name: 'item_id', value: item_id}
               = f.submit '変更する', id: 'token_submit', class:'next_btn'
           .clearfix

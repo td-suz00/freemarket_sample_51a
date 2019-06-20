@@ -298,6 +298,6 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 #apikey
   config.omniauth :facebook, Rails.application.credentials.oauth[:facebook_api_key], Rails.application.credentials.oauth[:facebook_secret_key], scope: 'email', info_fields: 'email'
-  config.omniauth :google_oauth2, Rails.application.credentials.oauth[:google_api_key], Rails.application.credentials.oauth[:google_secret_key], scope: 'email'
+  config.omniauth :google_oauth2, Rails.application.credentials.oauth[:google_api_key], Rails.application.credentials.oauth[:google_secret_key], scope: 'email', skip_jwt: true
 
 end

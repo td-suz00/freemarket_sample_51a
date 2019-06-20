@@ -23,11 +23,14 @@ class CardsController < ApplicationController
   def pay #payjpとCardsテーブルへの登録
     Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
     if card_params.blank?
+      flash[:alert] = '入力されたカード情報が不正です'
       case card_params[:move_from_action]
         when 'add'
           redirect_to action: :add, notice: '入力されたカード情報が不正です'
         when 'new'
           redirect_to action: :new, notice: '入力されたカード情報が不正です'
+        when 'purchase'
+          redirect_to card_item_purchases_path(params[:item_id]), notice: '入力されたカード情報が不正です'
       end
     else
       customer = Payjp::Customer.create(
@@ -40,16 +43,22 @@ class CardsController < ApplicationController
       if card.save
         case card_params[:move_from_action]
           when 'add'
+            flash[:notice] = 'クレジットカードを登録しました'
             redirect_to action: :index
           when 'new'
             redirect_to signup_successful_path
+          when 'purchase'
+            redirect_to new_item_purchase_path(params[:item_id])
         end
       else
+        flash[:alert] = '入力されたカード情報が不正です'
         case card_params[:move_from_action]
           when 'add'
             redirect_to action: :add, notice: '入力されたカード情報が不正です'
           when 'new'
             redirect_to action: :new, notice: '入力されたカード情報が不正です'
+          when 'purchase'
+            redirect_to card_item_purchases_path(params[:item_id]), alert: '入力されたカード情報が不正です'
         end
       end
     end
@@ -61,12 +70,20 @@ class CardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials.payjp[:test_secret_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
-      card.delete
       card.destroy
-      redirect_to action: :index, notice: 'カード情報を削除しました'
-      return
+      flash[:notice] = 'クレジットカードを削除しました'
+      case params[:move_from]
+        when 'purchase'
+          redirect_to new_item_purchase_path(params[:item_id]), notice: 'クレジットカードを削除しました'
+          return
+        else
+          redirect_to action: :index, notice: 'クレジットカードを削除しました'
+          return
+      end
+    else
+      flash[:alert] = 'クレジットカードが登録されていません'
+      redirect_to action: :index
     end
-    redirect_to action: :index
   end
 
   private

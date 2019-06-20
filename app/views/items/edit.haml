@@ -216,7 +216,7 @@
           = f.submit "変更する", class: "redbtn"
           .clearfix
           .sell-btn__return
-            %p キャンセル
+            = link_to "キャンセル", :back
 
   = render 'item_footer'
 

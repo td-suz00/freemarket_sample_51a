@@ -1,0 +1,5 @@
+%header
+  = link_to(root_path) do
+    = image_tag 'mercari_logo_horizontal.png',size: "234x76" , class: "header__logo-img"
+= render partial: 'signups/address', locals: { move_from: 'purchase' , item_id: @item.id}
+= render partial:'items/item_footer'

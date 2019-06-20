@@ -201,7 +201,7 @@ $(window).on("turbolinks:load", function() {
     images.splice(target_image_num, 1);
 
     // target_image_numが登録済画像の数以下の場合は登録済画像データの配列から削除、それより大きい場合は新たに追加した画像データの配列から削除
-    if (target_image_num <= registered_images_ids.length) {
+    if (target_image_num < registered_images_ids.length) {
       registered_images_ids.splice(target_image_num, 1);
     } else {
       new_image_files.splice((target_image_num - registered_images_ids.length), 1);
